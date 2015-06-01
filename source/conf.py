@@ -343,3 +343,15 @@ if not on_rtd:  # only import and set the theme if we're building docs locally
 
 # otherwise, readthedocs.org uses their theme by default, so no need to specify it #
 
+
+##
+# Various settings to pass to templates:
+
+html_context = {
+   "google_analytics_id" : 'UA-36028965-1',
+   "disqus_shortname" : 'flowrdocs',
+   "github_base_account" : 'ctb',
+   "github_project" : 'labibi',
+}
+
+
