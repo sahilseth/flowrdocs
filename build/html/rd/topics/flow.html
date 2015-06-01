@@ -33,7 +33,22 @@
     <link rel="top" title="flowr 0.1 documentation" href="../../index.html"/>
         <link rel="up" title="Help on available functions" href="../../topics.html"/>
         <link rel="next" title="get_flow_status" href="get_flow_status.html"/>
-        <link rel="prev" title="Help on available functions" href="../../topics.html"/> 
+        <link rel="prev" title="Help on available functions" href="../../topics.html"/>
+
+
+<style type="text/css">
+<!-- github-based editing disabled; set github_base_account
+     and github_project -->
+#editor-trap.toggled {
+  display: none;
+}
+</style>
+
+
+
+<!-- Google Analytics JS is disabled; set google_analytics_id -->
+
+
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -84,6 +99,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../vignettes/quick-start.html#check-the-status">Check the status</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../vignettes/hpcc-support.html">HPCC Platforms</a></li>
 </ul>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../pipelines.html">Available pipelines</a><ul class="simple">
@@ -175,7 +191,7 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../faqs.html">Some helpful tips and questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faqs.html">FAQs</a></li>
 </ul>
 
           
@@ -215,6 +231,7 @@
 </div>
           <div role="main" class="document">
             
+  
   <div class="section" id="flow">
 <h1>flow<a class="headerlink" href="#flow" title="Permalink to this headline">¶</a></h1>
 <p><code class="xref py py-func docutils literal"><span class="pre">flow()</span></code></p>
@@ -231,11 +248,11 @@
 <dt>name</dt>
 <dd><code class="docutils literal"><span class="pre">character</span></code> Name of the flow. Defaults to <code class="docutils literal"><span class="pre">'newname'</span></code></dd>
 </dl>
-<p>Used in <a class="reference external" href="http://www.inside-r.org/packages/cran/flow/docs/submit_flow-flow-method">submit_flow</a> to name the working directories.
+<p>Used in <a class="reference external" href="submit_flow.html">submit_flow</a> to name the working directories.
 desc</p>
 <blockquote>
 <div><code class="docutils literal"><span class="pre">character</span></code> Description of the flow</div></blockquote>
-<p>This is used to name folders (when submitting jobs, see <a class="reference external" href="http://www.inside-r.org/packages/cran/flow/docs/submit_flow-flow-method">submit_flow</a>).
+<p>This is used to name folders (when submitting jobs, see <a class="reference external" href="submit_flow.html">submit_flow</a>).
 It is good practice to avoid spaces and other special characters.
 An underscore &#8216;_&#8217; seems like a good word separator.
 Defaults to &#8216;my_super_flow&#8217;. We usually use this to put sample names of the data.
@@ -286,14 +303,13 @@ fobj &lt;- flow(jobs = list(jobj1, jobj2, jobj3))
 
 ## plot the flow
 plot_flow(fobj)
-## **Not run**:
+.. image flow-5.png## **Not run**:
 # ## dry run, only create the structure without submitting jobs
 # submit_flow(fobj)
 #
 # ## execute the jobs: ONLY works on computing cluster, would fail otherwise
 # submit_flow(fobj, execute = TRUE)
 # ## **End(Not run)**
-.. image flow-5.png
 </pre></div>
 </div>
 <p>Aliases:
@@ -303,6 +319,10 @@ Author:</p>
 </div>
 </div>
 
+
+
+
+<!-- disqus commenting disabled; set disqus_shortname -->
 
           </div>
           <footer>
@@ -367,7 +387,27 @@ Author:</p>
           SphinxRtdTheme.StickyNav.enable();
       });
   </script>
-   
+  
+ 
+
+
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', ]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
 
 </body>
 </html>

@@ -26,10 +26,10 @@ jobs
     ``list`` A list of jobs to be included in this flow
 name
     ``character`` Name of the flow. Defaults to ``'newname'``
-Used in `submit_flow <http://www.inside-r.org/packages/cran/flow/docs/submit_flow-flow-method>`_ to name the working directories.
+Used in `submit_flow <submit_flow.html>`_ to name the working directories.
 desc
     ``character`` Description of the flow
-This is used to name folders (when submitting jobs, see `submit_flow <http://www.inside-r.org/packages/cran/flow/docs/submit_flow-flow-method>`_).
+This is used to name folders (when submitting jobs, see `submit_flow <submit_flow.html>`_).
 It is good practice to avoid spaces and other special characters.
 An underscore '_' seems like a good word separator.
 Defaults to 'my_super_flow'. We usually use this to put sample names of the data.
@@ -78,14 +78,14 @@ Examples
  
  ## plot the flow
  plot_flow(fobj)
- ## **Not run**: 
+ .. image flow-5.png## **Not run**: 
  # ## dry run, only create the structure without submitting jobs
  # submit_flow(fobj)
  # 
  # ## execute the jobs: ONLY works on computing cluster, would fail otherwise
  # submit_flow(fobj, execute = TRUE)
  # ## **End(Not run)**
- .. image flow-5.png
+ 
 Aliases:
 flow
 Keywords:

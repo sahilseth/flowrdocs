@@ -55,10 +55,10 @@ Examples
               dependency_type = "serial", previous_job = "job1")
  fobj <- flow(jobs = list(jobj1, jobj2))
  plot_flow(fobj)
- 
+ .. image plot_flow-5.png
  ### Gather: many to one relationship
  jobj1 <- job(q_obj=qobj, cmd = cmds, submission_type = "scatter", name = "job1")
- .. image plot_flow-5.pngjobj2 <- job(q_obj=qobj, name = "job2", cmd = cmds, submission_type = "scatter",
+ jobj2 <- job(q_obj=qobj, name = "job2", cmd = cmds, submission_type = "scatter",
               dependency_type = "gather", previous_job = "job1")
  fobj <- flow(jobs = list(jobj1, jobj2))
  plot_flow(fobj)
