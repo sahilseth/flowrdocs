@@ -171,7 +171,7 @@ Check the status
 
     Loading required package: shape
     Flowr: streamlining workflows
-    Showing status of: /rsrch2/iacs/iacs_dep/sseth/flowr/type1-20150520-15-18-46-sySOzZnE
+    Showing status of: ~/flowr/type1-20150520-15-18-46-sySOzZnE
 
 
     |          | total| started| completed| exit_status|
