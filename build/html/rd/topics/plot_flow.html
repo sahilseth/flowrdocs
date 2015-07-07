@@ -5,7 +5,6 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>plot_flow &mdash; flowr 0.1 documentation</title>
@@ -15,6 +14,7 @@
   
 
   
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 
   
   
@@ -36,22 +36,26 @@
         <link rel="prev" title="kill_flow" href="kill_flow.html"/>
 
 
-<style type="text/css">
-<!-- github-based editing disabled; set github_base_account
-     and github_project -->
-#editor-trap.toggled {
-  display: none;
-}
-</style>
+<script src="../../_static/labibi.js"></script>
 
 
 
-<!-- Google Analytics JS is disabled; set google_analytics_id -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-16853172-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
 
 
 
   
-  <script src="_static/js/modernizr.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
 
 </head>
 
@@ -63,14 +67,8 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-nav-search">
         
-
+          <a href="../../index.html" class="fa fa-home"> flowr</a>
         
-          <a href="../../index.html" class="icon icon-home"> flowr
-        
-
-        
-        </a>
-
         
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -79,8 +77,6 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-        
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
@@ -106,87 +102,25 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../build.html">Building Pipelines</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../vignettes/build-pipes.html">Styles</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../vignettes/build-pipes.html#style-1">Style 1</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../vignettes/build-pipes.html#ingredient-1-flow-definition-format">Ingredient 1: Flow Definition format</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../vignettes/build-pipes.html#ingredient-2-flow-mat-a-table-with-all-the-commands-to-run">Ingredient 2: flow_mat: A table with all the commands to run:</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../vignettes/build-pipes.html#style-2">Style 2</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../vignettes/build-pipes.html">Styles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../vignettes/build-pipes.html#submission-types">Submission types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../vignettes/build-pipes.html#dependency-types">Dependency types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../vignettes/build-pipes.html#relationships">Relationships</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../vignettes/build-pipes.html#serial-one-to-one-relationship">Serial: one to one relationship</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../vignettes/build-pipes.html#gather-many-to-one-relationship">Gather: many to one relationship</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../vignettes/build-pipes.html#burst-one-to-many-relationship">Burst: one to many relationship</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../vignettes/build-pipes.html#relationships">Relationships</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../vignettes/build-pipes.html#hpcc-submission-formats">HPCC submission formats</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../topics.html">Help on available functions</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="flow.html">flow</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="flow.html#usage">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow.html#description">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow.html#examples">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="get_flow_status.html">get_flow_status</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="get_flow_status.html#usage">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="get_flow_status.html#description">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="get_flow_status.html#examples">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="job.html">job</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="job.html#usage">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="job.html#description">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="job.html#examples">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="kill_flow.html">kill_flow</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="kill_flow.html#usage">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kill_flow.html#description">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kill_flow.html#examples">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">plot_flow</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#usage">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#description">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#examples">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="queue.html">queue</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="queue.html#usage">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="queue.html#description">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="queue.html#examples">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="rerun_flow.html">rerun_flow</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="rerun_flow.html#usage">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rerun_flow.html#description">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rerun_flow.html#examples">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="setup.html">setup</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="setup.html#usage">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="setup.html#description">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="setup.html#examples">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="submit_flow.html">submit_flow</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="submit_flow.html#usage">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="submit_flow.html#description">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="submit_flow.html#examples">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="submit_job.html">submit_job</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="submit_job.html#usage">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="submit_job.html#description">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="submit_job.html#examples">Examples</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="flow.html">flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get_flow_status.html">get_flow_status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="job.html">job</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kill_flow.html">kill_flow</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">plot_flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="queue.html">queue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rerun_flow.html">rerun_flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html">setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="submit_flow.html">submit_flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="submit_job.html">submit_job</a></li>
+<li class="toctree-l2"><a class="reference internal" href="to_flow.html">to_flow</a></li>
 </ul>
 </li>
 </ul>
@@ -221,9 +155,7 @@
     <li>plot_flow</li>
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="../../_sources/rd/topics/plot_flow.txt" rel="nofollow"> View page source</a>
-          
+          <a href="../../_sources/rd/topics/plot_flow.txt" rel="nofollow"> View page source</a>
         
       </li>
   </ul>
@@ -238,13 +170,17 @@
 <p>plot_flow</p>
 <div class="section" id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre>&quot;plot_flow&quot;(x, detailed = TRUE, pdf = FALSE, pdffile = sprintf(&quot;%s.pdf&quot;, x@name), type = c(&quot;1&quot;, &quot;2&quot;), ...)
+<div class="highlight-python"><div class="highlight"><pre><span class="n">plot_flow</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Arguments</p>
 <dl class="docutils">
 <dt>x</dt>
 <dd>Object of class <code class="docutils literal"><span class="pre">flow</span></code></dd>
+</dl>
+<dl class="docutils">
+<dt>...</dt>
+<dd>experimental</dd>
 <dt>detailed</dt>
 <dd>include some details</dd>
 <dt>pdf</dt>
@@ -253,10 +189,6 @@
 <dd>output file name for the pdf file</dd>
 <dt>type</dt>
 <dd>1 is original, and 2 is a elipse with less details</dd>
-</dl>
-<dl class="docutils">
-<dt>...</dt>
-<dd>experimental</dd>
 </dl>
 </div>
 <div class="section" id="description">
@@ -274,25 +206,25 @@ jobj2 &lt;- job(q_obj=qobj, name = &quot;job2&quot;, cmd = cmds, submission_type
              dependency_type = &quot;serial&quot;, previous_job = &quot;job1&quot;)
 fobj &lt;- flow(jobs = list(jobj1, jobj2))
 plot_flow(fobj)
-.. image plot_flow-5.png
+**input x is flow**
 ### Gather: many to one relationship
 jobj1 &lt;- job(q_obj=qobj, cmd = cmds, submission_type = &quot;scatter&quot;, name = &quot;job1&quot;)
-jobj2 &lt;- job(q_obj=qobj, name = &quot;job2&quot;, cmd = cmds, submission_type = &quot;scatter&quot;,
+.. image plot_flow-7.pngjobj2 &lt;- job(q_obj=qobj, name = &quot;job2&quot;, cmd = cmds, submission_type = &quot;scatter&quot;,
              dependency_type = &quot;gather&quot;, previous_job = &quot;job1&quot;)
 fobj &lt;- flow(jobs = list(jobj1, jobj2))
 plot_flow(fobj)
-.. image plot_flow-7.png### Burst: one to many relationship
+**input x is flow**.. image plot_flow-10.png
+### Burst: one to many relationship
 jobj1 &lt;- job(q_obj=qobj, cmd = cmds, submission_type = &quot;serial&quot;, name = &quot;job1&quot;)
 jobj2 &lt;- job(q_obj=qobj, name = &quot;job2&quot;, cmd = cmds, submission_type = &quot;scatter&quot;,
              dependency_type = &quot;burst&quot;, previous_job = &quot;job1&quot;)
 fobj &lt;- flow(jobs = list(jobj1, jobj2))
 plot_flow(fobj)
-.. image plot_flow-9.png
+**input x is flow**.. image plot_flow-13.png
 </pre></div>
 </div>
 <p>Aliases:
 plot_flow
-plot_flow,flow-method
 plot_flow-method
 Keywords:
 Author:</p>
@@ -302,17 +234,34 @@ Author:</p>
 
 
 
-<!-- disqus commenting disabled; set disqus_shortname -->
+  
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'flowrdocs'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
 
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="queue.html" class="btn btn-neutral float-right" title="queue" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="queue.html" class="btn btn-neutral float-right" title="queue">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="kill_flow.html" class="btn btn-neutral" title="kill_flow" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="kill_flow.html" class="btn btn-neutral" title="kill_flow"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -324,10 +273,10 @@ Author:</p>
         &copy; Copyright 2015, Sahil Seth.
     </p>
   </div>
+
   Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-
+  
 </footer>
-
         </div>
       </div>
 
@@ -372,11 +321,54 @@ Author:</p>
 
 
 
+<div id="editor-trap">
+      <h3>Edit this document!</h3>
+
+      <p>
+        This file can be edited directly through the Web. Anyone can
+        update and fix errors in this document with few clicks --
+        no downloads needed.
+      <p>
+
+      <ol>
+
+        <li>
+          Go to
+        <a href="https://github.com/ctb/labibi/blob/master/rd/topics/plot_flow.rst">
+          plot_flow
+        </a> on GitHub.
+      </li>
+
+        <li>
+        <b>Edit</b> files using GitHub's text editor in your web browser (see the 'Edit' tab on the top right of the file)
+      </li>
+
+      <li>
+        Fill in the <b>Commit message</b> text box at the bottom of the page describing <i>why</i>
+        you made the changes. Press the <b>Propose file change</b> button next to it when done.
+      </li>
+
+      <li>
+        Then click <b>Send a pull request</b>.
+      </li>
+
+      <li>
+        Your changes are now queued for review under the project's <a href="https://github.com/ctb/labibi/pulls">Pull requests</a> tab on GitHub!
+      </li>
+      </ol>
+
+      <p>
+        For an introduction to the documentation format please see <a href="http://docutils.sourceforge.net/docs/user/rst/quickstart.html">the reST primer</a>.
+      </p>
+
+  </div>
+
+
 
 <script type="text/javascript">
 
   var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', ]);
+  _gaq.push(['_setAccount', UA-36028965-1]);
   _gaq.push(['_trackPageview']);
 
   (function() {

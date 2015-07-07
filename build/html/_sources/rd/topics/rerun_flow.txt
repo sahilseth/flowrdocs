@@ -18,7 +18,7 @@ Usage
 """"""""""""""""""
 ::
 
- rerun_flow(x, execute = TRUE, kill = TRUE)
+ rerun_flow(x, mat, def, start_from, execute = TRUE, kill = TRUE)
 
 Arguments
 

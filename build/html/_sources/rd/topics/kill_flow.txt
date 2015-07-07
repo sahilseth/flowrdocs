@@ -18,7 +18,7 @@ Usage
 """"""""""""""""""
 ::
 
- kill_flow(x, wd, fobj, kill_cmd = "bkill", jobid_col = "job_sub_id")
+ kill_flow(x, wd, fobj, kill_cmd, jobid_col = "job_sub_id")
 
 Arguments
 

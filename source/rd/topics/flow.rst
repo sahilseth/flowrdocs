@@ -18,7 +18,7 @@ Usage
 """"""""""""""""""
 ::
 
- flow(jobs = list(new("job")), name = "newflow", desc = "my_super_flow", mode = c("scheduler", "trigger", "R"), flow_base_path = "~/flowr", trigger_path = "", flow_path = "", status = "")
+ flow(jobs = list(new("job")), name = "newflow", desc = "my_super_flow", mode = c("scheduler", "trigger", "R"), flow_base_path = "~/flowr", trigger_path = "", flow_path = "", status = "", execute = "")
 
 Arguments
 
@@ -58,7 +58,7 @@ Examples
 ::
 
  cmds = rep("sleep 5", 10)
- qobj <- queue(type='torque')
+ qobj <- queue(platform='torque')
  **Setting default time to: 72:00:00. If this is more than queue max (/improper format), job will fail. You may change this in job()
  ****Setting default memory to: 10g. If this is more than queue max (/improper format), job will fail.
  **## run the 10 commands in parallel
@@ -78,14 +78,14 @@ Examples
  
  ## plot the flow
  plot_flow(fobj)
- .. image flow-5.png## **Not run**: 
+ **input x is flow**## **Not run**: 
  # ## dry run, only create the structure without submitting jobs
  # submit_flow(fobj)
  # 
  # ## execute the jobs: ONLY works on computing cluster, would fail otherwise
  # submit_flow(fobj, execute = TRUE)
  # ## **End(Not run)**
- 
+ .. image flow-7.png
 Aliases:
 flow
 Keywords:

@@ -56,12 +56,12 @@ Examples
 """"""""""""""""""
 ::
 
- qobj <- queue(type="torque")
+ qobj <- queue(platform="torque")
  **Setting default time to: 72:00:00. If this is more than queue max (/improper format), job will fail. You may change this in job()
  ****Setting default memory to: 10g. If this is more than queue max (/improper format), job will fail.
  **
  ## torque job with 1 CPU running command 'sleep 2'
- j_obj <- job(q_obj=qobj, cmd = "sleep 2", cpu=1)
+ jobj <- job(q_obj=qobj, cmd = "sleep 2", cpu=1)
  
  ## multiple commands
  cmds = rep("sleep 5", 10)
@@ -77,7 +77,7 @@ Examples
  
  ## plot the flow
  plot_flow(fobj)
- .. image job-5.png## **Not run**: 
+ **input x is flow**## **Not run**: 
  # ## dry run, only create the structure without submitting jobs
  # submit_flow(fobj)
  # 
@@ -85,7 +85,7 @@ Examples
  # submit_flow(fobj, execute = TRUE)
  # 
  # ## **End(Not run)**
- 
+ .. image job-7.png
 Aliases:
 job
 Keywords:

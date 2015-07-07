@@ -18,12 +18,14 @@ Usage
 """"""""""""""""""
 ::
 
- "plot_flow"(x, detailed = TRUE, pdf = FALSE, pdffile = sprintf("%s.pdf", x@name), type = c("1", "2"), ...)
+ plot_flow(x, ...)
 
 Arguments
 
 x
     Object of class ``flow``
+...
+    experimental
 detailed
     include some details
 pdf
@@ -32,8 +34,6 @@ pdffile
     output file name for the pdf file
 type
     1 is original, and 2 is a elipse with less details
-...
-    experimental
 
 
 Description
@@ -55,23 +55,23 @@ Examples
               dependency_type = "serial", previous_job = "job1")
  fobj <- flow(jobs = list(jobj1, jobj2))
  plot_flow(fobj)
- .. image plot_flow-5.png
+ **input x is flow**
  ### Gather: many to one relationship
  jobj1 <- job(q_obj=qobj, cmd = cmds, submission_type = "scatter", name = "job1")
- jobj2 <- job(q_obj=qobj, name = "job2", cmd = cmds, submission_type = "scatter",
+ .. image plot_flow-7.pngjobj2 <- job(q_obj=qobj, name = "job2", cmd = cmds, submission_type = "scatter",
               dependency_type = "gather", previous_job = "job1")
  fobj <- flow(jobs = list(jobj1, jobj2))
  plot_flow(fobj)
- .. image plot_flow-7.png### Burst: one to many relationship
+ **input x is flow**.. image plot_flow-10.png
+ ### Burst: one to many relationship
  jobj1 <- job(q_obj=qobj, cmd = cmds, submission_type = "serial", name = "job1")
  jobj2 <- job(q_obj=qobj, name = "job2", cmd = cmds, submission_type = "scatter",
               dependency_type = "burst", previous_job = "job1")
  fobj <- flow(jobs = list(jobj1, jobj2))
  plot_flow(fobj)
- .. image plot_flow-9.png
+ **input x is flow**.. image plot_flow-13.png
 Aliases:
 plot_flow
-plot_flow,flow-method
 plot_flow-method
 Keywords:
 Author:

@@ -32,7 +32,7 @@ Create a flow using example data
    -  Create a few temporary files. But hey, as soon as a sleep
       completes start the corresponding ``tmp`` job.
    -  If you are so inclined more on this
-      `here <docs.flowr.space/build/html/rd/vignettes/build-pipes.html#serial-one-to-one-relationship>`__.
+      `here <http://docs.flowr.space/build/html/rd/vignettes/build-pipes.html#serial-one-to-one-relationship>`__.
    -  Don't wait for all to complete
 
 -  When all ``tmp`` jobs are complete, ``merge`` them
@@ -113,9 +113,33 @@ Stich it
 
 ::
 
-    #> Using description default: type1
+    #> input x is data.frame
+    #> 
+    #> 
+    #> ##--- Getting default values for missing parameters...
+    #> Using `samplename` as the grouping column
+    #> Using `jobname` as the jobname column
+    #> Using `cmd` as the cmd column
     #> Using flow_base_path default: ~/flowr
-    #> ....
+    #> 
+    #> 
+    #> ##--- Checking flow definition and flow matrix for consistency...
+    #> 
+    #> 
+    #> ##--- Detecting platform...
+    #> Platform supplied, this will override defaults from flow_definition...
+    #> 
+    #> 
+    #> ##--- flowr submission...
+    #> 
+    #> 
+    #> Working on... sample1
+    #> input x is list
+    #> ....input x is flow
+    #> Test Successful!
+    #> You may check this folder for consistency. Also you may re-run submit with execute=TRUE
+    #>  ~/flowr/example1-sample1-20150706-21-32-28-hdZINfCi
+    #> input x is flow
 
 Plot it
 =======
@@ -124,11 +148,14 @@ Plot it
 
     plot_flow(fobj)
 
+::
+
+    #> input x is flow
+
 .. figure:: figure/plot_example1-1.pdf
    :alt: Flow chart describing process for example 1
 
    Flow chart describing process for example 1
-
 Test it
 =======
 
@@ -180,3 +207,4 @@ Check the status
     |002.tmp   |    10|      10|        10|           0|
     |003.merge |     1|       1|         1|           0|
     |004.size  |     1|       1|         1|           0|
+

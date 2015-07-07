@@ -1,6 +1,6 @@
 ---
 title: "Generating Example Data"
-date: "2015-05-20"
+date: "2015-07-06"
 output: rmarkdown::html_document
 vignette: >
   %\VignetteIndexEntry{Generating Example Dat}
@@ -10,16 +10,15 @@ vignette: >
 
 
 
-## Generate 100 commands each for sleep make div
+# Example1
+
+Generate 100 commands each for sleep make div
 
 ```r
 ## create a vector of sample names
 
-n = 3
 
-samp = sprintf("sample%s", 1:n)
-
-tmp <- lapply(1:length(samp), function(i){
+example1 <- function(samp, n, i){
 	## sleep for a few seconds (100 times)
 	cmd_sleep = sprintf("sleep %s", abs(round(rnorm(n)*10, 0)))
 	
@@ -41,10 +40,18 @@ tmp <- lapply(1:length(samp), function(i){
 	## create a DF
 	df = data.frame(samplename = samp[i],
 		jobname = jobname, 
-		cmd = cmd)
+		cmd = cmd, stringsAsFactors = FALSE)
+}
+
+i=1;n=3;samps = sprintf("sample%s", 1:n)
+## we want to do this for 3 samples
+## call the above function for each
+lst <- lapply(samps, function(samp){
+	flow_mat = example1(samp, 3, 1)
 })
 
-flow_mat = do.call(rbind, tmp)
+## combing each element of the list, by row bind
+flow_mat = do.call(rbind, lst)
 kable(head(flow_mat))
 ```
 
@@ -52,16 +59,16 @@ kable(head(flow_mat))
 
 |samplename |jobname |cmd                                  |
 |:----------|:-------|:------------------------------------|
-|sample1    |sleep   |sleep 18                             |
-|sample1    |sleep   |sleep 16                             |
-|sample1    |sleep   |sleep 24                             |
+|sample1    |sleep   |sleep 12                             |
+|sample1    |sleep   |sleep 9                              |
+|sample1    |sleep   |sleep 6                              |
 |sample1    |tmp     |head -c 100000 /dev/urandom > tmp1_1 |
 |sample1    |tmp     |head -c 100000 /dev/urandom > tmp1_2 |
 |sample1    |tmp     |head -c 100000 /dev/urandom > tmp1_3 |
 
 
-# Make the flow definition
-## Generate a skeleton flow definition
+## Make the flow definition
+### Generate a skeleton flow definition
 
 ```r
 def = sample_flow_def(jobnames = unique(flow_mat$jobname))
@@ -85,7 +92,7 @@ kable(def)
 |size    |merge     |serial   |scatter  |medium |163185          |23:00    |            1|
 
 
-## Change the dependency type for merge step into gather
+### Change the dependency type for merge step into gather
 It might be easier to do such, by hand
 
 ```r
@@ -104,13 +111,318 @@ kable(def)
 |merge   |tmp       |gather   |serial   |medium |163185          |23:00    |            1|
 |size    |merge     |serial   |serial   |medium |163185          |23:00    |            1|
 
+### Plot flow
 
-# Write both into example data
+```r
+fobj <- to_flow(x = flow_mat, def = def)
+```
+
+```
+#> input x is data.frame
+#> 
+#> 
+#> ##--- Getting default values for missing parameters...
+#> Using `samplename` as the grouping column
+#> Using `jobname` as the jobname column
+#> Using `cmd` as the cmd column
+#> Using flowname default: flowname
+#> Using flow_base_path default: ~/flowr
+#> 
+#> 
+#> ##--- Checking flow definition and flow matrix for consistency...
+#> 
+#> 
+#> ##--- Detecting platform...
+#> 
+#> 
+#> ##--- flowr submission...
+#> 
+#> 
+#> Detected 3 samples/groups in flow_mat.
+#> flow_mat would be split and each would be submitted seperately...
+#> 
+#> 
+#> Working on... sample1
+#> input x is list
+#> ....input x is flow
+#> Test Successful!
+#> You may check this folder for consistency. Also you may re-run submit with execute=TRUE
+#>  ~/flowr/flowname-sample1-20150706-21-32-26-fb1x263o
+#> input x is flow
+#> 
+#> 
+#> Working on... sample2
+#> input x is list
+#> ....input x is flow
+#> Test Successful!
+#> You may check this folder for consistency. Also you may re-run submit with execute=TRUE
+#>  ~/flowr/flowname-sample2-20150706-21-32-26-IVefGuW5
+#> input x is flow
+#> 
+#> 
+#> Working on... sample3
+#> input x is list
+#> ....input x is flow
+#> Test Successful!
+#> You may check this folder for consistency. Also you may re-run submit with execute=TRUE
+#>  ~/flowr/flowname-sample3-20150706-21-32-26-HGDM1RSZ
+#> input x is flow
+```
+
+```r
+plot_flow(fobj[[1]])
+```
+
+```
+#> input x is flow
+```
+
+![plot of chunk make_flow_plot](figure/make_flow_plot-1.pdf) 
+
+### Write both into example data
 
 ```r
 write.table(flow_mat, file = "inst/extdata/example1_flow_mat.txt", 
 	row.names = FALSE, quote = FALSE, sep = "\t")
 write.table(def, file = "inst/extdata/example1_flow_def.txt", 
+	row.names = FALSE, quote = FALSE, sep = "\t")
+```
+
+
+## Example2
+
+```r
+example2 <- function(n, i, samp){
+	cmd_sleep = sprintf("sleep %s", abs(round(rnorm(1)*10, 0)))
+	
+	## Create 100 temporary files
+	tmpn = sprintf("tmp%s_%s", i, 1:n)
+	cmd_tmp = sprintf("head -c 100000 /dev/urandom > %s", tmpn)
+	
+	## Merge them according to samples, 10 each
+	cmd_merge <- sprintf("cat %s > merge%s", paste(tmpn, collapse = " "), i)
+	
+	## get the size of merged files
+	cmd_size = sprintf("du -sh merge%s", i)
+	
+	cmd <- c(cmd_sleep, cmd_tmp, cmd_merge, cmd_size)
+	jobname <- c(rep("sleep", length(cmd_sleep)),
+							 sprintf("tmp%s", 1:length(cmd_tmp)),
+							 rep("merge", length(cmd_merge)),
+							 rep("size", length(cmd_size)))
+	## create a DF
+	df = data.frame(samplename = samp,
+									jobname = jobname, 
+									cmd = cmd, stringsAsFactors = FALSE)
+	return(df)
+}
+
+i=1;n=3
+flow_mat = example2(3, 1, "samp1")
+
+## Make sample skeleton
+def = sample_flow_def(jobnames = unique(flow_mat$jobname))
+```
+
+```
+#> Creating a skeleton flow_def
+```
+
+```r
+fobj=to_flow(flow_mat, def)
+```
+
+```
+#> input x is data.frame
+#> 
+#> 
+#> ##--- Getting default values for missing parameters...
+#> Using `samplename` as the grouping column
+#> Using `jobname` as the jobname column
+#> Using `cmd` as the cmd column
+#> Using flowname default: flowname
+#> Using flow_base_path default: ~/flowr
+#> 
+#> 
+#> ##--- Checking flow definition and flow matrix for consistency...
+#> 
+#> 
+#> ##--- Detecting platform...
+#> 
+#> 
+#> ##--- flowr submission...
+#> 
+#> 
+#> Working on... samp1
+#> input x is list
+#> ......input x is flow
+#> Test Successful!
+#> You may check this folder for consistency. Also you may re-run submit with execute=TRUE
+#>  ~/flowr/flowname-samp1-20150706-21-32-26-Ou6EXpLD
+#> input x is flow
+```
+
+```r
+plot_flow(to_flow(flow_mat, def))
+```
+
+```
+#> input x is data.frame
+#> 
+#> 
+#> ##--- Getting default values for missing parameters...
+#> Using `samplename` as the grouping column
+#> Using `jobname` as the jobname column
+#> Using `cmd` as the cmd column
+#> Using flowname default: flowname
+#> Using flow_base_path default: ~/flowr
+#> 
+#> 
+#> ##--- Checking flow definition and flow matrix for consistency...
+#> 
+#> 
+#> ##--- Detecting platform...
+#> 
+#> 
+#> ##--- flowr submission...
+#> 
+#> 
+#> Working on... samp1
+#> input x is list
+#> ......input x is flow
+#> Test Successful!
+#> You may check this folder for consistency. Also you may re-run submit with execute=TRUE
+#>  ~/flowr/flowname-samp1-20150706-21-32-27-yIkA8mne
+#> input x is flow
+#> input x is flow
+```
+
+![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-1.pdf) 
+
+```r
+## change a few things
+def$sub_type = "serial"
+plot_flow(to_flow(flow_mat, def))
+```
+
+```
+#> input x is data.frame
+#> 
+#> 
+#> ##--- Getting default values for missing parameters...
+#> Using `samplename` as the grouping column
+#> Using `jobname` as the jobname column
+#> Using `cmd` as the cmd column
+#> Using flowname default: flowname
+#> Using flow_base_path default: ~/flowr
+#> 
+#> 
+#> ##--- Checking flow definition and flow matrix for consistency...
+#> 
+#> 
+#> ##--- Detecting platform...
+#> 
+#> 
+#> ##--- flowr submission...
+#> 
+#> 
+#> Working on... samp1
+#> input x is list
+#> ......input x is flow
+#> Test Successful!
+#> You may check this folder for consistency. Also you may re-run submit with execute=TRUE
+#>  ~/flowr/flowname-samp1-20150706-21-32-27-ATWor0y6
+#> input x is flow
+#> input x is flow
+```
+
+![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-2.pdf) 
+
+```r
+## change a few more
+def[def[, 'jobname'] == "tmp2","prev_jobs"] = "sleep"
+def[def[, 'jobname'] == "tmp3","prev_jobs"] = "sleep"
+plot_flow(to_flow(flow_mat, def))
+```
+
+```
+#> input x is data.frame
+#> 
+#> 
+#> ##--- Getting default values for missing parameters...
+#> Using `samplename` as the grouping column
+#> Using `jobname` as the jobname column
+#> Using `cmd` as the cmd column
+#> Using flowname default: flowname
+#> Using flow_base_path default: ~/flowr
+#> 
+#> 
+#> ##--- Checking flow definition and flow matrix for consistency...
+#> 
+#> 
+#> ##--- Detecting platform...
+#> 
+#> 
+#> ##--- flowr submission...
+#> 
+#> 
+#> Working on... samp1
+#> input x is list
+#> ......input x is flow
+#> Test Successful!
+#> You may check this folder for consistency. Also you may re-run submit with execute=TRUE
+#>  ~/flowr/flowname-samp1-20150706-21-32-27-KhlyTR2E
+#> input x is flow
+#> input x is flow
+```
+
+![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-3.pdf) 
+
+```r
+## we would like all three to complete
+def[def[, 'jobname'] == "merge","prev_jobs"] = "tmp1,tmp2,tmp3"
+plot_flow(to_flow(flow_mat, def))
+```
+
+```
+#> input x is data.frame
+#> 
+#> 
+#> ##--- Getting default values for missing parameters...
+#> Using `samplename` as the grouping column
+#> Using `jobname` as the jobname column
+#> Using `cmd` as the cmd column
+#> Using flowname default: flowname
+#> Using flow_base_path default: ~/flowr
+#> 
+#> 
+#> ##--- Checking flow definition and flow matrix for consistency...
+#> 
+#> 
+#> ##--- Detecting platform...
+#> 
+#> 
+#> ##--- flowr submission...
+#> 
+#> 
+#> Working on... samp1
+#> input x is list
+#> ......input x is flow
+#> Test Successful!
+#> You may check this folder for consistency. Also you may re-run submit with execute=TRUE
+#>  ~/flowr/flowname-samp1-20150706-21-32-27-G890orqn
+#> input x is flow
+#> input x is flow
+```
+
+![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-4.pdf) 
+
+### Write both into example data
+
+```r
+write.table(flow_mat, file = "inst/extdata/example2_flow_mat.txt", 
+	row.names = FALSE, quote = FALSE, sep = "\t")
+write.table(def, file = "inst/extdata/example2_flow_def.txt", 
 	row.names = FALSE, quote = FALSE, sep = "\t")
 ```
 

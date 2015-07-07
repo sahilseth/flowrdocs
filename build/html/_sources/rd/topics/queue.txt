@@ -18,17 +18,19 @@ Usage
 """"""""""""""""""
 ::
 
- queue(object, queue = "long", type = c("lsf", "torque", "sge"), walltime, memory, cpu = 1, extra_opts = "", submit_exe, format = "", cwd = "~/flows", nodes = 1, jobname = "name", email = Sys.getenv("USER"), dependency = list(), server = "localhost", verbose = TRUE, stderr = "~/flowr/tmp", stdout = "~/flowr", ...)
+ queue(object, platform = c("lsf", "torque", "sge", "moab", "local"), format = "", queue = "long", walltime, memory, cpu = 1, extra_opts = "", submit_exe, cwd = "~/flows", nodes = 1, jobname = "name", email = Sys.getenv("USER"), dependency = list(), server = "localhost", verbose = TRUE, stderr = "~/flowr/tmp", stdout = "~/flowr", ...)
 
 Arguments
 
 object
     this is not used currenlty, ignore.
+platform
+    Required and important. Currently supported values are 'lsf' and 'torque'. [Used by class job]
+format
+    [advanced use] We have a default format for the final command line string generated for 'lsf' and 'torque'.
 queue
     the type of queue your group usually uses
 'bsub' etc.
-type
-    Required and important. Currently supported values are 'lsf' and 'torque'. [Used by class job]
 walltime
     max walltime of a job.
 memory
@@ -38,9 +40,7 @@ cpu
 extra_opts
     [advanced use] Extra options to be supplied while create the job submission string.
 submit_exe
-    [advanced use] Already defined by 'type'. The exact command used to submit jobs to the cluster example 'qsub'
-format
-    [advanced use] We have a default format for the final command line string generated for 'lsf' and 'torque'.
+    [advanced use] Already defined by 'platform'. The exact command used to submit jobs to the cluster example 'qsub'
 cwd
     [debug use] Ignore
 nodes
@@ -78,14 +78,14 @@ Nodes: can be supplied ot extend a job across multiple nodes. This is purely exp
 ## Server:
 This a hook which may be implemented in future.
 ## Submission script:
-The 'type' variable defines the format, and submit_exe; however these two are avaible for someone to create a custom submission command.
+The 'platform' variable defines the format, and submit_exe; however these two are avaible for someone to create a custom submission command.
 
 
 Examples
 """"""""""""""""""
 ::
 
- qobj <- queue(type='lsf')
+ qobj <- queue(platform='lsf')
  **Setting default time to: 72:00. If this is more than queue max (/improper format), job will fail. You may change this in job()
  ****Setting default memory to: 10000. If this is more than queue max (/improper format), job will fail.
  **

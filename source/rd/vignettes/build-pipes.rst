@@ -1,3 +1,7 @@
+An easy quick way to build a workflow is create two seperate files. The
+first is a table with commands to run the other has details regarding
+how the modules are stitched together.
+
 Styles
 ------
 
@@ -121,7 +125,7 @@ example.
 
 .. code:: r
 
-    qobj <- queue(type = "lsf", queue = "normal", verbose = FALSE)
+    qobj <- queue(platform = "lsf", queue = "normal", verbose = FALSE)
 
 Let us stitch a simple flow with three jobs, which are submitted one
 after the other.
@@ -134,6 +138,10 @@ after the other.
     fobj <- flow(name = "myflow", jobs = list(job1, job2, job3), desc="description")
     plot_flow(fobj)
 
+::
+
+    #> input x is flow
+
 .. figure:: figure/plot_simpleflow-1.pdf
    :alt: 
 
@@ -141,7 +149,7 @@ The above translates to a flow definition which looks like this:
 
 .. code:: r
 
-    dat <- flowr:::.create_jobs_mat(fobj)
+    dat <- flowr:::create_jobs_mat(fobj)
     knitr:::kable(dat)
 
 +----------+-----------+--------------+-------------+-------------+-----------------+---------+---------+---------------+
@@ -193,6 +201,10 @@ Serial: one to one relationship
     fobj <- flow(jobs = list(jobj1, jobj2))
     plot_flow(fobj)
 
+::
+
+    #> input x is flow
+
 .. figure:: figure/unnamed-chunk-6-1.pdf
    :alt: 
 
@@ -212,6 +224,10 @@ Gather: many to one relationship
     fobj <- flow(jobs = list(jobj1, jobj2))
     plot_flow(fobj)
 
+::
+
+    #> input x is flow
+
 .. figure:: figure/unnamed-chunk-7-1.pdf
    :alt: 
 
@@ -230,6 +246,10 @@ Burst: one to many relationship
                  dependency_type = "burst", previous_job = "job1")
     fobj <- flow(jobs = list(jobj1, jobj2))
     plot_flow(fobj)
+
+::
+
+    #> input x is flow
 
 .. figure:: figure/unnamed-chunk-8-1.pdf
    :alt: 
@@ -251,7 +271,7 @@ HPCC submission formats
 
 ::
 
-    #> [1] "${SUBMIT_EXE} -q ${QUEUE} -J ${JOBNAME} -o ${STDOUT} -e ${STDERR} -n ${CPU} -cwd ${CWD} -M ${MEMORY} -R span[ptile=${CPU}] -W ${WALLTIME} -r ${EXTRA_OPTS} ${DEPENDENCY} '<' ${CMD} "
+    #> [1] "${SUBMIT_EXE} -q ${QUEUE} -J ${JOBNAME} -o ${STDOUT} -e ${STDERR} -n ${CPU} -cwd ${CWD} -M ${MEMORY} -R rusage[mem=${MEMORY}] -R span[ptile=${CPU}] -W ${WALLTIME} -r ${EXTRA_OPTS} ${DEPENDENCY} '<' ${CMD} "
 
 **torque**
 
@@ -261,13 +281,13 @@ HPCC submission formats
 
 ::
 
-    #> Setting default time to: 72:00:00. If this is more than queue max (/improper format), job will fail. You may change this in job()
+    #> Setting default time to: 72:00. If this is more than queue max (/improper format), job will fail. You may change this in job()
     #> 
-    #> Setting default memory to: 10g. If this is more than queue max (/improper format), job will fail.
+    #> Setting default memory to: 10000. If this is more than queue max (/improper format), job will fail.
 
 ::
 
-    #> [1] "${SUBMIT_EXE} -N ${JOBNAME} -q ${QUEUE} -l nodes=${NODES}:ppn=${CPU} -l walltime=${WALLTIME} -l mem=${MEMORY} -S /bin/bash -d ${CWD} -V -o ${STDOUT} -m ae -M ${EMAIL} -j oe -r y -V ${EXTRA_OPTS} ${CMD} ${DEPENDENCY}"
+    #> [1] "${SUBMIT_EXE} -q ${QUEUE} -J ${JOBNAME} -o ${STDOUT} -e ${STDERR} -n ${CPU} -cwd ${CWD} -M ${MEMORY} -R rusage[mem=${MEMORY}] -R span[ptile=${CPU}] -W ${WALLTIME} -r ${EXTRA_OPTS} ${DEPENDENCY} '<' ${CMD} "
 
 My HPCC is not supported, how to make it work? send a message to:
 sahil.seth [at] me.com

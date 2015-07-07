@@ -18,11 +18,13 @@ Usage
 """"""""""""""""""
 ::
 
- "submit_flow"(f_obj, uuid, execute = FALSE, plot = TRUE, verbose = FALSE, ...)
+ submit_flow(x, ...)
 
 Arguments
 
-f_obj
+...
+    Any additional parameter are passed on to submit_job function
+fobj
     ``object`` of class ``flow``.
 uuid
     ``character`` A character string pointing to the folder (unique) where all the logs and other files are processed. This is optional and defaults to:
@@ -34,8 +36,6 @@ plot
     ``logical`` whether to make a flow plot (saves it in the flow working directory)
 verbose
     logical.
-...
-    Any additional parameter are passed on to `submit_job <submit_job.html>`_ function
 
 
 Description
@@ -49,11 +49,10 @@ Examples
 ::
 
  ## **Not run**: 
- # submit_flow(f_obj = f_obj, ... = ...)## **End(Not run)**
+ # submit_flow(fobj = fobj, ... = ...)## **End(Not run)**
  
 Aliases:
 submit_flow
-submit_flow,flow-method
 Keywords:
 Author:
 

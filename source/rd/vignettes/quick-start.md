@@ -1,6 +1,6 @@
 ---
 title: "Quick Start Example"
-date: "2015-05-20"
+date: "2015-07-06"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Quick Start Example}
@@ -43,7 +43,7 @@ setup()
 - Have a few jobs which will just wait (sleep) for a few seconds (`sleep`)
 - Then... (`tmp`) 
 	- Create a few temporary files. But hey, as soon as a sleep completes start the corresponding `tmp` job.
-	- If you are so inclined more on this [here](docs.flowr.space/build/html/rd/vignettes/build-pipes.html#serial-one-to-one-relationship).
+	- If you are so inclined more on this [here](http://docs.flowr.space/build/html/rd/vignettes/build-pipes.html#serial-one-to-one-relationship).
 	- Don't wait for all to complete
 - When all `tmp` jobs are complete, `merge` them
 - Then get the `size` of the resulting file
@@ -108,15 +108,43 @@ fobj <- to_flow(x = flow_mat, def = flow_def,
 ```
 
 ```
-#> Using description default: type1
+#> input x is data.frame
+#> 
+#> 
+#> ##--- Getting default values for missing parameters...
+#> Using `samplename` as the grouping column
+#> Using `jobname` as the jobname column
+#> Using `cmd` as the cmd column
 #> Using flow_base_path default: ~/flowr
-#> ....
+#> 
+#> 
+#> ##--- Checking flow definition and flow matrix for consistency...
+#> 
+#> 
+#> ##--- Detecting platform...
+#> Platform supplied, this will override defaults from flow_definition...
+#> 
+#> 
+#> ##--- flowr submission...
+#> 
+#> 
+#> Working on... sample1
+#> input x is list
+#> ....input x is flow
+#> Test Successful!
+#> You may check this folder for consistency. Also you may re-run submit with execute=TRUE
+#>  ~/flowr/example1-sample1-20150706-21-32-28-hdZINfCi
+#> input x is flow
 ```
 
 # Plot it
 
 ```r
 plot_flow(fobj)
+```
+
+```
+#> input x is flow
 ```
 
 ![Flow chart describing process for example 1](figure/plot_example1-1.pdf) 
