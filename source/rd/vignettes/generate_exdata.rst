@@ -49,9 +49,9 @@ Generate 100 commands each for sleep make div
 +==============+===========+=========================================+
 | sample1      | sleep     | sleep 2                                 |
 +--------------+-----------+-----------------------------------------+
-| sample1      | sleep     | sleep 0                                 |
+| sample1      | sleep     | sleep 6                                 |
 +--------------+-----------+-----------------------------------------+
-| sample1      | sleep     | sleep 8                                 |
+| sample1      | sleep     | sleep 1                                 |
 +--------------+-----------+-----------------------------------------+
 | sample1      | tmp       | head -c 100000 /dev/urandom > tmp1\_1   |
 +--------------+-----------+-----------------------------------------+
@@ -152,7 +152,7 @@ Plot flow
     #> ....input x is flow
     #> Test Successful!
     #> You may check this folder for consistency. Also you may re-run submit with execute=TRUE
-    #>  ~/flowr/flowname-sample1-20150706-23-15-00-jXtBSc9p
+    #>  ~/flowr/flowname-sample1-20150706-23-22-29-Rce5Q941
     #> input x is flow
     #> 
     #> 
@@ -161,7 +161,7 @@ Plot flow
     #> ....input x is flow
     #> Test Successful!
     #> You may check this folder for consistency. Also you may re-run submit with execute=TRUE
-    #>  ~/flowr/flowname-sample2-20150706-23-15-00-w16yOcVq
+    #>  ~/flowr/flowname-sample2-20150706-23-22-29-j1Dw6zpN
     #> input x is flow
     #> 
     #> 
@@ -170,7 +170,7 @@ Plot flow
     #> ....input x is flow
     #> Test Successful!
     #> You may check this folder for consistency. Also you may re-run submit with execute=TRUE
-    #>  ~/flowr/flowname-sample3-20150706-23-15-00-IMdquLaR
+    #>  ~/flowr/flowname-sample3-20150706-23-22-29-itR2MJve
     #> input x is flow
 
 .. code:: r
@@ -266,7 +266,7 @@ Example2
     #> ......input x is flow
     #> Test Successful!
     #> You may check this folder for consistency. Also you may re-run submit with execute=TRUE
-    #>  ~/flowr/flowname-samp1-20150706-23-15-00-YqTP2EM3
+    #>  ~/flowr/flowname-samp1-20150706-23-22-29-xGURwfhq
     #> input x is flow
 
 .. code:: r
@@ -300,7 +300,7 @@ Example2
     #> ......input x is flow
     #> Test Successful!
     #> You may check this folder for consistency. Also you may re-run submit with execute=TRUE
-    #>  ~/flowr/flowname-samp1-20150706-23-15-01-FbNrsjRi
+    #>  ~/flowr/flowname-samp1-20150706-23-22-29-OKzG4AbW
     #> input x is flow
     #> input x is flow
 
@@ -341,7 +341,7 @@ Example2
     #> ......input x is flow
     #> Test Successful!
     #> You may check this folder for consistency. Also you may re-run submit with execute=TRUE
-    #>  ~/flowr/flowname-samp1-20150706-23-15-01-BnvL09zl
+    #>  ~/flowr/flowname-samp1-20150706-23-22-29-ygRmM3dG
     #> input x is flow
     #> input x is flow
 
@@ -383,7 +383,7 @@ Example2
     #> ......input x is flow
     #> Test Successful!
     #> You may check this folder for consistency. Also you may re-run submit with execute=TRUE
-    #>  ~/flowr/flowname-samp1-20150706-23-15-01-9RUT2zLu
+    #>  ~/flowr/flowname-samp1-20150706-23-22-29-cXilSKmB
     #> input x is flow
     #> input x is flow
 
@@ -424,7 +424,7 @@ Example2
     #> ......input x is flow
     #> Test Successful!
     #> You may check this folder for consistency. Also you may re-run submit with execute=TRUE
-    #>  ~/flowr/flowname-samp1-20150706-23-15-01-VMI4v7fQ
+    #>  ~/flowr/flowname-samp1-20150706-23-22-30-9F3NsmOl
     #> input x is flow
     #> input x is flow
 

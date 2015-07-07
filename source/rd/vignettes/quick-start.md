@@ -33,12 +33,12 @@ setup()
 # Toy example
 
 
-<!--html_preserve--><div id="htmlwidget-3235" style="width:360px;height:108px;" class="DiagrammeR"></div>
-<script type="application/json" data-for="htmlwidget-3235">{"x":{"diagram":"\ngraph LR\nA(sleep)-->B(create_few_files) \nB-->C{merge them}\nC-->D[get size]\n"},"evals":[]}</script><!--/html_preserve-->
+<!--html_preserve--><div id="htmlwidget-2308" style="width:360px;height:108px;" class="DiagrammeR"></div>
+<script type="application/json" data-for="htmlwidget-2308">{"x":{"diagram":"\ngraph LR\nA(sleep)-->B(create_few_files) \nB-->C{merge them}\nC-->D[get size]\n"},"evals":[]}</script><!--/html_preserve-->
 
 
 
-A simple example where we have three instances of sleep (wait for few seconds), after waiting three tmp jobs are started which create three files with some random data. After all three are complete, a merge step merges the file and then size of the resulting file is calculated. This is quite similar in structure to a typical workflow from fastq--> merged bam
+A simple example where we have three instances of sleep (wait for few seconds), after waiting three tmp jobs are started which create three files with some random data. After all three are complete, a merge step merges the file and then size of the resulting file is calculated. This is quite similar in structure to a typical workflow from where a series of alignment and sorting steps may take place on the raw fastq files. Followed by merging of the resulting bam files into one large file per-sample.
 
 The table above is referred to as [flow_mat](details...).
 
