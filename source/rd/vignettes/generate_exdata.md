@@ -59,9 +59,9 @@ kable(head(flow_mat))
 
 |samplename |jobname |cmd                                  |
 |:----------|:-------|:------------------------------------|
-|sample1    |sleep   |sleep 5                              |
-|sample1    |sleep   |sleep 0                              |
-|sample1    |sleep   |sleep 1                              |
+|sample1    |sleep   |sleep 13                             |
+|sample1    |sleep   |sleep 20                             |
+|sample1    |sleep   |sleep 8                              |
 |sample1    |tmp     |head -c 100000 /dev/urandom > tmp1_1 |
 |sample1    |tmp     |head -c 100000 /dev/urandom > tmp1_2 |
 |sample1    |tmp     |head -c 100000 /dev/urandom > tmp1_3 |
@@ -147,7 +147,7 @@ fobj <- to_flow(x = flow_mat, def = def)
 #> ....input x is flow
 #> Test Successful!
 #> You may check this folder for consistency. Also you may re-run submit with execute=TRUE
-#>  ~/flowr/flowname-sample1-20150706-22-58-03-MZrmo1TE
+#>  ~/flowr/flowname-sample1-20150706-23-03-07-KXYQ4LoH
 #> input x is flow
 #> 
 #> 
@@ -156,7 +156,7 @@ fobj <- to_flow(x = flow_mat, def = def)
 #> ....input x is flow
 #> Test Successful!
 #> You may check this folder for consistency. Also you may re-run submit with execute=TRUE
-#>  ~/flowr/flowname-sample2-20150706-22-58-03-o1RzEiDY
+#>  ~/flowr/flowname-sample2-20150706-23-03-07-2XKTjHmw
 #> input x is flow
 #> 
 #> 
@@ -165,7 +165,7 @@ fobj <- to_flow(x = flow_mat, def = def)
 #> ....input x is flow
 #> Test Successful!
 #> You may check this folder for consistency. Also you may re-run submit with execute=TRUE
-#>  ~/flowr/flowname-sample3-20150706-22-58-03-LfkiSoC9
+#>  ~/flowr/flowname-sample3-20150706-23-03-07-csxQk9TG
 #> input x is flow
 ```
 
@@ -258,7 +258,7 @@ fobj=to_flow(flow_mat, def)
 #> ......input x is flow
 #> Test Successful!
 #> You may check this folder for consistency. Also you may re-run submit with execute=TRUE
-#>  ~/flowr/flowname-samp1-20150706-22-58-03-AXi0tYSP
+#>  ~/flowr/flowname-samp1-20150706-23-03-07-8PMijh5L
 #> input x is flow
 ```
 
@@ -292,7 +292,7 @@ plot_flow(to_flow(flow_mat, def))
 #> ......input x is flow
 #> Test Successful!
 #> You may check this folder for consistency. Also you may re-run submit with execute=TRUE
-#>  ~/flowr/flowname-samp1-20150706-22-58-03-sq5Mz7oJ
+#>  ~/flowr/flowname-samp1-20150706-23-03-07-zhDA8nOd
 #> input x is flow
 #> input x is flow
 ```
@@ -331,7 +331,7 @@ plot_flow(to_flow(flow_mat, def))
 #> ......input x is flow
 #> Test Successful!
 #> You may check this folder for consistency. Also you may re-run submit with execute=TRUE
-#>  ~/flowr/flowname-samp1-20150706-22-58-03-2nyIk1qw
+#>  ~/flowr/flowname-samp1-20150706-23-03-07-CdIyJ2re
 #> input x is flow
 #> input x is flow
 ```
@@ -371,7 +371,7 @@ plot_flow(to_flow(flow_mat, def))
 #> ......input x is flow
 #> Test Successful!
 #> You may check this folder for consistency. Also you may re-run submit with execute=TRUE
-#>  ~/flowr/flowname-samp1-20150706-22-58-03-ipB49wDF
+#>  ~/flowr/flowname-samp1-20150706-23-03-07-aqn5cvuy
 #> input x is flow
 #> input x is flow
 ```
@@ -410,7 +410,7 @@ plot_flow(to_flow(flow_mat, def))
 #> ......input x is flow
 #> Test Successful!
 #> You may check this folder for consistency. Also you may re-run submit with execute=TRUE
-#>  ~/flowr/flowname-samp1-20150706-22-58-04-MQL6cwBS
+#>  ~/flowr/flowname-samp1-20150706-23-03-07-nz6LpH8N
 #> input x is flow
 #> input x is flow
 ```
