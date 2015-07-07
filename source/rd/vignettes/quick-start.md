@@ -29,45 +29,18 @@ library(flowr)
 setup()
 ```
 
-```
-#> Consider adding ~/bin to your PATH variable in .bashrc.
-#> export PATH=$PATH:$HOME/bin
-#> You may now use all R functions using 'flowr' from shell.
-```
+
+# Toy example
 
 
-# Create a flow using example data
-
-**Let us say we want to do**:
-
-- Have a few jobs which will just wait (sleep) for a few seconds (`sleep`)
-- Then... (`tmp`) 
-	- Create a few temporary files. But hey, as soon as a sleep completes start the corresponding `tmp` job.
-	- If you are so inclined more on this [here](http://docs.flowr.space/build/html/rd/vignettes/build-pipes.html#serial-one-to-one-relationship).
-	- Don't wait for all to complete
-- When all `tmp` jobs are complete, `merge` them
-- Then get the `size` of the resulting file
-
-Now to do this we need two basic ingedients. A table with the commands, and a another which specifies the flow. We call them `flow_mat` and `flow_def`.
-
-We already have examples so lets load them from the package and see how they look.
+<!--html_preserve--><div id="htmlwidget-1419" style="width:504px;height:504px;" class="DiagrammeR"></div>
+<script type="application/json" data-for="htmlwidget-1419">{"x":{"diagram":"\ngraph LR\nA(sleep)-->B(create_few_files) \nB-->C{merge them}\nC-->D[get size]\n"},"evals":[]}</script><!--/html_preserve-->
 
 
 
-```r
-exdata = file.path(system.file(package = "flowr"), "extdata")
-flow_mat = read_sheet(file.path(exdata, "example1_flow_mat.txt"), id_column = "samplename")
-## this has a bunch of samples, so let us subset one of them
-flow_mat = subset(flow_mat, samplename == "sample1")
-flow_def = read_sheet(file.path(exdata, "example1_flow_def.txt"), id_column = "jobname")
-```
+A simple example where we have three instances of sleep (wait for few seconds), after waiting three tmp jobs are started which create three files with some random data. After all three are complete, a merge step merges the file and then size of the resulting file is calculated.
 
-# Ingredient 1: Commands to run (flow_mat)
-
-```r
-kable(subset(flow_mat, samplename == 'sample1'))
-```
-
+The table above is referred to as [flow_mat](details...).
 
 
 |samplename |jobname |cmd                                  |
@@ -81,14 +54,7 @@ kable(subset(flow_mat, samplename == 'sample1'))
 |sample1    |merge   |cat tmp1_1 tmp1_2 tmp1_3 > merge1    |
 |sample1    |size    |du -sh merge1                        |
 
-# Ingredient 2: Flow Definition (flow_def)
-More on the format of this file [here].
-
-
-```r
-kable(flow_def)
-```
-
+We use an additional file specifying relationship between the steps, and also other resource requirements [flow_def]().
 
 
 |jobname |prev_jobs |dep_type |sub_type |queue  | memory_reserved|walltime | cpu_reserved|
@@ -98,8 +64,17 @@ kable(flow_def)
 |merge   |tmp       |gather   |serial   |medium |          163185|23:00    |            1|
 |size    |merge     |serial   |serial   |medium |          163185|23:00    |            1|
 
-# Stich it
-> into a flow
+
+
+```r
+## load these files
+exdata = file.path(system.file(package = "flowr"), "extdata")
+flow_mat = read_sheet(file.path(exdata, "example1_flow_mat.txt"))
+flow_mat = subset(flow_mat, samplename == "sample1")
+flow_def = read_sheet(file.path(exdata,  "example1_flow_def.txt"))
+```
+
+# Stitch
 
 
 ```r
@@ -107,44 +82,10 @@ fobj <- to_flow(x = flow_mat, def = flow_def,
 	flowname = "example1", platform = "lsf")
 ```
 
-```
-#> input x is data.frame
-#> 
-#> 
-#> ##--- Getting default values for missing parameters...
-#> Using `samplename` as the grouping column
-#> Using `jobname` as the jobname column
-#> Using `cmd` as the cmd column
-#> Using flow_base_path default: ~/flowr
-#> 
-#> 
-#> ##--- Checking flow definition and flow matrix for consistency...
-#> 
-#> 
-#> ##--- Detecting platform...
-#> Platform supplied, this will override defaults from flow_definition...
-#> 
-#> 
-#> ##--- flowr submission...
-#> 
-#> 
-#> Working on... sample1
-#> input x is list
-#> ....input x is flow
-#> Test Successful!
-#> You may check this folder for consistency. Also you may re-run submit with execute=TRUE
-#>  ~/flowr/example1-sample1-20150706-21-32-28-hdZINfCi
-#> input x is flow
-```
-
-# Plot it
+# Plot
 
 ```r
 plot_flow(fobj)
-```
-
-```
-#> input x is flow
 ```
 
 ![Flow chart describing process for example 1](figure/plot_example1-1.pdf) 

@@ -62,7 +62,7 @@ fobj <- to_flow(x = flow_mat, def = flow_def)
 ## ....input x is flow
 ## Test Successful!
 ## You may check this folder for consistency. Also you may re-run submit with execute=TRUE
-##  ~/flowr/flowname-sample1-20150706-21-32-27-2gI9jqbn
+##  ~/flowr/flowname-sample1-20150706-22-58-04-LqVPD5B9
 ## input x is flow
 ## 
 ## 
@@ -71,7 +71,7 @@ fobj <- to_flow(x = flow_mat, def = flow_def)
 ## ....input x is flow
 ## Test Successful!
 ## You may check this folder for consistency. Also you may re-run submit with execute=TRUE
-##  ~/flowr/flowname-sample2-20150706-21-32-27-FceZzY4f
+##  ~/flowr/flowname-sample2-20150706-22-58-04-L2zfJQZI
 ## input x is flow
 ## 
 ## 
@@ -80,7 +80,7 @@ fobj <- to_flow(x = flow_mat, def = flow_def)
 ## ....input x is flow
 ## Test Successful!
 ## You may check this folder for consistency. Also you may re-run submit with execute=TRUE
-##  ~/flowr/flowname-sample3-20150706-21-32-27-zENXBYhx
+##  ~/flowr/flowname-sample3-20150706-22-58-04-7ft6pBuJ
 ## input x is flow
 ```
 
