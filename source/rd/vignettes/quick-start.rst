@@ -23,7 +23,7 @@ Toy example
 
 .. raw:: html
 
-   <div id="htmlwidget-9979" class="DiagrammeR"
+   <div id="htmlwidget-3235" class="DiagrammeR"
    style="width:360px;height:108px;">
 
 .. raw:: html
@@ -32,7 +32,7 @@ Toy example
 
 .. raw:: html
 
-   <script type="application/json" data-for="htmlwidget-9979">{"x":{"diagram":"\ngraph LR\nA(sleep)-->B(create_few_files) \nB-->C{merge them}\nC-->D[get size]\n"},"evals":[]}</script><!--/html_preserve-->
+   <script type="application/json" data-for="htmlwidget-3235">{"x":{"diagram":"\ngraph LR\nA(sleep)-->B(create_few_files) \nB-->C{merge them}\nC-->D[get size]\n"},"evals":[]}</script><!--/html_preserve-->
 
 
 A simple example where we have three instances of sleep (wait for few
@@ -65,7 +65,7 @@ The table above is referred to as `flow\_mat <details...>`__.
 +--------------+-----------+-----------------------------------------+
 
 We use an additional file specifying relationship between the steps, and
-also other resource requirements `flow\_def <>`__.
+also other resource requirements `flow\_def <details...>`__.
 
 +-----------+--------------+-------------+-------------+----------+--------------------+------------+-----------------+
 | jobname   | prev\_jobs   | dep\_type   | sub\_type   | queue    | memory\_reserved   | walltime   | cpu\_reserved   |

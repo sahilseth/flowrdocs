@@ -33,8 +33,8 @@ setup()
 # Toy example
 
 
-<!--html_preserve--><div id="htmlwidget-9979" style="width:360px;height:108px;" class="DiagrammeR"></div>
-<script type="application/json" data-for="htmlwidget-9979">{"x":{"diagram":"\ngraph LR\nA(sleep)-->B(create_few_files) \nB-->C{merge them}\nC-->D[get size]\n"},"evals":[]}</script><!--/html_preserve-->
+<!--html_preserve--><div id="htmlwidget-3235" style="width:360px;height:108px;" class="DiagrammeR"></div>
+<script type="application/json" data-for="htmlwidget-3235">{"x":{"diagram":"\ngraph LR\nA(sleep)-->B(create_few_files) \nB-->C{merge them}\nC-->D[get size]\n"},"evals":[]}</script><!--/html_preserve-->
 
 
 
@@ -54,7 +54,7 @@ The table above is referred to as [flow_mat](details...).
 |sample1    |merge   |cat tmp1_1 tmp1_2 tmp1_3 > merge1    |
 |sample1    |size    |du -sh merge1                        |
 
-We use an additional file specifying relationship between the steps, and also other resource requirements [flow_def]().
+We use an additional file specifying relationship between the steps, and also other resource requirements [flow_def](details...).
 
 
 |jobname |prev_jobs |dep_type |sub_type |queue  | memory_reserved|walltime | cpu_reserved|
