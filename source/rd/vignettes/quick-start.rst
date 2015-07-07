@@ -23,8 +23,8 @@ Toy example
 
 .. raw:: html
 
-   <div id="htmlwidget-1419" class="DiagrammeR"
-   style="width:504px;height:504px;">
+   <div id="htmlwidget-9979" class="DiagrammeR"
+   style="width:360px;height:108px;">
 
 .. raw:: html
 
@@ -32,13 +32,15 @@ Toy example
 
 .. raw:: html
 
-   <script type="application/json" data-for="htmlwidget-1419">{"x":{"diagram":"\ngraph LR\nA(sleep)-->B(create_few_files) \nB-->C{merge them}\nC-->D[get size]\n"},"evals":[]}</script><!--/html_preserve-->
+   <script type="application/json" data-for="htmlwidget-9979">{"x":{"diagram":"\ngraph LR\nA(sleep)-->B(create_few_files) \nB-->C{merge them}\nC-->D[get size]\n"},"evals":[]}</script><!--/html_preserve-->
 
 
 A simple example where we have three instances of sleep (wait for few
 seconds), after waiting three tmp jobs are started which create three
 files with some random data. After all three are complete, a merge step
-merges the file and then size of the resulting file is calculated.
+merges the file and then size of the resulting file is calculated. This
+is quite similar in structure to a typical workflow from fastq--> merged
+bam
 
 The table above is referred to as `flow\_mat <details...>`__.
 

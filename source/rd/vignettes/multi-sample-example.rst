@@ -53,7 +53,7 @@ Let us load some example data
     ## ....input x is flow
     ## Test Successful!
     ## You may check this folder for consistency. Also you may re-run submit with execute=TRUE
-    ##  ~/flowr/flowname-sample1-20150706-22-58-04-LqVPD5B9
+    ##  ~/flowr/flowname-sample1-20150706-23-03-08-vUWASsTE
     ## input x is flow
     ## 
     ## 
@@ -62,7 +62,7 @@ Let us load some example data
     ## ....input x is flow
     ## Test Successful!
     ## You may check this folder for consistency. Also you may re-run submit with execute=TRUE
-    ##  ~/flowr/flowname-sample2-20150706-22-58-04-L2zfJQZI
+    ##  ~/flowr/flowname-sample2-20150706-23-03-08-mx4UeQ2O
     ## input x is flow
     ## 
     ## 
@@ -71,7 +71,7 @@ Let us load some example data
     ## ....input x is flow
     ## Test Successful!
     ## You may check this folder for consistency. Also you may re-run submit with execute=TRUE
-    ##  ~/flowr/flowname-sample3-20150706-22-58-04-7ft6pBuJ
+    ##  ~/flowr/flowname-sample3-20150706-23-03-08-0pxNYo4v
     ## input x is flow
 
 --- do the following for tests
