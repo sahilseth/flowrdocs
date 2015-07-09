@@ -1,6 +1,9 @@
 FAQs
 ============================================
 
+Please visits here for more questions and issues:
+https://github.com/sahilseth/flowr/issues?q=label%3Aquestion
+
 .. eventually in running the pipeline
 
 :Q: What platforms are supported
