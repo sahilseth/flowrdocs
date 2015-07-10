@@ -1,6 +1,6 @@
 ## Don't edit
 
-These files are automatically generated using package `restr()`
+These files are automatically generated using package `restr`
 
 For the vignettes the source(s) are *.Rmd files in:
 
