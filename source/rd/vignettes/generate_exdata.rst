@@ -47,11 +47,11 @@ Generate 100 commands each for sleep make div
 +--------------+-----------+-----------------------------------------+
 | samplename   | jobname   | cmd                                     |
 +==============+===========+=========================================+
-| sample1      | sleep     | sleep 27                                |
-+--------------+-----------+-----------------------------------------+
 | sample1      | sleep     | sleep 2                                 |
 +--------------+-----------+-----------------------------------------+
-| sample1      | sleep     | sleep 7                                 |
+| sample1      | sleep     | sleep 1                                 |
++--------------+-----------+-----------------------------------------+
+| sample1      | sleep     | sleep 1                                 |
 +--------------+-----------+-----------------------------------------+
 | sample1      | tmp       | head -c 100000 /dev/urandom > tmp1\_1   |
 +--------------+-----------+-----------------------------------------+
@@ -149,53 +149,15 @@ Plot flow
     #> 
     #> Working on... sample1
     #> input x is list
-    #> ....input x is flow
-    #> 
-    #> Working on: sleep
-    #> 
-    #> Working on: tmp
-    #> 
-    #> Working on: merge
-    #> 
-    #> Working on: size
-    #> Test Successful!
-    #> You may check this folder for consistency. Also you may re-run submit with execute=TRUE
-    #>  ~/flowr/runs/flowname-sample1-20150710-10-58-18-cZxvNB20
-    #> input x is flow
-    #> 
+    #> ....
     #> 
     #> Working on... sample2
     #> input x is list
-    #> ....input x is flow
-    #> 
-    #> Working on: sleep
-    #> 
-    #> Working on: tmp
-    #> 
-    #> Working on: merge
-    #> 
-    #> Working on: size
-    #> Test Successful!
-    #> You may check this folder for consistency. Also you may re-run submit with execute=TRUE
-    #>  ~/flowr/runs/flowname-sample2-20150710-10-58-19-ToK5Oi1h
-    #> input x is flow
-    #> 
+    #> ....
     #> 
     #> Working on... sample3
     #> input x is list
-    #> ....input x is flow
-    #> 
-    #> Working on: sleep
-    #> 
-    #> Working on: tmp
-    #> 
-    #> Working on: merge
-    #> 
-    #> Working on: size
-    #> Test Successful!
-    #> You may check this folder for consistency. Also you may re-run submit with execute=TRUE
-    #>  ~/flowr/runs/flowname-sample3-20150710-10-58-19-CV3bg0L7
-    #> input x is flow
+    #> ....
 
 .. code:: r
 
@@ -288,23 +250,7 @@ Example2
     #> 
     #> Working on... samp1
     #> input x is list
-    #> ......input x is flow
-    #> 
-    #> Working on: sleep
-    #> 
-    #> Working on: tmp1
-    #> 
-    #> Working on: tmp2
-    #> 
-    #> Working on: tmp3
-    #> 
-    #> Working on: merge
-    #> 
-    #> Working on: size
-    #> Test Successful!
-    #> You may check this folder for consistency. Also you may re-run submit with execute=TRUE
-    #>  ~/flowr/runs/flowname-samp1-20150710-10-58-19-XcowIaHR
-    #> input x is flow
+    #> ......
 
 .. code:: r
 
@@ -335,23 +281,6 @@ Example2
     #> Working on... samp1
     #> input x is list
     #> ......input x is flow
-    #> 
-    #> Working on: sleep
-    #> 
-    #> Working on: tmp1
-    #> 
-    #> Working on: tmp2
-    #> 
-    #> Working on: tmp3
-    #> 
-    #> Working on: merge
-    #> 
-    #> Working on: size
-    #> Test Successful!
-    #> You may check this folder for consistency. Also you may re-run submit with execute=TRUE
-    #>  ~/flowr/runs/flowname-samp1-20150710-10-58-19-wQomWbuK
-    #> input x is flow
-    #> input x is flow
 
 .. figure:: figure/unnamed-chunk-5-1.pdf
    :alt: plot of chunk unnamed-chunk-5
@@ -389,23 +318,6 @@ Example2
     #> Working on... samp1
     #> input x is list
     #> ......input x is flow
-    #> 
-    #> Working on: sleep
-    #> 
-    #> Working on: tmp1
-    #> 
-    #> Working on: tmp2
-    #> 
-    #> Working on: tmp3
-    #> 
-    #> Working on: merge
-    #> 
-    #> Working on: size
-    #> Test Successful!
-    #> You may check this folder for consistency. Also you may re-run submit with execute=TRUE
-    #>  ~/flowr/runs/flowname-samp1-20150710-10-58-20-DljF0AoV
-    #> input x is flow
-    #> input x is flow
 
 .. figure:: figure/unnamed-chunk-5-2.pdf
    :alt: plot of chunk unnamed-chunk-5
@@ -444,23 +356,6 @@ Example2
     #> Working on... samp1
     #> input x is list
     #> ......input x is flow
-    #> 
-    #> Working on: sleep
-    #> 
-    #> Working on: tmp1
-    #> 
-    #> Working on: tmp2
-    #> 
-    #> Working on: tmp3
-    #> 
-    #> Working on: merge
-    #> 
-    #> Working on: size
-    #> Test Successful!
-    #> You may check this folder for consistency. Also you may re-run submit with execute=TRUE
-    #>  ~/flowr/runs/flowname-samp1-20150710-10-58-20-cUxvTwkS
-    #> input x is flow
-    #> input x is flow
 
 .. figure:: figure/unnamed-chunk-5-3.pdf
    :alt: plot of chunk unnamed-chunk-5
@@ -498,23 +393,6 @@ Example2
     #> Working on... samp1
     #> input x is list
     #> ......input x is flow
-    #> 
-    #> Working on: sleep
-    #> 
-    #> Working on: tmp1
-    #> 
-    #> Working on: tmp2
-    #> 
-    #> Working on: tmp3
-    #> 
-    #> Working on: merge
-    #> 
-    #> Working on: size
-    #> Test Successful!
-    #> You may check this folder for consistency. Also you may re-run submit with execute=TRUE
-    #>  ~/flowr/runs/flowname-samp1-20150710-10-58-20-yqPYv6KT
-    #> input x is flow
-    #> input x is flow
 
 .. figure:: figure/unnamed-chunk-5-4.pdf
    :alt: plot of chunk unnamed-chunk-5

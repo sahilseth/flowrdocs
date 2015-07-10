@@ -12,38 +12,48 @@ to_flow
 
 :func:`to_flow`
 
-this operates on a single sample basis
+Create flow objects
 
 Usage
 """"""""""""""""""
 ::
 
- to_flow(x, ...)
+ to_flow(x, def, grp_col, jobname_col, cmd_col, flowname, flow_run_path, submit = FALSE, platform, execute, qobj, ...)
 
 Arguments
 
 x
-    is a data.frame with jobnames and commands to run. See details for more on the format
+    path (char. vector) to flow_mat, a data.frame or a list.
+def
+    A flow definition table. Basically a table with resource requirements and mapping of the jobs in this flow
 grp_col
-    column name used to split x (flow_mat). Default is *samplename*
+    column name used to split x (flow_mat). Default: `samplename`
 jobname_col
-    
+    column name with job names. Default: `jobname`
 cmd_col
-    
+    column name with commands. Default: `cmd`
+flowname
+    name of the flow
+flow_run_path
+    Path to a folder. Main operating folder for this flow. Default it `getOption("flow_run_path")`.
+submit
+    Depreciated. Use submit_flow on flow object this function returns. TRUE/FALSE
+execute
+    Depreciated. Use submit_flow on flow object this function returns. TRUE/FALSE, an paramter to submit_flow()
 qobj
-    queue object, as returned by queue(). Overrides one specified by platform
+    Depreciated. A object of class `queue <queue.html>`_.
 
 
 Description
 """"""""""""""""""
 
-this operates on a single sample basis
+Use a set of shell commands and flow definiton to create `flow <flow.html>`_ object.
 Details
 """"""""""""""""""
 
-subset the data.frame by sample and then supply to this function, if you want seperate flow for each sample.
-flow_tab: as defined by x is a (minimum) three column matrix with:
-samplename, jobname, cmd
+The parameter x can be a path to a flow_mat, or a data.frame (as read by read_sheet).
+This is a minimum three column matrix with:
+samplename<TAB>jobname<TAB>cmd
 
 
 Examples

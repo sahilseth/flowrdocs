@@ -59,53 +59,15 @@ fobj <- to_flow(x = flow_mat, def = flow_def)
 ## 
 ## Working on... sample1
 ## input x is list
-## ....input x is flow
-## 
-## Working on: sleep
-## 
-## Working on: tmp
-## 
-## Working on: merge
-## 
-## Working on: size
-## Test Successful!
-## You may check this folder for consistency. Also you may re-run submit with execute=TRUE
-##  ~/flowr/runs/flowname-sample1-20150710-10-58-20-mdwWvnO1
-## input x is flow
-## 
+## ....
 ## 
 ## Working on... sample2
 ## input x is list
-## ....input x is flow
-## 
-## Working on: sleep
-## 
-## Working on: tmp
-## 
-## Working on: merge
-## 
-## Working on: size
-## Test Successful!
-## You may check this folder for consistency. Also you may re-run submit with execute=TRUE
-##  ~/flowr/runs/flowname-sample2-20150710-10-58-20-pmjl2n7K
-## input x is flow
-## 
+## ....
 ## 
 ## Working on... sample3
 ## input x is list
-## ....input x is flow
-## 
-## Working on: sleep
-## 
-## Working on: tmp
-## 
-## Working on: merge
-## 
-## Working on: size
-## Test Successful!
-## You may check this folder for consistency. Also you may re-run submit with execute=TRUE
-##  ~/flowr/runs/flowname-sample3-20150710-10-58-20-3LvNU27P
-## input x is flow
+## ....
 ```
 
 ## --- do the following for tests
