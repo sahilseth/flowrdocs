@@ -18,7 +18,7 @@ Usage
 """"""""""""""""""
 ::
 
- flow(jobs = list(new("job")), name = "newflow", desc = "my_super_flow", mode = c("scheduler", "trigger", "R"), flow_base_path = "~/flowr", trigger_path = "", flow_path = "", status = "", execute = "")
+ flow(jobs = list(new("job")), name = "newflow", desc = "my_super_flow", mode = c("scheduler", "trigger", "R"), flow_run_path = getOption("flow_run_path"), trigger_path = "", flow_path = "", status = "", execute = "")
 
 Arguments
 
@@ -35,7 +35,7 @@ An underscore '_' seems like a good word separator.
 Defaults to 'my_super_flow'. We usually use this to put sample names of the data.
 mode
     ``character`` Mode of submission of the flow.
-flow_base_path
+flow_run_path
     The base path of all the flows you would submit.
 Defaults to ``~/flows``. Best practice to ignore it.
 trigger_path
@@ -59,9 +59,7 @@ Examples
 
  cmds = rep("sleep 5", 10)
  qobj <- queue(platform='torque')
- **Setting default time to: 72:00:00. If this is more than queue max (/improper format), job will fail. You may change this in job()
- ****Setting default memory to: 10g. If this is more than queue max (/improper format), job will fail.
- **## run the 10 commands in parallel
+ ## run the 10 commands in parallel
  jobj1 <- job(q_obj=qobj, cmd = cmds, submission_type = "scatter", name = "job1")
  
  ## run the 10 commands sequentially, but WAIT for the previous job to complete
@@ -85,7 +83,7 @@ Examples
  # ## execute the jobs: ONLY works on computing cluster, would fail otherwise
  # submit_flow(fobj, execute = TRUE)
  # ## **End(Not run)**
- .. image flow-7.png
+ .. image flow-4.png
 Aliases:
 flow
 Keywords:

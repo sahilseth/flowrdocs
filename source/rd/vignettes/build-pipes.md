@@ -1,6 +1,6 @@
 ---
 title: "flowr simple examples"
-date: "2015-07-06"
+date: "2015-07-10"
 output: rmarkdown::html_document
 vignette: >
   %\VignetteIndexEntry{flowr simple example}
@@ -22,7 +22,7 @@ flow_mat = read_sheet(file.path(exdata, "example1_flow_mat.txt"))
 ```
 
 ```
-#> Using 'samplename'' as id_column
+#> Reading file, using 'samplename' as id_column to remove empty rows.
 ```
 
 ```r
@@ -30,7 +30,7 @@ flow_def = read_sheet(file.path(exdata, "example1_flow_def.txt"))
 ```
 
 ```
-#> Using 'jobname'' as id_column
+#> Reading file, using 'jobname' as id_column to remove empty rows.
 ```
 
 ### Style 1
@@ -229,13 +229,7 @@ queue(type = "lsf")@format
 ```
 
 ```
-#> Setting default time to: 72:00. If this is more than queue max (/improper format), job will fail. You may change this in job()
-#> 
-#> Setting default memory to: 10000. If this is more than queue max (/improper format), job will fail.
-```
-
-```
-#> [1] "${SUBMIT_EXE} -q ${QUEUE} -J ${JOBNAME} -o ${STDOUT} -e ${STDERR} -n ${CPU} -cwd ${CWD} -M ${MEMORY} -R rusage[mem=${MEMORY}] -R span[ptile=${CPU}] -W ${WALLTIME} -r ${EXTRA_OPTS} ${DEPENDENCY} '<' ${CMD} "
+#> [1] ""
 ```
 
 **torque**
@@ -245,13 +239,7 @@ queue(type = "torque")@format
 ```
 
 ```
-#> Setting default time to: 72:00. If this is more than queue max (/improper format), job will fail. You may change this in job()
-#> 
-#> Setting default memory to: 10000. If this is more than queue max (/improper format), job will fail.
-```
-
-```
-#> [1] "${SUBMIT_EXE} -q ${QUEUE} -J ${JOBNAME} -o ${STDOUT} -e ${STDERR} -n ${CPU} -cwd ${CWD} -M ${MEMORY} -R rusage[mem=${MEMORY}] -R span[ptile=${CPU}] -W ${WALLTIME} -r ${EXTRA_OPTS} ${DEPENDENCY} '<' ${CMD} "
+#> [1] ""
 ```
 
 My HPCC is not supported, how to make it work? send a message to: sahil.seth [at] me.com

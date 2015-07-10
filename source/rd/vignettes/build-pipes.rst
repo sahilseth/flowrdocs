@@ -12,7 +12,7 @@ Styles
 
 ::
 
-    #> Using 'samplename'' as id_column
+    #> Reading file, using 'samplename' as id_column to remove empty rows.
 
 .. code:: r
 
@@ -20,7 +20,7 @@ Styles
 
 ::
 
-    #> Using 'jobname'' as id_column
+    #> Reading file, using 'jobname' as id_column to remove empty rows.
 
 Style 1
 ~~~~~~~
@@ -265,13 +265,7 @@ HPCC submission formats
 
 ::
 
-    #> Setting default time to: 72:00. If this is more than queue max (/improper format), job will fail. You may change this in job()
-    #> 
-    #> Setting default memory to: 10000. If this is more than queue max (/improper format), job will fail.
-
-::
-
-    #> [1] "${SUBMIT_EXE} -q ${QUEUE} -J ${JOBNAME} -o ${STDOUT} -e ${STDERR} -n ${CPU} -cwd ${CWD} -M ${MEMORY} -R rusage[mem=${MEMORY}] -R span[ptile=${CPU}] -W ${WALLTIME} -r ${EXTRA_OPTS} ${DEPENDENCY} '<' ${CMD} "
+    #> [1] ""
 
 **torque**
 
@@ -281,13 +275,7 @@ HPCC submission formats
 
 ::
 
-    #> Setting default time to: 72:00. If this is more than queue max (/improper format), job will fail. You may change this in job()
-    #> 
-    #> Setting default memory to: 10000. If this is more than queue max (/improper format), job will fail.
-
-::
-
-    #> [1] "${SUBMIT_EXE} -q ${QUEUE} -J ${JOBNAME} -o ${STDOUT} -e ${STDERR} -n ${CPU} -cwd ${CWD} -M ${MEMORY} -R rusage[mem=${MEMORY}] -R span[ptile=${CPU}] -W ${WALLTIME} -r ${EXTRA_OPTS} ${DEPENDENCY} '<' ${CMD} "
+    #> [1] ""
 
 My HPCC is not supported, how to make it work? send a message to:
 sahil.seth [at] me.com

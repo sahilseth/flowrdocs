@@ -23,7 +23,7 @@ Usage
 Arguments
 
 ...
-    Any additional parameter are passed on to submit_job function
+    Any additional parameter are passed on to `submit_job <submit_job.html>`_ function
 fobj
     ``object`` of class ``flow``.
 uuid

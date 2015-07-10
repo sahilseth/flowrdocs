@@ -1,6 +1,6 @@
 ---
 title: "Quick Start Example"
-date: "2015-07-06"
+date: "2015-07-10"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Quick Start Example}
@@ -33,8 +33,10 @@ setup()
 # Toy example
 
 
-<!--html_preserve--><div id="htmlwidget-2308" style="width:360px;height:108px;" class="DiagrammeR"></div>
-<script type="application/json" data-for="htmlwidget-2308">{"x":{"diagram":"\ngraph LR\nA(sleep)-->B(create_few_files) \nB-->C{merge them}\nC-->D[get size]\n"},"evals":[]}</script><!--/html_preserve-->
+
+
+![](imgs/toy.png)
+
 
 
 

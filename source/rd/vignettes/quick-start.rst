@@ -17,11 +17,8 @@ easier. More on this `here <https://github.com/sahilseth/rfun>`__.
 Toy example
 ===========
 
-<div id="htmlwidget-2308" class="DiagrammeR"
-style="width:360px;height:108px;">
-</div>
-<script type="application/json" data-for="htmlwidget-2308">{"x":{"diagram":"\ngraph LR\nA(sleep)-->B(create_few_files) \nB-->C{merge them}\nC-->D[get size]\n"},"evals":[]}</script>
-
+.. figure:: imgs/toy.png
+   :alt: 
 
 A simple example where we have three instances of sleep (wait for few
 seconds), after waiting three tmp jobs are started which create three
@@ -96,6 +93,7 @@ Plot
    :alt: Flow chart describing process for example 1
 
    Flow chart describing process for example 1
+
 Test it
 =======
 
@@ -147,4 +145,3 @@ Check the status
     |002.tmp   |    10|      10|        10|           0|
     |003.merge |     1|       1|         1|           0|
     |004.size  |     1|       1|         1|           0|
-

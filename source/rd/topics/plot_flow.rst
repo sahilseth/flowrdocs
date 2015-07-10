@@ -47,9 +47,7 @@ Examples
 ::
 
  qobj = queue(type="lsf")
- **Setting default time to: 72:00. If this is more than queue max (/improper format), job will fail. You may change this in job()
- ****Setting default memory to: 10000. If this is more than queue max (/improper format), job will fail.
- **cmds = rep("sleep 5", 10)
+ cmds = rep("sleep 5", 10)
  jobj1 <- job(q_obj=qobj, cmd = cmds, submission_type = "scatter", name = "job1")
  jobj2 <- job(q_obj=qobj, name = "job2", cmd = cmds, submission_type = "scatter",
               dependency_type = "serial", previous_job = "job1")
@@ -58,18 +56,18 @@ Examples
  **input x is flow**
  ### Gather: many to one relationship
  jobj1 <- job(q_obj=qobj, cmd = cmds, submission_type = "scatter", name = "job1")
- .. image plot_flow-7.pngjobj2 <- job(q_obj=qobj, name = "job2", cmd = cmds, submission_type = "scatter",
+ .. image plot_flow-4.pngjobj2 <- job(q_obj=qobj, name = "job2", cmd = cmds, submission_type = "scatter",
               dependency_type = "gather", previous_job = "job1")
  fobj <- flow(jobs = list(jobj1, jobj2))
  plot_flow(fobj)
- **input x is flow**.. image plot_flow-10.png
+ **input x is flow**.. image plot_flow-7.png
  ### Burst: one to many relationship
  jobj1 <- job(q_obj=qobj, cmd = cmds, submission_type = "serial", name = "job1")
  jobj2 <- job(q_obj=qobj, name = "job2", cmd = cmds, submission_type = "scatter",
               dependency_type = "burst", previous_job = "job1")
  fobj <- flow(jobs = list(jobj1, jobj2))
  plot_flow(fobj)
- **input x is flow**.. image plot_flow-13.png
+ **input x is flow**.. image plot_flow-10.png
 Aliases:
 plot_flow
 plot_flow-method

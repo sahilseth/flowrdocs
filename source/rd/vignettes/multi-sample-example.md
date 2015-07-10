@@ -1,6 +1,6 @@
 ---
 title: "flowr simple examples"
-date: "2015-07-06"
+date: "2015-07-10"
 output: rmarkdown::html_document
 vignette: >
   %\VignetteIndexEntry{flowr simple example}
@@ -16,7 +16,7 @@ flow_mat = read_sheet(file.path(exdata, "example1_flow_mat.txt"))
 ```
 
 ```
-## Using 'samplename'' as id_column
+## Reading file, using 'samplename' as id_column to remove empty rows.
 ```
 
 ```r
@@ -24,7 +24,7 @@ flow_def = read_sheet(file.path(exdata, "example1_flow_def.txt"))
 ```
 
 ```
-## Using 'jobname'' as id_column
+## Reading file, using 'jobname' as id_column to remove empty rows.
 ```
 
 
@@ -41,7 +41,7 @@ fobj <- to_flow(x = flow_mat, def = flow_def)
 ## Using `jobname` as the jobname column
 ## Using `cmd` as the cmd column
 ## Using flowname default: flowname
-## Using flow_base_path default: ~/flowr
+## Using flow_run_path default: ~/flowr/runs
 ## 
 ## 
 ## ##--- Checking flow definition and flow matrix for consistency...
@@ -60,27 +60,51 @@ fobj <- to_flow(x = flow_mat, def = flow_def)
 ## Working on... sample1
 ## input x is list
 ## ....input x is flow
+## 
+## Working on: sleep
+## 
+## Working on: tmp
+## 
+## Working on: merge
+## 
+## Working on: size
 ## Test Successful!
 ## You may check this folder for consistency. Also you may re-run submit with execute=TRUE
-##  ~/flowr/flowname-sample1-20150706-23-22-30-iZfMDcKg
+##  ~/flowr/runs/flowname-sample1-20150710-10-58-20-mdwWvnO1
 ## input x is flow
 ## 
 ## 
 ## Working on... sample2
 ## input x is list
 ## ....input x is flow
+## 
+## Working on: sleep
+## 
+## Working on: tmp
+## 
+## Working on: merge
+## 
+## Working on: size
 ## Test Successful!
 ## You may check this folder for consistency. Also you may re-run submit with execute=TRUE
-##  ~/flowr/flowname-sample2-20150706-23-22-30-9MI7GQFW
+##  ~/flowr/runs/flowname-sample2-20150710-10-58-20-pmjl2n7K
 ## input x is flow
 ## 
 ## 
 ## Working on... sample3
 ## input x is list
 ## ....input x is flow
+## 
+## Working on: sleep
+## 
+## Working on: tmp
+## 
+## Working on: merge
+## 
+## Working on: size
 ## Test Successful!
 ## You may check this folder for consistency. Also you may re-run submit with execute=TRUE
-##  ~/flowr/flowname-sample3-20150706-23-22-30-ZFN48CcW
+##  ~/flowr/runs/flowname-sample3-20150710-10-58-20-3LvNU27P
 ## input x is flow
 ```
 

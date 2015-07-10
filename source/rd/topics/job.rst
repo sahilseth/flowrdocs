@@ -57,9 +57,7 @@ Examples
 ::
 
  qobj <- queue(platform="torque")
- **Setting default time to: 72:00:00. If this is more than queue max (/improper format), job will fail. You may change this in job()
- ****Setting default memory to: 10g. If this is more than queue max (/improper format), job will fail.
- **
+ 
  ## torque job with 1 CPU running command 'sleep 2'
  jobj <- job(q_obj=qobj, cmd = "sleep 2", cpu=1)
  
@@ -85,7 +83,7 @@ Examples
  # submit_flow(fobj, execute = TRUE)
  # 
  # ## **End(Not run)**
- .. image job-7.png
+ .. image job-4.png
 Aliases:
 job
 Keywords:

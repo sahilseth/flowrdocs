@@ -18,7 +18,7 @@ Usage
 """"""""""""""""""
 ::
 
- queue(object, platform = c("lsf", "torque", "sge", "moab", "local"), format = "", queue = "long", walltime, memory, cpu = 1, extra_opts = "", submit_exe, cwd = "~/flows", nodes = 1, jobname = "name", email = Sys.getenv("USER"), dependency = list(), server = "localhost", verbose = TRUE, stderr = "~/flowr/tmp", stdout = "~/flowr", ...)
+ queue(object, platform = c("local", "lsf", "torque", "sge", "moab"), format = "", queue = "long", walltime, memory, cpu = 1, extra_opts = "", submit_exe, cwd = getOption("flow_run_path"), nodes = "1", jobname = "name", email = Sys.getenv("USER"), dependency = list(), server = "localhost", verbose = FALSE, stderr = getOption("flow_run_path"), stdout = getOption("flow_run_path"), ...)
 
 Arguments
 
@@ -44,7 +44,7 @@ submit_exe
 cwd
     [debug use] Ignore
 nodes
-    [advanced use] number of nodes you would like to request. *optional* [Used by class job]
+    [advanced use] number of nodes you would like to request. Or in case of torque name of the nodes.*optional* [Used by class job]
 jobname
     [debug use] name of this job in the computing cluster
 email
@@ -86,9 +86,7 @@ Examples
 ::
 
  qobj <- queue(platform='lsf')
- **Setting default time to: 72:00. If this is more than queue max (/improper format), job will fail. You may change this in job()
- ****Setting default memory to: 10000. If this is more than queue max (/improper format), job will fail.
- **
+ 
 Aliases:
 queue
 Keywords:
