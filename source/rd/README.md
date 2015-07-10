@@ -1,4 +1,4 @@
-## Don't edit
+## Don't edit this, you may want to edit the source itself.
 
 These files are automatically generated using package `restr`, which converts Rmd files to rst format as required by `readthedocs`.
 
@@ -10,4 +10,9 @@ The manual pages for all the functions are directly derived from the source code
 https://github.com/sahilseth/flowr/tree/master/man
 
 These *.Rd files are then read by `restr` to create files compatible for readthedocs.
+
+
+## Examples:
+Documentation for `to_flowr()` is embedded in the code here:
+https://github.com/sahilseth/flowr/blob/master/R/to-flow.R
 
