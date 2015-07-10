@@ -8,7 +8,7 @@
 flowr: Streamline your workflows
 =================================
 
-This framework allows you to design and implement complex pipelines, and deploy them to your institution's computing cluster. This has been built keeping in mind the needs of bioinformatics workflows. But is easily extendable to any field where a series of steps (shell commands) are to be executed in a flow.
+This framework allows you to design and implement complex pipelines, and deploy them on your institution's computing cluster. This has been built keeping in mind the needs of bioinformatics workflows. However, it is easily extendable to any field where a series of steps (shell commands) are to be executed in a (work)flow.
 
 Why bother?
 -------------
