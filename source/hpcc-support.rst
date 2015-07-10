@@ -47,10 +47,15 @@ Send a `message <mailto:sahil.seth@me.com>`__
    -  Dependecy info
       `here <https://wiki.duke.edu/display/SCSC/SGE+Job+Dependencies>`__
 
-`comparing platforms <http://en.wikipedia.org/wiki/Comparison\_of\_cluster\_software>`__
+- SLURM 
+   - A detailed `man page <http://slurm.schedmd.com>`__
+   - Another good description on `submission <https://computing.llnl.gov/linux/slurm/sbatch.html>`__
+   
+`comparing platforms <http://en.wikipedia.org/wiki/Comparison_of_cluster_software>`__
 
-Adding a new platform, is quite streamlined and should take minimal changes in the code:
+Adding a new platform, is quite streamlined and should take minimal changes in the code, here is a discussion on the same:
 https://github.com/sahilseth/flowr/issues/7
+
 
 
 
