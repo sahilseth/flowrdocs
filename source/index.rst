@@ -40,7 +40,7 @@ Contents:
 	:maxdepth: 1
 	
 	rd/vignettes/quick-start
-	rd/vignettes/hpcc-support
+	hpcc-support
 	
 .. toctree::
 	:glob:
