@@ -20,6 +20,10 @@ Usage
 
  plot_flow(x, ...)
 
+"plot_flow"(x, detailed = TRUE, type = c("1", "2"), pdf = FALSE, pdffile = sprintf("%s.pdf", x@name), ...)
+
+"plot_flow"(x, ...)
+
 Arguments
 
 x
@@ -28,12 +32,12 @@ x
     experimental
 detailed
     include some details
+type
+    1 is original, and 2 is a elipse with less details
 pdf
     create a pdf instead of plotting interactively
 pdffile
     output file name for the pdf file
-type
-    1 is original, and 2 is a elipse with less details
 
 
 Description
@@ -70,7 +74,8 @@ Examples
  **input x is flow**.. image plot_flow-10.png
 Aliases:
 plot_flow
-plot_flow-method
+plot_flow.flow
+plot_flow.list
 Keywords:
 Author:
 

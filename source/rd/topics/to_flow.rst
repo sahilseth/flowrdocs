@@ -18,7 +18,13 @@ Usage
 """"""""""""""""""
 ::
 
- to_flow(x, def, grp_col, jobname_col, cmd_col, flowname, flow_run_path, submit = FALSE, platform, execute, qobj, ...)
+ to_flow(x, def, ...)
+
+"to_flow"(x, def, ...)
+
+"to_flow"(x, def, grp_col, jobname_col, cmd_col, flowname, flow_run_path, platform, submit = FALSE, execute = FALSE, qobj, ...)
+
+"to_flow"(x, def, flowname, flow_run_path, desc, ...)
 
 Arguments
 
@@ -26,6 +32,8 @@ x
     path (char. vector) to flow_mat, a data.frame or a list.
 def
     A flow definition table. Basically a table with resource requirements and mapping of the jobs in this flow
+...
+    Supplied to specific functions like `to_flow.data.frame <to_flow.data.frame.html>`_
 grp_col
     column name used to split x (flow_mat). Default: `samplename`
 jobname_col
@@ -36,14 +44,25 @@ flowname
     name of the flow
 flow_run_path
     Path to a folder. Main operating folder for this flow. Default it `getOption("flow_run_path")`.
+platform
+    character vector, specifying the platform to use. local, lsf, torque, moab, sge, slurm, ...
+This over-rides the platform column in flow_def.
 submit
     Depreciated. Use submit_flow on flow object this function returns. TRUE/FALSE
 execute
     Depreciated. Use submit_flow on flow object this function returns. TRUE/FALSE, an paramter to submit_flow()
 qobj
     Depreciated. A object of class `queue <queue.html>`_.
+desc
+    final flow name
 
 
+Value
+""""""""""""""""""
+
+<dl>
+``NULL``
+</dl>
 Description
 """"""""""""""""""
 
@@ -62,6 +81,9 @@ Examples
 
 Aliases:
 to_flow
+to_flow.data.frame
+to_flow.list
+to_flow.vector
 Keywords:
 Author:
 

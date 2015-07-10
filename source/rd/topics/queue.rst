@@ -61,6 +61,8 @@ stdout
     [debug use] Ignore
 ...
     other passed onto object creation. Example: memory, walltime, cpu
+status
+    status of this job, not really used currently.
 
 
 Description

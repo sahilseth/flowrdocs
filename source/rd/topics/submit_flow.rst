@@ -20,22 +20,28 @@ Usage
 
  submit_flow(x, ...)
 
+"submit_flow"(x, ...)
+
+"submit_flow"(x, uuid, execute = FALSE, plot = TRUE, verbose = FALSE, ...)
+
 Arguments
 
+x
+    a ``object`` of class ``flow``.
 ...
-    Any additional parameter are passed on to `submit_job <submit_job.html>`_ function
-fobj
-    ``object`` of class ``flow``.
+    Advanced use. Any additional parameters are passed on to `submit_job <submit_job.html>`_ function.
 uuid
-    ``character`` A character string pointing to the folder (unique) where all the logs and other files are processed. This is optional and defaults to:
-``FLOW_DESCRIPTION_UUID``, and this folder is typically created in ``~/flows/FLOW_NAME``.
-Refer to ``desc`` and ``name`` paramters of `flow <flow.html>`_.
+    ``character`` Advanced use. Incase of rerunning the flow. uuid: typically is the final path of a previous flow.
 execute
     ``logical`` whether or not to submit the jobs
 plot
-    ``logical`` whether to make a flow plot (saves it in the flow working directory)
+    ``logical`` whether to make a pdf flow plot (saves it in the flow working directory).
 verbose
     logical.
+x
+    a list of flow objects
+...
+    passed onto submit_flow
 
 
 Description
@@ -53,6 +59,8 @@ Examples
  
 Aliases:
 submit_flow
+submit_flow.flow
+submit_flow.list
 Keywords:
 Author:
 

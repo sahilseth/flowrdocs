@@ -24,6 +24,12 @@ Arguments
 
 x
     Either path to flow folder or the `flow <flow.html>`_ object which has been 'returned' from `submit_flow <submit_flow.html>`_.
+mat
+    path to flow_mat. should fetch on the fly
+def
+    path to should fetch on the fly
+start_from
+    which job to start from
 execute
     [logical] whether to execute or not
 kill

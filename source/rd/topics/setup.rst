@@ -18,7 +18,12 @@ Usage
 """"""""""""""""""
 ::
 
- setup(bin = "~/bin", pkg = "flowr")
+ setup(bin = "~/bin")
+
+Arguments
+
+bin
+    path to bin folder
 
 
 Description

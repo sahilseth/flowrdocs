@@ -45,6 +45,8 @@ flow_path
     ``character``
 status
     ``character`` Not used at this time
+execute
+    executtion status of flow object.
 
 
 Description
@@ -58,7 +60,7 @@ Examples
 ::
 
  cmds = rep("sleep 5", 10)
- qobj <- queue(platform='torque')
+ .. image flow-2.pngqobj <- queue(platform='torque')
  ## run the 10 commands in parallel
  jobj1 <- job(q_obj=qobj, cmd = cmds, submission_type = "scatter", name = "job1")
  
@@ -76,14 +78,14 @@ Examples
  
  ## plot the flow
  plot_flow(fobj)
- **input x is flow**## **Not run**: 
+ **input x is flow**.. image flow-5.png## **Not run**: 
  # ## dry run, only create the structure without submitting jobs
  # submit_flow(fobj)
  # 
  # ## execute the jobs: ONLY works on computing cluster, would fail otherwise
  # submit_flow(fobj, execute = TRUE)
  # ## **End(Not run)**
- .. image flow-4.png
+ 
 Aliases:
 flow
 Keywords:
