@@ -47,4 +47,10 @@ Send a `message <mailto:sahil.seth@me.com>`__
    -  Dependecy info
       `here <https://wiki.duke.edu/display/SCSC/SGE+Job+Dependencies>`__
 
-http://en.wikipedia.org/wiki/Comparison\_of\_cluster\_software
+`comparing platforms <http://en.wikipedia.org/wiki/Comparison\_of\_cluster\_software>`__
+
+Adding a new platform, is quite streamlined and should take minimal changes in the code:
+https://github.com/sahilseth/flowr/issues/7
+
+
+
