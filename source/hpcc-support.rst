@@ -37,6 +37,7 @@ Send a `message <mailto:sahil.seth@me.com>`__
       7 <https://wiki.med.harvard.edu/Orchestra/IntroductionToLSF>`__
    -  Also Used at
       `Broad <https://www.broadinstitute.org/gatk/guide/article?id=1311>`__
+   - A quick `overview <http://hpcweb.mdanderson.org/file_cabinet/document_library/SharkNewUserOrientation_v1.5.pdf>`__ from MDA RISTS team 
 
 -  SGE `wiki <http://en.wikipedia.org/wiki/Sun_Grid_Engine>`__
 
