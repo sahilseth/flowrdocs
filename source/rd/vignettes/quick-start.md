@@ -1,6 +1,6 @@
 ---
 title: "Quick Start Example"
-date: "2015-07-10"
+date: "2015-07-12"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Quick Start Example}
@@ -47,14 +47,14 @@ The table above is referred to as [flow_mat](details...).
 
 |samplename |jobname |cmd                                  |
 |:----------|:-------|:------------------------------------|
-|sample1    |sleep   |sleep 6                              |
-|sample1    |sleep   |sleep 16                             |
-|sample1    |sleep   |sleep 8                              |
+|sample1    |sleep   |sleep 2 && sleep 5;echo hello        |
+|sample1    |sleep   |sleep 13 && sleep 7;echo hello       |
+|sample1    |sleep   |sleep 23 && sleep 7;echo hello       |
 |sample1    |tmp     |head -c 100000 /dev/urandom > tmp1_1 |
 |sample1    |tmp     |head -c 100000 /dev/urandom > tmp1_2 |
 |sample1    |tmp     |head -c 100000 /dev/urandom > tmp1_3 |
 |sample1    |merge   |cat tmp1_1 tmp1_2 tmp1_3 > merge1    |
-|sample1    |size    |du -sh merge1                        |
+|sample1    |size    |du -sh merge1; echo MY shell: $SHELL |
 
 We use an additional file specifying relationship between the steps, and also other resource requirements [flow_def](details...).
 

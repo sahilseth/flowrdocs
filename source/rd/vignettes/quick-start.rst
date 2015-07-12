@@ -34,11 +34,11 @@ The table above is referred to as `flow\_mat <details...>`__.
 +--------------+-----------+-----------------------------------------+
 | samplename   | jobname   | cmd                                     |
 +==============+===========+=========================================+
-| sample1      | sleep     | sleep 6                                 |
+| sample1      | sleep     | sleep 2 && sleep 5;echo hello           |
 +--------------+-----------+-----------------------------------------+
-| sample1      | sleep     | sleep 16                                |
+| sample1      | sleep     | sleep 13 && sleep 7;echo hello          |
 +--------------+-----------+-----------------------------------------+
-| sample1      | sleep     | sleep 8                                 |
+| sample1      | sleep     | sleep 23 && sleep 7;echo hello          |
 +--------------+-----------+-----------------------------------------+
 | sample1      | tmp       | head -c 100000 /dev/urandom > tmp1\_1   |
 +--------------+-----------+-----------------------------------------+
@@ -48,7 +48,7 @@ The table above is referred to as `flow\_mat <details...>`__.
 +--------------+-----------+-----------------------------------------+
 | sample1      | merge     | cat tmp1\_1 tmp1\_2 tmp1\_3 > merge1    |
 +--------------+-----------+-----------------------------------------+
-| sample1      | size      | du -sh merge1                           |
+| sample1      | size      | du -sh merge1; echo MY shell: $SHELL    |
 +--------------+-----------+-----------------------------------------+
 
 We use an additional file specifying relationship between the steps, and

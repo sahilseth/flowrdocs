@@ -1,6 +1,6 @@
 ---
 title: "Generating Example Data"
-date: "2015-07-10"
+date: "2015-07-12"
 output: rmarkdown::html_document
 vignette: >
   %\VignetteIndexEntry{Generating Example Dat}
@@ -20,7 +20,9 @@ Generate 100 commands each for sleep make div
 
 example1 <- function(samp, n, i){
 	## sleep for a few seconds (100 times)
-	cmd_sleep = sprintf("sleep %s", abs(round(rnorm(n)*10, 0)))
+	cmd_sleep = sprintf("sleep %s && sleep %s;echo 'hello'", 
+		abs(round(rnorm(n)*10, 0)), 
+		abs(round(rnorm(n)*10, 0)))
 	
 	## Create 100 temporary files
 	tmp10 = sprintf("tmp%s_%s", i, 1:n)
@@ -30,7 +32,7 @@ example1 <- function(samp, n, i){
 	cmd_merge <- sprintf("cat %s > merge%s", paste(tmp10, collapse = " "), i)
 
 	## get the size of merged files
-	cmd_size = sprintf("du -sh merge%s", i)
+	cmd_size = sprintf("du -sh merge%s; echo 'MY shell:' $SHELL", i)
 	
 	cmd <- c(cmd_sleep, cmd_tmp, cmd_merge, cmd_size)
 	jobname <- c(rep("sleep", length(cmd_sleep)),
@@ -59,9 +61,9 @@ kable(head(flow_mat))
 
 |samplename |jobname |cmd                                  |
 |:----------|:-------|:------------------------------------|
-|sample1    |sleep   |sleep 15                             |
-|sample1    |sleep   |sleep 1                              |
-|sample1    |sleep   |sleep 12                             |
+|sample1    |sleep   |sleep 2 && sleep 7;echo 'hello'      |
+|sample1    |sleep   |sleep 10 && sleep 8;echo 'hello'     |
+|sample1    |sleep   |sleep 9 && sleep 11;echo 'hello'     |
 |sample1    |tmp     |head -c 100000 /dev/urandom > tmp1_1 |
 |sample1    |tmp     |head -c 100000 /dev/urandom > tmp1_2 |
 |sample1    |tmp     |head -c 100000 /dev/urandom > tmp1_3 |
