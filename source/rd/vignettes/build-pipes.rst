@@ -253,25 +253,24 @@ Burst: one to many relationship
 
 .. figure:: figure/unnamed-chunk-8-1.pdf
    :alt: 
+   
+
+
+
 
 HPCC submission formats
 -----------------------
 
-**LSF**
+Here is an example submission template:
+https://github.com/sahilseth/flowr/blob/master/inst/conf/torque.sh
 
-.. code:: r
+Other submission templates are also in the same folder. 
 
-    queue(type = "lsf")@format
+Add a new platform is streamlined here are a few details:
+https://github.com/sahilseth/flowr/issues/7
 
-::
 
-    #> [1] ""
 
-**torque**
-
-.. code:: r
-
-    queue(type = "torque")@format
 
 ::
 
