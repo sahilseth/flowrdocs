@@ -18,7 +18,7 @@ Usage
 """"""""""""""""""
 ::
 
- to_flow(x, def, ...)
+ to_flow(x, ...)
 
 "to_flow"(x, def, ...)
 
@@ -30,10 +30,10 @@ Arguments
 
 x
     path (char. vector) to flow_mat, a data.frame or a list.
-def
-    A flow definition table. Basically a table with resource requirements and mapping of the jobs in this flow
 ...
     Supplied to specific functions like `to_flow.data.frame <to_flow.data.frame.html>`_
+def
+    A flow definition table. Basically a table with resource requirements and mapping of the jobs in this flow
 grp_col
     column name used to split x (flow_mat). Default: `samplename`
 jobname_col
@@ -54,14 +54,16 @@ execute
 qobj
     Depreciated. A object of class `queue <queue.html>`_.
 desc
-    final flow name
+    Advanced Use. final flow name. don't change.
 
 
 Value
 """"""""""""""""""
 
 <dl>
-``NULL``
+Returns a flow object. If execute=TRUE, fobj is rich with information about where and how
+the flow was executed. It would include details like jobids, path to exact scripts run etc.
+To use kill_flow, to kill all the jobs one would need a rich flow object, with job ids present.
 </dl>
 Description
 """"""""""""""""""
@@ -73,6 +75,10 @@ Details
 The parameter x can be a path to a flow_mat, or a data.frame (as read by read_sheet).
 This is a minimum three column matrix with:
 samplename<TAB>jobname<TAB>cmd
+## Behaviour, in terms of submit and execute
+submit=FALSE execute=FALSE: default, only flow object creation
+submit=TRUE, execute=FALSE: dry-run
+submit=TRUE, execute=TRUE: submit to cluster
 
 
 Examples

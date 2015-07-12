@@ -38,10 +38,6 @@ plot
     ``logical`` whether to make a pdf flow plot (saves it in the flow working directory).
 verbose
     logical.
-x
-    a list of flow objects
-...
-    passed onto submit_flow
 
 
 Description

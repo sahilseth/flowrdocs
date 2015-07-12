@@ -42,8 +42,6 @@ dependency_type
     depedency type. One of none, gather, serial, burst. If previous_job is specified, then this would not be 'none'. [Required]
 ...
     other passed onto object creation. Example: memory, walltime, cpu
-status
-    status [ignore]. this is used internally to update status of the job.
 
 
 Description
