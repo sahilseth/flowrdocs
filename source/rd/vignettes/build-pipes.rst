@@ -258,19 +258,6 @@ Burst: one to many relationship
 
 
 
-HPCC submission formats
------------------------
-
-Here is an example submission template:
-https://github.com/sahilseth/flowr/blob/master/inst/conf/torque.sh
-
-Other submission templates are also in the same folder. 
-
-Add a new platform is streamlined here are a few details:
-https://github.com/sahilseth/flowr/issues/7
-
-
-
 
 ::
 
