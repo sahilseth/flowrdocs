@@ -7,8 +7,15 @@ Building Pipelines
 	rd/vignettes/build-pipes
 	
 	
-Relationship between flow_def and final submission
----------------------------------------------------------------------
+## HPCC submission formats
+Here is an example submission template: https://github.com/sahilseth/flowr/blob/master/inst/conf/torque.sh
+
+Other submission templates are also in the same folder.
+
+Add a new platform is streamlined here are a few details: https://github.com/sahilseth/flowr/issues/7
+
+
+## Relationship between flow_def and final submission
 
 Some columns of flow definition are passed along to the final submisstion script.
 
