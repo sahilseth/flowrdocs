@@ -5,6 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Example1 &mdash; flowr 0.1 documentation</title>
@@ -14,7 +15,6 @@
   
 
   
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 
   
   
@@ -52,7 +52,7 @@
 
 
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+  <script src="_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -64,8 +64,14 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-nav-search">
         
-          <a href="../../index.html" class="fa fa-home"> flowr</a>
+
         
+          <a href="../../index.html" class="icon icon-home"> flowr
+        
+
+        
+        </a>
+
         
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -74,6 +80,8 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
+
+        
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
@@ -82,42 +90,108 @@
           
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="quick-start.html">Get me started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="quick-start.html#create-a-flow-using-example-data">Create a flow using example data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quick-start.html#ingredient-1-commands-to-run-flow-mat">Ingredient 1: Commands to run (flow_mat)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quick-start.html#ingredient-2-flow-definition-flow-def">Ingredient 2: Flow Definition (flow_def)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quick-start.html#stich-it">Stich it</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quick-start.html#plot-it">Plot it</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick-start.html#toy-example">Toy example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick-start.html#stitch">Stitch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick-start.html#plot">Plot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quick-start.html#test-it">Test it</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quick-start.html#submit-it">Submit it !</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quick-start.html#check-the-status">Check the status</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="hpcc-support.html">HPCC Platforms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hpcc-support.html">HPCC Platforms</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../pipelines.html">Available pipelines</a><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../build.html">Building Pipelines</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="build-pipes.html">Styles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="build-pipes.html">Ingredients</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="build-pipes.html#flow-definition">Flow Definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="build-pipes.html#flow-mat-a-table-with-all-the-commands-to-run">flow_mat: A table with all the commands to run</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="build-pipes.html#example">Example:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="build-pipes.html#submission-types">Submission types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="build-pipes.html#dependency-types">Dependency types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="build-pipes.html#relationships">Relationships</a></li>
-<li class="toctree-l2"><a class="reference internal" href="build-pipes.html#hpcc-submission-formats">HPCC submission formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="build-pipes.html#relationships">Relationships</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="build-pipes.html#serial-one-to-one-relationship">Serial: one to one relationship</a></li>
+<li class="toctree-l3"><a class="reference internal" href="build-pipes.html#gather-many-to-one-relationship">Gather: many to one relationship</a></li>
+<li class="toctree-l3"><a class="reference internal" href="build-pipes.html#burst-one-to-many-relationship">Burst: one to many relationship</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="build-pipes.html#cluster-interface">Cluster interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="build-pipes.html#flow-def-columns">flow_def columns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hpcc-interface.html">HPCC submission formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hpcc-interface.html#flow-def-and-final-submission">flow_def and final submission</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../topics.html">Help on available functions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../topics/flow.html">flow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../topics/get_flow_status.html">get_flow_status</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../topics/job.html">job</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../topics/kill_flow.html">kill_flow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../topics/plot_flow.html">plot_flow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../topics/queue.html">queue</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../topics/rerun_flow.html">rerun_flow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../topics/setup.html">setup</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../topics/submit_flow.html">submit_flow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../topics/submit_job.html">submit_job</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../topics/to_flow.html">to_flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/flow.html">flow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../topics/flow.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/flow.html#description">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/flow.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/get_flow_status.html">get_flow_status</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../topics/get_flow_status.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/get_flow_status.html#description">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/get_flow_status.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/job.html">job</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../topics/job.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/job.html#description">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/job.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/kill_flow.html">kill_flow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../topics/kill_flow.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/kill_flow.html#description">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/kill_flow.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/plot_flow.html">plot_flow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../topics/plot_flow.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/plot_flow.html#description">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/plot_flow.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/queue.html">queue</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../topics/queue.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/queue.html#description">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/queue.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/rerun_flow.html">rerun_flow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../topics/rerun_flow.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/rerun_flow.html#description">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/rerun_flow.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/setup.html">setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../topics/setup.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/setup.html#description">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/setup.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/submit_flow.html">submit_flow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../topics/submit_flow.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/submit_flow.html#description">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/submit_flow.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/submit_job.html">submit_job</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../topics/submit_job.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/submit_job.html#description">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/submit_job.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/to_flow.html">to_flow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../topics/to_flow.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/to_flow.html#value">Value</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/to_flow.html#examples">Examples</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -150,7 +224,9 @@
     <li>Example1</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="../../_sources/rd/vignettes/generate_exdata.txt" rel="nofollow"> View page source</a>
+          
+            <a href="../../_sources/rd/vignettes/generate_exdata.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
   </ul>
@@ -167,7 +243,9 @@
 
 example1 &lt;- function(samp, n, i){
     ## sleep for a few seconds (100 times)
-    cmd_sleep = sprintf(&quot;sleep %s&quot;, abs(round(rnorm(n)*10, 0)))
+    cmd_sleep = sprintf(&quot;sleep %s &amp;&amp; sleep %s;echo &#39;hello&#39;&quot;,
+        abs(round(rnorm(n)*10, 0)),
+        abs(round(rnorm(n)*10, 0)))
 
     ## Create 100 temporary files
     tmp10 = sprintf(&quot;tmp%s_%s&quot;, i, 1:n)
@@ -177,7 +255,7 @@ example1 &lt;- function(samp, n, i){
     cmd_merge &lt;- sprintf(&quot;cat %s &gt; merge%s&quot;, paste(tmp10, collapse = &quot; &quot;), i)
 
     ## get the size of merged files
-    cmd_size = sprintf(&quot;du -sh merge%s&quot;, i)
+    cmd_size = sprintf(&quot;du -sh merge%s; echo &#39;MY shell:&#39; $SHELL&quot;, i)
 
     cmd &lt;- c(cmd_sleep, cmd_tmp, cmd_merge, cmd_size)
     jobname &lt;- c(rep(&quot;sleep&quot;, length(cmd_sleep)),
@@ -217,15 +295,15 @@ kable(head(flow_mat))
 <tbody valign="top">
 <tr class="row-even"><td>sample1</td>
 <td>sleep</td>
-<td>sleep 21</td>
+<td>sleep 9 &amp;&amp; sleep 6;echo &#8216;hello&#8217;</td>
 </tr>
 <tr class="row-odd"><td>sample1</td>
 <td>sleep</td>
-<td>sleep 18</td>
+<td>sleep 13 &amp;&amp; sleep 18;echo &#8216;hello&#8217;</td>
 </tr>
 <tr class="row-even"><td>sample1</td>
 <td>sleep</td>
-<td>sleep 4</td>
+<td>sleep 4 &amp;&amp; sleep 3;echo &#8216;hello&#8217;</td>
 </tr>
 <tr class="row-odd"><td>sample1</td>
 <td>tmp</td>
@@ -400,7 +478,7 @@ kable(def)
 <span class="c">#&gt; Using `jobname` as the jobname column</span>
 <span class="c">#&gt; Using `cmd` as the cmd column</span>
 <span class="c">#&gt; Using flowname default: flowname</span>
-<span class="c">#&gt; Using flow_base_path default: ~/flowr</span>
+<span class="c">#&gt; Using flow_run_path default: ~/flowr/runs</span>
 <span class="c">#&gt;</span>
 <span class="c">#&gt;</span>
 <span class="c">#&gt; ##--- Checking flow definition and flow matrix for consistency...</span>
@@ -418,29 +496,15 @@ kable(def)
 <span class="c">#&gt;</span>
 <span class="c">#&gt; Working on... sample1</span>
 <span class="c">#&gt; input x is list</span>
-<span class="c">#&gt; ....input x is flow</span>
-<span class="c">#&gt; Test Successful!</span>
-<span class="c">#&gt; You may check this folder for consistency. Also you may re-run submit with execute=TRUE</span>
-<span class="c">#&gt;  ~/flowr/flowname-sample1-20150706-03-53-53-oLVRQcTH</span>
-<span class="c">#&gt; input x is flow</span>
-<span class="c">#&gt;</span>
+<span class="c">#&gt; ....</span>
 <span class="c">#&gt;</span>
 <span class="c">#&gt; Working on... sample2</span>
 <span class="c">#&gt; input x is list</span>
-<span class="c">#&gt; ....input x is flow</span>
-<span class="c">#&gt; Test Successful!</span>
-<span class="c">#&gt; You may check this folder for consistency. Also you may re-run submit with execute=TRUE</span>
-<span class="c">#&gt;  ~/flowr/flowname-sample2-20150706-03-53-53-Sr9zXFKP</span>
-<span class="c">#&gt; input x is flow</span>
-<span class="c">#&gt;</span>
+<span class="c">#&gt; ....</span>
 <span class="c">#&gt;</span>
 <span class="c">#&gt; Working on... sample3</span>
 <span class="c">#&gt; input x is list</span>
-<span class="c">#&gt; ....input x is flow</span>
-<span class="c">#&gt; Test Successful!</span>
-<span class="c">#&gt; You may check this folder for consistency. Also you may re-run submit with execute=TRUE</span>
-<span class="c">#&gt;  ~/flowr/flowname-sample3-20150706-03-53-53-C2SAVnYm</span>
-<span class="c">#&gt; input x is flow</span>
+<span class="c">#&gt; ....</span>
 </pre></div>
 </div>
 <div class="code r highlight-python"><div class="highlight"><pre><span class="n">plot_flow</span><span class="p">(</span><span class="n">fobj</span><span class="p">[[</span><span class="mi">1</span><span class="p">]])</span>
@@ -450,7 +514,7 @@ kable(def)
 </pre></div>
 </div>
 <div class="figure" id="id2">
-<img alt="plot of chunk make\_flow\_plot" src="../../_images/make_flow_plot-1.pdf" />
+<img alt="plot of chunk make\_flow\_plot" src="../../_images/make_flow_plot-1.png" />
 <p class="caption"><span class="caption-text">plot of chunk make_flow_plot</span></p>
 </div>
 </div>
@@ -512,7 +576,7 @@ def = sample_flow_def(jobnames = unique(flow_mat$jobname))
 <span class="c">#&gt; Using `jobname` as the jobname column</span>
 <span class="c">#&gt; Using `cmd` as the cmd column</span>
 <span class="c">#&gt; Using flowname default: flowname</span>
-<span class="c">#&gt; Using flow_base_path default: ~/flowr</span>
+<span class="c">#&gt; Using flow_run_path default: ~/flowr/runs</span>
 <span class="c">#&gt;</span>
 <span class="c">#&gt;</span>
 <span class="c">#&gt; ##--- Checking flow definition and flow matrix for consistency...</span>
@@ -526,11 +590,7 @@ def = sample_flow_def(jobnames = unique(flow_mat$jobname))
 <span class="c">#&gt;</span>
 <span class="c">#&gt; Working on... samp1</span>
 <span class="c">#&gt; input x is list</span>
-<span class="c">#&gt; ......input x is flow</span>
-<span class="c">#&gt; Test Successful!</span>
-<span class="c">#&gt; You may check this folder for consistency. Also you may re-run submit with execute=TRUE</span>
-<span class="c">#&gt;  ~/flowr/flowname-samp1-20150706-03-53-53-IflSZdrW</span>
-<span class="c">#&gt; input x is flow</span>
+<span class="c">#&gt; ......</span>
 </pre></div>
 </div>
 <div class="code r highlight-python"><div class="highlight"><pre>plot_flow(to_flow(flow_mat, def))
@@ -544,7 +604,7 @@ def = sample_flow_def(jobnames = unique(flow_mat$jobname))
 <span class="c">#&gt; Using `jobname` as the jobname column</span>
 <span class="c">#&gt; Using `cmd` as the cmd column</span>
 <span class="c">#&gt; Using flowname default: flowname</span>
-<span class="c">#&gt; Using flow_base_path default: ~/flowr</span>
+<span class="c">#&gt; Using flow_run_path default: ~/flowr/runs</span>
 <span class="c">#&gt;</span>
 <span class="c">#&gt;</span>
 <span class="c">#&gt; ##--- Checking flow definition and flow matrix for consistency...</span>
@@ -559,15 +619,10 @@ def = sample_flow_def(jobnames = unique(flow_mat$jobname))
 <span class="c">#&gt; Working on... samp1</span>
 <span class="c">#&gt; input x is list</span>
 <span class="c">#&gt; ......input x is flow</span>
-<span class="c">#&gt; Test Successful!</span>
-<span class="c">#&gt; You may check this folder for consistency. Also you may re-run submit with execute=TRUE</span>
-<span class="c">#&gt;  ~/flowr/flowname-samp1-20150706-03-53-53-B5cAw7RF</span>
-<span class="c">#&gt; input x is flow</span>
-<span class="c">#&gt; input x is flow</span>
 </pre></div>
 </div>
 <div class="figure" id="id3">
-<img alt="plot of chunk unnamed-chunk-5" src="../../_images/unnamed-chunk-5-1.pdf" />
+<img alt="plot of chunk unnamed-chunk-5" src="../../_images/unnamed-chunk-5-1.png" />
 <p class="caption"><span class="caption-text">plot of chunk unnamed-chunk-5</span></p>
 </div>
 <div class="code r highlight-python"><div class="highlight"><pre>## change a few things
@@ -583,7 +638,7 @@ plot_flow(to_flow(flow_mat, def))
 <span class="c">#&gt; Using `jobname` as the jobname column</span>
 <span class="c">#&gt; Using `cmd` as the cmd column</span>
 <span class="c">#&gt; Using flowname default: flowname</span>
-<span class="c">#&gt; Using flow_base_path default: ~/flowr</span>
+<span class="c">#&gt; Using flow_run_path default: ~/flowr/runs</span>
 <span class="c">#&gt;</span>
 <span class="c">#&gt;</span>
 <span class="c">#&gt; ##--- Checking flow definition and flow matrix for consistency...</span>
@@ -598,15 +653,10 @@ plot_flow(to_flow(flow_mat, def))
 <span class="c">#&gt; Working on... samp1</span>
 <span class="c">#&gt; input x is list</span>
 <span class="c">#&gt; ......input x is flow</span>
-<span class="c">#&gt; Test Successful!</span>
-<span class="c">#&gt; You may check this folder for consistency. Also you may re-run submit with execute=TRUE</span>
-<span class="c">#&gt;  ~/flowr/flowname-samp1-20150706-03-53-54-rZ08kLN6</span>
-<span class="c">#&gt; input x is flow</span>
-<span class="c">#&gt; input x is flow</span>
 </pre></div>
 </div>
 <div class="figure" id="id4">
-<img alt="plot of chunk unnamed-chunk-5" src="../../_images/unnamed-chunk-5-2.pdf" />
+<img alt="plot of chunk unnamed-chunk-5" src="../../_images/unnamed-chunk-5-2.png" />
 <p class="caption"><span class="caption-text">plot of chunk unnamed-chunk-5</span></p>
 </div>
 <div class="code r highlight-python"><div class="highlight"><pre>## change a few more
@@ -623,7 +673,7 @@ plot_flow(to_flow(flow_mat, def))
 <span class="c">#&gt; Using `jobname` as the jobname column</span>
 <span class="c">#&gt; Using `cmd` as the cmd column</span>
 <span class="c">#&gt; Using flowname default: flowname</span>
-<span class="c">#&gt; Using flow_base_path default: ~/flowr</span>
+<span class="c">#&gt; Using flow_run_path default: ~/flowr/runs</span>
 <span class="c">#&gt;</span>
 <span class="c">#&gt;</span>
 <span class="c">#&gt; ##--- Checking flow definition and flow matrix for consistency...</span>
@@ -638,15 +688,10 @@ plot_flow(to_flow(flow_mat, def))
 <span class="c">#&gt; Working on... samp1</span>
 <span class="c">#&gt; input x is list</span>
 <span class="c">#&gt; ......input x is flow</span>
-<span class="c">#&gt; Test Successful!</span>
-<span class="c">#&gt; You may check this folder for consistency. Also you may re-run submit with execute=TRUE</span>
-<span class="c">#&gt;  ~/flowr/flowname-samp1-20150706-03-53-54-A95n3e6y</span>
-<span class="c">#&gt; input x is flow</span>
-<span class="c">#&gt; input x is flow</span>
 </pre></div>
 </div>
 <div class="figure" id="id5">
-<img alt="plot of chunk unnamed-chunk-5" src="../../_images/unnamed-chunk-5-3.pdf" />
+<img alt="plot of chunk unnamed-chunk-5" src="../../_images/unnamed-chunk-5-3.png" />
 <p class="caption"><span class="caption-text">plot of chunk unnamed-chunk-5</span></p>
 </div>
 <div class="code r highlight-python"><div class="highlight"><pre>## we would like all three to complete
@@ -662,7 +707,7 @@ plot_flow(to_flow(flow_mat, def))
 <span class="c">#&gt; Using `jobname` as the jobname column</span>
 <span class="c">#&gt; Using `cmd` as the cmd column</span>
 <span class="c">#&gt; Using flowname default: flowname</span>
-<span class="c">#&gt; Using flow_base_path default: ~/flowr</span>
+<span class="c">#&gt; Using flow_run_path default: ~/flowr/runs</span>
 <span class="c">#&gt;</span>
 <span class="c">#&gt;</span>
 <span class="c">#&gt; ##--- Checking flow definition and flow matrix for consistency...</span>
@@ -677,15 +722,10 @@ plot_flow(to_flow(flow_mat, def))
 <span class="c">#&gt; Working on... samp1</span>
 <span class="c">#&gt; input x is list</span>
 <span class="c">#&gt; ......input x is flow</span>
-<span class="c">#&gt; Test Successful!</span>
-<span class="c">#&gt; You may check this folder for consistency. Also you may re-run submit with execute=TRUE</span>
-<span class="c">#&gt;  ~/flowr/flowname-samp1-20150706-03-53-54-7RhIHQa3</span>
-<span class="c">#&gt; input x is flow</span>
-<span class="c">#&gt; input x is flow</span>
 </pre></div>
 </div>
 <div class="figure" id="id6">
-<img alt="plot of chunk unnamed-chunk-5" src="../../_images/unnamed-chunk-5-4.pdf" />
+<img alt="plot of chunk unnamed-chunk-5" src="../../_images/unnamed-chunk-5-4.png" />
 <p class="caption"><span class="caption-text">plot of chunk unnamed-chunk-5</span></p>
 </div>
 <div class="section" id="id1">
@@ -733,10 +773,10 @@ write.table(def, file = &quot;inst/extdata/example2_flow_def.txt&quot;,
         &copy; Copyright 2015, Sahil Seth.
     </p>
   </div>
-
   Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-  
+
 </footer>
+
         </div>
       </div>
 

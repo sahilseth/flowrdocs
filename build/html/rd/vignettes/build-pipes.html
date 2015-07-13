@@ -5,16 +5,16 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Styles &mdash; flowr 0.1 documentation</title>
+  <title>Ingredients &mdash; flowr 0.1 documentation</title>
   
 
   
   
 
   
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 
   
   
@@ -32,7 +32,7 @@
   
     <link rel="top" title="flowr 0.1 documentation" href="../../index.html"/>
         <link rel="up" title="Building Pipelines" href="../../build.html"/>
-        <link rel="next" title="Help on available functions" href="../../topics.html"/>
+        <link rel="next" title="HPCC submission formats" href="../../hpcc-interface.html"/>
         <link rel="prev" title="Building Pipelines" href="../../build.html"/>
 
 
@@ -55,7 +55,7 @@
 
 
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+  <script src="_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -67,8 +67,14 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-nav-search">
         
-          <a href="../../index.html" class="fa fa-home"> flowr</a>
+
         
+          <a href="../../index.html" class="icon icon-home"> flowr
+        
+
+        
+        </a>
+
         
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -77,6 +83,8 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
+
+        
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
@@ -85,42 +93,108 @@
           
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="quick-start.html">Get me started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="quick-start.html#create-a-flow-using-example-data">Create a flow using example data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quick-start.html#ingredient-1-commands-to-run-flow-mat">Ingredient 1: Commands to run (flow_mat)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quick-start.html#ingredient-2-flow-definition-flow-def">Ingredient 2: Flow Definition (flow_def)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quick-start.html#stich-it">Stich it</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quick-start.html#plot-it">Plot it</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick-start.html#toy-example">Toy example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick-start.html#stitch">Stitch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick-start.html#plot">Plot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quick-start.html#test-it">Test it</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quick-start.html#submit-it">Submit it !</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quick-start.html#check-the-status">Check the status</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="hpcc-support.html">HPCC Platforms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hpcc-support.html">HPCC Platforms</a></li>
 </ul>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../pipelines.html">Available pipelines</a><ul class="simple">
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../build.html">Building Pipelines</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="">Styles</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Ingredients</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#flow-definition">Flow Definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#flow-mat-a-table-with-all-the-commands-to-run">flow_mat: A table with all the commands to run</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#example">Example:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#submission-types">Submission types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#dependency-types">Dependency types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#relationships">Relationships</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#hpcc-submission-formats">HPCC submission formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#relationships">Relationships</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#serial-one-to-one-relationship">Serial: one to one relationship</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gather-many-to-one-relationship">Gather: many to one relationship</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#burst-one-to-many-relationship">Burst: one to many relationship</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#cluster-interface">Cluster interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#flow-def-columns">flow_def columns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hpcc-interface.html">HPCC submission formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hpcc-interface.html#flow-def-and-final-submission">flow_def and final submission</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../topics.html">Help on available functions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../topics/flow.html">flow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../topics/get_flow_status.html">get_flow_status</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../topics/job.html">job</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../topics/kill_flow.html">kill_flow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../topics/plot_flow.html">plot_flow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../topics/queue.html">queue</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../topics/rerun_flow.html">rerun_flow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../topics/setup.html">setup</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../topics/submit_flow.html">submit_flow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../topics/submit_job.html">submit_job</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../topics/to_flow.html">to_flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/flow.html">flow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../topics/flow.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/flow.html#description">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/flow.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/get_flow_status.html">get_flow_status</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../topics/get_flow_status.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/get_flow_status.html#description">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/get_flow_status.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/job.html">job</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../topics/job.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/job.html#description">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/job.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/kill_flow.html">kill_flow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../topics/kill_flow.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/kill_flow.html#description">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/kill_flow.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/plot_flow.html">plot_flow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../topics/plot_flow.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/plot_flow.html#description">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/plot_flow.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/queue.html">queue</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../topics/queue.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/queue.html#description">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/queue.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/rerun_flow.html">rerun_flow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../topics/rerun_flow.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/rerun_flow.html#description">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/rerun_flow.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/setup.html">setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../topics/setup.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/setup.html#description">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/setup.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/submit_flow.html">submit_flow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../topics/submit_flow.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/submit_flow.html#description">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/submit_flow.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/submit_job.html">submit_job</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../topics/submit_job.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/submit_job.html#description">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/submit_job.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/to_flow.html">to_flow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../topics/to_flow.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/to_flow.html#value">Value</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../topics/to_flow.html#examples">Examples</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -152,10 +226,12 @@
       
           <li><a href="../../build.html">Building Pipelines</a> &raquo;</li>
       
-    <li>Styles</li>
+    <li>Ingredients</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="../../_sources/rd/vignettes/build-pipes.txt" rel="nofollow"> View page source</a>
+          
+            <a href="../../_sources/rd/vignettes/build-pipes.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
   </ul>
@@ -164,50 +240,69 @@
           <div role="main" class="document">
             
   
-  <p>An easy quick way to build a workflow is create two seperate files. The
-first is a table with commands to run the other has details regarding
-how the modules are stitched together.</p>
-<div class="section" id="styles">
-<h1>Styles<a class="headerlink" href="#styles" title="Permalink to this headline">¶</a></h1>
+  <p>An easy and quick way to build a workflow is create two separate files.
+First is a table with commands to run the other has details regarding
+how the modules are stitched together. In the rest of this document we
+would refer to them as flow_mat and flow_def respectively.</p>
+<p>Both these files have a <code class="docutils literal"><span class="pre">jobname</span></code> column which is used as a ID to
+connects them both.</p>
+<div class="section" id="ingredients">
+<h1>Ingredients<a class="headerlink" href="#ingredients" title="Permalink to this headline">¶</a></h1>
 <div class="code r highlight-python"><div class="highlight"><pre><span class="n">exdata</span> <span class="o">=</span> <span class="nb">file</span><span class="o">.</span><span class="n">path</span><span class="p">(</span><span class="n">system</span><span class="o">.</span><span class="n">file</span><span class="p">(</span><span class="n">package</span> <span class="o">=</span> <span class="s">&quot;flowr&quot;</span><span class="p">),</span> <span class="s">&quot;extdata&quot;</span><span class="p">)</span>
 <span class="n">flow_mat</span> <span class="o">=</span> <span class="n">read_sheet</span><span class="p">(</span><span class="nb">file</span><span class="o">.</span><span class="n">path</span><span class="p">(</span><span class="n">exdata</span><span class="p">,</span> <span class="s">&quot;example1_flow_mat.txt&quot;</span><span class="p">))</span>
+<span class="n">flow_def</span> <span class="o">=</span> <span class="n">read_sheet</span><span class="p">(</span><span class="nb">file</span><span class="o">.</span><span class="n">path</span><span class="p">(</span><span class="n">exdata</span><span class="p">,</span> <span class="s">&quot;example1_flow_def.txt&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
-<div class="highlight-python"><div class="highlight"><pre><span class="c">#&gt; Using &#39;samplename&#39;&#39; as id_column</span>
-</pre></div>
-</div>
-<div class="code r highlight-python"><div class="highlight"><pre><span class="n">flow_def</span> <span class="o">=</span> <span class="n">read_sheet</span><span class="p">(</span><span class="nb">file</span><span class="o">.</span><span class="n">path</span><span class="p">(</span><span class="n">exdata</span><span class="p">,</span> <span class="s">&quot;example1_flow_def.txt&quot;</span><span class="p">))</span>
-</pre></div>
-</div>
-<div class="highlight-python"><div class="highlight"><pre><span class="c">#&gt; Using &#39;jobname&#39;&#39; as id_column</span>
-</pre></div>
-</div>
-<div class="section" id="style-1">
-<h2>Style 1<a class="headerlink" href="#style-1" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="ingredient-1-flow-definition-format">
-<h3>Ingredient 1: Flow Definition format<a class="headerlink" href="#ingredient-1-flow-definition-format" title="Permalink to this headline">¶</a></h3>
-<p>Each row of this table translate to a call to
-(<a class="reference external" href="http://docs.flowr.space/build/html/rd/topics/job.html">job</a> or)
-<a class="reference external" href="http://docs.flowr.space/build/html/rd/topics/queue.html">queue</a>
-function.</p>
+<div class="section" id="flow-definition">
+<h2>Flow Definition<a class="headerlink" href="#flow-definition" title="Permalink to this headline">¶</a></h2>
+<p>Each row in this table refers to one step of the pipeline. It describes
+the resources used by this step and also its relationship with other
+steps. Especially the step immediately prior to it.</p>
+<p>This is a tab separated file, with a minimum of 4 columns.</p>
 <ul class="simple">
-<li>jobname: is passed as <code class="docutils literal"><span class="pre">name</span></code> argument to job().</li>
-<li>prev_jobs: passed as <code class="docutils literal"><span class="pre">previous_job</span></code> argument to job().</li>
-<li>dep_type: passed as <code class="docutils literal"><span class="pre">dependency_type</span></code> argument to job(). Possible
-values: gather, serial</li>
-<li>sub_type: passed as <code class="docutils literal"><span class="pre">submission_type</span></code> argument to job().</li>
-<li>queue: name of the queue to be used for this particular job. Since
-each jobs can be submitted to a different queue, this makes your flow
-very flexible</li>
-<li>memory_reserved: Refer to your system admin guide on what values
-should go here. Some examples: 160000, 16g etc representing a 16GB
-reservation of RAM</li>
-<li>walltime: How long would this job run. Again refer to your HPCC
-guide. Example: 24:00, 24:00:00</li>
-<li>cpu_reserved: Amount of CPU reserved.</li>
+<li><code class="docutils literal"><span class="pre">jobname</span></code>: Name of the step</li>
+<li><code class="docutils literal"><span class="pre">sub_type</span></code>: Submission type, how should multiple commands of this
+step be submission. Can take values <code class="docutils literal"><span class="pre">serial</span></code> or <code class="docutils literal"><span class="pre">scatter</span></code>.</li>
+<li><code class="docutils literal"><span class="pre">prev_job</span></code>: Short for previous job. This can be NA/./none if this
+is a independent step, and not previous step is required for this to
+start.</li>
+<li><code class="docutils literal"><span class="pre">dep_type</span></code>: Dependency type, refers to the relationship of this job
+with the that defined in previous job. This can take values <code class="docutils literal"><span class="pre">none</span></code>,
+<code class="docutils literal"><span class="pre">gather</span></code>, <code class="docutils literal"><span class="pre">serial</span></code> or <code class="docutils literal"><span class="pre">burst</span></code>.</li>
 </ul>
-<p>Its best to have this as a tab seperated file (with no row.names).</p>
-<div class="code r highlight-python"><div class="highlight"><pre><span class="n">kable</span><span class="p">(</span><span class="n">head</span><span class="p">(</span><span class="n">flow_def</span><span class="p">))</span>
+<p>Apart from these, there are several other variables which define the
+resource requirements of each step. This gives great amount of
+flexibility to the user in choosing CPU, wall time, memory and queue for
+each step (These are all passed along to the HPCC platform).</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">cpu_reserved</span></code></li>
+<li><code class="docutils literal"><span class="pre">memory_reserved</span></code></li>
+<li><code class="docutils literal"><span class="pre">nodes</span></code></li>
+<li><code class="docutils literal"><span class="pre">walltime</span></code></li>
+<li><code class="docutils literal"><span class="pre">queue</span></code></li>
+</ul>
+<p>Most cluster platforms accept these arguments. These are used to fill up
+the variables defined in curly braces. Example <code class="docutils literal"><span class="pre">{{{CPU}}}</span></code> in this
+file for
+<a class="reference external" href="https://github.com/sahilseth/flowr/blob/master/inst/conf/torque.sh">torque</a></p>
+<p>If these (resource requirements) columns not included in the flow_def,
+their values should be explicitly defined in the submission template.</p>
+<p>Here is an example
+<a class="reference external" href="https://raw.githubusercontent.com/sahilseth/flowr/master/inst/extdata/example1_flow_def2.txt">flow_def</a>
+file.</p>
+<!-- Each row of this table translates to a call to ([job](http://docs.flowr.space/build/html/rd/topics/job.html) or) [queue](http://docs.flowr.space/build/html/rd/topics/queue.html) function. --><!--
+- jobname: is passed as `name` argument to job().
+- prev_jobs: passed as `previous_job` argument  to job().
+- dep_type: passed as `dependency_type` argument  to job(). Possible values: gather, serial
+- sub_type: passed as `submission_type` argument  to job().
+- queue: name of the queue to be used for this particular job.
+    Since each jobs can be submitted to a different queue, this makes your flow very flexible
+- memory_reserved: Refer to your system admin guide on what values should go here.
+    Some examples: 160000, 16g etc representing a 16GB reservation of RAM
+- walltime: How long would this job run. Again refer to your HPCC guide. Example: 24:00, 24:00:00
+- cpu_reserved: Amount of CPU reserved.
+
+Its best to have this as a tab seperated file (with no row.names). --><div class="code r highlight-python"><div class="highlight"><pre><span class="n">kable</span><span class="p">(</span><span class="n">head</span><span class="p">(</span><span class="n">flow_def</span><span class="p">))</span>
 </pre></div>
 </div>
 <table border="1" class="docutils">
@@ -272,21 +367,27 @@ guide. Example: 24:00, 24:00:00</li>
 </tbody>
 </table>
 </div>
-<div class="section" id="ingredient-2-flow-mat-a-table-with-all-the-commands-to-run">
-<h3>Ingredient 2: flow_mat: A table with all the commands to run:<a class="headerlink" href="#ingredient-2-flow-mat-a-table-with-all-the-commands-to-run" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="flow-mat-a-table-with-all-the-commands-to-run">
+<h2>flow_mat: A table with all the commands to run<a class="headerlink" href="#flow-mat-a-table-with-all-the-commands-to-run" title="Permalink to this headline">¶</a></h2>
+<p>This is also a tab separated table, with a minimum of three column as
+defined below:</p>
 <ul class="simple">
-<li>samplename: The idea is to group commands based on this column and
-submit individual flows for each sample<ul>
-<li>This column is not really used in subsequent steps. So one can put
-a dummy value like sample1, for all the rows if no subsetting is
-desired</li>
+<li>samplename: A grouping column. The table is split using this column
+and each subset is treated as a individual flow. This makes it very
+easy to process multiple samples using a single submission command.<ul>
+<li>If all the commands are for a single sample, one can just repeat a
+dummy name like sample1 all throughout.</li>
 </ul>
 </li>
-<li>jobname: This corresponds to the name of the job. This should match
-perfectly with the jobname column in flow_def</li>
-<li>cmd: the command to run</li>
+<li>jobname: This corresponds to the name of the step. This should match
+exactly with the jobname column in flow_def table defined above.</li>
+<li>cmd: A shell command to run. One can get quite creative here. These
+could be multiple shell commands separated by a <code class="docutils literal"><span class="pre">;</span></code> or <code class="docutils literal"><span class="pre">&amp;&amp;</span></code>, more
+on this
+<code class="docutils literal"><span class="pre">here</span> <span class="pre">&lt;http://stackoverflow.com/questions/3573742/difference-between-echo-hello-ls-vs-echo-hello-ls&gt;</span></code>_.</li>
 </ul>
-<p>Its best to have this as a tab seperated file (with no row.names)</p>
+<p>Here is an example
+<a class="reference external" href="https://raw.githubusercontent.com/sahilseth/flowr/master/inst/extdata/example1_flow_mat.txt">flow_mat</a></p>
 <div class="code r highlight-python"><div class="highlight"><pre><span class="n">kable</span><span class="p">(</span><span class="n">subset</span><span class="p">(</span><span class="n">flow_mat</span><span class="p">,</span> <span class="n">samplename</span> <span class="o">==</span> <span class="s">&quot;sample1&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -305,15 +406,15 @@ perfectly with the jobname column in flow_def</li>
 <tbody valign="top">
 <tr class="row-even"><td>sample1</td>
 <td>sleep</td>
-<td>sleep 6</td>
+<td>sleep 2 &amp;&amp; sleep 5;echo hello</td>
 </tr>
 <tr class="row-odd"><td>sample1</td>
 <td>sleep</td>
-<td>sleep 16</td>
+<td>sleep 13 &amp;&amp; sleep 7;echo hello</td>
 </tr>
 <tr class="row-even"><td>sample1</td>
 <td>sleep</td>
-<td>sleep 8</td>
+<td>sleep 23 &amp;&amp; sleep 7;echo hello</td>
 </tr>
 <tr class="row-odd"><td>sample1</td>
 <td>tmp</td>
@@ -333,227 +434,299 @@ perfectly with the jobname column in flow_def</li>
 </tr>
 <tr class="row-odd"><td>sample1</td>
 <td>size</td>
-<td>du -sh merge1</td>
+<td>du -sh merge1; echo MY shell: $SHELL</td>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<div class="section" id="style-2">
-<h2>Style 2<a class="headerlink" href="#style-2" title="Permalink to this headline">¶</a></h2>
-<p>This style may be more suited for people who like to explore more
-advanced usage and like to code in R. Also this one find this much
-faster if jobs and their relationships changes a lot.</p>
-<p>Here instead of seperating cmds and definitions one defines them step by
-step incrementally.</p>
-<ul class="simple">
-<li>Use: queue(), to define the computing cluster being used</li>
-<li>Use: multiple calls job()</li>
-<li>Use: flow() to stich the jobs into a flow.</li>
-</ul>
-<p>Currently we support LSF, Torque and SGE. Let us use LSF for this
-example.</p>
-<div class="code r highlight-python"><div class="highlight"><pre><span class="n">qobj</span> <span class="o">&lt;-</span> <span class="n">queue</span><span class="p">(</span><span class="n">platform</span> <span class="o">=</span> <span class="s">&quot;lsf&quot;</span><span class="p">,</span> <span class="n">queue</span> <span class="o">=</span> <span class="s">&quot;normal&quot;</span><span class="p">,</span> <span class="n">verbose</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Let us stitch a simple flow with three jobs, which are submitted one
-after the other.</p>
-<div class="code r highlight-python"><div class="highlight"><pre><span class="n">job1</span> <span class="o">&lt;-</span> <span class="n">job</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;myjob1&quot;</span><span class="p">,</span> <span class="n">cmds</span> <span class="o">=</span> <span class="s">&quot;sleep1&quot;</span><span class="p">,</span> <span class="n">q_obj</span> <span class="o">=</span> <span class="n">qobj</span><span class="p">)</span>
-<span class="n">job2</span> <span class="o">&lt;-</span> <span class="n">job</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;myjob2&quot;</span><span class="p">,</span> <span class="n">cmds</span> <span class="o">=</span> <span class="s">&quot;sleep2&quot;</span><span class="p">,</span> <span class="n">q_obj</span> <span class="o">=</span> <span class="n">qobj</span><span class="p">,</span> <span class="n">previous_job</span> <span class="o">=</span> <span class="s">&quot;myjob1&quot;</span><span class="p">,</span> <span class="n">dependency_type</span> <span class="o">=</span> <span class="s">&quot;serial&quot;</span><span class="p">)</span>
-<span class="n">job3</span> <span class="o">&lt;-</span> <span class="n">job</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;myjob3&quot;</span><span class="p">,</span> <span class="n">cmds</span> <span class="o">=</span> <span class="s">&quot;sleep3&quot;</span><span class="p">,</span> <span class="n">q_obj</span> <span class="o">=</span> <span class="n">qobj</span><span class="p">,</span> <span class="n">previous_job</span> <span class="o">=</span> <span class="s">&quot;myjob1&quot;</span><span class="p">,</span> <span class="n">dependency_type</span> <span class="o">=</span> <span class="s">&quot;serial&quot;</span><span class="p">)</span>
-<span class="n">fobj</span> <span class="o">&lt;-</span> <span class="n">flow</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;myflow&quot;</span><span class="p">,</span> <span class="n">jobs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">job1</span><span class="p">,</span> <span class="n">job2</span><span class="p">,</span> <span class="n">job3</span><span class="p">),</span> <span class="n">desc</span><span class="o">=</span><span class="s">&quot;description&quot;</span><span class="p">)</span>
-<span class="n">plot_flow</span><span class="p">(</span><span class="n">fobj</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-python"><div class="highlight"><pre><span class="c">#&gt; input x is flow</span>
-</pre></div>
-</div>
-<div class="figure">
-<img alt="" src="../../_images/plot_simpleflow-1.pdf" />
-</div>
-<p>The above translates to a flow definition which looks like this:</p>
-<div class="code r highlight-python"><div class="highlight"><pre>dat &lt;- flowr:::create_jobs_mat(fobj)
+<!---
+### Style 2
+
+This style may be more suited for people who like to explore more advanced usage and like to code in R. Also this one find this much faster if jobs and their relationships changes a lot.
+
+Here instead of seperating cmds and definitions one defines them step by step incrementally.
+
+- Use: queue(), to define the computing cluster being used
+- Use: multiple calls job()
+- Use: flow() to stich the jobs into a flow.
+
+
+Currently we support LSF, Torque and SGE. Let us use LSF for this example.
+
+
+```r
+qobj <- queue(platform = "lsf", queue = "normal", verbose = FALSE)
+```
+
+Let us stitch a simple flow with three jobs, which are submitted one after the other.
+
+
+```r
+job1 <- job(name = "myjob1", cmds = "sleep1", q_obj = qobj)
+job2 <- job(name = "myjob2", cmds = "sleep2", q_obj = qobj, previous_job = "myjob1", dependency_type = "serial")
+job3 <- job(name = "myjob3", cmds = "sleep3", q_obj = qobj, previous_job = "myjob1", dependency_type = "serial")
+fobj <- flow(name = "myflow", jobs = list(job1, job2, job3), desc="description")
+plot_flow(fobj)
+```
+
+```
+#> input x is flow
+```
+
+![](figure/plot_simpleflow-1.png)
+
+The above translates to a flow definition which looks like this:
+
+
+```r
+dat <- flowr:::create_jobs_mat(fobj)
 knitr:::kable(dat)
-</pre></div>
+```
+
+
+
+|       |jobname |prev_jobs |dep_type |sub_type |cpu_reserved |nodes | jobid| prev_jobid|
+|:------|:-------|:---------|:--------|:--------|:------------|:-----|-----:|----------:|
+|myjob1 |myjob1  |          |none     |scatter  |1            |1     |     1|         NA|
+|myjob2 |myjob2  |myjob1    |serial   |scatter  |1            |1     |     2|          1|
+|myjob3 |myjob3  |myjob1    |serial   |scatter  |1            |1     |     3|          1|
+---></div>
 </div>
-<table border="1" class="docutils">
-<colgroup>
-<col width="9%" />
-<col width="10%" />
-<col width="13%" />
-<col width="12%" />
-<col width="12%" />
-<col width="15%" />
-<col width="8%" />
-<col width="8%" />
-<col width="14%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">&nbsp;</th>
-<th class="head">jobname</th>
-<th class="head">prev_jobs</th>
-<th class="head">dep_type</th>
-<th class="head">sub_type</th>
-<th class="head">cpu_reserved</th>
-<th class="head">nodes</th>
-<th class="head">jobid</th>
-<th class="head">prev_jobid</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>myjob1</td>
-<td>myjob1</td>
-<td>&nbsp;</td>
-<td>none</td>
-<td>scatter</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>NA</td>
-</tr>
-<tr class="row-odd"><td>myjob2</td>
-<td>myjob2</td>
-<td>myjob1</td>
-<td>serial</td>
-<td>scatter</td>
-<td>1</td>
-<td>1</td>
-<td>2</td>
-<td>1</td>
-</tr>
-<tr class="row-even"><td>myjob3</td>
-<td>myjob3</td>
-<td>myjob1</td>
-<td>serial</td>
-<td>scatter</td>
-<td>1</td>
-<td>1</td>
-<td>3</td>
-<td>1</td>
-</tr>
-</tbody>
-</table>
-</div>
+<div class="section" id="example">
+<h1>Example:<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h1>
+<p>A &#8212;-&gt; B &#8212;&#8211;&gt; C &#8212;&#8211;&gt; D 1-10 1-10 1 1-3</p>
+<p>Consider an example with three steps A, B and C. A has 10 commands from
+A1 to A10, similarly B has 10 commands B1 to B10 and C has a single
+command, C1.</p>
+<p>Consider another step D (with D1-D3), which comes after C.</p>
 </div>
 <div class="section" id="submission-types">
 <h1>Submission types<a class="headerlink" href="#submission-types" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><em>This refers to the sub_type column in flow definition.</em></div></blockquote>
 <ul class="simple">
-<li>scatter: submit all commands as parallel independent jobs</li>
-<li>serial: run these commands sequentuially one after the other</li>
+<li><code class="docutils literal"><span class="pre">scatter</span></code>: submit all commands as parallel, independent jobs.<ul>
+<li><em>Submit A1 through A10 as independent jobs</em></li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">serial</span></code>: run these commands sequentially one after the other.<ul>
+<li><em>Wrap A1 through A10, into a single job.</em></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="section" id="dependency-types">
 <h1>Dependency types<a class="headerlink" href="#dependency-types" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><em>This refers to the dep_type column in flow definition.</em></div></blockquote>
 <ul class="simple">
-<li>none: independent job</li>
-<li>serial: <em>one to one</em> relationship with previous job</li>
-<li>gather: <em>many to one</em> wait for <strong>all</strong> commands in previous job to
-finish then start current</li>
-<li>burst: <em>one to many</em> wait for one jobs and start several when it
-completes</li>
+<li><code class="docutils literal"><span class="pre">none</span></code>: independent job.<ul>
+<li><em>Initial step A has no dependency</em></li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">serial</span></code>: <em>one to one</em> relationship with previous job.<ul>
+<li><em>B1 can start as soon as A1 completes.</em></li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">gather</span></code>: <em>many to one</em>, wait for <strong>all</strong> commands in previous job
+to finish then start the current step.<ul>
+<li><em>All jobs of B (1-10), need to complete before C is started</em></li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">burst</span></code>: <em>one to many</em> wait for the previous step which has one job
+and start processing all in the current step.<ul>
+<li><em>D1 to D3 are started as soon as C finishes.</em></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="section" id="relationships">
 <h1>Relationships<a class="headerlink" href="#relationships" title="Permalink to this headline">¶</a></h1>
+<p>Using the above submission and dependency types one can create several
+types of relationships between former and later jobs. Here are a few
+examples of relationships one may typically use.</p>
 <div class="section" id="serial-one-to-one-relationship">
 <h2>Serial: one to one relationship<a class="headerlink" href="#serial-one-to-one-relationship" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li>All commads in &#8216;job1&#8217; are submitted, and those is &#8216;jobs2&#8217; <em>wait</em> for
-those in &#8216;job1&#8217; to complete.</li>
-<li>Commands in &#8216;job2&#8217; are serially dependent on &#8216;job1&#8217;</li>
-<li>Both jobs are submitted as parallel (<em>scatter</em>), i.e. there is not
-<strong>intra</strong> dependency.</li>
-<li>so previous job submission: <code class="docutils literal"><span class="pre">scatter</span></code>, and current job&#8217;s dependency
-type <code class="docutils literal"><span class="pre">serial</span></code></li>
-</ul>
-<div class="code r highlight-python"><div class="highlight"><pre><span class="n">cmds</span> <span class="o">=</span> <span class="n">rep</span><span class="p">(</span><span class="s">&quot;sleep 5&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-<span class="n">jobj1</span> <span class="o">&lt;-</span> <span class="n">job</span><span class="p">(</span><span class="n">q_obj</span><span class="o">=</span><span class="n">qobj</span><span class="p">,</span> <span class="n">cmd</span> <span class="o">=</span> <span class="n">cmds</span><span class="p">,</span> <span class="n">submission_type</span> <span class="o">=</span> <span class="s">&quot;scatter&quot;</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;job1&quot;</span><span class="p">)</span>
-<span class="n">jobj2</span> <span class="o">&lt;-</span> <span class="n">job</span><span class="p">(</span><span class="n">q_obj</span><span class="o">=</span><span class="n">qobj</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;job2&quot;</span><span class="p">,</span> <span class="n">cmd</span> <span class="o">=</span> <span class="n">cmds</span><span class="p">,</span> <span class="n">submission_type</span> <span class="o">=</span> <span class="s">&quot;scatter&quot;</span><span class="p">,</span>
-             <span class="n">dependency_type</span> <span class="o">=</span> <span class="s">&quot;serial&quot;</span><span class="p">,</span> <span class="n">previous_job</span> <span class="o">=</span> <span class="s">&quot;job1&quot;</span><span class="p">)</span>
-<span class="n">fobj</span> <span class="o">&lt;-</span> <span class="n">flow</span><span class="p">(</span><span class="n">jobs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">jobj1</span><span class="p">,</span> <span class="n">jobj2</span><span class="p">))</span>
-<span class="n">plot_flow</span><span class="p">(</span><span class="n">fobj</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-python"><div class="highlight"><pre><span class="c">#&gt; input x is flow</span>
-</pre></div>
-</div>
-<div class="figure">
-<img alt="" src="../../_images/unnamed-chunk-6-1.pdf" />
-</div>
+<p>A is submitted as scatter, A1 through A10. Similarly B1 through B10 can
+also be processed independently of each other. Further B1, require A1 to
+complete; B2 requires A2 and so on.</p>
+<p>To set this up, A and B would have <code class="docutils literal"><span class="pre">sub_type</span></code> <code class="docutils literal"><span class="pre">scatter</span></code> and B would
+have <code class="docutils literal"><span class="pre">dep_type</span></code> as <code class="docutils literal"><span class="pre">serial</span></code>. Further, since A is an initial step its
+<code class="docutils literal"><span class="pre">dep_type</span></code> and <code class="docutils literal"><span class="pre">prev_job</span></code> would defined as <code class="docutils literal"><span class="pre">none</span></code>.</p>
 </div>
 <div class="section" id="gather-many-to-one-relationship">
 <h2>Gather: many to one relationship<a class="headerlink" href="#gather-many-to-one-relationship" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li>makes sense when previous job had many commands running in parallel
-and current job would wait for all</li>
-<li>so previous job submission: <code class="docutils literal"><span class="pre">scatter</span></code>, and current job&#8217;s dependency
-type <code class="docutils literal"><span class="pre">gather</span></code></li>
-</ul>
-<div class="code r highlight-python"><div class="highlight"><pre><span class="n">jobj1</span> <span class="o">&lt;-</span> <span class="n">job</span><span class="p">(</span><span class="n">q_obj</span><span class="o">=</span><span class="n">qobj</span><span class="p">,</span> <span class="n">cmd</span> <span class="o">=</span> <span class="n">cmds</span><span class="p">,</span> <span class="n">submission_type</span> <span class="o">=</span> <span class="s">&quot;scatter&quot;</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;job1&quot;</span><span class="p">)</span>
-<span class="n">jobj2</span> <span class="o">&lt;-</span> <span class="n">job</span><span class="p">(</span><span class="n">q_obj</span><span class="o">=</span><span class="n">qobj</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;job2&quot;</span><span class="p">,</span> <span class="n">cmd</span> <span class="o">=</span> <span class="n">cmds</span><span class="p">,</span> <span class="n">submission_type</span> <span class="o">=</span> <span class="s">&quot;scatter&quot;</span><span class="p">,</span>
-             <span class="n">dependency_type</span> <span class="o">=</span> <span class="s">&quot;gather&quot;</span><span class="p">,</span> <span class="n">previous_job</span> <span class="o">=</span> <span class="s">&quot;job1&quot;</span><span class="p">)</span>
-<span class="n">fobj</span> <span class="o">&lt;-</span> <span class="n">flow</span><span class="p">(</span><span class="n">jobs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">jobj1</span><span class="p">,</span> <span class="n">jobj2</span><span class="p">))</span>
-<span class="n">plot_flow</span><span class="p">(</span><span class="n">fobj</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-python"><div class="highlight"><pre><span class="c">#&gt; input x is flow</span>
-</pre></div>
-</div>
-<div class="figure">
-<img alt="" src="../../_images/unnamed-chunk-7-1.pdf" />
-</div>
-</div>
+<p>Since C is a single command which requires all steps of B to complete,
+intuitively it would <code class="docutils literal"><span class="pre">gather</span></code> pieces of data generated by B. In this
+case <code class="docutils literal"><span class="pre">dep_type</span></code> would be <code class="docutils literal"><span class="pre">gather</span></code> and <code class="docutils literal"><span class="pre">sub_type</span></code> type would be
+<code class="docutils literal"><span class="pre">serial</span></code> since its a single command.</p>
+<!---
+- makes sense when previous job had many commands running in parallel and current job would wait for all
+- so previous job submission: `scatter`, and current job's dependency type `gather`
+
+---></div>
 <div class="section" id="burst-one-to-many-relationship">
 <h2>Burst: one to many relationship<a class="headerlink" href="#burst-one-to-many-relationship" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li>makes sense when previous job had one command current job would split
-and submit several jobs in parallel</li>
-<li>so previous job submission_type: <code class="docutils literal"><span class="pre">serial</span></code>, and current job&#8217;s
-dependency type <code class="docutils literal"><span class="pre">burst</span></code>, with a submission type: <code class="docutils literal"><span class="pre">scatter</span></code></li>
-</ul>
-<div class="code r highlight-python"><div class="highlight"><pre><span class="n">jobj1</span> <span class="o">&lt;-</span> <span class="n">job</span><span class="p">(</span><span class="n">q_obj</span><span class="o">=</span><span class="n">qobj</span><span class="p">,</span> <span class="n">cmd</span> <span class="o">=</span> <span class="n">cmds</span><span class="p">,</span> <span class="n">submission_type</span> <span class="o">=</span> <span class="s">&quot;serial&quot;</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;job1&quot;</span><span class="p">)</span>
-<span class="n">jobj2</span> <span class="o">&lt;-</span> <span class="n">job</span><span class="p">(</span><span class="n">q_obj</span><span class="o">=</span><span class="n">qobj</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;job2&quot;</span><span class="p">,</span> <span class="n">cmd</span> <span class="o">=</span> <span class="n">cmds</span><span class="p">,</span> <span class="n">submission_type</span> <span class="o">=</span> <span class="s">&quot;scatter&quot;</span><span class="p">,</span>
-             <span class="n">dependency_type</span> <span class="o">=</span> <span class="s">&quot;burst&quot;</span><span class="p">,</span> <span class="n">previous_job</span> <span class="o">=</span> <span class="s">&quot;job1&quot;</span><span class="p">)</span>
-<span class="n">fobj</span> <span class="o">&lt;-</span> <span class="n">flow</span><span class="p">(</span><span class="n">jobs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">jobj1</span><span class="p">,</span> <span class="n">jobj2</span><span class="p">))</span>
-<span class="n">plot_flow</span><span class="p">(</span><span class="n">fobj</span><span class="p">)</span>
+<p>Further, D is a set of three commands (D1-D3), which need to wait for a
+single process (C1) to complete. They would be submitted as <code class="docutils literal"><span class="pre">scatter</span></code>
+after waiting on C in a <code class="docutils literal"><span class="pre">burst</span></code> type dependency.</p>
+<!---
+- makes sense when previous job had one command current job would split and submit several jobs in parallel
+- so previous job submission_type: `serial`, and current job's dependency type `burst`, with a submission type: `scatter`
+
+---><p>In essence and example flow_def would look like as follows (with
+additional resource requirements not shown for brevity).</p>
+<div class="code r highlight-python"><div class="highlight"><pre>ex2def = read_sheet(file.path(exdata, &quot;example2_flow_def.txt&quot;))
+ex2mat = read_sheet(file.path(exdata, &quot;example2_flow_mat.txt&quot;))
+fobj = suppressMessages(to_flow(x = ex2mat, def = ex2def))
+kable(ex2def[, 1:4])
 </pre></div>
 </div>
-<div class="highlight-python"><div class="highlight"><pre><span class="c">#&gt; input x is flow</span>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="25%" />
+<col width="27%" />
+<col width="25%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">jobname</th>
+<th class="head">sub_type</th>
+<th class="head">prev_jobs</th>
+<th class="head">dep_type</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>A</td>
+<td>scatter</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr class="row-odd"><td>B</td>
+<td>scatter</td>
+<td>A</td>
+<td>serial</td>
+</tr>
+<tr class="row-even"><td>C</td>
+<td>serial</td>
+<td>B</td>
+<td>gather</td>
+</tr>
+<tr class="row-odd"><td>D</td>
+<td>scatter</td>
+<td>C</td>
+<td>burst</td>
+</tr>
+</tbody>
+</table>
+<div class="code r highlight-python"><div class="highlight"><pre><span class="n">plot_flow</span><span class="p">(</span><span class="n">fobj</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="figure">
-<img alt="" src="../../_images/unnamed-chunk-8-1.pdf" />
+<img alt="" src="../../_images/ex2def-1.png" />
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">There is a darker more prominent shadow to indicate scatter</p>
+</div>
+<p>steps.</p>
+<p>Here is the <a class="reference external" href="https://raw.githubusercontent.com/sahilseth/flowr/master/inst/extdata/example1_flow_mat.txt">full flow
+definition</a>
+used in this example.</p>
 </div>
 </div>
+<div class="section" id="cluster-interface">
+<h1>Cluster interface<a class="headerlink" href="#cluster-interface" title="Permalink to this headline">¶</a></h1>
+<p>Here is an example submission template:
+<a class="reference external" href="https://github.com/sahilseth/flowr/blob/master/inst/conf/torque.sh">github.com/sahilseth/flowr/blob/master/inst/conf/torque.sh</a></p>
+<p>Other submission templates are also in the same folder.</p>
+<p>Add a new platform is streamlined here are a few details:
+<a class="reference external" href="https://github.com/sahilseth/flowr/issues/7">github.com/sahilseth/flowr/issues/7</a></p>
 </div>
-<div class="section" id="hpcc-submission-formats">
-<h1>HPCC submission formats<a class="headerlink" href="#hpcc-submission-formats" title="Permalink to this headline">¶</a></h1>
-<p><strong>LSF</strong></p>
-<div class="code r highlight-python"><div class="highlight"><pre>queue(type = &quot;lsf&quot;)@format
+<div class="section" id="flow-def-columns">
+<h1>flow_def columns<a class="headerlink" href="#flow-def-columns" title="Permalink to this headline">¶</a></h1>
+<p>Some columns of flow definition are passed along to the final
+submisstion script.</p>
+<p>Variables in the template are defined in curly braces, example
+<code class="docutils literal"><span class="pre">{{{CPU}}}</span></code>, these variables are gathered from the flow definition
+file.</p>
+<div class="code r highlight-python"><div class="highlight"><pre><span class="n">mat</span> <span class="o">=</span> <span class="n">read_sheet</span><span class="p">(</span><span class="nb">file</span><span class="o">.</span><span class="n">path</span><span class="p">(</span><span class="n">exdata</span><span class="p">,</span> <span class="s">&quot;flow_def_columns.txt&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
-<div class="highlight-python"><div class="highlight"><pre><span class="c">#&gt; Setting default time to: 72:00. If this is more than queue max (/improper format), job will fail. You may change this in job()</span>
-<span class="c">#&gt;</span>
-<span class="c">#&gt; Setting default memory to: 10000. If this is more than queue max (/improper format), job will fail.</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#&gt; Reading file, using &#39;flow_def_column&#39; as id_column to remove empty rows.</span>
 </pre></div>
 </div>
-<div class="highlight-python"><div class="highlight"><pre><span class="c">#&gt; [1] &quot;${SUBMIT_EXE} -q ${QUEUE} -J ${JOBNAME} -o ${STDOUT} -e ${STDERR} -n ${CPU} -cwd ${CWD} -M ${MEMORY} -R rusage[mem=${MEMORY}] -R span[ptile=${CPU}] -W ${WALLTIME} -r ${EXTRA_OPTS} ${DEPENDENCY} &#39;&lt;&#39; ${CMD} &quot;</span>
+<div class="code r highlight-python"><div class="highlight"><pre><span class="n">kable</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><strong>torque</strong></p>
-<div class="code r highlight-python"><div class="highlight"><pre>queue(type = &quot;torque&quot;)@format
+<table border="1" class="docutils">
+<colgroup>
+<col width="46%" />
+<col width="54%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">flow_def_column</th>
+<th class="head">hpc_script_variable</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>nodes</td>
+<td>NODES</td>
+</tr>
+<tr class="row-odd"><td>cpu_reserved</td>
+<td>CPU</td>
+</tr>
+<tr class="row-even"><td>memory_reserved</td>
+<td>MEMORY</td>
+</tr>
+<tr class="row-odd"><td>email</td>
+<td>EMAIL</td>
+</tr>
+<tr class="row-even"><td>walltime</td>
+<td>WALLTIME</td>
+</tr>
+<tr class="row-odd"><td>extra_opts</td>
+<td>EXTRA_OPTS</td>
+</tr>
+<tr class="row-even"><td>*</td>
+<td>JOBNAME</td>
+</tr>
+<tr class="row-odd"><td>*</td>
+<td>STDOUT</td>
+</tr>
+<tr class="row-even"><td>*</td>
+<td>CWD</td>
+</tr>
+<tr class="row-odd"><td>*</td>
+<td>DEPENDENCY</td>
+</tr>
+<tr class="row-even"><td>*</td>
+<td>TRIGGER</td>
+</tr>
+<tr class="row-odd"><td>**</td>
+<td>CMD</td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line">=============== =================== flow_def_column
+hpc_script_variable =============== =================== nodes NODES</div>
+<div class="line">cpu_reserved CPU</div>
+<div class="line">memory_reserved MEMORY</div>
+<div class="line">email EMAIL</div>
+<div class="line">walltime WALLTIME</div>
+<div class="line">extra_opts EXTRA_OPTS</div>
+<div class="line">* JOBNAME</div>
+<div class="line">* STDOUT</div>
+<div class="line">* CWD</div>
+<div class="line">* DEPENDENCY</div>
+<div class="line">* TRIGGER</div>
+<div class="line">** CMD</div>
+<div class="line">=============== ===================</div>
+</div>
+<p>*: These are generated on the fly **: This is gathered from flow_mat</p>
+<div class="highlight-python"><div class="highlight"><pre>My HPCC is not supported, how to make it work? send a message to: sahil.seth [at] me.com
 </pre></div>
 </div>
-<div class="highlight-python"><div class="highlight"><pre><span class="c">#&gt; Setting default time to: 72:00. If this is more than queue max (/improper format), job will fail. You may change this in job()</span>
-<span class="c">#&gt;</span>
-<span class="c">#&gt; Setting default memory to: 10000. If this is more than queue max (/improper format), job will fail.</span>
-</pre></div>
-</div>
-<div class="highlight-python"><div class="highlight"><pre><span class="c">#&gt; [1] &quot;${SUBMIT_EXE} -q ${QUEUE} -J ${JOBNAME} -o ${STDOUT} -e ${STDERR} -n ${CPU} -cwd ${CWD} -M ${MEMORY} -R rusage[mem=${MEMORY}] -R span[ptile=${CPU}] -W ${WALLTIME} -r ${EXTRA_OPTS} ${DEPENDENCY} &#39;&lt;&#39; ${CMD} &quot;</span>
-</pre></div>
-</div>
-<p>My HPCC is not supported, how to make it work? send a message to:
-sahil.seth [at] me.com</p>
 </div>
 
 
@@ -583,10 +756,10 @@ sahil.seth [at] me.com</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../topics.html" class="btn btn-neutral float-right" title="Help on available functions">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../../hpcc-interface.html" class="btn btn-neutral float-right" title="HPCC submission formats" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../../build.html" class="btn btn-neutral" title="Building Pipelines"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../../build.html" class="btn btn-neutral" title="Building Pipelines" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -598,10 +771,10 @@ sahil.seth [at] me.com</p>
         &copy; Copyright 2015, Sahil Seth.
     </p>
   </div>
-
   Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-  
+
 </footer>
+
         </div>
       </div>
 
@@ -660,7 +833,7 @@ sahil.seth [at] me.com</p>
         <li>
           Go to
         <a href="https://github.com/ctb/labibi/blob/master/rd/vignettes/build-pipes.rst">
-          Styles
+          Ingredients
         </a> on GitHub.
       </li>
 

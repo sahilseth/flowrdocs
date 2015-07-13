@@ -61,9 +61,9 @@ kable(head(flow_mat))
 
 |samplename |jobname |cmd                                  |
 |:----------|:-------|:------------------------------------|
-|sample1    |sleep   |sleep 24 && sleep 2;echo 'hello'     |
-|sample1    |sleep   |sleep 2 && sleep 9;echo 'hello'      |
-|sample1    |sleep   |sleep 9 && sleep 9;echo 'hello'      |
+|sample1    |sleep   |sleep 2 && sleep 0;echo 'hello'      |
+|sample1    |sleep   |sleep 4 && sleep 16;echo 'hello'     |
+|sample1    |sleep   |sleep 17 && sleep 10;echo 'hello'    |
 |sample1    |tmp     |head -c 100000 /dev/urandom > tmp1_1 |
 |sample1    |tmp     |head -c 100000 /dev/urandom > tmp1_2 |
 |sample1    |tmp     |head -c 100000 /dev/urandom > tmp1_3 |
@@ -165,7 +165,7 @@ plot_flow(fobj[[1]])
 #> input x is flow
 ```
 
-![plot of chunk make_flow_plot](figure/make_flow_plot-1.png) 
+![plot of chunk make_flow_plot](figure/make_flow_plot-1.pdf) 
 
 ### Write both into example data
 
@@ -276,7 +276,7 @@ plot_flow(to_flow(flow_mat, def))
 #> ......input x is flow
 ```
 
-![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-1.png) 
+![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-1.pdf) 
 
 ```r
 ## change a few things
@@ -310,7 +310,7 @@ plot_flow(to_flow(flow_mat, def))
 #> ......input x is flow
 ```
 
-![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-2.png) 
+![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-2.pdf) 
 
 ```r
 ## change a few more
@@ -345,7 +345,7 @@ plot_flow(to_flow(flow_mat, def))
 #> ......input x is flow
 ```
 
-![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-3.png) 
+![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-3.pdf) 
 
 ```r
 ## we would like all three to complete
@@ -379,7 +379,7 @@ plot_flow(to_flow(flow_mat, def))
 #> ......input x is flow
 ```
 
-![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-4.png) 
+![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-4.pdf) 
 
 ### Write both into example data
 

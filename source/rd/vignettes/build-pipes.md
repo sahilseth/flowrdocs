@@ -152,7 +152,7 @@ plot_flow(fobj)
 #> input x is flow
 ```
 
-![](figure/plot_simpleflow-1.png) 
+![](figure/plot_simpleflow-1.pdf) 
 
 The above translates to a flow definition which looks like this:
 
@@ -173,7 +173,7 @@ knitr:::kable(dat)
 
 ## Example:
 
-A (1-10) ----> B (1-10) -----> C (1) -----> D (1-3)
+A   ----> B  -----> C -----> D
 
 Consider an example with three steps A, B and C. A has 10 commands from A1 to A10, similarly B has 10 commands B1 to B10 and C has a single command, C1.
 
@@ -259,10 +259,11 @@ kable(ex2def[, 1:4])
 plot_flow(fobj)
 ```
 
-![](figure/ex2def-1.png) 
+![](figure/ex2def-1.pdf) 
 
 .. note:: 
-	There is a darker more prominent shadow to indicate scatter steps.
+	There is a darker more prominent shadow to indicate 
+	scatter steps.
 
 Here is the [full flow definition](https://raw.githubusercontent.com/sahilseth/flowr/master/inst/extdata/example1_flow_mat.txt) used in this example.
 
@@ -288,20 +289,6 @@ Variables in the template are defined in curly braces, example `{{{CPU}}}`, thes
 
 
 
-```r
-mat = read_sheet(file.path(exdata, "flow_def_columns.txt"))
-```
-
-```
-#> Reading file, using 'flow_def_column' as id_column to remove empty rows.
-```
-
-```r
-kable(mat)
-```
-
-
-
 |flow_def_column |hpc_script_variable |
 |:---------------|:-------------------|
 |nodes           |NODES               |
@@ -317,29 +304,17 @@ kable(mat)
 |*               |TRIGGER             |
 |**              |CMD                 |
 
-===============  ===================
-flow_def_column  hpc_script_variable
-===============  ===================
-nodes            NODES              
-cpu_reserved     CPU                
-memory_reserved  MEMORY             
-email            EMAIL              
-walltime         WALLTIME           
-extra_opts       EXTRA_OPTS         
-\*                JOBNAME            
-\*                STDOUT             
-\*                CWD                
-\*                DEPENDENCY         
-\*                TRIGGER            
-\**               CMD                
-===============  ===================
+
 
 \*: These are generated on the fly
 \**: This is gathered from flow_mat
 
 
 
-	My HPCC is not supported, how to make it work? send a message to: sahil.seth [at] me.com
+.. note:: 
+ 	My HPCC is not supported, how to make it work? Take a look at: 
+ 	[adding platforms](https://github.com/sahilseth/flowr/issues/7) 
+ 	and send a message to: sahil.seth [at] me.com
 
 
 

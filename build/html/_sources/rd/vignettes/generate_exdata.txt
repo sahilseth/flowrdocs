@@ -10,7 +10,9 @@ Generate 100 commands each for sleep make div
 
     example1 <- function(samp, n, i){
         ## sleep for a few seconds (100 times)
-        cmd_sleep = sprintf("sleep %s", abs(round(rnorm(n)*10, 0)))
+        cmd_sleep = sprintf("sleep %s && sleep %s;echo 'hello'", 
+            abs(round(rnorm(n)*10, 0)), 
+            abs(round(rnorm(n)*10, 0)))
         
         ## Create 100 temporary files
         tmp10 = sprintf("tmp%s_%s", i, 1:n)
@@ -20,7 +22,7 @@ Generate 100 commands each for sleep make div
         cmd_merge <- sprintf("cat %s > merge%s", paste(tmp10, collapse = " "), i)
 
         ## get the size of merged files
-        cmd_size = sprintf("du -sh merge%s", i)
+        cmd_size = sprintf("du -sh merge%s; echo 'MY shell:' $SHELL", i)
         
         cmd <- c(cmd_sleep, cmd_tmp, cmd_merge, cmd_size)
         jobname <- c(rep("sleep", length(cmd_sleep)),
@@ -47,11 +49,11 @@ Generate 100 commands each for sleep make div
 +--------------+-----------+-----------------------------------------+
 | samplename   | jobname   | cmd                                     |
 +==============+===========+=========================================+
-| sample1      | sleep     | sleep 21                                |
+| sample1      | sleep     | sleep 9 && sleep 6;echo 'hello'         |
 +--------------+-----------+-----------------------------------------+
-| sample1      | sleep     | sleep 18                                |
+| sample1      | sleep     | sleep 13 && sleep 18;echo 'hello'       |
 +--------------+-----------+-----------------------------------------+
-| sample1      | sleep     | sleep 4                                 |
+| sample1      | sleep     | sleep 4 && sleep 3;echo 'hello'         |
 +--------------+-----------+-----------------------------------------+
 | sample1      | tmp       | head -c 100000 /dev/urandom > tmp1\_1   |
 +--------------+-----------+-----------------------------------------+
@@ -131,7 +133,7 @@ Plot flow
     #> Using `jobname` as the jobname column
     #> Using `cmd` as the cmd column
     #> Using flowname default: flowname
-    #> Using flow_base_path default: ~/flowr
+    #> Using flow_run_path default: ~/flowr/runs
     #> 
     #> 
     #> ##--- Checking flow definition and flow matrix for consistency...
@@ -149,29 +151,15 @@ Plot flow
     #> 
     #> Working on... sample1
     #> input x is list
-    #> ....input x is flow
-    #> Test Successful!
-    #> You may check this folder for consistency. Also you may re-run submit with execute=TRUE
-    #>  ~/flowr/flowname-sample1-20150706-03-53-53-oLVRQcTH
-    #> input x is flow
-    #> 
+    #> ....
     #> 
     #> Working on... sample2
     #> input x is list
-    #> ....input x is flow
-    #> Test Successful!
-    #> You may check this folder for consistency. Also you may re-run submit with execute=TRUE
-    #>  ~/flowr/flowname-sample2-20150706-03-53-53-Sr9zXFKP
-    #> input x is flow
-    #> 
+    #> ....
     #> 
     #> Working on... sample3
     #> input x is list
-    #> ....input x is flow
-    #> Test Successful!
-    #> You may check this folder for consistency. Also you may re-run submit with execute=TRUE
-    #>  ~/flowr/flowname-sample3-20150706-03-53-53-C2SAVnYm
-    #> input x is flow
+    #> ....
 
 .. code:: r
 
@@ -181,10 +169,11 @@ Plot flow
 
     #> input x is flow
 
-.. figure:: figure/make_flow_plot-1.pdf
+.. figure:: figure/make_flow_plot-1.png
    :alt: plot of chunk make\_flow\_plot
 
    plot of chunk make\_flow\_plot
+
 Write both into example data
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -249,7 +238,7 @@ Example2
     #> Using `jobname` as the jobname column
     #> Using `cmd` as the cmd column
     #> Using flowname default: flowname
-    #> Using flow_base_path default: ~/flowr
+    #> Using flow_run_path default: ~/flowr/runs
     #> 
     #> 
     #> ##--- Checking flow definition and flow matrix for consistency...
@@ -263,11 +252,7 @@ Example2
     #> 
     #> Working on... samp1
     #> input x is list
-    #> ......input x is flow
-    #> Test Successful!
-    #> You may check this folder for consistency. Also you may re-run submit with execute=TRUE
-    #>  ~/flowr/flowname-samp1-20150706-03-53-53-IflSZdrW
-    #> input x is flow
+    #> ......
 
 .. code:: r
 
@@ -283,7 +268,7 @@ Example2
     #> Using `jobname` as the jobname column
     #> Using `cmd` as the cmd column
     #> Using flowname default: flowname
-    #> Using flow_base_path default: ~/flowr
+    #> Using flow_run_path default: ~/flowr/runs
     #> 
     #> 
     #> ##--- Checking flow definition and flow matrix for consistency...
@@ -298,16 +283,12 @@ Example2
     #> Working on... samp1
     #> input x is list
     #> ......input x is flow
-    #> Test Successful!
-    #> You may check this folder for consistency. Also you may re-run submit with execute=TRUE
-    #>  ~/flowr/flowname-samp1-20150706-03-53-53-B5cAw7RF
-    #> input x is flow
-    #> input x is flow
 
-.. figure:: figure/unnamed-chunk-5-1.pdf
+.. figure:: figure/unnamed-chunk-5-1.png
    :alt: plot of chunk unnamed-chunk-5
 
    plot of chunk unnamed-chunk-5
+
 .. code:: r
 
     ## change a few things
@@ -324,7 +305,7 @@ Example2
     #> Using `jobname` as the jobname column
     #> Using `cmd` as the cmd column
     #> Using flowname default: flowname
-    #> Using flow_base_path default: ~/flowr
+    #> Using flow_run_path default: ~/flowr/runs
     #> 
     #> 
     #> ##--- Checking flow definition and flow matrix for consistency...
@@ -339,16 +320,12 @@ Example2
     #> Working on... samp1
     #> input x is list
     #> ......input x is flow
-    #> Test Successful!
-    #> You may check this folder for consistency. Also you may re-run submit with execute=TRUE
-    #>  ~/flowr/flowname-samp1-20150706-03-53-54-rZ08kLN6
-    #> input x is flow
-    #> input x is flow
 
-.. figure:: figure/unnamed-chunk-5-2.pdf
+.. figure:: figure/unnamed-chunk-5-2.png
    :alt: plot of chunk unnamed-chunk-5
 
    plot of chunk unnamed-chunk-5
+
 .. code:: r
 
     ## change a few more
@@ -366,7 +343,7 @@ Example2
     #> Using `jobname` as the jobname column
     #> Using `cmd` as the cmd column
     #> Using flowname default: flowname
-    #> Using flow_base_path default: ~/flowr
+    #> Using flow_run_path default: ~/flowr/runs
     #> 
     #> 
     #> ##--- Checking flow definition and flow matrix for consistency...
@@ -381,16 +358,12 @@ Example2
     #> Working on... samp1
     #> input x is list
     #> ......input x is flow
-    #> Test Successful!
-    #> You may check this folder for consistency. Also you may re-run submit with execute=TRUE
-    #>  ~/flowr/flowname-samp1-20150706-03-53-54-A95n3e6y
-    #> input x is flow
-    #> input x is flow
 
-.. figure:: figure/unnamed-chunk-5-3.pdf
+.. figure:: figure/unnamed-chunk-5-3.png
    :alt: plot of chunk unnamed-chunk-5
 
    plot of chunk unnamed-chunk-5
+
 .. code:: r
 
     ## we would like all three to complete
@@ -407,7 +380,7 @@ Example2
     #> Using `jobname` as the jobname column
     #> Using `cmd` as the cmd column
     #> Using flowname default: flowname
-    #> Using flow_base_path default: ~/flowr
+    #> Using flow_run_path default: ~/flowr/runs
     #> 
     #> 
     #> ##--- Checking flow definition and flow matrix for consistency...
@@ -422,16 +395,12 @@ Example2
     #> Working on... samp1
     #> input x is list
     #> ......input x is flow
-    #> Test Successful!
-    #> You may check this folder for consistency. Also you may re-run submit with execute=TRUE
-    #>  ~/flowr/flowname-samp1-20150706-03-53-54-7RhIHQa3
-    #> input x is flow
-    #> input x is flow
 
-.. figure:: figure/unnamed-chunk-5-4.pdf
+.. figure:: figure/unnamed-chunk-5-4.png
    :alt: plot of chunk unnamed-chunk-5
 
    plot of chunk unnamed-chunk-5
+
 Write both into example data
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -441,4 +410,3 @@ Write both into example data
         row.names = FALSE, quote = FALSE, sep = "\t")
     write.table(def, file = "inst/extdata/example2_flow_def.txt", 
         row.names = FALSE, quote = FALSE, sep = "\t")
-
