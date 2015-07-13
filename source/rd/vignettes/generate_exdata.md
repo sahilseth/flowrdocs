@@ -61,9 +61,9 @@ kable(head(flow_mat))
 
 |samplename |jobname |cmd                                  |
 |:----------|:-------|:------------------------------------|
-|sample1    |sleep   |sleep 10 && sleep 5;echo 'hello'     |
-|sample1    |sleep   |sleep 15 && sleep 1;echo 'hello'     |
-|sample1    |sleep   |sleep 4 && sleep 16;echo 'hello'     |
+|sample1    |sleep   |sleep 24 && sleep 2;echo 'hello'     |
+|sample1    |sleep   |sleep 2 && sleep 9;echo 'hello'      |
+|sample1    |sleep   |sleep 9 && sleep 9;echo 'hello'      |
 |sample1    |tmp     |head -c 100000 /dev/urandom > tmp1_1 |
 |sample1    |tmp     |head -c 100000 /dev/urandom > tmp1_2 |
 |sample1    |tmp     |head -c 100000 /dev/urandom > tmp1_3 |

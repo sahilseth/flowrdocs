@@ -198,7 +198,7 @@ Here is an example
 Example:
 --------
 
-A ----> B -----> C -----> D
+A (1-10) ----> B (1-10) -----> C (1) -----> D (1-3)
 
 Consider an example with three steps A, B and C. A has 10 commands from
 A1 to A10, similarly B has 10 commands B1 to B10 and C has a single
