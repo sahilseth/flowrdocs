@@ -17,7 +17,7 @@ Ingredients
 
 Flow Definition
 ~~~~~~~~~~~~~~~
-
+co
 Each row in this table refers to one step of the pipeline. It describes
 the resources used by this step and also its relationship with other steps.
 Especially the step immediately prior to it.
@@ -94,8 +94,7 @@ Here is a example
 flow\_mat: A table with all the commands to run
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This is also a tab separated table, with a minimum of three columns
-names as defined below:
+This is also a tab separated table, with a minimum of three column as defined below:
 
 -  samplename: A grouping column. The table is split using this column
    and each subset is treated as a individual flow. This makes it very
@@ -105,13 +104,14 @@ names as defined below:
       dummy name like sample1 all throughout.
 
 -  jobname: This corresponds to the name of the step. This should match
-   perfectly with the jobname column in flow\_def table defined above.
+   exactly with the jobname column in flow\_def table defined above.
 -  cmd: A shell command to run. One can get quite creative here. These
    could be multiple shell commands separated by a ``;`` or ``&&``, more
    on this
    ``here <http://stackoverflow.com/questions/3573742/difference-between-echo-hello-ls-vs-echo-hello-ls>``\ \_\_.
+   - Don't make them really long, it may not look pretty (though would still work).
 
-Here is a example
+Here is an example
 ``flow_mat <https://raw.githubusercontent.com/sahilseth/flowr/master/inst/extdata/example1_flow_mat.txt>``\ \_\_
 
 .. code:: r
