@@ -49,11 +49,11 @@ Generate 100 commands each for sleep make div
 +--------------+-----------+-----------------------------------------+
 | samplename   | jobname   | cmd                                     |
 +==============+===========+=========================================+
-| sample1      | sleep     | sleep 2 && sleep 7;echo 'hello'         |
+| sample1      | sleep     | sleep 10 && sleep 5;echo 'hello'        |
 +--------------+-----------+-----------------------------------------+
-| sample1      | sleep     | sleep 10 && sleep 8;echo 'hello'        |
+| sample1      | sleep     | sleep 15 && sleep 1;echo 'hello'        |
 +--------------+-----------+-----------------------------------------+
-| sample1      | sleep     | sleep 9 && sleep 11;echo 'hello'        |
+| sample1      | sleep     | sleep 4 && sleep 16;echo 'hello'        |
 +--------------+-----------+-----------------------------------------+
 | sample1      | tmp       | head -c 100000 /dev/urandom > tmp1\_1   |
 +--------------+-----------+-----------------------------------------+
@@ -169,7 +169,7 @@ Plot flow
 
     #> input x is flow
 
-.. figure:: figure/make_flow_plot-1.pdf
+.. figure:: figure/make_flow_plot-1.png
    :alt: plot of chunk make\_flow\_plot
 
    plot of chunk make\_flow\_plot
@@ -284,7 +284,7 @@ Example2
     #> input x is list
     #> ......input x is flow
 
-.. figure:: figure/unnamed-chunk-5-1.pdf
+.. figure:: figure/unnamed-chunk-5-1.png
    :alt: plot of chunk unnamed-chunk-5
 
    plot of chunk unnamed-chunk-5
@@ -321,7 +321,7 @@ Example2
     #> input x is list
     #> ......input x is flow
 
-.. figure:: figure/unnamed-chunk-5-2.pdf
+.. figure:: figure/unnamed-chunk-5-2.png
    :alt: plot of chunk unnamed-chunk-5
 
    plot of chunk unnamed-chunk-5
@@ -359,7 +359,7 @@ Example2
     #> input x is list
     #> ......input x is flow
 
-.. figure:: figure/unnamed-chunk-5-3.pdf
+.. figure:: figure/unnamed-chunk-5-3.png
    :alt: plot of chunk unnamed-chunk-5
 
    plot of chunk unnamed-chunk-5
@@ -396,7 +396,7 @@ Example2
     #> input x is list
     #> ......input x is flow
 
-.. figure:: figure/unnamed-chunk-5-4.pdf
+.. figure:: figure/unnamed-chunk-5-4.png
    :alt: plot of chunk unnamed-chunk-5
 
    plot of chunk unnamed-chunk-5

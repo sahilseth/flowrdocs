@@ -1,6 +1,6 @@
 ---
 title: "flowr simple examples"
-date: "2015-07-12"
+date: "2015-07-13"
 output: rmarkdown::html_document
 vignette: >
   %\VignetteIndexEntry{flowr simple example}

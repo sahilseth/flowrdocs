@@ -9,8 +9,6 @@ connects them both.
 Ingredients
 -----------
 
-
-
 .. code:: r
 
     exdata = file.path(system.file(package = "flowr"), "extdata")
@@ -19,10 +17,10 @@ Ingredients
 
 Flow Definition
 ~~~~~~~~~~~~~~~
-co
+
 Each row in this table refers to one step of the pipeline. It describes
-the resources used by this step and also its relationship with other steps.
-Especially the step immediately prior to it.
+the resources used by this step and also its relationship with other
+steps. Especially the step immediately prior to it.
 
 This is a tab separated file, with a minimum of 4 columns.
 
@@ -47,15 +45,17 @@ each step (These are all passed along to the HPCC platform).
 -  ``walltime``
 -  ``queue``
 
-Most cluster platform accept these arguments. These are used to fill up
+Most cluster platforms accept these arguments. These are used to fill up
 the variables defined in curly braces. Example ``{{{CPU}}}`` in this
 file for
-``torque <https://github.com/sahilseth/flowr/blob/master/inst/conf/torque.sh>``\ \_\_
+`torque <https://github.com/sahilseth/flowr/blob/master/inst/conf/torque.sh>`__
 
-If these are not included in the flow_def, their values should be explicitly defined in the submission template. 
+If these (resource requirements) columns not included in the flow\_def,
+their values should be explicitly defined in the submission template.
 
-Here is a example
-``flow_def file <https://raw.githubusercontent.com/sahilseth/flowr/master/inst/extdata/example1_flow_def2.txt>``\ \_\_
+Here is an example
+`flow\_def <https://raw.githubusercontent.com/sahilseth/flowr/master/inst/extdata/example1_flow_def2.txt>`__
+file.
 
 .. raw:: html
 
@@ -96,7 +96,8 @@ Here is a example
 flow\_mat: A table with all the commands to run
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This is also a tab separated table, with a minimum of three column as defined below:
+This is also a tab separated table, with a minimum of three column as
+defined below:
 
 -  samplename: A grouping column. The table is split using this column
    and each subset is treated as a individual flow. This makes it very
@@ -110,11 +111,10 @@ This is also a tab separated table, with a minimum of three column as defined be
 -  cmd: A shell command to run. One can get quite creative here. These
    could be multiple shell commands separated by a ``;`` or ``&&``, more
    on this
-   ``here <http://stackoverflow.com/questions/3573742/difference-between-echo-hello-ls-vs-echo-hello-ls>``\ \_\_.
-   - Don't make them really long, it may not look pretty (though would still work).
+   ``here <http://stackoverflow.com/questions/3573742/difference-between-echo-hello-ls-vs-echo-hello-ls>``\ \_.
 
 Here is an example
-``flow_mat <https://raw.githubusercontent.com/sahilseth/flowr/master/inst/extdata/example1_flow_mat.txt>``\ \_\_
+`flow\_mat <https://raw.githubusercontent.com/sahilseth/flowr/master/inst/extdata/example1_flow_mat.txt>`__
 
 .. code:: r
 
@@ -176,7 +176,7 @@ Here is an example
    #> input x is flow
    ```
 
-   ![](figure/plot_simpleflow-1.pdf) 
+   ![](figure/plot_simpleflow-1.png) 
 
    The above translates to a flow definition which looks like this:
 
@@ -200,7 +200,7 @@ Example:
 
 A ----> B -----> C -----> D
 
-Consider a example with three steps A, B and C. A has 10 commands from
+Consider an example with three steps A, B and C. A has 10 commands from
 A1 to A10, similarly B has 10 commands B1 to B10 and C has a single
 command, C1.
 
@@ -209,27 +209,38 @@ Consider another step D (with D1-D3), which comes after C.
 Submission types
 ----------------
 
-    This refers to the sub\_type column in flow definition.
+    *This refers to the sub\_type column in flow definition.*
 
--  ``scatter``: submit all commands as parallel independent jobs.
-   *Submit all A1 through A10 as independent jobs*
+-  ``scatter``: submit all commands as parallel, independent jobs.
+
+   -  *Submit A1 through A10 as independent jobs*
+
 -  ``serial``: run these commands sequentially one after the other.
-   *Wrap A1 through A10, into a single job.*
+
+   -  *Wrap A1 through A10, into a single job.*
 
 Dependency types
 ----------------
 
-    This refers to the dep\_type column in flow definition.
+    *This refers to the dep\_type column in flow definition.*
 
--  ``none``: independent job. *Initial step A has no dependency*
--  ``serial``: *one to one* relationship with previous job. *B1 can
-   start as soon as A1 completes.*
+-  ``none``: independent job.
+
+   -  *Initial step A has no dependency*
+
+-  ``serial``: *one to one* relationship with previous job.
+
+   -  *B1 can start as soon as A1 completes.*
+
 -  ``gather``: *many to one*, wait for **all** commands in previous job
-   to finish then start the current step. *All jobs of B (1-10), need to
-   complete before C is started*
+   to finish then start the current step.
+
+   -  *All jobs of B (1-10), need to complete before C is started*
+
 -  ``burst``: *one to many* wait for the previous step which has one job
-   and start processing all in the current step. *D1 to D3 are started
-   as soon as C finishes.*
+   and start processing all in the current step.
+
+   -  *D1 to D3 are started as soon as C finishes.*
 
 Relationships
 -------------
@@ -241,20 +252,20 @@ examples of relationships one may typically use.
 Serial: one to one relationship
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-A is submitted as scatter A1 through A10. Similarly B1 and B10 can be
-processed independently of each other. Further B1, require A1 to
+A is submitted as scatter, A1 through A10. Similarly B1 through B10 can
+also be processed independently of each other. Further B1, require A1 to
 complete; B2 requires A2 and so on.
 
 To set this up, A and B would have ``sub_type`` ``scatter`` and B would
-have ``dep_type`` as ``serial``. Since A is a initial step its
-``dep_type`` and ``prev_job`` would defined as be ``none``.
+have ``dep_type`` as ``serial``. Further, since A is an initial step its
+``dep_type`` and ``prev_job`` would defined as ``none``.
 
 Gather: many to one relationship
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Since C is a single command which requires all steps of B to complete,
 intuitively it would ``gather`` pieces of data generated by B. In this
-case ``dep_type`` would be gather and ``sub_type`` type would be
+case ``dep_type`` would be ``gather`` and ``sub_type`` type would be
 ``serial`` since its a single command.
 
 .. raw:: html
@@ -268,9 +279,9 @@ case ``dep_type`` would be gather and ``sub_type`` type would be
 Burst: one to many relationship
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Further, D is a set of three commands (D1-D3), which need for a single
-process. They would be submitted as ``scatter`` after waiting on C in a
-``burst`` type relationship.
+Further, D is a set of three commands (D1-D3), which need to wait for a
+single process (C1) to complete. They would be submitted as ``scatter``
+after waiting on C in a ``burst`` type dependency.
 
 .. raw:: html
 
@@ -281,13 +292,13 @@ process. They would be submitted as ``scatter`` after waiting on C in a
    --->
 
 In essence and example flow\_def would look like as follows (with
-additional resource requirements, not shown for brevity).
+additional resource requirements not shown for brevity).
 
 .. code:: r
 
     ex2def = read_sheet(file.path(exdata, "example2_flow_def.txt"))
     ex2mat = read_sheet(file.path(exdata, "example2_flow_mat.txt"))
-    fobj = to_flow(x = ex2mat, def = ex2def)
+    fobj = suppressMessages(to_flow(x = ex2mat, def = ex2def))
     kable(ex2def[, 1:4])
 
 +-----------+-------------+--------------+-------------+
@@ -306,25 +317,26 @@ additional resource requirements, not shown for brevity).
 
     plot_flow(fobj)
 
-.. figure:: figure/ex2def-1.pdf
+.. figure:: figure/ex2def-1.png
    :alt: 
 
-    There is a darker more prominent shadow to indicate scatter steps.
+.. note:: There is a darker more prominent shadow to indicate scatter
+steps.
 
-Here is the
-``full flow definition <https://raw.githubusercontent.com/sahilseth/flowr/master/inst/extdata/example1_flow_mat.txt>``\ \_\_
+Here is the `full flow
+definition <https://raw.githubusercontent.com/sahilseth/flowr/master/inst/extdata/example1_flow_mat.txt>`__
 used in this example.
 
 Cluster interface
 -----------------
 
 Here is an example submission template:
-https://github.com/sahilseth/flowr/blob/master/inst/conf/torque.sh
+`github.com/sahilseth/flowr/blob/master/inst/conf/torque.sh <https://github.com/sahilseth/flowr/blob/master/inst/conf/torque.sh>`__
 
 Other submission templates are also in the same folder.
 
 Add a new platform is streamlined here are a few details:
-https://github.com/sahilseth/flowr/issues/7
+`github.com/sahilseth/flowr/issues/7 <https://github.com/sahilseth/flowr/issues/7>`__
 
 flow\_def columns
 -----------------
@@ -332,11 +344,9 @@ flow\_def columns
 Some columns of flow definition are passed along to the final
 submisstion script.
 
-Here is an example for submission template.
-https://github.com/sahilseth/flowr/blob/master/inst/conf/moab.sh
-
-Variables are defined in curly braces, example ``{{{CPU}}}``, these
-variables are gathered from the flow definition file.
+Variables in the template are defined in curly braces, example
+``{{{CPU}}}``, these variables are gathered from the flow definition
+file.
 
 .. code:: r
 
@@ -395,5 +405,6 @@ variables are gathered from the flow definition file.
 
 \*: These are generated on the fly \*\*: This is gathered from flow\_mat
 
-My HPCC is not supported, how to make it work? send a message to:
-sahil.seth [at] me.com
+::
+
+    My HPCC is not supported, how to make it work? send a message to: sahil.seth [at] me.com

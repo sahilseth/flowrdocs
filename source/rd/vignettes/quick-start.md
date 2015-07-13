@@ -1,6 +1,6 @@
 ---
 title: "Quick Start Example"
-date: "2015-07-12"
+date: "2015-07-13"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Quick Start Example}
@@ -90,7 +90,7 @@ fobj <- to_flow(x = flow_mat, def = flow_def,
 plot_flow(fobj)
 ```
 
-![Flow chart describing process for example 1](figure/plot_example1-1.pdf) 
+![Flow chart describing process for example 1](figure/plot_example1-1.png) 
 
 
 # Test it
