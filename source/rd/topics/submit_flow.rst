@@ -22,7 +22,7 @@ Usage
 
 "submit_flow"(x, ...)
 
-"submit_flow"(x, uuid, execute = FALSE, plot = TRUE, verbose = FALSE, ...)
+"submit_flow"(x, execute = FALSE, uuid, plot = TRUE, verbose = FALSE, dump = TRUE, ...)
 
 Arguments
 
@@ -30,10 +30,10 @@ x
     a ``object`` of class ``flow``.
 ...
     Advanced use. Any additional parameters are passed on to `submit_job <submit_job.html>`_ function.
-uuid
-    ``character`` Advanced use. Incase of rerunning the flow. uuid: typically is the final path of a previous flow.
 execute
     ``logical`` whether or not to submit the jobs
+uuid
+    ``character`` Advanced use. Incase of rerunning the flow. uuid: typically is the final path of a previous flow.
 plot
     ``logical`` whether to make a pdf flow plot (saves it in the flow working directory).
 verbose
