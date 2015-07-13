@@ -19,10 +19,10 @@ Flow Definition
 ~~~~~~~~~~~~~~~
 
 Each row in this table refers to one step of the pipeline. It describes
-the resources used by this step and also its relations to other step.
-Especially the step just prior to it.
+the resources used by this step and also its relationship with other steps.
+Especially the step immediately prior to it.
 
-This is a tab separated file, with a minimum of 5 columns.
+This is a tab separated file, with a minimum of 4 columns.
 
 -  ``jobname``: Name of the step
 -  ``sub_type``: Submission type, how should multiple commands of this
@@ -49,6 +49,8 @@ Most cluster platform accept these arguments. These are used to fill up
 the variables defined in curly braces. Example ``{{{CPU}}}`` in this
 file for
 ``torque <https://github.com/sahilseth/flowr/blob/master/inst/conf/torque.sh>``\ \_\_
+
+If these are not included in the flow_def, their values should be explicitly defined in the submission template. 
 
 Here is a example
 ``flow_def file <https://raw.githubusercontent.com/sahilseth/flowr/master/inst/extdata/example1_flow_def2.txt>``\ \_\_
