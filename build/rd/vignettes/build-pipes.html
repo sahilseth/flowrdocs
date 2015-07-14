@@ -109,7 +109,7 @@
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../build.html">Building Pipelines</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="">Ingredients</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#flow-definition">Flow Definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#flow-definition">1. Flow Definition</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#flow-mat-a-table-with-all-the-commands-to-run">flow_mat: A table with all the commands to run</a></li>
 </ul>
 </li>
@@ -240,26 +240,32 @@
           <div role="main" class="document">
             
   
-  <p>An easy and quick way to build a workflow is create two separate files. First is a table with commands to run the other has details regarding how the modules are stitched together. In the rest of this document we would refer to them as flow_mat and flow_def respectively.</p>
-<p>Both these files have a <code class="docutils literal"><span class="pre">jobname</span></code> column which is used as a ID to connects them both.</p>
+  <p>An easy and quick way to build a workflow is create two separate files. First is a table with commands to run, second has details regarding how the modules are stitched together. In the rest of this document we would refer to them as flow_mat and flow_def respectively.</p>
+<p>Both these files have a <code class="docutils literal"><span class="pre">jobname</span></code> column which is used as a ID to connect them to each other.</p>
 <div class="section" id="ingredients">
 <h1>Ingredients<a class="headerlink" href="#ingredients" title="Permalink to this headline">¶</a></h1>
-<div class="code r highlight-python"><div class="highlight"><pre><span class="n">exdata</span> <span class="o">=</span> <span class="nb">file</span><span class="o">.</span><span class="n">path</span><span class="p">(</span><span class="n">system</span><span class="o">.</span><span class="n">file</span><span class="p">(</span><span class="n">package</span> <span class="o">=</span> <span class="s">&quot;flowr&quot;</span><span class="p">),</span> <span class="s">&quot;extdata&quot;</span><span class="p">)</span>
+<div class="code r highlight-python"><div class="highlight"><pre><span class="c">## ------ load some example data</span>
+<span class="n">exdata</span> <span class="o">=</span> <span class="nb">file</span><span class="o">.</span><span class="n">path</span><span class="p">(</span><span class="n">system</span><span class="o">.</span><span class="n">file</span><span class="p">(</span><span class="n">package</span> <span class="o">=</span> <span class="s">&quot;flowr&quot;</span><span class="p">),</span> <span class="s">&quot;extdata&quot;</span><span class="p">)</span>
 <span class="n">flow_mat</span> <span class="o">=</span> <span class="n">read_sheet</span><span class="p">(</span><span class="nb">file</span><span class="o">.</span><span class="n">path</span><span class="p">(</span><span class="n">exdata</span><span class="p">,</span> <span class="s">&quot;example1_flow_mat.txt&quot;</span><span class="p">))</span>
 <span class="n">flow_def</span> <span class="o">=</span> <span class="n">read_sheet</span><span class="p">(</span><span class="nb">file</span><span class="o">.</span><span class="n">path</span><span class="p">(</span><span class="n">exdata</span><span class="p">,</span> <span class="s">&quot;example1_flow_def.txt&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 <div class="section" id="flow-definition">
-<h2>Flow Definition<a class="headerlink" href="#flow-definition" title="Permalink to this headline">¶</a></h2>
-<p>Each row in this table refers to one step of the pipeline. It describes the resources used by this step and also its relationship with other steps. Especially the step immediately prior to it.</p>
-<p>This is a tab separated file, with a minimum of 4 columns.</p>
+<h2>1. Flow Definition<a class="headerlink" href="#flow-definition" title="Permalink to this headline">¶</a></h2>
+<p>Each row in this table refers to one step of the pipeline. It describes the resources used by this step and also its relationship with other steps. Especially, the step immediately prior to it.</p>
+<p>It is a tab separated file, with a minimum of 4 columns:</p>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">jobname</span></code>: Name of the step</li>
-<li><code class="docutils literal"><span class="pre">sub_type</span></code>: Submission type, how should multiple commands of this step be submission. Can take values <code class="docutils literal"><span class="pre">serial</span></code> or <code class="docutils literal"><span class="pre">scatter</span></code>.</li>
-<li><code class="docutils literal"><span class="pre">prev_job</span></code>: Short for previous job. This can be NA/./none if this is a independent step, and not previous step is required for this to start.</li>
-<li><code class="docutils literal"><span class="pre">dep_type</span></code>: Dependency type, refers to the relationship of this job with the that defined in previous job. This can take values <code class="docutils literal"><span class="pre">none</span></code>, <code class="docutils literal"><span class="pre">gather</span></code>, <code class="docutils literal"><span class="pre">serial</span></code> or <code class="docutils literal"><span class="pre">burst</span></code>.</li>
+<li><code class="docutils literal"><span class="pre">sub_type</span></code>: Short for submission type, refers to, how should multiple commands of this step be submitted. Possible values are <code class="docutils literal"><span class="pre">serial</span></code> or <code class="docutils literal"><span class="pre">scatter</span></code>.</li>
+<li><code class="docutils literal"><span class="pre">prev_job</span></code>: Short for previous job, this would be jobname of the previous job. This can be NA/./none if this is a independent/initial step, and no previous step is required for this to start.</li>
+<li><code class="docutils literal"><span class="pre">dep_type</span></code>: Short for dependency type, refers to the relationship of this job with the one defined in <code class="docutils literal"><span class="pre">prev_job</span></code>. This can take values <code class="docutils literal"><span class="pre">none</span></code>, <code class="docutils literal"><span class="pre">gather</span></code>, <code class="docutils literal"><span class="pre">serial</span></code> or <code class="docutils literal"><span class="pre">burst</span></code>.</li>
 </ul>
+<p><strong>We will talk more on what the options mean below</strong></p>
 <p>Apart from these, there are several other variables which define the resource requirements of each step. This gives great amount of flexibility to the user in choosing CPU, wall time, memory and queue for each step (These are all passed along to the HPCC platform).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This is especially useful for genomics pipelines since not every step is the same in terms of resources it uses. And being able to tune them, makes the setup quite effecient.</p>
+</div>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">cpu_reserved</span></code></li>
 <li><code class="docutils literal"><span class="pre">memory_reserved</span></code></li>

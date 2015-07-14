@@ -10,14 +10,15 @@ vignette: >
 
 
 
-An easy and quick way to build a workflow is create two separate files. First is a table with commands to run the other has details regarding how the modules are stitched together. In the rest of this document we would refer to them as flow_mat and flow_def respectively.
+An easy and quick way to build a workflow is create two separate files. First is a table with commands to run, second has details regarding how the modules are stitched together. In the rest of this document we would refer to them as flow_mat and flow_def respectively.
 
-Both these files have a `jobname` column which is used as a ID to connects them both.
+Both these files have a `jobname` column which is used as a ID to connect them to each other.
 
 ## Ingredients
 
 
 ```r
+## ------ load some example data
 exdata = file.path(system.file(package = "flowr"), "extdata")
 flow_mat = read_sheet(file.path(exdata, "example1_flow_mat.txt"))
 flow_def = read_sheet(file.path(exdata, "example1_flow_def.txt"))
@@ -25,20 +26,26 @@ flow_def = read_sheet(file.path(exdata, "example1_flow_def.txt"))
 
 
 
-### Flow Definition
+### 1. Flow Definition
 
 Each row in this table refers to one step of the pipeline. It describes the resources used by this step and also its relationship with other steps.
-Especially the step immediately prior to it.
+Especially, the step immediately prior to it.
 
 
-This is a tab separated file, with a minimum of 4 columns.
+It is a tab separated file, with a minimum of 4 columns:
 
 - `jobname`: Name of the step
-- `sub_type`: Submission type, how should multiple commands of this step be submission. Can take values `serial` or `scatter`.
-- `prev_job`: Short for previous job. This can be NA/./none if this is a independent step, and not previous step is required for this to start.
-- `dep_type`: Dependency type, refers to the relationship of this job with the that defined in previous job. This can take values `none`, `gather`, `serial` or `burst`. 
+- `sub_type`: Short for submission type, refers to, how should multiple commands of this step be submitted. Possible values are `serial` or `scatter`.
+- `prev_job`: Short for previous job, this would be jobname of the previous job. This can be NA/./none if this is a independent/initial step, and no previous step is required for this to start. 
+- `dep_type`: Short for dependency type, refers to the relationship of this job with the one defined in `prev_job`. This can take values `none`, `gather`, `serial` or `burst`.
 
-Apart from these, there are several other variables which define the resource requirements of each step. This gives great amount of flexibility to the user in choosing CPU, wall time, memory and queue for each step (These are all passed along to the HPCC platform).
+**We will talk more on what the options mean below**
+
+
+Apart from these, there are several other variables which define the resource requirements of each step. This gives great amount of flexibility to the user in choosing CPU, wall time, memory and queue for each step (These are all passed along to the HPCC platform). 
+
+.. note:: 
+This is especially useful for genomics pipelines since not every step is the same in terms of resources it uses. And being able to tune them, makes the setup quite effecient.
 
 - `cpu_reserved`
 - `memory_reserved`

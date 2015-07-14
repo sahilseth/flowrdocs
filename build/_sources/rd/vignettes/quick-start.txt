@@ -136,3 +136,7 @@ Check the status
     |002.tmp   |    10|      10|        10|           0|
     |003.merge |     1|       1|         1|           0|
     |004.size  |     1|       1|         1|           0|
+
+.. note:: Interested? Here are some details on |building pipelines|
+
+.. |building pipelines| image:: http://docs.flowr.space/en/latest/rd/vignettes/build-pipes.html
