@@ -1,6 +1,6 @@
 ---
 title: "Quick Start Example"
-date: "2015-07-13"
+date: "2015-07-14"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Quick Start Example}

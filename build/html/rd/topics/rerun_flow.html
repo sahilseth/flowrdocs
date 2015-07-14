@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>flow &mdash; flowr 0.1 documentation</title>
+  <title>rerun_flow &mdash; flowr 0.1 documentation</title>
   
 
   
@@ -32,8 +32,8 @@
   
     <link rel="top" title="flowr 0.1 documentation" href="../../index.html"/>
         <link rel="up" title="Help on available functions" href="../../topics.html"/>
-        <link rel="next" title="get_flow_status" href="get_flow_status.html"/>
-        <link rel="prev" title="Help on available functions" href="../../topics.html"/>
+        <link rel="next" title="setup" href="setup.html"/>
+        <link rel="prev" title="queue" href="queue.html"/>
 
 
 <script src="../../_static/labibi.js"></script>
@@ -129,10 +129,10 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../topics.html">Help on available functions</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="">flow</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#usage">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#description">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#examples">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flow.html">flow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="flow.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="flow.html#description">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="flow.html#examples">Examples</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="get_flow_status.html">get_flow_status</a><ul>
@@ -165,10 +165,10 @@
 <li class="toctree-l3"><a class="reference internal" href="queue.html#examples">Examples</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="rerun_flow.html">rerun_flow</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="rerun_flow.html#usage">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rerun_flow.html#description">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rerun_flow.html#examples">Examples</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">rerun_flow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#description">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples">Examples</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="setup.html">setup</a><ul>
@@ -226,11 +226,11 @@
       
           <li><a href="../../topics.html">Help on available functions</a> &raquo;</li>
       
-    <li>flow</li>
+    <li>rerun_flow</li>
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../../_sources/rd/topics/flow.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/rd/topics/rerun_flow.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -240,88 +240,47 @@
           <div role="main" class="document">
             
   
-  <div class="section" id="flow">
-<h1>flow<a class="headerlink" href="#flow" title="Permalink to this headline">¶</a></h1>
-<p><code class="xref py py-func docutils literal"><span class="pre">flow()</span></code></p>
-<p>Flow constructor</p>
+  <div class="section" id="rerun-flow">
+<h1>rerun_flow<a class="headerlink" href="#rerun-flow" title="Permalink to this headline">¶</a></h1>
+<p><code class="xref py py-func docutils literal"><span class="pre">rerun_flow()</span></code></p>
+<p>rerun_flow</p>
 <div class="section" id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">flow</span><span class="p">(</span><span class="n">jobs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">new</span><span class="p">(</span><span class="s">&quot;job&quot;</span><span class="p">)),</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;newflow&quot;</span><span class="p">,</span> <span class="n">desc</span> <span class="o">=</span> <span class="s">&quot;my_super_flow&quot;</span><span class="p">,</span> <span class="n">mode</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s">&quot;scheduler&quot;</span><span class="p">,</span> <span class="s">&quot;trigger&quot;</span><span class="p">,</span> <span class="s">&quot;R&quot;</span><span class="p">),</span> <span class="n">flow_run_path</span> <span class="o">=</span> <span class="n">getOption</span><span class="p">(</span><span class="s">&quot;flow_run_path&quot;</span><span class="p">),</span> <span class="n">trigger_path</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">flow_path</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">status</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">execute</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre>rerun_flow(x, mat, def, start_from, execute = TRUE, kill = TRUE)
 </pre></div>
 </div>
 <p>Arguments</p>
 <dl class="docutils">
-<dt>jobs</dt>
-<dd><code class="docutils literal"><span class="pre">list</span></code> A list of jobs to be included in this flow</dd>
-<dt>name</dt>
-<dd><code class="docutils literal"><span class="pre">character</span></code> Name of the flow. Defaults to <code class="docutils literal"><span class="pre">'newname'</span></code></dd>
-</dl>
-<p>Used in <a class="reference external" href="submit_flow.html">submit_flow</a> to name the working directories.
-desc</p>
-<blockquote>
-<div><code class="docutils literal"><span class="pre">character</span></code> Description of the flow</div></blockquote>
-<p>This is used to name folders (when submitting jobs, see <a class="reference external" href="submit_flow.html">submit_flow</a>).
-It is good practice to avoid spaces and other special characters.
-An underscore &#8216;_&#8217; seems like a good word separator.
-Defaults to &#8216;my_super_flow&#8217;. We usually use this to put sample names of the data.
-mode</p>
-<blockquote>
-<div><code class="docutils literal"><span class="pre">character</span></code> Mode of submission of the flow.</div></blockquote>
-<dl class="docutils">
-<dt>flow_run_path</dt>
-<dd>The base path of all the flows you would submit.</dd>
-</dl>
-<p>Defaults to <code class="docutils literal"><span class="pre">~/flows</span></code>. Best practice to ignore it.
-trigger_path</p>
-<blockquote>
-<div><code class="docutils literal"><span class="pre">character</span></code></div></blockquote>
-<p>Defaults to <code class="docutils literal"><span class="pre">~/flows/trigger</span></code>. Best practice to ignore it.
-flow_path</p>
-<blockquote>
-<div><code class="docutils literal"><span class="pre">character</span></code></div></blockquote>
-<dl class="docutils">
-<dt>status</dt>
-<dd><code class="docutils literal"><span class="pre">character</span></code> Not used at this time</dd>
+<dt>x</dt>
+<dd>Either path to flow folder or the <a class="reference external" href="flow.html">flow</a> object which has been &#8216;returned&#8217; from <a class="reference external" href="submit_flow.html">submit_flow</a>.</dd>
+<dt>mat</dt>
+<dd>path to flow_mat. should fetch on the fly</dd>
+<dt>def</dt>
+<dd>path to should fetch on the fly</dd>
+<dt>start_from</dt>
+<dd>which job to start from</dd>
 <dt>execute</dt>
-<dd>executtion status of flow object.</dd>
+<dd>[logical] whether to execute or not</dd>
+<dt>kill</dt>
+<dd>logical indicating whether to kill the jobs from old flow</dd>
 </dl>
 </div>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>Flow constructor</p>
+<p>rerun_flow
+Details
+&#8220;&#8221;&#8220;&#8221;&#8220;&#8221;&#8220;&#8221;&#8220;&#8221;&#8220;&#8221;&#8220;&#8221;&#8220;&#8221;&#8220;&#8221;</p>
+<p>We need path to the flow folder (<code class="docutils literal"><span class="pre">wd</span></code>). The <a class="reference external" href="flow.html">flow</a> object needs to have upate &#8216;base_path&#8217; slow with wd (the path to the flow folder). Also its important to know that we need details regarding the previous submission from flow_details.txt file. Which should typically be in <code class="docutils literal"><span class="pre">wd</span></code></p>
 </div>
 <div class="section" id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre>cmds = rep(&quot;sleep 5&quot;, 10)
-.. image flow-2.pngqobj &lt;- queue(platform=&#39;torque&#39;)
-## run the 10 commands in parallel
-jobj1 &lt;- job(q_obj=qobj, cmd = cmds, submission_type = &quot;scatter&quot;, name = &quot;job1&quot;)
-
-## run the 10 commands sequentially, but WAIT for the previous job to complete
-## Many-To-One
-jobj2 &lt;- job(q_obj=qobj, cmd = cmds, submission_type = &quot;serial&quot;,
- dependency_type = &quot;gather&quot;, previous_job = &quot;job1&quot;, name = &quot;job2&quot;)
-
-## As soon as first job on &#39;job1&#39; is complete
-## One-To-One
-jobj3 &lt;- job(q_obj=qobj, cmd = cmds, submission_type = &quot;scatter&quot;,
- dependency_type = &quot;serial&quot;, previous_job = &quot;job1&quot;, name = &quot;job3&quot;)
-
-fobj &lt;- flow(jobs = list(jobj1, jobj2, jobj3))
-
-## plot the flow
-plot_flow(fobj)
-**input x is flow**.. image flow-5.png## **Not run**:
-# ## dry run, only create the structure without submitting jobs
-# submit_flow(fobj)
-#
-# ## execute the jobs: ONLY works on computing cluster, would fail otherwise
-# submit_flow(fobj, execute = TRUE)
-# ## **End(Not run)**
+<div class="highlight-python"><div class="highlight"><pre><span class="c">## **Not run**:</span>
+<span class="c"># rerun_flow(wd = wd, fobj = fobj, execute = TRUE, kill = TRUE)</span>
+<span class="c"># ## **End(Not run)**</span>
 </pre></div>
 </div>
 <p>Aliases:
-flow
+rerun_flow
 Keywords:
 Author:</p>
 </div>
@@ -354,10 +313,10 @@ Author:</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="get_flow_status.html" class="btn btn-neutral float-right" title="get_flow_status" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="setup.html" class="btn btn-neutral float-right" title="setup" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../../topics.html" class="btn btn-neutral" title="Help on available functions" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="queue.html" class="btn btn-neutral" title="queue" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -430,8 +389,8 @@ Author:</p>
 
         <li>
           Go to
-        <a href="https://github.com/ctb/labibi/blob/master/rd/topics/flow.rst">
-          flow
+        <a href="https://github.com/ctb/labibi/blob/master/rd/topics/rerun_flow.rst">
+          rerun_flow
         </a> on GitHub.
       </li>
 

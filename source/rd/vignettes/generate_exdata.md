@@ -1,6 +1,6 @@
 ---
 title: "Generating Example Data"
-date: "2015-07-13"
+date: "2015-07-14"
 output: rmarkdown::html_document
 vignette: >
   %\VignetteIndexEntry{Generating Example Dat}
@@ -61,9 +61,9 @@ kable(head(flow_mat))
 
 |samplename |jobname |cmd                                  |
 |:----------|:-------|:------------------------------------|
-|sample1    |sleep   |sleep 2 && sleep 0;echo 'hello'      |
-|sample1    |sleep   |sleep 4 && sleep 16;echo 'hello'     |
-|sample1    |sleep   |sleep 17 && sleep 10;echo 'hello'    |
+|sample1    |sleep   |sleep 8 && sleep 5;echo 'hello'      |
+|sample1    |sleep   |sleep 13 && sleep 6;echo 'hello'     |
+|sample1    |sleep   |sleep 19 && sleep 10;echo 'hello'    |
 |sample1    |tmp     |head -c 100000 /dev/urandom > tmp1_1 |
 |sample1    |tmp     |head -c 100000 /dev/urandom > tmp1_2 |
 |sample1    |tmp     |head -c 100000 /dev/urandom > tmp1_3 |
