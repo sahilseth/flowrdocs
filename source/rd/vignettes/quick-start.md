@@ -145,4 +145,4 @@ Showing status of: /rsrch2/iacs/iacs_dep/sseth/flowr/type1-20150520-15-18-46-syS
 ```
 
 .. note::
-Interested? Here are some details on ![building pipelines](http://docs.flowr.space/en/latest/rd/vignettes/build-pipes.html)
+Interested? Here are some details on [building pipelines](http://docs.flowr.space/en/latest/rd/vignettes/build-pipes.html)
