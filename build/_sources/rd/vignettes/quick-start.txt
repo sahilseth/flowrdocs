@@ -6,7 +6,7 @@ Get me started
     install.packages('devtools')
     devtools::install_github("sahilseth/flowr")
 
-Run a setup function which copies 'flowr' Rscript to subsetquent steps easier. More on this `here <https://github.com/sahilseth/rfun>`__.
+Run a setup function which copies 'flowr' helper script to enable using flow from shell terminal itself. A few examples `here <https://github.com/sahilseth/rfun>`__.
 
 .. code:: r
 
@@ -19,9 +19,9 @@ Toy example
 .. figure:: imgs/toy.png
    :alt: 
 
-A simple example where we have three instances of sleep (wait for few seconds), after waiting three tmp jobs are started which create three files with some random data. After all three are complete, a merge step merges the file and then size of the resulting file is calculated. This is quite similar in structure to a typical workflow from where a series of alignment and sorting steps may take place on the raw fastq files. Followed by merging of the resulting bam files into one large file per-sample.
+A simple example where we have three instances of sleep (wait for few seconds), after completion three tmp jobs are started which create three files with some random data. After all three are complete, a merge step follows, and merged the files and then calculates the size of the resulting file. This is quite similar in structure to a typical workflow from where a series of alignment and sorting steps may take place on the raw fastq files. Followed by merging of the resulting bam files into one large file per-sample.
 
-The table above is referred to as `flow\_mat <details...>`__.
+The table below is referred to as `flow\_mat <http://docs.flowr.space/en/latest/rd/vignettes/build-pipes.html#flow-mat-a-table-with-shell-commands-to-run>`__.
 
 +--------------+-----------+-----------------------------------------+
 | samplename   | jobname   | cmd                                     |
@@ -43,7 +43,7 @@ The table above is referred to as `flow\_mat <details...>`__.
 | sample1      | size      | du -sh merge1; echo MY shell: $SHELL    |
 +--------------+-----------+-----------------------------------------+
 
-We use an additional file specifying relationship between the steps, and also other resource requirements `flow\_def <details...>`__.
+We use an additional file specifying relationship between the steps, and also other resource requirements `flow\_def <http://docs.flowr.space/en/latest/rd/vignettes/build-pipes.html#flow-definition>`__.
 
 +-----------+--------------+-------------+-------------+----------+--------------------+------------+-----------------+
 | jobname   | prev\_jobs   | dep\_type   | sub\_type   | queue    | memory\_reserved   | walltime   | cpu\_reserved   |

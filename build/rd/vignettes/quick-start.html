@@ -166,7 +166,7 @@
 devtools::install_github(&quot;sahilseth/flowr&quot;)
 </pre></div>
 </div>
-<p>Run a setup function which copies &#8216;flowr&#8217; Rscript to subsetquent steps easier. More on this <a class="reference external" href="https://github.com/sahilseth/rfun">here</a>.</p>
+<p>Run a setup function which copies &#8216;flowr&#8217; helper script to enable using flow from shell terminal itself. A few examples <a class="reference external" href="https://github.com/sahilseth/rfun">here</a>.</p>
 <div class="code r highlight-python"><div class="highlight"><pre><span class="n">library</span><span class="p">(</span><span class="n">flowr</span><span class="p">)</span>
 <span class="n">setup</span><span class="p">()</span>
 </pre></div>
@@ -176,8 +176,8 @@ devtools::install_github(&quot;sahilseth/flowr&quot;)
 <div class="figure">
 <img alt="" src="../../_images/toy.png" />
 </div>
-<p>A simple example where we have three instances of sleep (wait for few seconds), after waiting three tmp jobs are started which create three files with some random data. After all three are complete, a merge step merges the file and then size of the resulting file is calculated. This is quite similar in structure to a typical workflow from where a series of alignment and sorting steps may take place on the raw fastq files. Followed by merging of the resulting bam files into one large file per-sample.</p>
-<p>The table above is referred to as <a class="reference external" href="details...">flow_mat</a>.</p>
+<p>A simple example where we have three instances of sleep (wait for few seconds), after completion three tmp jobs are started which create three files with some random data. After all three are complete, a merge step follows, and merged the files and then calculates the size of the resulting file. This is quite similar in structure to a typical workflow from where a series of alignment and sorting steps may take place on the raw fastq files. Followed by merging of the resulting bam files into one large file per-sample.</p>
+<p>The table below is referred to as <a class="reference external" href="http://docs.flowr.space/en/latest/rd/vignettes/build-pipes.html#flow-mat-a-table-with-shell-commands-to-run">flow_mat</a>.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="21%" />
@@ -225,7 +225,7 @@ devtools::install_github(&quot;sahilseth/flowr&quot;)
 </tr>
 </tbody>
 </table>
-<p>We use an additional file specifying relationship between the steps, and also other resource requirements <a class="reference external" href="details...">flow_def</a>.</p>
+<p>We use an additional file specifying relationship between the steps, and also other resource requirements <a class="reference external" href="http://docs.flowr.space/en/latest/rd/vignettes/build-pipes.html#flow-definition">flow_def</a>.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="10%" />
