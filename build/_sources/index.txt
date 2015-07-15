@@ -40,17 +40,17 @@ Contents:
 	:maxdepth: 1
 	
 	rd/vignettes/quick-start
-	hpcc-support
 	
 .. toctree::
 	:glob:
 	:maxdepth: 2
 	
-	pipelines
 	build
+	pipelines
 	topics
 	
 .. toctree::
+	hpcc-support
 	faqs
 
 Indices and tables

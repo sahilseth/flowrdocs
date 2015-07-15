@@ -5,7 +5,6 @@ Building Pipelines
 	:maxdepth: 2
 
 	rd/vignettes/build-pipes
-	hpcc-interface
 
 
 

@@ -80,7 +80,7 @@ Plot
 
     plot_flow(fobj)
 
-.. figure:: figure/plot_example1-1.pdf
+.. figure:: figure/plot_example1-1.png
    :alt: Flow chart describing process for example 1
 
    Flow chart describing process for example 1

@@ -5,7 +5,6 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>plot_flow &mdash; flowr 0.1 documentation</title>
@@ -15,6 +14,7 @@
   
 
   
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 
   
   
@@ -55,7 +55,7 @@
 
 
   
-  <script src="_static/js/modernizr.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
 
 </head>
 
@@ -67,14 +67,8 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-nav-search">
         
-
+          <a href="../../index.html" class="fa fa-home"> flowr</a>
         
-          <a href="../../index.html" class="icon icon-home"> flowr
-        
-
-        
-        </a>
-
         
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -83,8 +77,6 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-        
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
@@ -101,104 +93,37 @@
 <li class="toctree-l2"><a class="reference internal" href="../vignettes/quick-start.html#check-the-status">Check the status</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../hpcc-support.html">HPCC Platforms</a></li>
 </ul>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../build.html">Building Pipelines</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../vignettes/build-pipes.html">Ingredients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vignettes/build-pipes.html#submission-types">Submission types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vignettes/build-pipes.html#dependency-types">Dependency types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vignettes/build-pipes.html#relationships">Relationships</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vignettes/build-pipes.html#passing-of-flow-definition-resource-columns">Passing of flow definition resource columns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vignettes/build-pipes.html#cluster-interface">Cluster interface</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../pipelines.html">Available pipelines</a><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../build.html">Building Pipelines</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../vignettes/build-pipes.html">Ingredients</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../vignettes/build-pipes.html#flow-definition">Flow Definition</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../vignettes/build-pipes.html#flow-mat-a-table-with-all-the-commands-to-run">flow_mat: A table with all the commands to run</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../vignettes/build-pipes.html#example">Example:</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../vignettes/build-pipes.html#submission-types">Submission types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../vignettes/build-pipes.html#dependency-types">Dependency types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../vignettes/build-pipes.html#relationships">Relationships</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../vignettes/build-pipes.html#serial-one-to-one-relationship">Serial: one to one relationship</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../vignettes/build-pipes.html#gather-many-to-one-relationship">Gather: many to one relationship</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../vignettes/build-pipes.html#burst-one-to-many-relationship">Burst: one to many relationship</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../vignettes/build-pipes.html#cluster-interface">Cluster interface</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../vignettes/build-pipes.html#flow-def-columns">flow_def columns</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../hpcc-interface.html">HPCC submission formats</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../hpcc-interface.html#flow-def-and-final-submission">flow_def and final submission</a></li>
-</ul>
-</li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../topics.html">Help on available functions</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="flow.html">flow</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="flow.html#usage">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow.html#description">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="flow.html#examples">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="get_flow_status.html">get_flow_status</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="get_flow_status.html#usage">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="get_flow_status.html#description">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="get_flow_status.html#examples">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="job.html">job</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="job.html#usage">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="job.html#description">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="job.html#examples">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="kill_flow.html">kill_flow</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="kill_flow.html#usage">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kill_flow.html#description">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kill_flow.html#examples">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">plot_flow</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#usage">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#description">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#examples">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="queue.html">queue</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="queue.html#usage">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="queue.html#description">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="queue.html#examples">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="rerun_flow.html">rerun_flow</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="rerun_flow.html#usage">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rerun_flow.html#description">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rerun_flow.html#examples">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="setup.html">setup</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="setup.html#usage">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="setup.html#description">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="setup.html#examples">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="submit_flow.html">submit_flow</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="submit_flow.html#usage">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="submit_flow.html#description">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="submit_flow.html#examples">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="submit_job.html">submit_job</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="submit_job.html#usage">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="submit_job.html#description">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="submit_job.html#examples">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="to_flow.html">to_flow</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="to_flow.html#usage">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="to_flow.html#value">Value</a></li>
-<li class="toctree-l3"><a class="reference internal" href="to_flow.html#examples">Examples</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="flow.html">flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get_flow_status.html">get_flow_status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="job.html">job</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kill_flow.html">kill_flow</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">plot_flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="queue.html">queue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rerun_flow.html">rerun_flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html">setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="submit_flow.html">submit_flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="submit_job.html">submit_job</a></li>
+<li class="toctree-l2"><a class="reference internal" href="to_flow.html">to_flow</a></li>
 </ul>
 </li>
 </ul>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../hpcc-support.html">HPCC Platforms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../faqs.html">FAQs</a></li>
 </ul>
 
@@ -229,9 +154,7 @@
     <li>plot_flow</li>
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="../../_sources/rd/topics/plot_flow.txt" rel="nofollow"> View page source</a>
-          
+          <a href="../../_sources/rd/topics/plot_flow.txt" rel="nofollow"> View page source</a>
         
       </li>
   </ul>
@@ -335,10 +258,10 @@ Author:</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="queue.html" class="btn btn-neutral float-right" title="queue" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="queue.html" class="btn btn-neutral float-right" title="queue">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="kill_flow.html" class="btn btn-neutral" title="kill_flow" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="kill_flow.html" class="btn btn-neutral" title="kill_flow"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -350,10 +273,10 @@ Author:</p>
         &copy; Copyright 2015, Sahil Seth.
     </p>
   </div>
+
   Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-
+  
 </footer>
-
         </div>
       </div>
 

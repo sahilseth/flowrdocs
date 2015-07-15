@@ -69,3 +69,4 @@ Let us load some example data
                                     execute = TRUE)
     fobj <- to_flow(x = flow_mat, def = flow_def, platform = "moab")
     fobj <- to_flow(x = flow_mat, def = flow_def, platform = "lsf")
+
