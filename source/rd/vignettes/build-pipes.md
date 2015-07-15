@@ -42,10 +42,7 @@ It is a tab separated file, with a minimum of 4 columns:
 **We will talk more on what the options mean below**
 
 
-Apart from these, there are several other variables which define the resource requirements of each step. This gives great amount of flexibility to the user in choosing CPU, wall time, memory and queue for each step (These are all passed along to the HPCC platform). 
-
-.. note:: 
-This is especially useful for genomics pipelines since not every step is the same in terms of resources it uses. And being able to tune them, makes the setup quite effecient.
+Apart from the above described variables, several others defining the resource requirements of each step are also available. These give great amount of flexibility to the user in choosing CPU, wall time, memory and queue for each step (and passed along to the HPCC platform). 
 
 - `cpu_reserved`
 - `memory_reserved`
@@ -53,14 +50,24 @@ This is especially useful for genomics pipelines since not every step is the sam
 - `walltime`
 - `queue`
 
-Most cluster platforms accept these arguments. These are used to fill up the variables defined in curly braces. Example `{{{CPU}}}` in this file for [torque](https://github.com/sahilseth/flowr/blob/master/inst/conf/torque.sh)
+.. note:: 
+This is especially useful for genomics pipelines, since each step may use different amount of resources. For example, in a typical setup, if one step uses 16 cores these would be blocked and not used during processing of several other steps. Thus resulting in blockage and high cluster load (even when actual CPU usage may be low). Being able to tune them, makes this setup quite efficient.
 
+Most cluster platforms accept these resource arguments. Essentially a file like [this](https://github.com/sahilseth/flowr/blob/master/inst/conf/torque.sh) is used as a template, and variables defined in curly braces ( ex. `{{{CPU}}}` ) are filled up using the flow definition file.
+
+.. warning:: 
 If these (resource requirements) columns not included in the flow_def, their values should be explicitly defined in the submission template. 
 
-Here is an example [flow_def](https://raw.githubusercontent.com/sahilseth/flowr/master/inst/extdata/example1_flow_def2.txt) file.
+Here is an example of a typical [flow_def](https://raw.githubusercontent.com/sahilseth/flowr/master/inst/extdata/example1_flow_def2.txt) file.
 
 
 
+|jobname |prev_jobs |dep_type |sub_type |queue  | memory_reserved|walltime | cpu_reserved|
+|:-------|:---------|:--------|:--------|:------|---------------:|:--------|------------:|
+|sleep   |none      |none     |scatter  |medium |          163185|23:00    |            1|
+|tmp     |sleep     |serial   |scatter  |medium |          163185|23:00    |            1|
+|merge   |tmp       |gather   |serial   |medium |          163185|23:00    |            1|
+|size    |merge     |serial   |serial   |medium |          163185|23:00    |            1|
 
 
 <!-- Each row of this table translates to a call to ([job](http://docs.flowr.space/build/html/rd/topics/job.html) or) [queue](http://docs.flowr.space/build/html/rd/topics/queue.html) function. -->
@@ -80,36 +87,16 @@ Here is an example [flow_def](https://raw.githubusercontent.com/sahilseth/flowr/
 Its best to have this as a tab seperated file (with no row.names). -->
 
 
+### 2. Flow mat: A table with shell commands to run
 
-```r
-kable(head(flow_def))
-```
+This is also a tab separated table, with a minimum of three columns as defined below:
 
-
-
-|jobname |prev_jobs |dep_type |sub_type |queue  | memory_reserved|walltime | cpu_reserved|
-|:-------|:---------|:--------|:--------|:------|---------------:|:--------|------------:|
-|sleep   |none      |none     |scatter  |medium |          163185|23:00    |            1|
-|tmp     |sleep     |serial   |scatter  |medium |          163185|23:00    |            1|
-|merge   |tmp       |gather   |serial   |medium |          163185|23:00    |            1|
-|size    |merge     |serial   |serial   |medium |          163185|23:00    |            1|
-
-### flow_mat: A table with all the commands to run
-
-This is also a tab separated table, with a minimum of three column as defined below:
-
-- samplename: A grouping column. The table is split using this column and each subset is treated as a individual flow. This makes it very easy to process multiple samples using a single submission command.
+- `samplename`: A grouping column. The table is split using this column and each subset is treated as a individual flow. This makes it very easy to process multiple samples using a single submission command.
 	- If all the commands are for a single sample, one can just repeat a dummy name like sample1 all throughout.
-- jobname: This corresponds to the name of the step. This should match exactly with the jobname column in flow_def table defined above.
-- cmd: A shell command to run. One can get quite creative here. These could be multiple shell commands separated by a `;` or `&&`, more on this `here <http://stackoverflow.com/questions/3573742/difference-between-echo-hello-ls-vs-echo-hello-ls>`_.
+- `jobname`: This corresponds to the name of the step. This should match exactly with the jobname column in flow_def table defined above.
+- `cmd`: A shell command to run. One can get quite creative here. These could be multiple shell commands separated by a `;` or `&&`, more on this [here](http://stackoverflow.com/questions/3573742/difference-between-echo-hello-ls-vs-echo-hello-ls). Though to keep this clean you may just wrap a multi-line command into a script and just source the bash script from here.
 
-Here is an example [flow_mat](https://raw.githubusercontent.com/sahilseth/flowr/master/inst/extdata/example1_flow_mat.txt)
-
-
-
-```r
-kable(subset(flow_mat, samplename == "sample1"))
-```
+Here is an example [flow_mat](https://raw.githubusercontent.com/sahilseth/flowr/master/inst/extdata/example1_flow_mat.txt).
 
 
 
@@ -182,7 +169,7 @@ knitr:::kable(dat)
 
 A   ----> B  -----> C -----> D
 
-Consider an example with three steps A, B and C. A has 10 commands from A1 to A10, similarly B has 10 commands B1 to B10 and C has a single command, C1.
+Consider an example with three steps A, B and C. A has 10 commands from A1 to A10, similarly B has 10 commands B1 through B10 and C has a single command, C1.
 
 Consider another step D (with D1-D3), which comes after C.
 
@@ -204,9 +191,9 @@ Consider another step D (with D1-D3), which comes after C.
 - `serial`: *one to one* relationship with previous job. 
 	- *B1 can start as soon as A1 completes.*
 - `gather`: *many to one*, wait for **all** commands in previous job to finish then start the  current step. 
-	- *All jobs of B (1-10), need to complete before C is started*
-- `burst`: *one to many* wait for the previous step which has one job and start processing all in the current step. 
-	- *D1 to D3 are started as soon as C finishes.*
+	- *All jobs of B (1-10), need to complete before C1 is started*
+- `burst`: *one to many* wait for the previous step which has one job and start processing all cmds in the current step. 
+	- *D1 to D3 are started as soon as C1 finishes.*
 
 
 ## Relationships
@@ -215,13 +202,19 @@ Using the above submission and dependency types one can create several types of 
 
 
 ### Serial: one to one relationship
+
+[scatter] ---serial---> [scatter]
+
 A is submitted as scatter, A1 through A10. Similarly B1 through B10 can also be processed independently of each other. Further B1, require A1 to complete; B2 requires A2 and so on.
+
 
 To set this up, A and B would have `sub_type` `scatter` and B would have `dep_type` as `serial`. Further, since A is an initial step its `dep_type` and `prev_job` would defined as `none`.
 
 
 
 ### Gather: many to one relationship
+
+[scatter] ---gather---> [serial]
 
 Since C is a single command which requires all steps of B to complete, intuitively it would `gather` pieces of data generated by B. In this case `dep_type` would be `gather` and `sub_type` type would be `serial` since its a single command.
 
@@ -232,6 +225,9 @@ Since C is a single command which requires all steps of B to complete, intuitive
 --->
 
 ### Burst: one to many relationship
+
+[serial] ---burst---> [scatter]
+
 
 Further, D is a set of three commands (D1-D3), which need to wait for a single process (C1) to complete. They would be submitted as `scatter` after waiting on C in a `burst` type dependency.
 
@@ -290,7 +286,7 @@ Add a new platform is streamlined here are a few details:
 ## flow_def columns
 
 
-Some columns of flow definition are passed along to the final submisstion script.
+Some columns of flow definition are passed along to the final submission script.
 
 Variables in the template are defined in curly braces, example `{{{CPU}}}`, these variables are gathered from the flow definition file.
 
