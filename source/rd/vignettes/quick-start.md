@@ -10,7 +10,7 @@ vignette: >
 
 
 
-Get me started
+Get started
 -------------
 
 
@@ -40,7 +40,10 @@ setup()
 
 
 
-A simple example where we have three instances of sleep (wait for few seconds), after completion three tmp jobs are started which create three files with some random data. After all three are complete, a merge step follows, and merged the files and then calculates the size of the resulting file. This is quite similar in structure to a typical workflow from where a series of alignment and sorting steps may take place on the raw fastq files. Followed by merging of the resulting bam files into one large file per-sample.
+A simple example where we have three instances of sleep (wait for few seconds), after completion three tmp jobs are started which create files with some random data. After all these are complete, a merge step follows, which combines them into one big file. Next we use `du` to calculate the size of the resulting file. 
+
+.. note:: 
+This is quite similar in structure to a typical workflow from where a series of alignment and sorting steps may take place on the raw fastq files. Followed by merging of the resulting bam files into one large file per-sample and further downstream processing.
 
 The table below is referred to as [flow_mat](http://docs.flowr.space/en/latest/rd/vignettes/build-pipes.html#flow-mat-a-table-with-shell-commands-to-run).
 

@@ -49,11 +49,11 @@ Generate 100 commands each for sleep make div
 +--------------+-----------+-----------------------------------------+
 | samplename   | jobname   | cmd                                     |
 +==============+===========+=========================================+
-| sample1      | sleep     | sleep 21 && sleep 10;echo 'hello'       |
+| sample1      | sleep     | sleep 12 && sleep 1;echo 'hello'        |
 +--------------+-----------+-----------------------------------------+
-| sample1      | sleep     | sleep 6 && sleep 4;echo 'hello'         |
+| sample1      | sleep     | sleep 19 && sleep 0;echo 'hello'        |
 +--------------+-----------+-----------------------------------------+
-| sample1      | sleep     | sleep 3 && sleep 6;echo 'hello'         |
+| sample1      | sleep     | sleep 10 && sleep 19;echo 'hello'       |
 +--------------+-----------+-----------------------------------------+
 | sample1      | tmp       | head -c 100000 /dev/urandom > tmp1\_1   |
 +--------------+-----------+-----------------------------------------+

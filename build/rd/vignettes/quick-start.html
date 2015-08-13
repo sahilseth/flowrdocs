@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Get me started &mdash; flowr 0.1 documentation</title>
+  <title>Get started &mdash; flowr 0.1 documentation</title>
   
 
   
@@ -83,7 +83,7 @@
           
           
               <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="">Get me started</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Get started</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#toy-example">Toy example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#stitch">Stitch</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#plot">Plot</a></li>
@@ -148,7 +148,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../../index.html">Docs</a> &raquo;</li>
       
-    <li>Get me started</li>
+    <li>Get started</li>
       <li class="wy-breadcrumbs-aside">
         
           <a href="../../_sources/rd/vignettes/quick-start.txt" rel="nofollow"> View page source</a>
@@ -160,8 +160,8 @@
           <div role="main" class="document">
             
   
-  <div class="section" id="get-me-started">
-<h1>Get me started<a class="headerlink" href="#get-me-started" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="get-started">
+<h1>Get started<a class="headerlink" href="#get-started" title="Permalink to this headline">¶</a></h1>
 <div class="code r highlight-python"><div class="highlight"><pre>install.packages(&#39;devtools&#39;)
 devtools::install_github(&quot;sahilseth/flowr&quot;)
 </pre></div>
@@ -176,7 +176,11 @@ devtools::install_github(&quot;sahilseth/flowr&quot;)
 <div class="figure">
 <img alt="" src="../../_images/toy.png" />
 </div>
-<p>A simple example where we have three instances of sleep (wait for few seconds), after completion three tmp jobs are started which create three files with some random data. After all three are complete, a merge step follows, and merged the files and then calculates the size of the resulting file. This is quite similar in structure to a typical workflow from where a series of alignment and sorting steps may take place on the raw fastq files. Followed by merging of the resulting bam files into one large file per-sample.</p>
+<p>A simple example where we have three instances of sleep (wait for few seconds), after completion three tmp jobs are started which create files with some random data. After all these are complete, a merge step follows, which combines them into one big file. Next we use <code class="docutils literal"><span class="pre">du</span></code> to calculate the size of the resulting file.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This is quite similar in structure to a typical workflow from where a series of alignment and sorting steps may take place on the raw fastq files. Followed by merging of the resulting bam files into one large file per-sample and further downstream processing.</p>
+</div>
 <p>The table below is referred to as <a class="reference external" href="http://docs.flowr.space/en/latest/rd/vignettes/build-pipes.html#flow-mat-a-table-with-shell-commands-to-run">flow_mat</a>.</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -468,7 +472,7 @@ Showing status of: /rsrch2/iacs/iacs_dep/sseth/flowr/type1-20150520-15-18-46-syS
         <li>
           Go to
         <a href="https://github.com/ctb/labibi/blob/master/rd/vignettes/quick-start.rst">
-          Get me started
+          Get started
         </a> on GitHub.
       </li>
 

@@ -24,9 +24,9 @@ It is a tab separated file, with a minimum of 4 columns:
 -  ``prev_job``: Short for previous job, this would be jobname of the previous job. This can be NA/./none if this is a independent/initial step, and no previous step is required for this to start.
 -  ``dep_type``: Short for dependency type, refers to the relationship of this job with the one defined in ``prev_job``. This can take values ``none``, ``gather``, ``serial`` or ``burst``.
 
-**We will talk more on what the options mean below**
+These would be explained in detail, below.
 
-Apart from the above described variables, several others defining the resource requirements of each step are also available. These give great amount of flexibility to the user in choosing CPU, wall time, memory and queue for each step (and passed along to the HPCC platform).
+Apart from the above described variables, several others defining the resource requirements of each step are also available. These give great amount of flexibility to the user in choosing CPU, wall time, memory and queue for each step (and are passed along to the HPCC platform).
 
 -  ``cpu_reserved``
 -  ``memory_reserved``
@@ -277,8 +277,6 @@ In essence and example flow\_def would look like as follows (with additional res
    :alt: 
 
 .. note:: There is a darker more prominent shadow to indicate scatter steps.
-
-Here is the `full flow definition <https://raw.githubusercontent.com/sahilseth/flowr/master/inst/extdata/example1_flow_mat.txt>`__ used in this example.
 
 Passing of flow definition resource columns
 -------------------------------------------

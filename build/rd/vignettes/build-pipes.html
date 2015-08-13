@@ -84,7 +84,7 @@
           
           
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="quick-start.html">Get me started</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="quick-start.html">Get started</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="quick-start.html#toy-example">Toy example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quick-start.html#stitch">Stitch</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quick-start.html#plot">Plot</a></li>
@@ -183,8 +183,8 @@
 <li><code class="docutils literal"><span class="pre">prev_job</span></code>: Short for previous job, this would be jobname of the previous job. This can be NA/./none if this is a independent/initial step, and no previous step is required for this to start.</li>
 <li><code class="docutils literal"><span class="pre">dep_type</span></code>: Short for dependency type, refers to the relationship of this job with the one defined in <code class="docutils literal"><span class="pre">prev_job</span></code>. This can take values <code class="docutils literal"><span class="pre">none</span></code>, <code class="docutils literal"><span class="pre">gather</span></code>, <code class="docutils literal"><span class="pre">serial</span></code> or <code class="docutils literal"><span class="pre">burst</span></code>.</li>
 </ul>
-<p><strong>We will talk more on what the options mean below</strong></p>
-<p>Apart from the above described variables, several others defining the resource requirements of each step are also available. These give great amount of flexibility to the user in choosing CPU, wall time, memory and queue for each step (and passed along to the HPCC platform).</p>
+<p>These would be explained in detail, below.</p>
+<p>Apart from the above described variables, several others defining the resource requirements of each step are also available. These give great amount of flexibility to the user in choosing CPU, wall time, memory and queue for each step (and are passed along to the HPCC platform).</p>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">cpu_reserved</span></code></li>
 <li><code class="docutils literal"><span class="pre">memory_reserved</span></code></li>
@@ -514,7 +514,6 @@ kable(ex2def[, 1:4])
 <p class="first admonition-title">Note</p>
 <p class="last">There is a darker more prominent shadow to indicate scatter steps.</p>
 </div>
-<p>Here is the <a class="reference external" href="https://raw.githubusercontent.com/sahilseth/flowr/master/inst/extdata/example1_flow_mat.txt">full flow definition</a> used in this example.</p>
 </div>
 </div>
 <div class="section" id="passing-of-flow-definition-resource-columns">

@@ -26,13 +26,29 @@ Why bother?
 
 .. There are a few built-in pipelines which start from fastq files and do alignment and variant calling.
 
-Here is a shiny app, `flow_creator`_ which builds your flow.
 
+A few lines, to get started:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: r
+
+	install.packages(devtools)
+	devtools::install_github("sahilseth/flowr")
+	## OR
+	install.packages("flowr") ## coming up soon...
+	library(flowr) ## load the library
+	setup() ## copy flowr bash script
+	run('sleep', execute=TRUE,  platform='moab')
+
+- Here is a shiny app, `flow_creator <https://sseth.shinyapps.io/flow_creator>`_ which helps you build a flow.
+- A few `slides <http://sahilseth.github.io/slides/flowrintro>`_ providing a quick overview.
 
 .. The process of submitting jobs uses the `dependency` feature of submitting jobs to a computing cluster.
 .. This lets the user concentrate more on the type of analysis than its implmentation. Also the pipeline becomes really portable across platforms and computing clusters.
 
-   
+
+
+
 Contents:
 -----------------------
 
