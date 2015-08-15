@@ -20,11 +20,11 @@ Usage
 
  to_flow(x, ...)
 
-"to_flow"(x, def, ...)
+"to_flow"(x, def, grp_col, jobname_col, cmd_col, ...)
 
 "to_flow"(x, def, grp_col, jobname_col, cmd_col, flowname, flow_run_path, platform, submit = FALSE, execute = FALSE, qobj, ...)
 
-"to_flow"(x, def, flowname, flow_run_path, desc, ...)
+"to_flow"(x, def, flowname, flow_run_path, desc, qobj, ...)
 
 Arguments
 
@@ -43,18 +43,18 @@ cmd_col
 flowname
     name of the flow
 flow_run_path
-    Path to a folder. Main operating folder for this flow. Default it `getOption("flow_run_path")`.
+    Path to a folder. Main operating folder for this flow. Default it `get_opts("flow_run_path")`.
 platform
     character vector, specifying the platform to use. local, lsf, torque, moab, sge, slurm, ...
-This over-rides the platform column in flow_def.
+This over-rides the platform column in flowdef.
 submit
     Depreciated. Use submit_flow on flow object this function returns. TRUE/FALSE
 execute
     Depreciated. Use submit_flow on flow object this function returns. TRUE/FALSE, an paramter to submit_flow()
 qobj
-    Depreciated. A object of class `queue <queue.html>`_.
+    Depreciated, modify <a href = 'http://docs.flowr.space/en/latest/rd/vignettes/build-pipes.html#cluster-interface'>cluster templates</a> instead.  A object of class `queue <queue.html>`_.
 desc
-    Advanced Use. final flow name. don't change.
+    Advanced Use. final flow name, please don't change.
 
 
 Value
@@ -64,6 +64,14 @@ Value
 Returns a flow object. If execute=TRUE, fobj is rich with information about where and how
 the flow was executed. It would include details like jobids, path to exact scripts run etc.
 To use kill_flow, to kill all the jobs one would need a rich flow object, with job ids present.
+Behaviour:
+What goes in, and what to expect in return?
+-<li> submit=FALSE & execute=FALSE: Create and return a flow object
+</li>
+<li> submit=TRUE & execute=FALSE: dry-run, Create a flow object then, create a structured execution folder with all the commands
+</li>
+<li> submit=TRUE, execute=TRUE: Do all of the above and then, submit to cluster
+</li>
 </dl>
 Description
 """"""""""""""""""
@@ -73,18 +81,21 @@ Details
 """"""""""""""""""
 
 The parameter x can be a path to a flow_mat, or a data.frame (as read by read_sheet).
-This is a minimum three column matrix with:
-samplename<TAB>jobname<TAB>cmd
-## Behaviour, in terms of submit and execute
-submit=FALSE execute=FALSE: default, only flow object creation
-submit=TRUE, execute=FALSE: dry-run
-submit=TRUE, execute=TRUE: submit to cluster
+This is a minimum three column matrix with three columns: samplename, jobname and cmd
 
 
 Examples
 """"""""""""""""""
 ::
 
+ ex = file.path(system.file(package = "flowr"), "pipelines")
+ flowmat = as.flowmat(file.path(ex, "sleep_pipe.tsv"))
+ **mat seems to be a file, reading it...****Using `samplename` as the grouping column****Using `jobname` as the jobname column****Using `cmd` as the cmd column**flowdef = as.flowdef(file.path(ex, "sleep_pipe.def"))
+ **def seems to be a file, reading it...**fobj = to_flow(x = flowmat, def = flowdef, flowname = "sleep_pipe", platform = "lsf")
+ **Using flow_run_path default: ~/flowr/runs****
+ ##--- Checking flow definition and flow matrix for consistency...****
+ ##--- Detecting platform...****Will use platform from flow definition****Platform supplied, this will override defaults from flow definition...****
+ Working on... sample1****.****.****.****.**
 Aliases:
 to_flow
 to_flow.data.frame

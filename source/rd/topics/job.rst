@@ -73,7 +73,7 @@ Examples
  
  ## plot the flow
  plot_flow(fobj)
- **input x is flow**## **Not run**: 
+ ## **Not run**: 
  # ## dry run, only create the structure without submitting jobs
  # submit_flow(fobj)
  # 
@@ -81,7 +81,7 @@ Examples
  # submit_flow(fobj, execute = TRUE)
  # 
  # ## **End(Not run)**
- .. image job-4.png
+ .. image job-2.png
 Aliases:
 job
 Keywords:

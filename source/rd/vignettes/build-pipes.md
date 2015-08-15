@@ -1,6 +1,6 @@
 ---
-title: "flowr simple examples"
-date: "2015-07-14"
+title: "flowr simple pipelines"
+date: "2015-08-15"
 output: rmarkdown::html_document
 vignette: >
   %\VignetteIndexEntry{flowr simple example}
@@ -19,9 +19,9 @@ Both these files have a `jobname` column which is used as a ID to connect them t
 
 ```r
 ## ------ load some example data
-exdata = file.path(system.file(package = "flowr"), "extdata")
-flow_mat = read_sheet(file.path(exdata, "example1_flow_mat.txt"))
-flow_def = read_sheet(file.path(exdata, "example1_flow_def.txt"))
+ex = file.path(system.file(package = "flowr"), "pipelines")
+flow_mat = as.flowmat(file.path(ex, "sleep_pipe.tsv"))
+flow_def = as.flowdef(file.path(ex, "sleep_pipe.def"))
 ```
 
 
@@ -57,16 +57,16 @@ Most cluster platforms accept these resource arguments. Essentially a file like 
 .. warning:: 
 If these (resource requirements) columns not included in the flow_def, their values should be explicitly defined in the submission template. 
 
-Here is an example of a typical [flow_def](https://raw.githubusercontent.com/sahilseth/flowr/master/inst/extdata/example1_flow_def2.txt) file.
+Here is an example of a typical [flow_def](https://raw.githubusercontent.com/sahilseth/flowr/master/inst/pipelines/sleep_pipe.def) file.
 
 
 
-|jobname |prev_jobs |dep_type |sub_type |queue  | memory_reserved|walltime | cpu_reserved|
-|:-------|:---------|:--------|:--------|:------|---------------:|:--------|------------:|
-|sleep   |none      |none     |scatter  |medium |          163185|23:00    |            1|
-|tmp     |sleep     |serial   |scatter  |medium |          163185|23:00    |            1|
-|merge   |tmp       |gather   |serial   |medium |          163185|23:00    |            1|
-|size    |merge     |serial   |serial   |medium |          163185|23:00    |            1|
+|jobname    |sub_type |prev_jobs  |dep_type |queue | memory_reserved|walltime | cpu_reserved|platform | jobid|
+|:----------|:--------|:----------|:--------|:-----|---------------:|:--------|------------:|:--------|-----:|
+|sleep      |scatter  |none       |none     |short |            2000|1:00     |            1|torque   |     1|
+|create_tmp |scatter  |sleep      |serial   |short |            2000|1:00     |            1|torque   |     2|
+|merge      |serial   |create_tmp |gather   |short |            2000|1:00     |            1|torque   |     3|
+|size       |serial   |merge      |serial   |short |            2000|1:00     |            1|torque   |     4|
 
 
 <!-- Each row of this table translates to a call to ([job](http://docs.flowr.space/build/html/rd/topics/job.html) or) [queue](http://docs.flowr.space/build/html/rd/topics/queue.html) function. -->
@@ -79,7 +79,7 @@ Here is an example of a typical [flow_def](https://raw.githubusercontent.com/sah
 - queue: name of the queue to be used for this particular job. 
 	Since each jobs can be submitted to a different queue, this makes your flow very flexible
 - memory_reserved: Refer to your system admin guide on what values should go here. 
-	Some examples: 160000, 16g etc representing a 16GB reservation of RAM
+	Some pipelines: 160000, 16g etc representing a 16GB reservation of RAM
 - walltime: How long would this job run. Again refer to your HPCC guide. Example: 24:00, 24:00:00
 - cpu_reserved: Amount of CPU reserved.
 
@@ -95,20 +95,20 @@ This is also a tab separated table, with a minimum of three columns as defined b
 - `jobname`: This corresponds to the name of the step. This should match exactly with the jobname column in flow_def table defined above.
 - `cmd`: A shell command to run. One can get quite creative here. These could be multiple shell commands separated by a `;` or `&&`, more on this [here](http://stackoverflow.com/questions/3573742/difference-between-echo-hello-ls-vs-echo-hello-ls). Though to keep this clean you may just wrap a multi-line command into a script and just source the bash script from here.
 
-Here is an example [flow_mat](https://raw.githubusercontent.com/sahilseth/flowr/master/inst/extdata/example1_flow_mat.txt).
+Here is an example [flow_mat](https://raw.githubusercontent.com/sahilseth/flowr/master/inst/extdata/sleep_pipe.tsv).
 
 
 
-|samplename |jobname |cmd                                  |
-|:----------|:-------|:------------------------------------|
-|sample1    |sleep   |sleep 2 && sleep 5;echo hello        |
-|sample1    |sleep   |sleep 13 && sleep 7;echo hello       |
-|sample1    |sleep   |sleep 23 && sleep 7;echo hello       |
-|sample1    |tmp     |head -c 100000 /dev/urandom > tmp1_1 |
-|sample1    |tmp     |head -c 100000 /dev/urandom > tmp1_2 |
-|sample1    |tmp     |head -c 100000 /dev/urandom > tmp1_3 |
-|sample1    |merge   |cat tmp1_1 tmp1_2 tmp1_3 > merge1    |
-|sample1    |size    |du -sh merge1; echo MY shell: $SHELL |
+|samplename |jobname    |cmd                                                            |
+|:----------|:----------|:--------------------------------------------------------------|
+|sample1    |sleep      |sleep 10 && sleep 2;echo hello                                 |
+|sample1    |sleep      |sleep 11 && sleep 8;echo hello                                 |
+|sample1    |sleep      |sleep 11 && sleep 17;echo hello                                |
+|sample1    |create_tmp |head -c 100000 /dev/urandom > sample1_tmp_1                    |
+|sample1    |create_tmp |head -c 100000 /dev/urandom > sample1_tmp_2                    |
+|sample1    |create_tmp |head -c 100000 /dev/urandom > sample1_tmp_3                    |
+|sample1    |merge      |cat sample1_tmp_1 sample1_tmp_2 sample1_tmp_3 > sample1_merged |
+|sample1    |size       |du -sh sample1_merged; echo MY shell: $SHELL                   |
 
 
 <!---
@@ -141,12 +141,6 @@ fobj <- flow(name = "myflow", jobs = list(job1, job2, job3), desc="description")
 plot_flow(fobj)
 ```
 
-```
-#> input x is flow
-```
-
-![](figure/plot_simpleflow-1.png) 
-
 The above translates to a flow definition which looks like this:
 
 
@@ -154,14 +148,6 @@ The above translates to a flow definition which looks like this:
 dat <- flowr:::create_jobs_mat(fobj)
 knitr:::kable(dat)
 ```
-
-
-
-|       |jobname |prev_jobs |dep_type |sub_type |cpu_reserved |nodes | jobid| prev_jobid|
-|:------|:-------|:---------|:--------|:--------|:------------|:-----|-----:|----------:|
-|myjob1 |myjob1  |          |none     |scatter  |1            |1     |     1|         NA|
-|myjob2 |myjob2  |myjob1    |serial   |scatter  |1            |1     |     2|          1|
-|myjob3 |myjob3  |myjob1    |serial   |scatter  |1            |1     |     3|          1|
 --->
 
 ### Example:
@@ -197,7 +183,7 @@ Consider another step D (with D1-D3), which comes after C.
 
 ## Relationships
 
-Using the above submission and dependency types one can create several types of relationships between former and later jobs. Here are a few examples of relationships one may typically use.
+Using the above submission and dependency types one can create several types of relationships between former and later jobs. Here are a few pipelines of relationships one may typically use.
 
 
 ### Serial: one to one relationship
@@ -245,8 +231,8 @@ In essence and example flow_def would look like as follows (with additional reso
 
 
 ```r
-ex2def = read_sheet(file.path(exdata, "example2_flow_def.txt"))
-ex2mat = read_sheet(file.path(exdata, "example2_flow_mat.txt"))
+ex2def = as.flowdef(file.path(ex, "abcd.def"))
+ex2mat = as.flowmat(file.path(ex, "abcd.tsv"))
 fobj = suppressMessages(to_flow(x = ex2mat, def = ex2def))
 kable(ex2def[, 1:4])
 ```
@@ -275,7 +261,7 @@ plot_flow(fobj)
 
 The resource requirement columns of flow definition are passed along to the final (cluster) submission script.
 
-The following table provides a mapping between the flow definition columns and variables in the submission template ([examples below](#flow-def-columns)).
+The following table provides a mapping between the flow definition columns and variables in the submission template ([pipelines below](#flow-def-columns)).
 
 
 |flow_def_column |hpc_script_variable |
@@ -299,7 +285,6 @@ Support for several popular cluster platforms are built-in. There is a template,
 You may copy and edit these (and save to ~/flowr/conf) in case some changes are required. Templates from this folder (~/flowr/conf), would override the defaults.
 
 - [torque](https://github.com/sahilseth/flowr/blob/master/inst/conf/torque.sh)
-- [sge](https://github.com/sahilseth/flowr/blob/master/inst/conf/sge.sh)
 - [lsf](https://github.com/sahilseth/flowr/blob/master/inst/conf/lsf.sh)
 - [moab](https://github.com/sahilseth/flowr/blob/master/inst/conf/moab.sh)
 - [sge](https://github.com/sahilseth/flowr/blob/master/inst/conf/sge.sh)

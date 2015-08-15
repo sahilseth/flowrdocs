@@ -1,6 +1,6 @@
 ---
 title: "Quick Start Example"
-date: "2015-07-14"
+date: "2015-08-15"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Quick Start Example}
@@ -48,42 +48,33 @@ This is quite similar in structure to a typical workflow from where a series of 
 The table below is referred to as [flow_mat](http://docs.flowr.space/en/latest/rd/vignettes/build-pipes.html#flow-mat-a-table-with-shell-commands-to-run).
 
 
-|samplename |jobname |cmd                                  |
-|:----------|:-------|:------------------------------------|
-|sample1    |sleep   |sleep 2 && sleep 5;echo hello        |
-|sample1    |sleep   |sleep 13 && sleep 7;echo hello       |
-|sample1    |sleep   |sleep 23 && sleep 7;echo hello       |
-|sample1    |tmp     |head -c 100000 /dev/urandom > tmp1_1 |
-|sample1    |tmp     |head -c 100000 /dev/urandom > tmp1_2 |
-|sample1    |tmp     |head -c 100000 /dev/urandom > tmp1_3 |
-|sample1    |merge   |cat tmp1_1 tmp1_2 tmp1_3 > merge1    |
-|sample1    |size    |du -sh merge1; echo MY shell: $SHELL |
+|samplename |jobname    |cmd                                                            |
+|:----------|:----------|:--------------------------------------------------------------|
+|sample1    |sleep      |sleep 10 && sleep 2;echo hello                                 |
+|sample1    |sleep      |sleep 11 && sleep 8;echo hello                                 |
+|sample1    |sleep      |sleep 11 && sleep 17;echo hello                                |
+|sample1    |create_tmp |head -c 100000 /dev/urandom > sample1_tmp_1                    |
+|sample1    |create_tmp |head -c 100000 /dev/urandom > sample1_tmp_2                    |
+|sample1    |create_tmp |head -c 100000 /dev/urandom > sample1_tmp_3                    |
+|sample1    |merge      |cat sample1_tmp_1 sample1_tmp_2 sample1_tmp_3 > sample1_merged |
+|sample1    |size       |du -sh sample1_merged; echo MY shell: $SHELL                   |
 
 We use an additional file specifying relationship between the steps, and also other resource requirements [flow_def](http://docs.flowr.space/en/latest/rd/vignettes/build-pipes.html#flow-definition).
 
 
-|jobname |prev_jobs |dep_type |sub_type |queue  | memory_reserved|walltime | cpu_reserved|
-|:-------|:---------|:--------|:--------|:------|---------------:|:--------|------------:|
-|sleep   |none      |none     |scatter  |medium |          163185|23:00    |            1|
-|tmp     |sleep     |serial   |scatter  |medium |          163185|23:00    |            1|
-|merge   |tmp       |gather   |serial   |medium |          163185|23:00    |            1|
-|size    |merge     |serial   |serial   |medium |          163185|23:00    |            1|
+|jobname    |sub_type |prev_jobs  |dep_type |queue | memory_reserved|walltime | cpu_reserved|platform | jobid|
+|:----------|:--------|:----------|:--------|:-----|---------------:|:--------|------------:|:--------|-----:|
+|sleep      |scatter  |none       |none     |short |            2000|1:00     |            1|torque   |     1|
+|create_tmp |scatter  |sleep      |serial   |short |            2000|1:00     |            1|torque   |     2|
+|merge      |serial   |create_tmp |gather   |short |            2000|1:00     |            1|torque   |     3|
+|size       |serial   |merge      |serial   |short |            2000|1:00     |            1|torque   |     4|
 
-
-
-```r
-## load these files
-exdata = file.path(system.file(package = "flowr"), "extdata")
-flow_mat = read_sheet(file.path(exdata, "example1_flow_mat.txt"))
-flow_mat = subset(flow_mat, samplename == "sample1")
-flow_def = read_sheet(file.path(exdata,  "example1_flow_def.txt"))
-```
 
 # Stitch
 
 
 ```r
-fobj <- to_flow(x = flow_mat, def = flow_def, 
+fobj <- to_flow(x = flow_mat, def = as.flowdef(flow_def), 
 	flowname = "example1", platform = "lsf")
 ```
 
