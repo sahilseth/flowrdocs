@@ -18,12 +18,14 @@ Usage
 """"""""""""""""""
 ::
 
- setup(bin = "~/bin")
+ setup(bin = "~/bin", flow_base_path = get_opts("flow_base_path"))
 
 Arguments
 
 bin
     path to bin folder
+flow_base_path
+    the root folder for all flowr operations
 
 
 Description

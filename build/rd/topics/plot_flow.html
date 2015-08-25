@@ -84,7 +84,7 @@
           
           
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="../vignettes/quick-start.html">Get me started</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../vignettes/quick-start.html">Get started</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../vignettes/quick-start.html#toy-example">Toy example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../vignettes/quick-start.html#stitch">Stitch</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../vignettes/quick-start.html#plot">Plot</a></li>
@@ -119,6 +119,8 @@
 <li class="toctree-l2"><a class="reference internal" href="submit_flow.html">submit_flow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="submit_job.html">submit_job</a></li>
 <li class="toctree-l2"><a class="reference internal" href="to_flow.html">to_flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="to_flowdef.html">to_flowdef</a></li>
+<li class="toctree-l2"><a class="reference internal" href="to_flowmat.html">to_flowmat</a></li>
 </ul>
 </li>
 </ul>
@@ -172,12 +174,14 @@
 <div class="highlight-python"><div class="highlight"><pre><span class="n">plot_flow</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>&#8220;plot_flow&#8221;(x, detailed = TRUE, type = c(&#8220;1&#8221;, &#8220;2&#8221;), pdf = FALSE, pdffile = sprintf(&#8220;%s.pdf&#8221;, <a class="reference external" href="mailto:x&#37;&#52;&#48;name">x<span>&#64;</span>name</a>), ...)</p>
 <p>&#8220;plot_flow&#8221;(x, ...)</p>
+<p>&#8220;plot_flow&#8221;(x, ...)</p>
+<p>&#8220;plot_flow&#8221;(x, ...)</p>
+<p>&#8220;plot_flow&#8221;(x, detailed = TRUE, type = c(&#8220;1&#8221;, &#8220;2&#8221;), pdf = FALSE, pdffile, ...)</p>
 <p>Arguments</p>
 <dl class="docutils">
 <dt>x</dt>
-<dd>Object of class <code class="docutils literal"><span class="pre">flow</span></code></dd>
+<dd>Object of class <code class="docutils literal"><span class="pre">flow</span></code>, or a list of flow objects or a flowdef</dd>
 </dl>
 <dl class="docutils">
 <dt>...</dt>
@@ -194,7 +198,8 @@
 </div>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>plot the flow object</p>
+<p>plot the flow object
+plot_flow.character: works on a flowdef file.</p>
 </div>
 <div class="section" id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
@@ -205,26 +210,28 @@ jobj2 &lt;- job(q_obj=qobj, name = &quot;job2&quot;, cmd = cmds, submission_type
              dependency_type = &quot;serial&quot;, previous_job = &quot;job1&quot;)
 fobj &lt;- flow(jobs = list(jobj1, jobj2))
 plot_flow(fobj)
-**input x is flow**
+
 ### Gather: many to one relationship
 jobj1 &lt;- job(q_obj=qobj, cmd = cmds, submission_type = &quot;scatter&quot;, name = &quot;job1&quot;)
-.. image plot_flow-4.pngjobj2 &lt;- job(q_obj=qobj, name = &quot;job2&quot;, cmd = cmds, submission_type = &quot;scatter&quot;,
+.. image plot_flow-2.pngjobj2 &lt;- job(q_obj=qobj, name = &quot;job2&quot;, cmd = cmds, submission_type = &quot;scatter&quot;,
              dependency_type = &quot;gather&quot;, previous_job = &quot;job1&quot;)
 fobj &lt;- flow(jobs = list(jobj1, jobj2))
 plot_flow(fobj)
-**input x is flow**.. image plot_flow-7.png
+.. image plot_flow-4.png
 ### Burst: one to many relationship
 jobj1 &lt;- job(q_obj=qobj, cmd = cmds, submission_type = &quot;serial&quot;, name = &quot;job1&quot;)
 jobj2 &lt;- job(q_obj=qobj, name = &quot;job2&quot;, cmd = cmds, submission_type = &quot;scatter&quot;,
              dependency_type = &quot;burst&quot;, previous_job = &quot;job1&quot;)
 fobj &lt;- flow(jobs = list(jobj1, jobj2))
 plot_flow(fobj)
-**input x is flow**.. image plot_flow-10.png
+.. image plot_flow-6.png
 </pre></div>
 </div>
 <p>Aliases:
 plot_flow
+plot_flow.character
 plot_flow.flow
+plot_flow.flowdef
 plot_flow.list
 Keywords:
 Author:</p>
@@ -334,7 +341,7 @@ Author:</p>
 
         <li>
           Go to
-        <a href="https://github.com/ctb/labibi/blob/master/rd/topics/plot_flow.rst">
+        <a href="https://github.com/ctb/flowr/blob/master/rd/topics/plot_flow.rst">
           plot_flow
         </a> on GitHub.
       </li>
@@ -353,7 +360,7 @@ Author:</p>
       </li>
 
       <li>
-        Your changes are now queued for review under the project's <a href="https://github.com/ctb/labibi/pulls">Pull requests</a> tab on GitHub!
+        Your changes are now queued for review under the project's <a href="https://github.com/ctb/flowr/pulls">Pull requests</a> tab on GitHub!
       </li>
       </ol>
 

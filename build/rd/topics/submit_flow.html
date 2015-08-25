@@ -84,7 +84,7 @@
           
           
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="../vignettes/quick-start.html">Get me started</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../vignettes/quick-start.html">Get started</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../vignettes/quick-start.html#toy-example">Toy example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../vignettes/quick-start.html#stitch">Stitch</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../vignettes/quick-start.html#plot">Plot</a></li>
@@ -119,6 +119,8 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="">submit_flow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="submit_job.html">submit_job</a></li>
 <li class="toctree-l2"><a class="reference internal" href="to_flow.html">to_flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="to_flowdef.html">to_flowdef</a></li>
+<li class="toctree-l2"><a class="reference internal" href="to_flowmat.html">to_flowmat</a></li>
 </ul>
 </li>
 </ul>
@@ -169,15 +171,17 @@
 <p>submit_flow</p>
 <div class="section" id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">submit_flow</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">submit_flow</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">verbose</span> <span class="o">=</span> <span class="n">get_opts</span><span class="p">(</span><span class="s">&quot;verbose&quot;</span><span class="p">),</span> <span class="o">...</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>&#8220;submit_flow&#8221;(x, ...)</p>
-<p>&#8220;submit_flow&#8221;(x, execute = FALSE, uuid, plot = TRUE, verbose = FALSE, dump = TRUE, ...)</p>
+<p>&#8220;submit_flow&#8221;(x, verbose = get_opts(&#8220;verbose&#8221;), ...)</p>
+<p>&#8220;submit_flow&#8221;(x, verbose = get_opts(&#8220;verbose&#8221;), execute = FALSE, uuid, plot = TRUE, dump = TRUE, .start_jid = 1, ...)</p>
 <p>Arguments</p>
 <dl class="docutils">
 <dt>x</dt>
 <dd>a <code class="docutils literal"><span class="pre">object</span></code> of class <code class="docutils literal"><span class="pre">flow</span></code>.</dd>
+<dt>verbose</dt>
+<dd>logical.</dd>
 </dl>
 <dl class="docutils">
 <dt>...</dt>
@@ -185,11 +189,17 @@
 <dt>execute</dt>
 <dd><code class="docutils literal"><span class="pre">logical</span></code> whether or not to submit the jobs</dd>
 <dt>uuid</dt>
-<dd><code class="docutils literal"><span class="pre">character</span></code> Advanced use. Incase of rerunning the flow. uuid: typically is the final path of a previous flow.</dd>
-<dt>plot</dt>
-<dd><code class="docutils literal"><span class="pre">logical</span></code> whether to make a pdf flow plot (saves it in the flow working directory).</dd>
-<dt>verbose</dt>
-<dd>logical.</dd>
+<dd><code class="docutils literal"><span class="pre">character</span></code> Advanced use. This is the final path used for flow execution.</dd>
+</dl>
+<p>Especially useful in case of re-running a flow.
+plot</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">logical</span></code> whether to make a pdf flow plot (saves it in the flow working directory).</div></blockquote>
+<dl class="docutils">
+<dt>dump</dt>
+<dd>dump all the flow details to the flow path</dd>
+<dt>.start_jid</dt>
+<dd>Job to start this submission from. Advanced use, should be 1 by default.</dd>
 </dl>
 </div>
 <div class="section" id="description">
@@ -314,7 +324,7 @@ Author:</p>
 
         <li>
           Go to
-        <a href="https://github.com/ctb/labibi/blob/master/rd/topics/submit_flow.rst">
+        <a href="https://github.com/ctb/flowr/blob/master/rd/topics/submit_flow.rst">
           submit_flow
         </a> on GitHub.
       </li>
@@ -333,7 +343,7 @@ Author:</p>
       </li>
 
       <li>
-        Your changes are now queued for review under the project's <a href="https://github.com/ctb/labibi/pulls">Pull requests</a> tab on GitHub!
+        Your changes are now queued for review under the project's <a href="https://github.com/ctb/flowr/pulls">Pull requests</a> tab on GitHub!
       </li>
       </ol>
 

@@ -26,12 +26,12 @@ Usage
 
 "plot_flow"(x, ...)
 
-"plot_flow"(x, detailed = TRUE, type = c("1", "2"), pdf = FALSE, pdffile = sprintf("%s.pdf", x@name), ...)
+"plot_flow"(x, detailed = TRUE, type = c("1", "2"), pdf = FALSE, pdffile, ...)
 
 Arguments
 
 x
-    Object of class flow, or a list of flow objects or a flowdef
+    Object of class ``flow``, or a list of flow objects or a flowdef
 ...
     experimental
 detailed

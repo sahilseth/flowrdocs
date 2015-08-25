@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>kill_flow &mdash; flowr 0.1 documentation</title>
+  <title>to_flowdef &mdash; flowr 0.1 documentation</title>
   
 
   
@@ -32,8 +32,8 @@
   
     <link rel="top" title="flowr 0.1 documentation" href="../../index.html"/>
         <link rel="up" title="Help on available functions" href="../../topics.html"/>
-        <link rel="next" title="plot_flow" href="plot_flow.html"/>
-        <link rel="prev" title="job" href="job.html"/>
+        <link rel="next" title="to_flowmat" href="to_flowmat.html"/>
+        <link rel="prev" title="to_flow" href="to_flow.html"/>
 
 
 <script src="../../_static/labibi.js"></script>
@@ -111,7 +111,7 @@
 <li class="toctree-l2"><a class="reference internal" href="flow.html">flow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="get_flow_status.html">get_flow_status</a></li>
 <li class="toctree-l2"><a class="reference internal" href="job.html">job</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">kill_flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kill_flow.html">kill_flow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plot_flow.html">plot_flow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="queue.html">queue</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rerun_flow.html">rerun_flow</a></li>
@@ -119,7 +119,7 @@
 <li class="toctree-l2"><a class="reference internal" href="submit_flow.html">submit_flow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="submit_job.html">submit_job</a></li>
 <li class="toctree-l2"><a class="reference internal" href="to_flow.html">to_flow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="to_flowdef.html">to_flowdef</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">to_flowdef</a></li>
 <li class="toctree-l2"><a class="reference internal" href="to_flowmat.html">to_flowmat</a></li>
 </ul>
 </li>
@@ -153,10 +153,10 @@
       
           <li><a href="../../topics.html">Help on available functions</a> &raquo;</li>
       
-    <li>kill_flow</li>
+    <li>to_flowdef</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="../../_sources/rd/topics/kill_flow.txt" rel="nofollow"> View page source</a>
+          <a href="../../_sources/rd/topics/to_flowdef.txt" rel="nofollow"> View page source</a>
         
       </li>
   </ul>
@@ -165,43 +165,57 @@
           <div role="main" class="document">
             
   
-  <div class="section" id="kill-flow">
-<h1>kill_flow<a class="headerlink" href="#kill-flow" title="Permalink to this headline">¶</a></h1>
-<p><code class="xref py py-func docutils literal"><span class="pre">kill_flow()</span></code></p>
-<p>kill_flow</p>
+  <div class="section" id="to-flowdef">
+<h1>to_flowdef<a class="headerlink" href="#to-flowdef" title="Permalink to this headline">¶</a></h1>
+<p><code class="xref py py-func docutils literal"><span class="pre">to_flowdef()</span></code></p>
+<p>Create a skeleton flow definition using a flowmat.</p>
 <div class="section" id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">kill_flow</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">wd</span><span class="p">,</span> <span class="n">fobj</span><span class="p">,</span> <span class="n">kill_cmd</span><span class="p">,</span> <span class="n">jobid_col</span> <span class="o">=</span> <span class="s">&quot;job_sub_id&quot;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">to_flowdef</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>&#8220;to_flowdef&#8221;(x, sub_type, dep_type, prev_jobs, queue = &#8220;short&#8221;, platform = &#8220;torque&#8221;, memory_reserved = &#8220;2000&#8221;, cpu_reserved = &#8220;1&#8221;, walltime = &#8220;1:00&#8221;, ...)</p>
+<p>&#8220;to_flowdef&#8221;(x, ...)</p>
+<p>&#8220;to_flowdef&#8221;(x, ...)</p>
 <p>Arguments</p>
 <dl class="docutils">
 <dt>x</dt>
-<dd>either path to flow [character] or fobj object of class <a class="reference external" href="flow.html">flow</a></dd>
-<dt>wd</dt>
-<dd>path to a specific which needs to be killed</dd>
-<dt>fobj</dt>
-<dd>a object of class <a class="reference external" href="flow.html">flow</a></dd>
-<dt>kill_cmd</dt>
-<dd>The command used to kill. Default is &#8216;bkill&#8217; (LSF). One can used qdel for &#8216;torque&#8217;, &#8216;sge&#8217; etc.</dd>
-<dt>jobid_col</dt>
-<dd>Advanced use. The column name in &#8216;flow_details.txt&#8217; file used to fetch jobids to kill</dd>
+<dd>can a path to a flowmat, flomat or flow object.</dd>
+</dl>
+<dl class="docutils">
+<dt>...</dt>
+<dd>not used</dd>
+<dt>sub_type</dt>
+<dd>submission type, one of: scatter, serial. Character, of length one or same as the number of jobnames</dd>
+<dt>dep_type</dt>
+<dd>dependency type, one of: gather, serial or burst. Character, of length one or same as the number of jobnames</dd>
+<dt>prev_jobs</dt>
+<dd>previous job name</dd>
+<dt>queue</dt>
+<dd>Cluster queue to be used</dd>
+<dt>platform</dt>
+<dd>platform of the cluster: lsf, sge, moab, torque, slurm etc.</dd>
+<dt>memory_reserved</dt>
+<dd>amount of memory required.</dd>
+<dt>cpu_reserved</dt>
+<dd>number of cpu&#8217;s required</dd>
+<dt>walltime</dt>
+<dd>amount of walltime required</dd>
 </dl>
 </div>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>kill_flow</p>
+<p>Creation of a skeleton flow definition with several default values.
+All params may be of length one, or same as the number of jobnames
+to_flowdef.character: x is a flowmat file.</p>
 </div>
 <div class="section" id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre><span class="c">## **Not run**:</span>
-<span class="c"># ## example for terminal</span>
-<span class="c"># flowr kill_flow wd=path_to_flow_directory</span>
-<span class="c"># ## **End(Not run)**</span>
-</pre></div>
-</div>
 <p>Aliases:
-kill_flow
+to_flowdef
+to_flowdef.character
+to_flowdef.flow
+to_flowdef.flowmat
 Keywords:
 Author:</p>
 </div>
@@ -234,10 +248,10 @@ Author:</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="plot_flow.html" class="btn btn-neutral float-right" title="plot_flow">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="to_flowmat.html" class="btn btn-neutral float-right" title="to_flowmat">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="job.html" class="btn btn-neutral" title="job"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="to_flow.html" class="btn btn-neutral" title="to_flow"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -310,8 +324,8 @@ Author:</p>
 
         <li>
           Go to
-        <a href="https://github.com/ctb/flowr/blob/master/rd/topics/kill_flow.rst">
-          kill_flow
+        <a href="https://github.com/ctb/flowr/blob/master/rd/topics/to_flowdef.rst">
+          to_flowdef
         </a> on GitHub.
       </li>
 

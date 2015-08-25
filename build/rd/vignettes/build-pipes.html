@@ -119,6 +119,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../topics/submit_flow.html">submit_flow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../topics/submit_job.html">submit_job</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../topics/to_flow.html">to_flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/to_flowdef.html">to_flowdef</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/to_flowmat.html">to_flowmat</a></li>
 </ul>
 </li>
 </ul>
@@ -167,10 +169,10 @@
 <p>Both these files have a <code class="docutils literal"><span class="pre">jobname</span></code> column which is used as a ID to connect them to each other.</p>
 <div class="section" id="ingredients">
 <h1>Ingredients<a class="headerlink" href="#ingredients" title="Permalink to this headline">¶</a></h1>
-<div class="code r highlight-python"><div class="highlight"><pre><span class="c">## ------ load some example data</span>
-<span class="n">exdata</span> <span class="o">=</span> <span class="nb">file</span><span class="o">.</span><span class="n">path</span><span class="p">(</span><span class="n">system</span><span class="o">.</span><span class="n">file</span><span class="p">(</span><span class="n">package</span> <span class="o">=</span> <span class="s">&quot;flowr&quot;</span><span class="p">),</span> <span class="s">&quot;extdata&quot;</span><span class="p">)</span>
-<span class="n">flow_mat</span> <span class="o">=</span> <span class="n">read_sheet</span><span class="p">(</span><span class="nb">file</span><span class="o">.</span><span class="n">path</span><span class="p">(</span><span class="n">exdata</span><span class="p">,</span> <span class="s">&quot;example1_flow_mat.txt&quot;</span><span class="p">))</span>
-<span class="n">flow_def</span> <span class="o">=</span> <span class="n">read_sheet</span><span class="p">(</span><span class="nb">file</span><span class="o">.</span><span class="n">path</span><span class="p">(</span><span class="n">exdata</span><span class="p">,</span> <span class="s">&quot;example1_flow_def.txt&quot;</span><span class="p">))</span>
+<div class="code r highlight-python"><div class="highlight"><pre>## ------ load some example data
+ex = file.path(system.file(package = &quot;flowr&quot;), &quot;pipelines&quot;)
+flow_mat = as.flowmat(file.path(ex, &quot;sleep_pipe.tsv&quot;))
+flow_def = as.flowdef(file.path(ex, &quot;sleep_pipe.def&quot;))
 </pre></div>
 </div>
 <div class="section" id="flow-definition">
@@ -201,71 +203,81 @@
 <p class="first admonition-title">Warning</p>
 <p class="last">If these (resource requirements) columns not included in the flow_def, their values should be explicitly defined in the submission template.</p>
 </div>
-<p>Here is an example of a typical <a class="reference external" href="https://raw.githubusercontent.com/sahilseth/flowr/master/inst/extdata/example1_flow_def2.txt">flow_def</a> file.</p>
+<p>Here is an example of a typical <a class="reference external" href="https://raw.githubusercontent.com/sahilseth/flowr/master/inst/pipelines/sleep_pipe.def">flow_def</a> file.</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="10%" />
-<col width="13%" />
-<col width="12%" />
-<col width="12%" />
-<col width="9%" />
-<col width="18%" />
 <col width="11%" />
+<col width="10%" />
+<col width="11%" />
+<col width="10%" />
+<col width="7%" />
 <col width="15%" />
+<col width="9%" />
+<col width="13%" />
+<col width="9%" />
+<col width="7%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">jobname</th>
+<th class="head">sub_type</th>
 <th class="head">prev_jobs</th>
 <th class="head">dep_type</th>
-<th class="head">sub_type</th>
 <th class="head">queue</th>
 <th class="head">memory_reserved</th>
 <th class="head">walltime</th>
 <th class="head">cpu_reserved</th>
+<th class="head">platform</th>
+<th class="head">jobid</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>sleep</td>
-<td>none</td>
-<td>none</td>
 <td>scatter</td>
-<td>medium</td>
-<td>163185</td>
-<td>23:00</td>
+<td>none</td>
+<td>none</td>
+<td>short</td>
+<td>2000</td>
+<td>1:00</td>
+<td>1</td>
+<td>torque</td>
 <td>1</td>
 </tr>
-<tr class="row-odd"><td>tmp</td>
+<tr class="row-odd"><td>create_tmp</td>
+<td>scatter</td>
 <td>sleep</td>
 <td>serial</td>
-<td>scatter</td>
-<td>medium</td>
-<td>163185</td>
-<td>23:00</td>
+<td>short</td>
+<td>2000</td>
+<td>1:00</td>
 <td>1</td>
+<td>torque</td>
+<td>2</td>
 </tr>
 <tr class="row-even"><td>merge</td>
-<td>tmp</td>
-<td>gather</td>
 <td>serial</td>
-<td>medium</td>
-<td>163185</td>
-<td>23:00</td>
+<td>create_tmp</td>
+<td>gather</td>
+<td>short</td>
+<td>2000</td>
+<td>1:00</td>
 <td>1</td>
+<td>torque</td>
+<td>3</td>
 </tr>
 <tr class="row-odd"><td>size</td>
+<td>serial</td>
 <td>merge</td>
 <td>serial</td>
-<td>serial</td>
-<td>medium</td>
-<td>163185</td>
-<td>23:00</td>
+<td>short</td>
+<td>2000</td>
+<td>1:00</td>
 <td>1</td>
+<td>torque</td>
+<td>4</td>
 </tr>
 </tbody>
 </table>
-<!-- Each row of this table translates to a call to ([job](http://docs.flowr.space/build/html/rd/topics/job.html) or) [queue](http://docs.flowr.space/build/html/rd/topics/queue.html) function. -->
-
-<!--
+<!-- Each row of this table translates to a call to ([job](http://docs.flowr.space/build/html/rd/topics/job.html) or) [queue](http://docs.flowr.space/build/html/rd/topics/queue.html) function. --><!--
 - jobname: is passed as `name` argument to job().
 - prev_jobs: passed as `previous_job` argument  to job().
 - dep_type: passed as `dependency_type` argument  to job(). Possible values: gather, serial
@@ -273,7 +285,7 @@
 - queue: name of the queue to be used for this particular job.
     Since each jobs can be submitted to a different queue, this makes your flow very flexible
 - memory_reserved: Refer to your system admin guide on what values should go here.
-    Some examples: 160000, 16g etc representing a 16GB reservation of RAM
+    Some pipelines: 160000, 16g etc representing a 16GB reservation of RAM
 - walltime: How long would this job run. Again refer to your HPCC guide. Example: 24:00, 24:00:00
 - cpu_reserved: Amount of CPU reserved.
 
@@ -289,12 +301,12 @@ Its best to have this as a tab seperated file (with no row.names). --></div>
 <li><code class="docutils literal"><span class="pre">jobname</span></code>: This corresponds to the name of the step. This should match exactly with the jobname column in flow_def table defined above.</li>
 <li><code class="docutils literal"><span class="pre">cmd</span></code>: A shell command to run. One can get quite creative here. These could be multiple shell commands separated by a <code class="docutils literal"><span class="pre">;</span></code> or <code class="docutils literal"><span class="pre">&amp;&amp;</span></code>, more on this <a class="reference external" href="http://stackoverflow.com/questions/3573742/difference-between-echo-hello-ls-vs-echo-hello-ls">here</a>. Though to keep this clean you may just wrap a multi-line command into a script and just source the bash script from here.</li>
 </ul>
-<p>Here is an example <a class="reference external" href="https://raw.githubusercontent.com/sahilseth/flowr/master/inst/extdata/example1_flow_mat.txt">flow_mat</a>.</p>
+<p>Here is an example <a class="reference external" href="https://github.com/sahilseth/flowr/blob/master/inst/pipelines/sleep_pipe.tsv">flow_mat</a>.</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="21%" />
-<col width="17%" />
-<col width="62%" />
+<col width="14%" />
+<col width="15%" />
+<col width="72%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">samplename</th>
@@ -305,35 +317,35 @@ Its best to have this as a tab seperated file (with no row.names). --></div>
 <tbody valign="top">
 <tr class="row-even"><td>sample1</td>
 <td>sleep</td>
-<td>sleep 2 &amp;&amp; sleep 5;echo hello</td>
+<td>sleep 10 &amp;&amp; sleep 2;echo hello</td>
 </tr>
 <tr class="row-odd"><td>sample1</td>
 <td>sleep</td>
-<td>sleep 13 &amp;&amp; sleep 7;echo hello</td>
+<td>sleep 11 &amp;&amp; sleep 8;echo hello</td>
 </tr>
 <tr class="row-even"><td>sample1</td>
 <td>sleep</td>
-<td>sleep 23 &amp;&amp; sleep 7;echo hello</td>
+<td>sleep 11 &amp;&amp; sleep 17;echo hello</td>
 </tr>
 <tr class="row-odd"><td>sample1</td>
-<td>tmp</td>
-<td>head -c 100000 /dev/urandom &gt; tmp1_1</td>
+<td>create_tmp</td>
+<td>head -c 100000 /dev/urandom &gt; sample1_tmp_1</td>
 </tr>
 <tr class="row-even"><td>sample1</td>
-<td>tmp</td>
-<td>head -c 100000 /dev/urandom &gt; tmp1_2</td>
+<td>create_tmp</td>
+<td>head -c 100000 /dev/urandom &gt; sample1_tmp_2</td>
 </tr>
 <tr class="row-odd"><td>sample1</td>
-<td>tmp</td>
-<td>head -c 100000 /dev/urandom &gt; tmp1_3</td>
+<td>create_tmp</td>
+<td>head -c 100000 /dev/urandom &gt; sample1_tmp_3</td>
 </tr>
 <tr class="row-even"><td>sample1</td>
 <td>merge</td>
-<td>cat tmp1_1 tmp1_2 tmp1_3 &gt; merge1</td>
+<td>cat sample1_tmp_1 sample1_tmp_2 sample1_tmp_3 &gt; sample1_merged</td>
 </tr>
 <tr class="row-odd"><td>sample1</td>
 <td>size</td>
-<td>du -sh merge1; echo MY shell: $SHELL</td>
+<td>du -sh sample1_merged; echo MY shell: $SHELL</td>
 </tr>
 </tbody>
 </table>
@@ -367,12 +379,6 @@ fobj <- flow(name = "myflow", jobs = list(job1, job2, job3), desc="description")
 plot_flow(fobj)
 ```
 
-```
-#> input x is flow
-```
-
-![](figure/plot_simpleflow-1.png)
-
 The above translates to a flow definition which looks like this:
 
 
@@ -380,14 +386,6 @@ The above translates to a flow definition which looks like this:
 dat <- flowr:::create_jobs_mat(fobj)
 knitr:::kable(dat)
 ```
-
-
-
-|       |jobname |prev_jobs |dep_type |sub_type |cpu_reserved |nodes | jobid| prev_jobid|
-|:------|:-------|:---------|:--------|:--------|:------------|:-----|-----:|----------:|
-|myjob1 |myjob1  |          |none     |scatter  |1            |1     |     1|         NA|
-|myjob2 |myjob2  |myjob1    |serial   |scatter  |1            |1     |     2|          1|
-|myjob3 |myjob3  |myjob1    |serial   |scatter  |1            |1     |     3|          1|
 ---></div>
 <div class="section" id="example">
 <h2>Example:<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
@@ -436,7 +434,7 @@ knitr:::kable(dat)
 </div>
 <div class="section" id="relationships">
 <h1>Relationships<a class="headerlink" href="#relationships" title="Permalink to this headline">¶</a></h1>
-<p>Using the above submission and dependency types one can create several types of relationships between former and later jobs. Here are a few examples of relationships one may typically use.</p>
+<p>Using the above submission and dependency types one can create several types of relationships between former and later jobs. Here are a few pipelines of relationships one may typically use.</p>
 <div class="section" id="serial-one-to-one-relationship">
 <h2>Serial: one to one relationship<a class="headerlink" href="#serial-one-to-one-relationship" title="Permalink to this headline">¶</a></h2>
 <p>[scatter] &#8212;serial&#8212;&gt; [scatter]</p>
@@ -461,8 +459,8 @@ knitr:::kable(dat)
 - so previous job submission_type: `serial`, and current job's dependency type `burst`, with a submission type: `scatter`
 
 ---><p>In essence and example flow_def would look like as follows (with additional resource requirements not shown for brevity).</p>
-<div class="code r highlight-python"><div class="highlight"><pre>ex2def = read_sheet(file.path(exdata, &quot;example2_flow_def.txt&quot;))
-ex2mat = read_sheet(file.path(exdata, &quot;example2_flow_mat.txt&quot;))
+<div class="code r highlight-python"><div class="highlight"><pre>ex2def = as.flowdef(file.path(ex, &quot;abcd.def&quot;))
+ex2mat = as.flowmat(file.path(ex, &quot;abcd.tsv&quot;))
 fobj = suppressMessages(to_flow(x = ex2mat, def = ex2def))
 kable(ex2def[, 1:4])
 </pre></div>
@@ -519,7 +517,7 @@ kable(ex2def[, 1:4])
 <div class="section" id="passing-of-flow-definition-resource-columns">
 <h1>Passing of flow definition resource columns<a class="headerlink" href="#passing-of-flow-definition-resource-columns" title="Permalink to this headline">¶</a></h1>
 <p>The resource requirement columns of flow definition are passed along to the final (cluster) submission script.</p>
-<p>The following table provides a mapping between the flow definition columns and variables in the submission template (<a class="reference external" href="#flow-def-columns">examples below</a>).</p>
+<p>The following table provides a mapping between the flow definition columns and variables in the submission template (<a class="reference external" href="#flow-def-columns">pipelines below</a>).</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="46%" />
@@ -575,7 +573,6 @@ kable(ex2def[, 1:4])
 <p>Support for several popular cluster platforms are built-in. There is a template, each specific for a platform. These templates should would out of the box. You may copy and edit these (and save to ~/flowr/conf) in case some changes are required. Templates from this folder (~/flowr/conf), would override the defaults.</p>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/sahilseth/flowr/blob/master/inst/conf/torque.sh">torque</a></li>
-<li><a class="reference external" href="https://github.com/sahilseth/flowr/blob/master/inst/conf/sge.sh">sge</a></li>
 <li><a class="reference external" href="https://github.com/sahilseth/flowr/blob/master/inst/conf/lsf.sh">lsf</a></li>
 <li><a class="reference external" href="https://github.com/sahilseth/flowr/blob/master/inst/conf/moab.sh">moab</a></li>
 <li><a class="reference external" href="https://github.com/sahilseth/flowr/blob/master/inst/conf/sge.sh">sge</a></li>
@@ -692,7 +689,7 @@ kable(ex2def[, 1:4])
 
         <li>
           Go to
-        <a href="https://github.com/ctb/labibi/blob/master/rd/vignettes/build-pipes.rst">
+        <a href="https://github.com/ctb/flowr/blob/master/rd/vignettes/build-pipes.rst">
           Ingredients
         </a> on GitHub.
       </li>
@@ -711,7 +708,7 @@ kable(ex2def[, 1:4])
       </li>
 
       <li>
-        Your changes are now queued for review under the project's <a href="https://github.com/ctb/labibi/pulls">Pull requests</a> tab on GitHub!
+        Your changes are now queued for review under the project's <a href="https://github.com/ctb/flowr/pulls">Pull requests</a> tab on GitHub!
       </li>
       </ol>
 

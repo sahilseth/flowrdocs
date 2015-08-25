@@ -84,7 +84,7 @@
           
           
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="../vignettes/quick-start.html">Get me started</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../vignettes/quick-start.html">Get started</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../vignettes/quick-start.html#toy-example">Toy example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../vignettes/quick-start.html#stitch">Stitch</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../vignettes/quick-start.html#plot">Plot</a></li>
@@ -119,6 +119,8 @@
 <li class="toctree-l2"><a class="reference internal" href="submit_flow.html">submit_flow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="submit_job.html">submit_job</a></li>
 <li class="toctree-l2"><a class="reference internal" href="to_flow.html">to_flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="to_flowdef.html">to_flowdef</a></li>
+<li class="toctree-l2"><a class="reference internal" href="to_flowmat.html">to_flowmat</a></li>
 </ul>
 </li>
 </ul>
@@ -169,7 +171,7 @@
 <p>Flow constructor</p>
 <div class="section" id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">flow</span><span class="p">(</span><span class="n">jobs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">new</span><span class="p">(</span><span class="s">&quot;job&quot;</span><span class="p">)),</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;newflow&quot;</span><span class="p">,</span> <span class="n">desc</span> <span class="o">=</span> <span class="s">&quot;my_super_flow&quot;</span><span class="p">,</span> <span class="n">mode</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s">&quot;scheduler&quot;</span><span class="p">,</span> <span class="s">&quot;trigger&quot;</span><span class="p">,</span> <span class="s">&quot;R&quot;</span><span class="p">),</span> <span class="n">flow_run_path</span> <span class="o">=</span> <span class="n">getOption</span><span class="p">(</span><span class="s">&quot;flow_run_path&quot;</span><span class="p">),</span> <span class="n">trigger_path</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">flow_path</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">status</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">execute</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">flow</span><span class="p">(</span><span class="n">jobs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">new</span><span class="p">(</span><span class="s">&quot;job&quot;</span><span class="p">)),</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;newflow&quot;</span><span class="p">,</span> <span class="n">desc</span> <span class="o">=</span> <span class="s">&quot;my_super_flow&quot;</span><span class="p">,</span> <span class="n">mode</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s">&quot;scheduler&quot;</span><span class="p">,</span> <span class="s">&quot;trigger&quot;</span><span class="p">,</span> <span class="s">&quot;R&quot;</span><span class="p">),</span> <span class="n">flow_run_path</span> <span class="o">=</span> <span class="n">get_opts</span><span class="p">(</span><span class="s">&quot;flow_run_path&quot;</span><span class="p">),</span> <span class="n">trigger_path</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">flow_path</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">version</span> <span class="o">=</span> <span class="s">&quot;0.0&quot;</span><span class="p">,</span> <span class="n">status</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">execute</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Arguments</p>
@@ -203,6 +205,8 @@ flow_path</p>
 <blockquote>
 <div><code class="docutils literal"><span class="pre">character</span></code></div></blockquote>
 <dl class="docutils">
+<dt>version</dt>
+<dd>version of flowr used to create and execute this flow.</dd>
 <dt>status</dt>
 <dd><code class="docutils literal"><span class="pre">character</span></code> Not used at this time</dd>
 <dt>execute</dt>
@@ -234,14 +238,14 @@ fobj &lt;- flow(jobs = list(jobj1, jobj2, jobj3))
 
 ## plot the flow
 plot_flow(fobj)
-**input x is flow**## **Not run**:
+## **Not run**:
 # ## dry run, only create the structure without submitting jobs
 # submit_flow(fobj)
 #
 # ## execute the jobs: ONLY works on computing cluster, would fail otherwise
 # submit_flow(fobj, execute = TRUE)
 # ## **End(Not run)**
-.. image flow-4.png
+.. image flow-2.png
 </pre></div>
 </div>
 <p>Aliases:
@@ -354,7 +358,7 @@ Author:</p>
 
         <li>
           Go to
-        <a href="https://github.com/ctb/labibi/blob/master/rd/topics/flow.rst">
+        <a href="https://github.com/ctb/flowr/blob/master/rd/topics/flow.rst">
           flow
         </a> on GitHub.
       </li>
@@ -373,7 +377,7 @@ Author:</p>
       </li>
 
       <li>
-        Your changes are now queued for review under the project's <a href="https://github.com/ctb/labibi/pulls">Pull requests</a> tab on GitHub!
+        Your changes are now queued for review under the project's <a href="https://github.com/ctb/flowr/pulls">Pull requests</a> tab on GitHub!
       </li>
       </ol>
 

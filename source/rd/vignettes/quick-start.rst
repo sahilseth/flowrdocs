@@ -11,7 +11,8 @@ Run a setup function which copies 'flowr' helper script to enable using flow fro
 .. code:: r
 
     library(flowr)
-    setup()
+    extdata = file.path(system.file(package = "flowr"), "extdata")
+    setup(bin = extdata, flow_base_path = extdata)
 
 Toy example
 ===========
@@ -78,6 +79,7 @@ Plot
    :alt: Flow chart describing process for example 1
 
    Flow chart describing process for example 1
+
 Test it
 =======
 

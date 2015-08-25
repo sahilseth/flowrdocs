@@ -84,7 +84,7 @@
           
           
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="../vignettes/quick-start.html">Get me started</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../vignettes/quick-start.html">Get started</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../vignettes/quick-start.html#toy-example">Toy example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../vignettes/quick-start.html#stitch">Stitch</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../vignettes/quick-start.html#plot">Plot</a></li>
@@ -119,6 +119,8 @@
 <li class="toctree-l2"><a class="reference internal" href="submit_flow.html">submit_flow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="submit_job.html">submit_job</a></li>
 <li class="toctree-l2"><a class="reference internal" href="to_flow.html">to_flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="to_flowdef.html">to_flowdef</a></li>
+<li class="toctree-l2"><a class="reference internal" href="to_flowmat.html">to_flowmat</a></li>
 </ul>
 </li>
 </ul>
@@ -169,13 +171,15 @@
 <p>Setup and initialize some scripts.</p>
 <div class="section" id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">setup</span><span class="p">(</span><span class="nb">bin</span> <span class="o">=</span> <span class="s">&quot;~/bin&quot;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">setup</span><span class="p">(</span><span class="nb">bin</span> <span class="o">=</span> <span class="s">&quot;~/bin&quot;</span><span class="p">,</span> <span class="n">flow_base_path</span> <span class="o">=</span> <span class="n">get_opts</span><span class="p">(</span><span class="s">&quot;flow_base_path&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>Arguments</p>
 <dl class="docutils">
 <dt>bin</dt>
 <dd>path to bin folder</dd>
+<dt>flow_base_path</dt>
+<dd>the root folder for all flowr operations</dd>
 </dl>
 </div>
 <div class="section" id="description">
@@ -297,7 +301,7 @@ Author:</p>
 
         <li>
           Go to
-        <a href="https://github.com/ctb/labibi/blob/master/rd/topics/setup.rst">
+        <a href="https://github.com/ctb/flowr/blob/master/rd/topics/setup.rst">
           setup
         </a> on GitHub.
       </li>
@@ -316,7 +320,7 @@ Author:</p>
       </li>
 
       <li>
-        Your changes are now queued for review under the project's <a href="https://github.com/ctb/labibi/pulls">Pull requests</a> tab on GitHub!
+        Your changes are now queued for review under the project's <a href="https://github.com/ctb/flowr/pulls">Pull requests</a> tab on GitHub!
       </li>
       </ol>
 

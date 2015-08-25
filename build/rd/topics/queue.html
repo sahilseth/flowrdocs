@@ -84,7 +84,7 @@
           
           
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="../vignettes/quick-start.html">Get me started</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../vignettes/quick-start.html">Get started</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../vignettes/quick-start.html#toy-example">Toy example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../vignettes/quick-start.html#stitch">Stitch</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../vignettes/quick-start.html#plot">Plot</a></li>
@@ -119,6 +119,8 @@
 <li class="toctree-l2"><a class="reference internal" href="submit_flow.html">submit_flow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="submit_job.html">submit_job</a></li>
 <li class="toctree-l2"><a class="reference internal" href="to_flow.html">to_flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="to_flowdef.html">to_flowdef</a></li>
+<li class="toctree-l2"><a class="reference internal" href="to_flowmat.html">to_flowmat</a></li>
 </ul>
 </li>
 </ul>
@@ -169,7 +171,7 @@
 <p>Create a <code class="docutils literal"><span class="pre">queue</span></code> object which containg details about how a job is submitted.</p>
 <div class="section" id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">queue</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="n">platform</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s">&quot;local&quot;</span><span class="p">,</span> <span class="s">&quot;lsf&quot;</span><span class="p">,</span> <span class="s">&quot;torque&quot;</span><span class="p">,</span> <span class="s">&quot;sge&quot;</span><span class="p">,</span> <span class="s">&quot;moab&quot;</span><span class="p">),</span> <span class="n">format</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">queue</span> <span class="o">=</span> <span class="s">&quot;long&quot;</span><span class="p">,</span> <span class="n">walltime</span><span class="p">,</span> <span class="n">memory</span><span class="p">,</span> <span class="n">cpu</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">extra_opts</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">submit_exe</span><span class="p">,</span> <span class="n">cwd</span> <span class="o">=</span> <span class="n">getOption</span><span class="p">(</span><span class="s">&quot;flow_run_path&quot;</span><span class="p">),</span> <span class="n">nodes</span> <span class="o">=</span> <span class="s">&quot;1&quot;</span><span class="p">,</span> <span class="n">jobname</span> <span class="o">=</span> <span class="s">&quot;name&quot;</span><span class="p">,</span> <span class="n">email</span> <span class="o">=</span> <span class="n">Sys</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s">&quot;USER&quot;</span><span class="p">),</span> <span class="n">dependency</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(),</span> <span class="n">server</span> <span class="o">=</span> <span class="s">&quot;localhost&quot;</span><span class="p">,</span> <span class="n">verbose</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">,</span> <span class="n">stderr</span> <span class="o">=</span> <span class="n">getOption</span><span class="p">(</span><span class="s">&quot;flow_run_path&quot;</span><span class="p">),</span> <span class="n">stdout</span> <span class="o">=</span> <span class="n">getOption</span><span class="p">(</span><span class="s">&quot;flow_run_path&quot;</span><span class="p">),</span> <span class="o">...</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">queue</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="n">platform</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s">&quot;local&quot;</span><span class="p">,</span> <span class="s">&quot;lsf&quot;</span><span class="p">,</span> <span class="s">&quot;torque&quot;</span><span class="p">,</span> <span class="s">&quot;sge&quot;</span><span class="p">,</span> <span class="s">&quot;moab&quot;</span><span class="p">),</span> <span class="n">format</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">queue</span> <span class="o">=</span> <span class="s">&quot;long&quot;</span><span class="p">,</span> <span class="n">walltime</span><span class="p">,</span> <span class="n">memory</span><span class="p">,</span> <span class="n">cpu</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">extra_opts</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">submit_exe</span><span class="p">,</span> <span class="n">nodes</span> <span class="o">=</span> <span class="s">&quot;1&quot;</span><span class="p">,</span> <span class="n">jobname</span> <span class="o">=</span> <span class="s">&quot;name&quot;</span><span class="p">,</span> <span class="n">email</span> <span class="o">=</span> <span class="n">Sys</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s">&quot;USER&quot;</span><span class="p">),</span> <span class="n">dependency</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(),</span> <span class="n">server</span> <span class="o">=</span> <span class="s">&quot;localhost&quot;</span><span class="p">,</span> <span class="n">verbose</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">,</span> <span class="n">cwd</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">stderr</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">stdout</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Arguments</p>
@@ -196,8 +198,6 @@ walltime</p>
 <dd>[advanced use] Extra options to be supplied while create the job submission string.</dd>
 <dt>submit_exe</dt>
 <dd>[advanced use] Already defined by &#8216;platform&#8217;. The exact command used to submit jobs to the cluster example &#8216;qsub&#8217;</dd>
-<dt>cwd</dt>
-<dd>[debug use] Ignore</dd>
 <dt>nodes</dt>
 <dd>[advanced use] number of nodes you would like to request. Or in case of torque name of the nodes.*optional* [Used by class job]</dd>
 <dt>jobname</dt>
@@ -210,6 +210,8 @@ walltime</p>
 <dd>[not used] This is not implemented currently. This would specify the head node of the computing cluster. At this time submission needs to be done on the head node of the cluster where flow is to be submitted</dd>
 <dt>verbose</dt>
 <dd>[logical] TRUE/FALSE</dd>
+<dt>cwd</dt>
+<dd>[debug use] Ignore</dd>
 <dt>stderr</dt>
 <dd>[debug use] Ignore</dd>
 <dt>stdout</dt>
@@ -351,7 +353,7 @@ Author:</p>
 
         <li>
           Go to
-        <a href="https://github.com/ctb/labibi/blob/master/rd/topics/queue.rst">
+        <a href="https://github.com/ctb/flowr/blob/master/rd/topics/queue.rst">
           queue
         </a> on GitHub.
       </li>
@@ -370,7 +372,7 @@ Author:</p>
       </li>
 
       <li>
-        Your changes are now queued for review under the project's <a href="https://github.com/ctb/labibi/pulls">Pull requests</a> tab on GitHub!
+        Your changes are now queued for review under the project's <a href="https://github.com/ctb/flowr/pulls">Pull requests</a> tab on GitHub!
       </li>
       </ol>
 

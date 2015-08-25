@@ -18,7 +18,7 @@ Usage
 """"""""""""""""""
 ::
 
- queue(object, platform = c("local", "lsf", "torque", "sge", "moab"), format = "", queue = "long", walltime, memory, cpu = 1, extra_opts = "", submit_exe, cwd = getOption("flow_run_path"), nodes = "1", jobname = "name", email = Sys.getenv("USER"), dependency = list(), server = "localhost", verbose = FALSE, stderr = getOption("flow_run_path"), stdout = getOption("flow_run_path"), ...)
+ queue(object, platform = c("local", "lsf", "torque", "sge", "moab"), format = "", queue = "long", walltime, memory, cpu = 1, extra_opts = "", submit_exe, nodes = "1", jobname = "name", email = Sys.getenv("USER"), dependency = list(), server = "localhost", verbose = FALSE, cwd = "", stderr = "", stdout = "", ...)
 
 Arguments
 
@@ -41,8 +41,6 @@ extra_opts
     [advanced use] Extra options to be supplied while create the job submission string.
 submit_exe
     [advanced use] Already defined by 'platform'. The exact command used to submit jobs to the cluster example 'qsub'
-cwd
-    [debug use] Ignore
 nodes
     [advanced use] number of nodes you would like to request. Or in case of torque name of the nodes.*optional* [Used by class job]
 jobname
@@ -55,6 +53,8 @@ server
     [not used] This is not implemented currently. This would specify the head node of the computing cluster. At this time submission needs to be done on the head node of the cluster where flow is to be submitted
 verbose
     [logical] TRUE/FALSE
+cwd
+    [debug use] Ignore
 stderr
     [debug use] Ignore
 stdout

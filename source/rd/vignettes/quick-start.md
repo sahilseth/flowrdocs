@@ -1,6 +1,6 @@
 ---
 title: "Quick Start Example"
-date: "2015-08-15"
+date: "2015-08-21"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Quick Start Example}
@@ -26,7 +26,8 @@ A few examples [here](https://github.com/sahilseth/rfun).
 
 ```r
 library(flowr)
-setup()
+extdata = file.path(system.file(package = "flowr"), "extdata")
+setup(bin = extdata, flow_base_path = extdata)
 ```
 
 

@@ -58,6 +58,8 @@ Here is an example of a typical `flow\_def <https://raw.githubusercontent.com/sa
 
    <!-- Each row of this table translates to a call to ([job](http://docs.flowr.space/build/html/rd/topics/job.html) or) [queue](http://docs.flowr.space/build/html/rd/topics/queue.html) function. -->
 
+.. raw:: html
+
    <!-- 
    - jobname: is passed as `name` argument to job().
    - prev_jobs: passed as `previous_job` argument  to job().
@@ -84,7 +86,7 @@ This is also a tab separated table, with a minimum of three columns as defined b
 -  ``jobname``: This corresponds to the name of the step. This should match exactly with the jobname column in flow\_def table defined above.
 -  ``cmd``: A shell command to run. One can get quite creative here. These could be multiple shell commands separated by a ``;`` or ``&&``, more on this `here <http://stackoverflow.com/questions/3573742/difference-between-echo-hello-ls-vs-echo-hello-ls>`__. Though to keep this clean you may just wrap a multi-line command into a script and just source the bash script from here.
 
-Here is an example `flow\_mat <https://raw.githubusercontent.com/sahilseth/flowr/master/inst/extdata/sleep_pipe.tsv>`__.
+Here is an example `flow\_mat <https://github.com/sahilseth/flowr/blob/master/inst/pipelines/sleep_pipe.tsv>`__.
 
 +--------------+---------------+-------------------------------------------------------------------------+
 | samplename   | jobname       | cmd                                                                     |

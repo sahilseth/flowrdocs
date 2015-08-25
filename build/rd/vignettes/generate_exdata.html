@@ -116,6 +116,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../topics/submit_flow.html">submit_flow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../topics/submit_job.html">submit_job</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../topics/to_flow.html">to_flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/to_flowdef.html">to_flowdef</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/to_flowmat.html">to_flowmat</a></li>
 </ul>
 </li>
 </ul>
@@ -218,15 +220,15 @@ kable(head(flow_mat))
 <tbody valign="top">
 <tr class="row-even"><td>sample1</td>
 <td>sleep</td>
-<td>sleep 8 &amp;&amp; sleep 17;echo &#8216;hello&#8217;</td>
+<td>sleep 12 &amp;&amp; sleep 1;echo &#8216;hello&#8217;</td>
 </tr>
 <tr class="row-odd"><td>sample1</td>
 <td>sleep</td>
-<td>sleep 5 &amp;&amp; sleep 7;echo &#8216;hello&#8217;</td>
+<td>sleep 19 &amp;&amp; sleep 0;echo &#8216;hello&#8217;</td>
 </tr>
 <tr class="row-even"><td>sample1</td>
 <td>sleep</td>
-<td>sleep 2 &amp;&amp; sleep 10;echo &#8216;hello&#8217;</td>
+<td>sleep 10 &amp;&amp; sleep 19;echo &#8216;hello&#8217;</td>
 </tr>
 <tr class="row-odd"><td>sample1</td>
 <td>tmp</td>
@@ -757,7 +759,7 @@ write.table(def, file = &quot;inst/extdata/example2_flow_def.txt&quot;,
 
         <li>
           Go to
-        <a href="https://github.com/ctb/labibi/blob/master/rd/vignettes/generate_exdata.rst">
+        <a href="https://github.com/ctb/flowr/blob/master/rd/vignettes/generate_exdata.rst">
           Example1
         </a> on GitHub.
       </li>
@@ -776,7 +778,7 @@ write.table(def, file = &quot;inst/extdata/example2_flow_def.txt&quot;,
       </li>
 
       <li>
-        Your changes are now queued for review under the project's <a href="https://github.com/ctb/labibi/pulls">Pull requests</a> tab on GitHub!
+        Your changes are now queued for review under the project's <a href="https://github.com/ctb/flowr/pulls">Pull requests</a> tab on GitHub!
       </li>
       </ol>
 

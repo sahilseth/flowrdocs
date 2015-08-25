@@ -31,7 +31,7 @@ Arguments
 x
     path (char. vector) to flow_mat, a data.frame or a list.
 ...
-    Supplied to specific functions like `to_flow.data.frame <to_flow.data.frame.html>`_
+    Supplied to specific functions like ``to_flow.data.frame``
 def
     A flow definition table. Basically a table with resource requirements and mapping of the jobs in this flow
 grp_col
@@ -77,6 +77,8 @@ Description
 """"""""""""""""""
 
 Use a set of shell commands and flow definiton to create `flow <flow.html>`_ object.
+vector: a file with flowmat table
+a named list of commands for a sample. Its best to supply a flowmat instead.
 Details
 """"""""""""""""""
 
@@ -98,7 +100,7 @@ Examples
  Working on... sample1****.****.****.****.**
 Aliases:
 to_flow
-to_flow.data.frame
+to_flow.flowmat
 to_flow.list
 to_flow.vector
 Keywords:
