@@ -1,6 +1,6 @@
 ---
 title: "flowr simple examples"
-date: "2015-08-21"
+date: "2015-08-25"
 output: rmarkdown::html_document
 vignette: >
   %\VignetteIndexEntry{flowr simple example}
@@ -40,6 +40,8 @@ Send a [message](mailto:sahil.seth@me.com)
 	- A tutorial for [Sun Grid Engine](https://sites.google.com/site/anshulkundaje/inotes/programming/clustersubmit/sun-grid-engine)
 	- Another from [JHSPH](http://www.biostat.jhsph.edu/bit/cluster-usage.html)
 	- Dependecy info [here](https://wiki.duke.edu/display/SCSC/SGE+Job+Dependencies)
+
+
 
 http://en.wikipedia.org/wiki/Comparison_of_cluster_software
 

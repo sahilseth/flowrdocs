@@ -31,7 +31,7 @@ Arguments
 x
     path (char. vector) to flow_mat, a data.frame or a list.
 ...
-    Supplied to specific functions like ``to_flow.data.frame``
+    Supplied to specific functions like to_flow.data.frame
 def
     A flow definition table. Basically a table with resource requirements and mapping of the jobs in this flow
 grp_col

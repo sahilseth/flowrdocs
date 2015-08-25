@@ -58,8 +58,6 @@ Here is an example of a typical `flow\_def <https://raw.githubusercontent.com/sa
 
    <!-- Each row of this table translates to a call to ([job](http://docs.flowr.space/build/html/rd/topics/job.html) or) [queue](http://docs.flowr.space/build/html/rd/topics/queue.html) function. -->
 
-.. raw:: html
-
    <!-- 
    - jobname: is passed as `name` argument to job().
    - prev_jobs: passed as `previous_job` argument  to job().

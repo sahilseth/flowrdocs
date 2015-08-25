@@ -27,18 +27,18 @@ Usage
 Arguments
 
 x
-    a ``object`` of class ``flow``.
+    a object of class flow.
 verbose
     logical.
 ...
     Advanced use. Any additional parameters are passed on to `submit_job <submit_job.html>`_ function.
 execute
-    ``logical`` whether or not to submit the jobs
+    logical whether or not to submit the jobs
 uuid
-    ``character`` Advanced use. This is the final path used for flow execution.
+    character Advanced use. This is the final path used for flow execution.
 Especially useful in case of re-running a flow.
 plot
-    ``logical`` whether to make a pdf flow plot (saves it in the flow working directory).
+    logical whether to make a pdf flow plot (saves it in the flow working directory).
 dump
     dump all the flow details to the flow path
 .start_jid

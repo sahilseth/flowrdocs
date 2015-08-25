@@ -12,7 +12,7 @@ queue
 
 :func:`queue`
 
-Create a ``queue`` object which containg details about how a job is submitted.
+Create a queue object which containg details about how a job is submitted.
 
 Usage
 """"""""""""""""""
@@ -42,7 +42,7 @@ extra_opts
 submit_exe
     [advanced use] Already defined by 'platform'. The exact command used to submit jobs to the cluster example 'qsub'
 nodes
-    [advanced use] number of nodes you would like to request. Or in case of torque name of the nodes.*optional* [Used by class job]
+    [advanced use] number of nodes you would like to request. Or in case of torque name of the nodes.optional [Used by class job]
 jobname
     [debug use] name of this job in the computing cluster
 email
