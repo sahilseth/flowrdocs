@@ -15,7 +15,7 @@
 import sys
 import os
 #import sphinx_bootstrap_theme
-import sphinxjp.themes.basicstrap
+#import sphinxjp.themes.basicstrap
 
 
 # If extensions (or modules to document with autodoc) are in another directory,
