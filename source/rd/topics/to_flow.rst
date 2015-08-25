@@ -8,57 +8,75 @@
 
 
 to_flow
-===============
+-----------
 
 :func:`to_flow`
 
 Create flow objects
 
 Usage
-""""""""""""""""""
+~~~~~~~~~~~~~~~~~~
+
 ::
 
+ 
  to_flow(x, ...)
+ 
+ "to_flow"(x, def, grp_col, jobname_col, cmd_col, ...)
+ 
+ "to_flow"(x, def, grp_col, jobname_col, cmd_col, flowname, flow_run_path, platform, submit = FALSE, execute = FALSE, qobj, ...)
+ 
+ "to_flow"(x, def, flowname, flow_run_path, desc, qobj, ...)
+ 
 
-"to_flow"(x, def, grp_col, jobname_col, cmd_col, ...)
-
-"to_flow"(x, def, grp_col, jobname_col, cmd_col, flowname, flow_run_path, platform, submit = FALSE, execute = FALSE, qobj, ...)
-
-"to_flow"(x, def, flowname, flow_run_path, desc, qobj, ...)
 
 Arguments
+~~~~~~~~~~~~~~~~~~
+
 
 x
     path (char. vector) to flow_mat, a data.frame or a list.
+
 ...
-    Supplied to specific functions like ``to_flow.data.frame``
+    Supplied to specific functions like to_flow.data.frame
+
 def
     A flow definition table. Basically a table with resource requirements and mapping of the jobs in this flow
+
 grp_col
     column name used to split x (flow_mat). Default: `samplename`
+
 jobname_col
     column name with job names. Default: `jobname`
+
 cmd_col
     column name with commands. Default: `cmd`
+
 flowname
     name of the flow
+
 flow_run_path
     Path to a folder. Main operating folder for this flow. Default it `get_opts("flow_run_path")`.
+
 platform
     character vector, specifying the platform to use. local, lsf, torque, moab, sge, slurm, ...
 This over-rides the platform column in flowdef.
+
 submit
     Depreciated. Use submit_flow on flow object this function returns. TRUE/FALSE
+
 execute
     Depreciated. Use submit_flow on flow object this function returns. TRUE/FALSE, an paramter to submit_flow()
+
 qobj
     Depreciated, modify <a href = 'http://docs.flowr.space/en/latest/rd/vignettes/build-pipes.html#cluster-interface'>cluster templates</a> instead.  A object of class `queue <queue.html>`_.
+
 desc
     Advanced Use. final flow name, please don't change.
 
 
 Value
-""""""""""""""""""
+~~~~~~~~~~~~~~~~~~
 
 <dl>
 Returns a flow object. If execute=TRUE, fobj is rich with information about where and how
@@ -74,20 +92,21 @@ What goes in, and what to expect in return?
 </li>
 </dl>
 Description
-""""""""""""""""""
+~~~~~~~~~~~~~~~~~~
 
 Use a set of shell commands and flow definiton to create `flow <flow.html>`_ object.
 vector: a file with flowmat table
 a named list of commands for a sample. Its best to supply a flowmat instead.
 Details
-""""""""""""""""""
+~~~~~~~~~~~~~~~~~~
 
 The parameter x can be a path to a flow_mat, or a data.frame (as read by read_sheet).
 This is a minimum three column matrix with three columns: samplename, jobname and cmd
 
 
 Examples
-""""""""""""""""""
+~~~~~~~~~~~~~~~~~~
+
 ::
 
  ex = file.path(system.file(package = "flowr"), "pipelines")
@@ -103,7 +122,9 @@ to_flow
 to_flow.flowmat
 to_flow.list
 to_flow.vector
-Keywords:
-Author:
+.. Keywords:
+
+.. Author:
+
 
 

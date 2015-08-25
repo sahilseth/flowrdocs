@@ -8,51 +8,63 @@
 
 
 plot_flow
-===============
+-----------
 
 :func:`plot_flow`
 
 plot_flow
 
 Usage
-""""""""""""""""""
+~~~~~~~~~~~~~~~~~~
+
 ::
 
+ 
  plot_flow(x, ...)
+ 
+ "plot_flow"(x, ...)
+ 
+ "plot_flow"(x, ...)
+ 
+ "plot_flow"(x, ...)
+ 
+ "plot_flow"(x, detailed = TRUE, type = c("1", "2"), pdf = FALSE, pdffile, ...)
+ 
 
-"plot_flow"(x, ...)
-
-"plot_flow"(x, ...)
-
-"plot_flow"(x, ...)
-
-"plot_flow"(x, detailed = TRUE, type = c("1", "2"), pdf = FALSE, pdffile, ...)
 
 Arguments
+~~~~~~~~~~~~~~~~~~
+
 
 x
-    Object of class ``flow``, or a list of flow objects or a flowdef
+    Object of class flow, or a list of flow objects or a flowdef
+
 ...
     experimental
+
 detailed
     include some details
+
 type
     1 is original, and 2 is a elipse with less details
+
 pdf
     create a pdf instead of plotting interactively
+
 pdffile
     output file name for the pdf file
 
 
 Description
-""""""""""""""""""
+~~~~~~~~~~~~~~~~~~
 
 plot the flow object
 plot_flow.character: works on a flowdef file.
 
 
 Examples
-""""""""""""""""""
+~~~~~~~~~~~~~~~~~~
+
 ::
 
  qobj = queue(type="lsf")
@@ -65,25 +77,27 @@ Examples
  
  ### Gather: many to one relationship
  jobj1 <- job(q_obj=qobj, cmd = cmds, submission_type = "scatter", name = "job1")
- .. image plot_flow-2.pngjobj2 <- job(q_obj=qobj, name = "job2", cmd = cmds, submission_type = "scatter",
+ jobj2 <- job(q_obj=qobj, name = "job2", cmd = cmds, submission_type = "scatter",
               dependency_type = "gather", previous_job = "job1")
  fobj <- flow(jobs = list(jobj1, jobj2))
  plot_flow(fobj)
- .. image plot_flow-4.png
+ 
  ### Burst: one to many relationship
  jobj1 <- job(q_obj=qobj, cmd = cmds, submission_type = "serial", name = "job1")
  jobj2 <- job(q_obj=qobj, name = "job2", cmd = cmds, submission_type = "scatter",
               dependency_type = "burst", previous_job = "job1")
  fobj <- flow(jobs = list(jobj1, jobj2))
  plot_flow(fobj)
- .. image plot_flow-6.png
+ 
 Aliases:
 plot_flow
 plot_flow.character
 plot_flow.flow
 plot_flow.flowdef
 plot_flow.list
-Keywords:
-Author:
+.. Keywords:
+
+.. Author:
+
 
 

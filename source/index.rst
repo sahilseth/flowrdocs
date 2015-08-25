@@ -63,20 +63,20 @@ Contents:
 -----------------------
 
 .. toctree::
-	:maxdepth: 1
+	:maxdepth: 2
 	
 	rd/vignettes/quick-start
 	
 .. toctree::
 	:glob:
-	:maxdepth: 2
+	:maxdepth: 3
 	
-	build
-	pipelines
-	topics
+	rd/vignettes/build-pipes
 	
 .. toctree::
-	hpcc-support
+	:maxdepth: 2
+	
+	rd/topics/complete-help
 	faqs
 
 Indices and tables

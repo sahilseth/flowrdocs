@@ -1,61 +1,161 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Ingredients &mdash; flowr 0.9.7 documentation</title>
-    
-    <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../../',
-        VERSION:     '0.9.7',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="flowr 0.9.7 documentation" href="../../index.html" />
-    <link rel="up" title="Building Pipelines" href="../../build.html" />
-    <link rel="next" title="Available pipelines" href="../../pipelines.html" />
-    <link rel="prev" title="Building Pipelines" href="../../build.html" /> 
-  </head>
-  <body role="document">
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="../../pipelines.html" title="Available pipelines"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="../../build.html" title="Building Pipelines"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">flowr 0.9.7 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="../../build.html" accesskey="U">Building Pipelines</a> &raquo;</li> 
-      </ul>
-    </div>  
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Building Pipelines &mdash; flowr 0.9.7 documentation</title>
+  
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="flowr 0.9.7 documentation" href="../../index.html"/>
+        <link rel="next" title="Help on Available functions" href="../topics/complete-help.html"/>
+        <link rel="prev" title="Get started" href="quick-start.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../../index.html" class="fa fa-home"> flowr</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="quick-start.html">Get started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quick-start.html#toy-example">Toy example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick-start.html#stitch">Stitch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick-start.html#plot">Plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick-start.html#test-it">Test it</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick-start.html#submit-it">Submit it !</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick-start.html#check-the-status">Check the status</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Building Pipelines</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ingredients">Ingredients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#submission-types">Submission types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dependency-types">Dependency types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#relationships">Relationships</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#passing-of-flow-definition-resource-columns">Passing of flow definition resource columns</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#available-pipelines">Available Pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#cluster-support">Cluster Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../topics/complete-help.html">Help on Available functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#check-args">check_args</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#check">check</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#cmds-to-flow">cmds_to_flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#fetch">fetch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#id13">flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#get-unique-id">get_unique_id</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#get-wds">get_wds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#job">job</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#kill">kill</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#flowopts">flowopts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#parse-jobids">parse_jobids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#plot-flow">plot_flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#queue">queue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#rerun">rerun</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#run">run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#setup">setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#id145">status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#id150">submit_flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#test-queue">test_queue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#to-flow">to_flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#as-flowdef">as.flowdef</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#to-flowdet">to_flowdet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#as-flowmat">as.flowmat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#whisker-render">whisker_render</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../faqs.html">FAQs</a></li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">flowr</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+    <li>Building Pipelines</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../../_sources/rd/vignettes/build-pipes.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
             
-  <p>An easy and quick way to build a workflow is create two separate files. First is a table with commands to run, second has details regarding how the modules are stitched together. In the rest of this document we would refer to them as flow_mat and flow_def respectively.</p>
+  <div class="section" id="building-pipelines">
+<h1>Building Pipelines<a class="headerlink" href="#building-pipelines" title="Permalink to this headline">¶</a></h1>
+<p>An easy and quick way to build a workflow is create two separate files. First is a table with commands to run, second has details regarding how the modules are stitched together. In the rest of this document we would refer to them as flow_mat and flow_def respectively.</p>
 <p>Both these files have a <code class="docutils literal"><span class="pre">jobname</span></code> column which is used as a ID to connect them to each other.</p>
 <div class="section" id="ingredients">
-<h1>Ingredients<a class="headerlink" href="#ingredients" title="Permalink to this headline">¶</a></h1>
+<h2>Ingredients<a class="headerlink" href="#ingredients" title="Permalink to this headline">¶</a></h2>
 <div class="code r highlight-python"><div class="highlight"><pre>## ------ load some example data
 ex = file.path(system.file(package = &quot;flowr&quot;), &quot;pipelines&quot;)
 flow_mat = as.flowmat(file.path(ex, &quot;sleep_pipe.tsv&quot;))
@@ -63,7 +163,7 @@ flow_def = as.flowdef(file.path(ex, &quot;sleep_pipe.def&quot;))
 </pre></div>
 </div>
 <div class="section" id="flow-definition">
-<h2>1. Flow Definition<a class="headerlink" href="#flow-definition" title="Permalink to this headline">¶</a></h2>
+<h3>1. Flow Definition<a class="headerlink" href="#flow-definition" title="Permalink to this headline">¶</a></h3>
 <p>Each row in this table refers to one step of the pipeline. It describes the resources used by this step and also its relationship with other steps. Especially, the step immediately prior to it.</p>
 <p>It is a tab separated file, with a minimum of 4 columns:</p>
 <ul class="simple">
@@ -164,7 +264,9 @@ flow_def = as.flowdef(file.path(ex, &quot;sleep_pipe.def&quot;))
 </tr>
 </tbody>
 </table>
-<!-- Each row of this table translates to a call to ([job](http://docs.flowr.space/build/html/rd/topics/job.html) or) [queue](http://docs.flowr.space/build/html/rd/topics/queue.html) function. --><!--
+<!-- Each row of this table translates to a call to ([job](http://docs.flowr.space/build/html/rd/topics/job.html) or) [queue](http://docs.flowr.space/build/html/rd/topics/queue.html) function. -->
+
+<!--
 - jobname: is passed as `name` argument to job().
 - prev_jobs: passed as `previous_job` argument  to job().
 - dep_type: passed as `dependency_type` argument  to job(). Possible values: gather, serial
@@ -178,7 +280,7 @@ flow_def = as.flowdef(file.path(ex, &quot;sleep_pipe.def&quot;))
 
 Its best to have this as a tab seperated file (with no row.names). --></div>
 <div class="section" id="flow-mat-a-table-with-shell-commands-to-run">
-<h2>2. Flow mat: A table with shell commands to run<a class="headerlink" href="#flow-mat-a-table-with-shell-commands-to-run" title="Permalink to this headline">¶</a></h2>
+<h3>2. Flow mat: A table with shell commands to run<a class="headerlink" href="#flow-mat-a-table-with-shell-commands-to-run" title="Permalink to this headline">¶</a></h3>
 <p>This is also a tab separated table, with a minimum of three columns as defined below:</p>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">samplename</span></code>: A grouping column. The table is split using this column and each subset is treated as a individual flow. This makes it very easy to process multiple samples using a single submission command.<ul>
@@ -275,14 +377,14 @@ knitr:::kable(dat)
 ```
 ---></div>
 <div class="section" id="example">
-<h2>Example:<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<h3>Example:<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
 <p>A &#8212;-&gt; B &#8212;&#8211;&gt; C &#8212;&#8211;&gt; D</p>
 <p>Consider an example with three steps A, B and C. A has 10 commands from A1 to A10, similarly B has 10 commands B1 through B10 and C has a single command, C1.</p>
 <p>Consider another step D (with D1-D3), which comes after C.</p>
 </div>
 </div>
 <div class="section" id="submission-types">
-<h1>Submission types<a class="headerlink" href="#submission-types" title="Permalink to this headline">¶</a></h1>
+<h2>Submission types<a class="headerlink" href="#submission-types" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><em>This refers to the sub_type column in flow definition.</em></div></blockquote>
 <ul class="simple">
@@ -297,7 +399,7 @@ knitr:::kable(dat)
 </ul>
 </div>
 <div class="section" id="dependency-types">
-<h1>Dependency types<a class="headerlink" href="#dependency-types" title="Permalink to this headline">¶</a></h1>
+<h2>Dependency types<a class="headerlink" href="#dependency-types" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><em>This refers to the dep_type column in flow definition.</em></div></blockquote>
 <ul class="simple">
@@ -320,16 +422,16 @@ knitr:::kable(dat)
 </ul>
 </div>
 <div class="section" id="relationships">
-<h1>Relationships<a class="headerlink" href="#relationships" title="Permalink to this headline">¶</a></h1>
+<h2>Relationships<a class="headerlink" href="#relationships" title="Permalink to this headline">¶</a></h2>
 <p>Using the above submission and dependency types one can create several types of relationships between former and later jobs. Here are a few pipelines of relationships one may typically use.</p>
 <div class="section" id="serial-one-to-one-relationship">
-<h2>Serial: one to one relationship<a class="headerlink" href="#serial-one-to-one-relationship" title="Permalink to this headline">¶</a></h2>
+<h3>Serial: one to one relationship<a class="headerlink" href="#serial-one-to-one-relationship" title="Permalink to this headline">¶</a></h3>
 <p>[scatter] &#8212;serial&#8212;&gt; [scatter]</p>
 <p>A is submitted as scatter, A1 through A10. Further B1, requires A1 to complete; B2 requires A2 and so on, but they need not wait for all of step A jobs to complete. Also B1 through B10 are independent of each other.</p>
 <p>To set this up, A and B would have <code class="docutils literal"><span class="pre">sub_type</span></code> <code class="docutils literal"><span class="pre">scatter</span></code> and B would have <code class="docutils literal"><span class="pre">dep_type</span></code> as <code class="docutils literal"><span class="pre">serial</span></code>. Further, since A is an initial step its <code class="docutils literal"><span class="pre">dep_type</span></code> and <code class="docutils literal"><span class="pre">prev_job</span></code> would defined as <code class="docutils literal"><span class="pre">none</span></code>.</p>
 </div>
 <div class="section" id="gather-many-to-one-relationship">
-<h2>Gather: many to one relationship<a class="headerlink" href="#gather-many-to-one-relationship" title="Permalink to this headline">¶</a></h2>
+<h3>Gather: many to one relationship<a class="headerlink" href="#gather-many-to-one-relationship" title="Permalink to this headline">¶</a></h3>
 <p>[scatter] &#8212;gather&#8212;&gt; [serial]</p>
 <p>Since C is a single command which requires all steps of B to complete, intuitively it needs to <code class="docutils literal"><span class="pre">gather</span></code> pieces of data generated by B. In this case <code class="docutils literal"><span class="pre">dep_type</span></code> would be <code class="docutils literal"><span class="pre">gather</span></code> and <code class="docutils literal"><span class="pre">sub_type</span></code> type would be <code class="docutils literal"><span class="pre">serial</span></code> since it is a single command.</p>
 <!---
@@ -338,7 +440,7 @@ knitr:::kable(dat)
 
 ---></div>
 <div class="section" id="burst-one-to-many-relationship">
-<h2>Burst: one to many relationship<a class="headerlink" href="#burst-one-to-many-relationship" title="Permalink to this headline">¶</a></h2>
+<h3>Burst: one to many relationship<a class="headerlink" href="#burst-one-to-many-relationship" title="Permalink to this headline">¶</a></h3>
 <p>[serial] &#8212;burst&#8212;&gt; [scatter]</p>
 <p>Further, D is a set of three commands (D1-D3), which need to wait for a single process (C1) to complete. They would be submitted as <code class="docutils literal"><span class="pre">scatter</span></code> after waiting on C in a <code class="docutils literal"><span class="pre">burst</span></code> type dependency.</p>
 <!---
@@ -402,7 +504,7 @@ kable(ex2def[, 1:4])
 </div>
 </div>
 <div class="section" id="passing-of-flow-definition-resource-columns">
-<h1>Passing of flow definition resource columns<a class="headerlink" href="#passing-of-flow-definition-resource-columns" title="Permalink to this headline">¶</a></h1>
+<h2>Passing of flow definition resource columns<a class="headerlink" href="#passing-of-flow-definition-resource-columns" title="Permalink to this headline">¶</a></h2>
 <p>The resource requirement columns of flow definition are passed along to the final (cluster) submission script.</p>
 <p>The following table provides a mapping between the flow definition columns and variables in the submission template (<a class="reference external" href="#flow-def-columns">pipelines below</a>).</p>
 <table border="1" class="docutils">
@@ -454,10 +556,132 @@ kable(ex2def[, 1:4])
 </tr>
 </tbody>
 </table>
+<p>*: These are generated on the fly **: This is gathered from flow_mat</p>
 </div>
-<div class="section" id="cluster-interface">
-<h1>Cluster interface<a class="headerlink" href="#cluster-interface" title="Permalink to this headline">¶</a></h1>
-<p>Support for several popular cluster platforms are built-in. There is a template, each specific for a platform. These templates should would out of the box. You may copy and edit these (and save to ~/flowr/conf) in case some changes are required. Templates from this folder (~/flowr/conf), would override the defaults.</p>
+</div>
+<div class="section" id="available-pipelines">
+<h1>Available Pipelines<a class="headerlink" href="#available-pipelines" title="Permalink to this headline">¶</a></h1>
+<p>Here are some of the available piplines along with their respective locations</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#&gt; Please supply a name of the pipline to run, here are the options</span>
+</pre></div>
+</div>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="15%" />
+<col width="16%" />
+<col width="51%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">name</th>
+<th class="head">def</th>
+<th class="head">conf</th>
+<th class="head">pipe</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>sleep_pipe</td>
+<td>sleep_pipe.def</td>
+<td>NA</td>
+<td>/Users/sahilseth/Dropbox2/Dropbox/public/github_flow/inst/pipelines/sleep_pipe.R</td>
+</tr>
+<tr class="row-odd"><td>fastq_bam_bwa</td>
+<td>NA</td>
+<td>NA</td>
+<td>/Users/sahilseth/Rlibs/ngsflows/pipelines/fastq_bam_bwa.R</td>
+</tr>
+<tr class="row-even"><td>fastq_bam_rna_ion</td>
+<td>NA</td>
+<td>NA</td>
+<td>/Users/sahilseth/Rlibs/ngsflows/pipelines/fastq_bam_rna_ion.R</td>
+</tr>
+<tr class="row-odd"><td>fastq_bam_variants</td>
+<td>NA</td>
+<td>NA</td>
+<td>/Users/sahilseth/Rlibs/ngsflows/pipelines/fastq_bam_variants.R</td>
+</tr>
+<tr class="row-even"><td>fastq_haplotyper</td>
+<td>fastq_haplotyper.def</td>
+<td>fastq_haplotyper.conf</td>
+<td>/Users/sahilseth/Rlibs/ngsflows/pipelines/fastq_haplotyper.R</td>
+</tr>
+<tr class="row-odd"><td>fastq_star_rna</td>
+<td>NA</td>
+<td>NA</td>
+<td>/Users/sahilseth/Rlibs/ngsflows/pipelines/fastq_star_rna.R</td>
+</tr>
+<tr class="row-even"><td>old_bam_pindel</td>
+<td>NA</td>
+<td>NA</td>
+<td>/Users/sahilseth/Rlibs/ngsflows/pipelines/old_bam_pindel.R</td>
+</tr>
+<tr class="row-odd"><td>old_bam_preprocess</td>
+<td>NA</td>
+<td>NA</td>
+<td>/Users/sahilseth/Rlibs/ngsflows/pipelines/old_bam_preprocess.R</td>
+</tr>
+<tr class="row-even"><td>old_bam_xenome</td>
+<td>NA</td>
+<td>NA</td>
+<td>/Users/sahilseth/Rlibs/ngsflows/pipelines/old_bam_xenome.R</td>
+</tr>
+<tr class="row-odd"><td>old_bwa_pipe</td>
+<td>NA</td>
+<td>NA</td>
+<td>/Users/sahilseth/Rlibs/ngsflows/pipelines/old_bwa_pipe.R</td>
+</tr>
+<tr class="row-even"><td>old_dna_qc</td>
+<td>NA</td>
+<td>NA</td>
+<td>/Users/sahilseth/Rlibs/ngsflows/pipelines/old_dna_qc.R</td>
+</tr>
+<tr class="row-odd"><td>old_fastq_bam_bwa2</td>
+<td>NA</td>
+<td>NA</td>
+<td>/Users/sahilseth/Rlibs/ngsflows/pipelines/old_fastq_bam_bwa2.R</td>
+</tr>
+<tr class="row-even"><td>old_fastq_bismark_meth</td>
+<td>NA</td>
+<td>NA</td>
+<td>/Users/sahilseth/Rlibs/ngsflows/pipelines/old_fastq_bismark_meth.R</td>
+</tr>
+<tr class="row-odd"><td>old_flow_bam_preprocess</td>
+<td>NA</td>
+<td>NA</td>
+<td>/Users/sahilseth/Rlibs/ngsflows/pipelines/old_flow_bam_preprocess.R</td>
+</tr>
+<tr class="row-even"><td>old_proc_bwa_pipe</td>
+<td>NA</td>
+<td>NA</td>
+<td>/Users/sahilseth/Rlibs/ngsflows/pipelines/old_proc_bwa_pipe.R</td>
+</tr>
+<tr class="row-odd"><td>split_aln_merge</td>
+<td>split_aln_merge.def</td>
+<td>NA</td>
+<td>/Users/sahilseth/Rlibs/ngsflows/pipelines/split_aln_merge.R</td>
+</tr>
+<tr class="row-even"><td>build-pipes</td>
+<td>NA</td>
+<td>NA</td>
+<td>/Users/sahilseth/Dropbox2/Dropbox/public/github_flow/vignettes/build-pipes.R</td>
+</tr>
+<tr class="row-odd"><td>example_sleep</td>
+<td>NA</td>
+<td>NA</td>
+<td>/Users/sahilseth/Dropbox2/Dropbox/public/github_flow/vignettes/example_sleep.R</td>
+</tr>
+<tr class="row-even"><td>quick-start</td>
+<td>NA</td>
+<td>NA</td>
+<td>/Users/sahilseth/Dropbox2/Dropbox/public/github_flow/vignettes/quick-start.R</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="cluster-support">
+<h1>Cluster Support<a class="headerlink" href="#cluster-support" title="Permalink to this headline">¶</a></h1>
+<p>Support for several popular cluster platforms are built-in. There is a template, for each platform, which should would out of the box. Further, one may copy and edit them (and save to <code class="docutils literal"><span class="pre">~/flowr/conf</span></code>) in case some changes are required. Templates from this folder (<code class="docutils literal"><span class="pre">~/flowr/conf</span></code>), would override defaults.</p>
+<p>Here are links to latest templates on github:</p>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/sahilseth/flowr/blob/master/inst/conf/torque.sh">torque</a></li>
 <li><a class="reference external" href="https://github.com/sahilseth/flowr/blob/master/inst/conf/lsf.sh">lsf</a></li>
@@ -465,89 +689,150 @@ kable(ex2def[, 1:4])
 <li><a class="reference external" href="https://github.com/sahilseth/flowr/blob/master/inst/conf/sge.sh">sge</a></li>
 <li><a class="reference external" href="https://github.com/sahilseth/flowr/blob/master/inst/conf/slurm.sh">slurm</a>, needs testing</li>
 </ul>
-<p>Here are a few details on adding a new platform: <a class="reference external" href="https://github.com/sahilseth/flowr/issues/7">github.com/sahilseth/flowr/issues/7</a></p>
+<p>Adding a new plaform involves <a class="reference external" href="https://github.com/sahilseth/flowr/issues/7">a few steps</a> including support for:</p>
+<ol class="arabic simple">
+<li>submission: Template used for submission: <a class="reference external" href="https://github.com/sahilseth/flowr/blob/master/inst/conf/torque.sh">https://github.com/sahilseth/flowr/blob/master/inst/conf/torque.sh</a></li>
+<li><a class="reference external" href="https://github.com/sahilseth/flowr/blob/master/R/parse-jobids.R">parse_jobids()</a>: The job ids should parse using regular expression as provided by: <a class="reference external" href="https://github.com/sahilseth/flowr/blob/master/inst/conf/flowr.conf">https://github.com/sahilseth/flowr/blob/master/inst/conf/flowr.conf</a></li>
+<li>parse_dependency(): These are then parsed to create a dependency string, as seen here: <a class="reference external" href="https://github.com/sahilseth/flowr/blob/master/R/parse-dependency.R">https://github.com/sahilseth/flowr/blob/master/R/parse-dependency.R</a></li>
+<li>job(): Add a new class using the platform name. This is essentially a wrapper around job class. <a class="reference external" href="https://github.com/sahilseth/flowr/blob/master/R/class-def.R">https://github.com/sahilseth/flowr/blob/master/R/class-def.R</a> A one line like: <code class="docutils literal"><span class="pre">setClass(&quot;torque&quot;,</span> <span class="pre">contains</span> <span class="pre">=</span> <span class="pre">&quot;job&quot;)</span></code> would suffice.</li>
+<li>Killing jobs: making sure that the correct job killing command is identified by detect_kill_cmd().</li>
+</ol>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">My HPCC is not supported, how to make it work? Take a look at: <a class="reference external" href="https://github.com/sahilseth/flowr/issues/7">adding platforms</a> and send a message to: sahil.seth [at] me.com</p>
+<p class="last">My HPCC is not supported, how to make it work? re-open this issue, with details on the platform. <a class="reference external" href="https://github.com/sahilseth/flowr/issues/7">adding platforms</a></p>
 </div>
-<p>*: These are generated on the fly **: This is gathered from flow_mat</p>
+<p>As of now we have tested this on the following clusters:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="24%" />
+<col width="22%" />
+<col width="27%" />
+<col width="27%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Platform</th>
+<th class="head">command</th>
+<th class="head">status</th>
+<th class="head">queue.type</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>LSF 7</td>
+<td>bsub</td>
+<td>Not tested</td>
+<td>lsf</td>
+</tr>
+<tr class="row-odd"><td>LSF 9.1</td>
+<td>bsub</td>
+<td>Yes</td>
+<td>lsf</td>
+</tr>
+<tr class="row-even"><td>Torque</td>
+<td>qsub</td>
+<td>Yes</td>
+<td>torque</td>
+</tr>
+<tr class="row-odd"><td>SGE</td>
+<td>qsub</td>
+<td>Beta</td>
+<td>sge</td>
+</tr>
+<tr class="row-even"><td>SLURM</td>
+<td>sbatch</td>
+<td>under-dev</td>
+<td>slurm</td>
+</tr>
+</tbody>
+</table>
+<p>*queue short-name used in <a class="reference external" href="https://github.com/sahilseth/flow">flow</a></p>
+<p>There are several <a class="reference external" href="http://en.wikipedia.org/wiki/Job_scheduler">job scheduling</a> systems available and we try to support the major players. Adding support is quite easy if we have access to them. Your favourite not in the list? Send a <a class="reference external" href="mailto:sahil&#46;seth&#37;&#52;&#48;me&#46;com">message</a></p>
+<ul class="simple">
+<li>PBS: <a class="reference external" href="http://en.wikipedia.org/wiki/Portable_Batch_System">wiki</a></li>
+<li>Torque: <a class="reference external" href="http://en.wikipedia.org/wiki/TORQUE_Resource_Manager">wiki</a><ul>
+<li>MD Anderson</li>
+<li><a class="reference external" href="http://www.rcc.uh.edu/hpc-docs/49-using-torque-to-submit-and-monitor-jobs.html">University of Houston</a></li>
+</ul>
+</li>
+<li>LSF <a class="reference external" href="http://en.wikipedia.org/wiki/Platform_LSF">wiki</a>:<ul>
+<li>Harvard Medicla School uses: <a class="reference external" href="https://wiki.med.harvard.edu/Orchestra/IntroductionToLSF">LSF HPC 7</a></li>
+<li>Also Used at <a class="reference external" href="https://www.broadinstitute.org/gatk/guide/article?id=1311">Broad</a></li>
+</ul>
+</li>
+<li>SGE <a class="reference external" href="http://en.wikipedia.org/wiki/Sun_Grid_Engine">wiki</a><ul>
+<li>A tutorial for <a class="reference external" href="https://sites.google.com/site/anshulkundaje/inotes/programming/clustersubmit/sun-grid-engine">Sun Grid Engine</a></li>
+<li>Another from <a class="reference external" href="http://www.biostat.jhsph.edu/bit/cluster-usage.html">JHSPH</a></li>
+<li>Dependecy info <a class="reference external" href="https://wiki.duke.edu/display/SCSC/SGE+Job+Dependencies">here</a></li>
+</ul>
+</li>
+</ul>
+<p><a class="reference external" href="http://en.wikipedia.org/wiki/Comparison_of_cluster_software">Comparison_of_cluster_software</a></p>
 </div>
 
 
           </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="../../index.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Ingredients</a><ul>
-<li><a class="reference internal" href="#flow-definition">1. Flow Definition</a></li>
-<li><a class="reference internal" href="#flow-mat-a-table-with-shell-commands-to-run">2. Flow mat: A table with shell commands to run</a></li>
-<li><a class="reference internal" href="#example">Example:</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#submission-types">Submission types</a></li>
-<li><a class="reference internal" href="#dependency-types">Dependency types</a></li>
-<li><a class="reference internal" href="#relationships">Relationships</a><ul>
-<li><a class="reference internal" href="#serial-one-to-one-relationship">Serial: one to one relationship</a></li>
-<li><a class="reference internal" href="#gather-many-to-one-relationship">Gather: many to one relationship</a></li>
-<li><a class="reference internal" href="#burst-one-to-many-relationship">Burst: one to many relationship</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#passing-of-flow-definition-resource-columns">Passing of flow definition resource columns</a></li>
-<li><a class="reference internal" href="#cluster-interface">Cluster interface</a></li>
-</ul>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../topics/complete-help.html" class="btn btn-neutral float-right" title="Help on Available functions">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="quick-start.html" class="btn btn-neutral" title="Get started"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="../../build.html"
-                        title="previous chapter">Building Pipelines</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="../../pipelines.html"
-                        title="next chapter">Available pipelines</a></p>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../../_sources/rd/vignettes/build-pipes.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Sahil Seth.
     </p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="../../pipelines.html" title="Available pipelines"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="../../build.html" title="Building Pipelines"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">flowr 0.9.7 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="../../build.html" >Building Pipelines</a> &raquo;</li> 
-      </ul>
-    </div>
-    <div class="footer" role="contentinfo">
-        &copy; Copyright 2015, Sahil Seth.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
-    </div>
-  </body>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.9.7',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
 </html>

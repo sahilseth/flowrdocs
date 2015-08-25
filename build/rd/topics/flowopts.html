@@ -1,0 +1,348 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>flowopts &mdash; flowr 0.9.7 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="flowr 0.9.7 documentation" href="../../index.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../../index.html" class="fa fa-home"> flowr</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../vignettes/quick-start.html">Get started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../vignettes/quick-start.html#toy-example">Toy example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vignettes/quick-start.html#stitch">Stitch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vignettes/quick-start.html#plot">Plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vignettes/quick-start.html#test-it">Test it</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vignettes/quick-start.html#submit-it">Submit it !</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vignettes/quick-start.html#check-the-status">Check the status</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../vignettes/build-pipes.html">Building Pipelines</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../vignettes/build-pipes.html#ingredients">Ingredients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vignettes/build-pipes.html#submission-types">Submission types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vignettes/build-pipes.html#dependency-types">Dependency types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vignettes/build-pipes.html#relationships">Relationships</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vignettes/build-pipes.html#passing-of-flow-definition-resource-columns">Passing of flow definition resource columns</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../vignettes/build-pipes.html#available-pipelines">Available Pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vignettes/build-pipes.html#cluster-support">Cluster Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="complete-help.html">Help on Available functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#check-args">check_args</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#check">check</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#cmds-to-flow">cmds_to_flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#fetch">fetch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#id13">flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#get-unique-id">get_unique_id</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#get-wds">get_wds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#job">job</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#kill">kill</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#flowopts">flowopts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#parse-jobids">parse_jobids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#plot-flow">plot_flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#queue">queue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#rerun">rerun</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#run">run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#setup">setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#id145">status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#id150">submit_flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#test-queue">test_queue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#to-flow">to_flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#as-flowdef">as.flowdef</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#to-flowdet">to_flowdet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#as-flowmat">as.flowmat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#whisker-render">whisker_render</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../faqs.html">FAQs</a></li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">flowr</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+    <li>flowopts</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../../_sources/rd/topics/flowopts.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="flowopts">
+<h1>flowopts<a class="headerlink" href="#flowopts" title="Permalink to this headline">¶</a></h1>
+<p><code class="xref py py-func docutils literal"><span class="pre">flowopts()</span></code></p>
+<p>Default options/params used in ngsflows and flowr</p>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">flowopts</span>
+
+<span class="n">opts_flow</span>
+
+<span class="n">get_opts</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+
+<span class="n">set_opts</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+
+<span class="n">load_opts</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="arguments">
+<h2>Arguments<a class="headerlink" href="#arguments" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>...</dt>
+<dd>-&lt;li&gt; get: names of options to fetch</dd>
+</dl>
+<p>&lt;/li&gt;
+&lt;li&gt; set: a set of options in a name=value format seperated by commas
+&lt;/li&gt;</p>
+</div>
+<div class="section" id="format">
+<h2>Format<a class="headerlink" href="#format" title="Permalink to this headline">¶</a></h2>
+<p>opts_flow
+Description
+~~~~~~~~~~~~~~~~~~</p>
+<p>There are three helper functions which attempt to manage params used by flowr and ngsflows:
+-&lt;li&gt; <a class="reference external" href="get_opts.html">get_opts</a> OR opts_flow$get: show all default options
+&lt;/li&gt;
+&lt;li&gt; <a class="reference external" href="set_opts.html">set_opts</a> OR opts_flow$set: set default options
+&lt;/li&gt;
+&lt;li&gt; <a class="reference external" href="load_opts.html">load_opts</a> OR opts_flow$load: load options specified in a tab seperated text file
+&lt;/li&gt;
+For more details regarding these funtions refer to <a class="reference external" href="http://www.inside-r.org/packages/cran/params/docs/params">params</a>.
+Details
+~~~~~~~~~~~~~~~~~~</p>
+<p>By default flowr loads, ~/flowr/conf/flowr.conf and ~/flowr/conf/ngsflows.conf
+Below is a list of default flowr options, retrieved via
+opts_flow$get():
+<a href="#id1"><span class="problematic" id="id2">|</span></a>name              <a href="#id3"><span class="problematic" id="id4">|</span></a>value                    |</p>
+<blockquote>
+<div><a href="#id77"><span class="problematic" id="id78">|:&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;|</span></a>:&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;|
+<a href="#id5"><span class="problematic" id="id6">|</span></a>default_regex     <a href="#id7"><span class="problematic" id="id8">|</span></a>(.*)                     |
+<a href="#id9"><span class="problematic" id="id10">|</span></a>flow_base_path    <a href="#id11"><span class="problematic" id="id12">|</span></a>~/flowr                  |
+<a href="#id13"><span class="problematic" id="id14">|</span></a>flow_conf_path    <a href="#id15"><span class="problematic" id="id16">|</span></a>~/flowr/conf             |
+<a href="#id17"><span class="problematic" id="id18">|</span></a>flow_parse_lsf    <a href="#id19"><span class="problematic" id="id20">|</span></a>.*(&lt;[0-9]*&gt;).*         |
+<a href="#id21"><span class="problematic" id="id22">|</span></a>flow_parse_moab   <a href="#id23"><span class="problematic" id="id24">|</span></a>(.*)                     |
+<a href="#id25"><span class="problematic" id="id26">|</span></a>flow_parse_sge    <a href="#id27"><span class="problematic" id="id28">|</span></a>(.*)                     |
+<a href="#id29"><span class="problematic" id="id30">|</span></a>flow_parse_slurm  <a href="#id31"><span class="problematic" id="id32">|</span></a>(.*)                     |
+<a href="#id33"><span class="problematic" id="id34">|</span></a>flow_parse_torque <a href="#id35"><span class="problematic" id="id36">|</span></a>(.?)..*                 |
+<a href="#id37"><span class="problematic" id="id38">|</span></a>flow_pipe_paths   <a href="#id39"><span class="problematic" id="id40">|</span></a>~/flowr/pipelines        |
+<a href="#id41"><span class="problematic" id="id42">|</span></a>flow_pipe_urls    <a href="#id43"><span class="problematic" id="id44">|</span></a>~/flowr/pipelines        |
+<a href="#id45"><span class="problematic" id="id46">|</span></a>flow_platform     <a href="#id47"><span class="problematic" id="id48">|</span></a>local                    |
+<a href="#id49"><span class="problematic" id="id50">|</span></a>flow_run_path     <a href="#id51"><span class="problematic" id="id52">|</span></a>~/flowr/runs             |
+<a href="#id53"><span class="problematic" id="id54">|</span></a>my_conf_path      <a href="#id55"><span class="problematic" id="id56">|</span></a>~/flowr/conf             |
+<a href="#id57"><span class="problematic" id="id58">|</span></a>my_dir            <a href="#id59"><span class="problematic" id="id60">|</span></a>path/to/a/folder         |
+<a href="#id61"><span class="problematic" id="id62">|</span></a>my_path           <a href="#id63"><span class="problematic" id="id64">|</span></a>~/flowr                  |
+<a href="#id65"><span class="problematic" id="id66">|</span></a>my_tool_exe       <a href="#id67"><span class="problematic" id="id68">|</span></a>/usr/bin/ls              |
+<a href="#id69"><span class="problematic" id="id70">|</span></a>time_format       <a href="#id71"><span class="problematic" id="id72">|</span></a>%a %b %e %H:%M:%S CDT %Y |
+<a href="#id73"><span class="problematic" id="id74">|</span></a>verbose           <a href="#id75"><span class="problematic" id="id76">|</span></a>FALSE                    |</div></blockquote>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre>## Set options: set_opts()
+opts = set_opts(flow_run_path = &quot;~/mypath&quot;)
+## OR if you would like to supply a long list of options:
+opts = set_opts(.dots = list(flow_run_path = &quot;~/mypath&quot;))
+
+## load options from a configuration file: load_opts()
+myconfile = fetch_conf(&quot;flowr.conf&quot;)
+load_opts(myconfile)
+**Reading file, using &#39;V1&#39; as id_column to remove empty rows.**&lt;strong class=&#39;warning&#39;&gt;Warning message:
+
+
+Seems like these paths do not exist, this may cause issues later:
+
+&lt;/strong&gt;
+
+|name              |value                    |
+|:-----------------|:------------------------|
+|flow_parse_slurm  |(.*)                     |
+|flow_parse_sge    |(.*)                     |
+|flow_parse_moab   |(.*)                     |
+|flow_parse_lsf    |.*(\&lt;[0-9]*\&gt;).*         |
+|flow_parse_torque |(.?)\..*                 |
+|flow_platform     |local                    |
+|flow_pipe_urls    |~/flowr/pipelines        |
+|flow_pipe_paths   |~/flowr/pipelines        |
+|flow_run_path     |~/flowr/runs             |
+|flow_conf_path    |~/flowr/conf             |
+|flow_base_path    |~/flowr                  |
+|verbose           |FALSE                    |
+|var               |                         |
+|time_format       |%a %b %e %H:%M:%S CDT %Y |
+
+## Fetch options: get_opts()
+get_opts(&quot;flow_run_path&quot;)
+ flow_run_path
+&quot;~/flowr/runs&quot;
+get_opts()
+
+
+|name              |value                    |
+|:-----------------|:------------------------|
+|flow_base_path    |~/flowr                  |
+|flow_conf_path    |~/flowr/conf             |
+|flow_parse_lsf    |.*(\&lt;[0-9]*\&gt;).*         |
+|flow_parse_moab   |(.*)                     |
+|flow_parse_sge    |(.*)                     |
+|flow_parse_slurm  |(.*)                     |
+|flow_parse_torque |(.?)\..*                 |
+|flow_pipe_paths   |~/flowr/pipelines        |
+|flow_pipe_urls    |~/flowr/pipelines        |
+|flow_platform     |local                    |
+|flow_run_path     |~/flowr/runs             |
+|time_format       |%a %b %e %H:%M:%S CDT %Y |
+|var               |                         |
+|verbose           |FALSE                    |
+</pre></div>
+</div>
+<p>Aliases:
+flowopts
+get_opts
+load_opts
+opts_flow
+set_opts
+.. Keywords:</p>
+<p>datasets
+.. Author:</p>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Sahil Seth.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.9.7',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

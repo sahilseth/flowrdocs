@@ -79,11 +79,11 @@ Generate flowmat
 +--------------+---------------+-------------------------------------------------------------------------+
 | samplename   | jobname       | cmd                                                                     |
 +==============+===============+=========================================================================+
-| sample1      | sleep         | sleep 20 && sleep 7;echo 'hello'                                        |
+| sample1      | sleep         | sleep 3 && sleep 2;echo 'hello'                                         |
 +--------------+---------------+-------------------------------------------------------------------------+
-| sample1      | sleep         | sleep 7 && sleep 8;echo 'hello'                                         |
+| sample1      | sleep         | sleep 14 && sleep 11;echo 'hello'                                       |
 +--------------+---------------+-------------------------------------------------------------------------+
-| sample1      | sleep         | sleep 15 && sleep 3;echo 'hello'                                        |
+| sample1      | sleep         | sleep 6 && sleep 3;echo 'hello'                                         |
 +--------------+---------------+-------------------------------------------------------------------------+
 | sample1      | create\_tmp   | head -c 100000 /dev/urandom > sample1\_tmp\_1                           |
 +--------------+---------------+-------------------------------------------------------------------------+
@@ -138,7 +138,6 @@ Default flowdef
    :alt: plot of chunk unnamed-chunk-4
 
    plot of chunk unnamed-chunk-4
-
 By default the flowdef seems quite conservative.
 
 Change the dependency type for merge step into gather
@@ -182,3 +181,4 @@ Now this looke better.
    :alt: plot of chunk unnamed-chunk-6
 
    plot of chunk unnamed-chunk-6
+

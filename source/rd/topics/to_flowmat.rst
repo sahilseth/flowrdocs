@@ -8,42 +8,51 @@
 
 
 to_flowmat
-===============
+-----------
 
 :func:`to_flowmat`
 
 Taking in a named list and returns a two columns data.frame
 
 Usage
-""""""""""""""""""
+~~~~~~~~~~~~~~~~~~
+
 ::
 
+ 
  to_flowmat(x, ...)
+ 
+ "to_flowmat"(x, samplename, ...)
+ 
+ "to_flowmat"(x, ...)
+ 
+ "to_flowmat"(x, ...)
+ 
 
-"to_flowmat"(x, samplename, ...)
-
-"to_flowmat"(x, ...)
-
-"to_flowmat"(x, ...)
 
 Arguments
+~~~~~~~~~~~~~~~~~~
+
 
 x
     a named list OR vector. Where name corresponds to the jobname and value is a vector of commands to run
+
 ...
     not used
+
 samplename
     character of length 1 or that of nrow(x)
 
 
 Description
-""""""""""""""""""
+~~~~~~~~~~~~~~~~~~
 
 Taking in a named list and returns a two columns data.frame
 
 
 Examples
-""""""""""""""""""
+~~~~~~~~~~~~~~~~~~
+
 ::
 
 Aliases:
@@ -51,7 +60,9 @@ to_flowmat
 to_flowmat.data.frame
 to_flowmat.flow
 to_flowmat.list
-Keywords:
-Author:
+.. Keywords:
+
+.. Author:
+
 
 

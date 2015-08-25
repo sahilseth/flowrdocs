@@ -1,8 +1,7 @@
 FAQs
 ============================================
 
-Please visits here for more questions and issues:
-https://github.com/sahilseth/flowr/issues?q=label%3Aquestion
+Please visits the github issues with `question tag <https://github.com/sahilseth/flowr/issues?q=label%3Aquestion>`_ for details FAQS.
 
 .. eventually in running the pipeline
 

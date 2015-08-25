@@ -1,6 +1,6 @@
 ---
 title: "Quick Start Example"
-date: "2015-08-21"
+date: "2015-08-25"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Quick Start Example}
@@ -10,8 +10,7 @@ vignette: >
 
 
 
-Get started
--------------
+# Get started
 
 
 
@@ -26,12 +25,15 @@ A few examples [here](https://github.com/sahilseth/rfun).
 
 ```r
 library(flowr)
-extdata = file.path(system.file(package = "flowr"), "extdata")
-setup(bin = extdata, flow_base_path = extdata)
 ```
 
 
-# Toy example
+```r
+setup()
+```
+
+
+## Toy example
 
 
 
@@ -71,7 +73,7 @@ We use an additional file specifying relationship between the steps, and also ot
 |size       |serial   |merge      |serial   |short |            2000|1:00     |            1|torque   |     4|
 
 
-# Stitch
+## Stitch
 
 
 ```r
@@ -79,7 +81,8 @@ fobj <- to_flow(x = flow_mat, def = as.flowdef(flow_def),
 	flowname = "example1", platform = "lsf")
 ```
 
-# Plot
+## Plot
+
 
 ```r
 plot_flow(fobj)
@@ -88,7 +91,8 @@ plot_flow(fobj)
 ![Flow chart describing process for example 1](figure/plot_example1-1.png) 
 
 
-# Test it
+## Test it
+
 > Dry run (submit)
 
 
@@ -102,7 +106,7 @@ You may check this folder for consistency. Also you may re-run submit with execu
  ~/flowr/type1-20150520-15-18-27-5mSd32G0
 ```
 
-# Submit it !
+## Submit it !
 
 > Submit to the cluster
 
@@ -119,7 +123,7 @@ flowr status x=~/flowr/type1-20150520-15-18-46-sySOzZnE
 ```
 
 
-# Check the status
+## Check the status
 
 ```
 flowr status x=~/flowr/type1-20150520-15-18-46-sySOzZnE

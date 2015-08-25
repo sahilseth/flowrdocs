@@ -1,0 +1,1635 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Help on Available functions &mdash; flowr 0.9.7 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="flowr 0.9.7 documentation" href="../../index.html"/>
+        <link rel="next" title="FAQs" href="../../faqs.html"/>
+        <link rel="prev" title="Building Pipelines" href="../vignettes/build-pipes.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../../index.html" class="fa fa-home"> flowr</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../vignettes/quick-start.html">Get started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../vignettes/quick-start.html#toy-example">Toy example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vignettes/quick-start.html#stitch">Stitch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vignettes/quick-start.html#plot">Plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vignettes/quick-start.html#test-it">Test it</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vignettes/quick-start.html#submit-it">Submit it !</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vignettes/quick-start.html#check-the-status">Check the status</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../vignettes/build-pipes.html">Building Pipelines</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../vignettes/build-pipes.html#ingredients">Ingredients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vignettes/build-pipes.html#submission-types">Submission types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vignettes/build-pipes.html#dependency-types">Dependency types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vignettes/build-pipes.html#relationships">Relationships</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vignettes/build-pipes.html#passing-of-flow-definition-resource-columns">Passing of flow definition resource columns</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../vignettes/build-pipes.html#available-pipelines">Available Pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vignettes/build-pipes.html#cluster-support">Cluster Support</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Help on Available functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#check-args">check_args</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#check">check</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cmds-to-flow">cmds_to_flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fetch">fetch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id13">flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#get-unique-id">get_unique_id</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#get-wds">get_wds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#job">job</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#kill">kill</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#flowopts">flowopts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#parse-jobids">parse_jobids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#plot-flow">plot_flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#queue">queue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rerun">rerun</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#run">run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#setup">setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id145">status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id150">submit_flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#test-queue">test_queue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#to-flow">to_flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#as-flowdef">as.flowdef</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#to-flowdet">to_flowdet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#as-flowmat">as.flowmat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#whisker-render">whisker_render</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../faqs.html">FAQs</a></li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">flowr</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+    <li>Help on Available functions</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../../_sources/rd/topics/complete-help.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="help-on-available-functions">
+<h1>Help on Available functions<a class="headerlink" href="#help-on-available-functions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="check-args">
+<h2>check_args<a class="headerlink" href="#check-args" title="Permalink to this headline">¶</a></h2>
+<p><code class="xref py py-func docutils literal"><span class="pre">check_args()</span></code></p>
+<p>checks all the arguments in the parent frame.
+None of them should be null.</p>
+<div class="section" id="usage">
+<h3>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">check_args</span><span class="p">(</span><span class="n">ignore</span><span class="p">,</span> <span class="n">select</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="arguments">
+<h3>Arguments<a class="headerlink" href="#arguments" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>ignore</dt>
+<dd>optionally ignore a few variables for checking.</dd>
+<dt>select</dt>
+<dd>optionally only check a few variables of the function.</dd>
+</dl>
+</div>
+<div class="section" id="description">
+<h3>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h3>
+<p>This function may be optionally moved to a more generic package.</p>
+</div>
+<div class="section" id="examples">
+<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
+<p>Aliases:
+check_args
+.. Keywords:</p>
+</div>
+</div>
+<div class="section" id="check">
+<h2>check<a class="headerlink" href="#check" title="Permalink to this headline">¶</a></h2>
+<p><code class="xref py py-func docutils literal"><span class="pre">check()</span></code></p>
+<p>Check consistency of flowdef and flowmat</p>
+<div class="section" id="id1">
+<h3>Usage<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">check</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+
+<span class="s">&quot;check&quot;</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+
+<span class="s">&quot;check&quot;</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">verbose</span> <span class="o">=</span> <span class="n">get_opts</span><span class="p">(</span><span class="s">&quot;verbose&quot;</span><span class="p">),</span> <span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>Arguments<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>x</dt>
+<dd>a flowdef or flowmat object</dd>
+</dl>
+<dl class="docutils">
+<dt>...</dt>
+<dd>suppled to check.classname function</dd>
+<dt>verbose</dt>
+<dd>be chatty</dd>
+</dl>
+</div>
+<div class="section" id="id3">
+<h3>Description<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>check consistency of objects
+Currently checks objects S3 flowdef, flowmat</p>
+</div>
+<div class="section" id="id4">
+<h3>Examples<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Aliases:
+check
+check.flowdef
+check.flowmat
+.. Keywords:</p>
+</div>
+</div>
+<div class="section" id="cmds-to-flow">
+<h2>cmds_to_flow<a class="headerlink" href="#cmds-to-flow" title="Permalink to this headline">¶</a></h2>
+<p><code class="xref py py-func docutils literal"><span class="pre">cmds_to_flow()</span></code></p>
+<p>cmds_to_flow: DEPRECIATED</p>
+<div class="section" id="id5">
+<h3>Usage<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">cmds_to_flow</span><span class="p">(</span><span class="n">cmd</span><span class="o">.</span><span class="n">list</span><span class="p">,</span> <span class="n">samplename</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">infomat</span><span class="p">,</span> <span class="n">q_obj</span> <span class="o">=</span> <span class="n">queue</span><span class="p">(</span><span class="nb">type</span> <span class="o">=</span> <span class="s">&quot;lsf&quot;</span><span class="p">,</span> <span class="n">verbose</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">),</span> <span class="n">flowname</span> <span class="o">=</span> <span class="s">&quot;stage2&quot;</span><span class="p">,</span> <span class="n">execute</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">,</span> <span class="n">flow_run_path</span> <span class="o">=</span> <span class="s">&quot;/scratch/iacs/flow_pipe/tmp&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>Arguments<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>cmd.list</dt>
+<dd>list of commands</dd>
+<dt>samplename</dt>
+<dd>name of the sample</dd>
+<dt>infomat</dt>
+<dd>flowdef</dd>
+<dt>q_obj</dt>
+<dd>queue object</dd>
+<dt>flowname</dt>
+<dd>name of the flow</dd>
+<dt>execute</dt>
+<dd>TRUE/FALSE</dd>
+<dt>flow_run_path</dt>
+<dd>outpath</dd>
+</dl>
+</div>
+<div class="section" id="id7">
+<h3>Description<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>Create a <a class="reference external" href="flow.html">flow</a> object from a list of commands</p>
+</div>
+<div class="section" id="id8">
+<h3>Examples<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>Aliases:
+cmds_to_flow
+.. Keywords:</p>
+</div>
+</div>
+<div class="section" id="fetch">
+<h2>fetch<a class="headerlink" href="#fetch" title="Permalink to this headline">¶</a></h2>
+<p><code class="xref py py-func docutils literal"><span class="pre">fetch()</span></code></p>
+<p>A generic functions to search for files</p>
+<div class="section" id="id9">
+<h3>Usage<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">fetch</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">places</span><span class="p">,</span> <span class="n">urls</span><span class="p">,</span> <span class="n">verbose</span> <span class="o">=</span> <span class="n">get_opts</span><span class="p">(</span><span class="s">&quot;verbose&quot;</span><span class="p">))</span>
+
+<span class="n">fetch_pipes</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">places</span><span class="p">,</span> <span class="n">last_only</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">,</span> <span class="n">urls</span> <span class="o">=</span> <span class="n">get_opts</span><span class="p">(</span><span class="s">&quot;flowr_pipe_urls&quot;</span><span class="p">),</span> <span class="n">silent</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">,</span> <span class="n">ask</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">)</span>
+
+<span class="n">fetch_conf</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s">&quot;flowr.conf&quot;</span><span class="p">,</span> <span class="n">places</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id10">
+<h3>Arguments<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>x</dt>
+<dd>name of the file to search for</dd>
+<dt>places</dt>
+<dd>places (paths) to look for it. Its best to use the defaults</dd>
+<dt>urls</dt>
+<dd>urls to look for, works well for pipelines.</dd>
+<dt>verbose</dt>
+<dd>be chatty?</dd>
+<dt>last_only</dt>
+<dd>[fetch_pipes only]. If multiple pipelines match the pattern, return the last one.</dd>
+<dt>silent</dt>
+<dd>[fetch_pipes() only]. logical, be silent even if no such pipeline is available.</dd>
+<dt>ask</dt>
+<dd>ask before downloading or copying, not used !</dd>
+</dl>
+<dl class="docutils">
+<dt>...</dt>
+<dd>not used</dd>
+</dl>
+</div>
+<div class="section" id="id11">
+<h3>Description<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<p>These functions help in searching for specific files in the user&#8217;s space.
+fetch_pipes(): Fetches pipelines in the following places,
+-&lt;li&gt; - available in &#8216;pipelines&#8217; folders in flowr and ngsflows packages.
+&lt;/li&gt;
+&lt;li&gt; - ~/flowr/pipelines
+&lt;/li&gt;
+&lt;li&gt; - github repos (currently not supported)
+&lt;/li&gt;
+fetch_conf(): Fetches configuration files in the following places,
+-&lt;li&gt; - available in &#8216;conf&#8217; folders in flowr and ngsflows packages.
+&lt;/li&gt;
+&lt;li&gt; - ~/flowr/conf folder
+&lt;/li&gt;
+By default flowr loads, ~/flowr/conf/flowr.conf and ~/flowr/conf/ngsflows.conf</p>
+</div>
+<div class="section" id="id12">
+<h3>Examples<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre>{
+fetch_conf(&quot;torque.sh&quot;)
+}
+[1] &quot;/Users/sahilseth/Rlibs/flowr/conf/torque.sh&quot;
+</pre></div>
+</div>
+<p>Aliases:
+fetch
+fetch_conf
+fetch_pipes
+.. Keywords:</p>
+</div>
+</div>
+<div class="section" id="id13">
+<h2>flow<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
+<p><code class="xref py py-func docutils literal"><span class="pre">flow()</span></code></p>
+<p>Flow constructor</p>
+<div class="section" id="id14">
+<h3>Usage<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre>flow(jobs = list(new(&quot;job&quot;)), name = &quot;newflow&quot;, desc = &quot;my_super_flow&quot;, mode = c(&quot;scheduler&quot;, &quot;trigger&quot;, &quot;R&quot;), flow_run_path = get_opts(&quot;flow_run_path&quot;), trigger_path = &quot;&quot;, flow_path = &quot;&quot;, version = &quot;0.0&quot;, status = &quot;&quot;, execute = &quot;&quot;)
+
+is.flow(x)
+</pre></div>
+</div>
+</div>
+<div class="section" id="id15">
+<h3>Arguments<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>jobs</dt>
+<dd>list A list of jobs to be included in this flow</dd>
+<dt>name</dt>
+<dd>character Name of the flow. Defaults to &#8216;newname&#8217;</dd>
+</dl>
+<p>Used in <a class="reference external" href="submit_flow.html">submit_flow</a> to name the working directories.</p>
+<dl class="docutils">
+<dt>desc</dt>
+<dd>character Description of the flow</dd>
+</dl>
+<p>This is used to name folders (when submitting jobs, see <a class="reference external" href="submit_flow.html">submit_flow</a>).
+It is good practice to avoid spaces and other special characters.
+An underscore &#8216;_&#8217; seems like a good word separator.
+Defaults to &#8216;my_super_flow&#8217;. We usually use this to put sample names of the data.</p>
+<dl class="docutils">
+<dt>mode</dt>
+<dd>character Mode of submission of the flow.</dd>
+<dt>flow_run_path</dt>
+<dd>The base path of all the flows you would submit.</dd>
+</dl>
+<p>Defaults to ~/flows. Best practice to ignore it.</p>
+<dl class="docutils">
+<dt>trigger_path</dt>
+<dd>character</dd>
+</dl>
+<p>Defaults to ~/flows/trigger. Best practice to ignore it.</p>
+<dl class="docutils">
+<dt>flow_path</dt>
+<dd>character</dd>
+<dt>version</dt>
+<dd>version of flowr used to create and execute this flow.</dd>
+<dt>status</dt>
+<dd>character Not used at this time</dd>
+<dt>execute</dt>
+<dd>executtion status of flow object.</dd>
+</dl>
+</div>
+<div class="section" id="id17">
+<h3>Description<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
+<p>Flow constructor</p>
+</div>
+<div class="section" id="id18">
+<h3>Examples<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">cmds</span> <span class="o">=</span> <span class="n">rep</span><span class="p">(</span><span class="s">&quot;sleep 5&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">qobj</span> <span class="o">&lt;-</span> <span class="n">queue</span><span class="p">(</span><span class="n">platform</span><span class="o">=</span><span class="s">&#39;torque&#39;</span><span class="p">)</span>
+<span class="c">## run the 10 commands in parallel</span>
+<span class="n">jobj1</span> <span class="o">&lt;-</span> <span class="n">job</span><span class="p">(</span><span class="n">q_obj</span><span class="o">=</span><span class="n">qobj</span><span class="p">,</span> <span class="n">cmd</span> <span class="o">=</span> <span class="n">cmds</span><span class="p">,</span> <span class="n">submission_type</span> <span class="o">=</span> <span class="s">&quot;scatter&quot;</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;job1&quot;</span><span class="p">)</span>
+
+<span class="c">## run the 10 commands sequentially, but WAIT for the previous job to complete</span>
+<span class="c">## Many-To-One</span>
+<span class="n">jobj2</span> <span class="o">&lt;-</span> <span class="n">job</span><span class="p">(</span><span class="n">q_obj</span><span class="o">=</span><span class="n">qobj</span><span class="p">,</span> <span class="n">cmd</span> <span class="o">=</span> <span class="n">cmds</span><span class="p">,</span> <span class="n">submission_type</span> <span class="o">=</span> <span class="s">&quot;serial&quot;</span><span class="p">,</span>
+ <span class="n">dependency_type</span> <span class="o">=</span> <span class="s">&quot;gather&quot;</span><span class="p">,</span> <span class="n">previous_job</span> <span class="o">=</span> <span class="s">&quot;job1&quot;</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;job2&quot;</span><span class="p">)</span>
+
+<span class="c">## As soon as first job on &#39;job1&#39; is complete</span>
+<span class="c">## One-To-One</span>
+<span class="n">jobj3</span> <span class="o">&lt;-</span> <span class="n">job</span><span class="p">(</span><span class="n">q_obj</span><span class="o">=</span><span class="n">qobj</span><span class="p">,</span> <span class="n">cmd</span> <span class="o">=</span> <span class="n">cmds</span><span class="p">,</span> <span class="n">submission_type</span> <span class="o">=</span> <span class="s">&quot;scatter&quot;</span><span class="p">,</span>
+ <span class="n">dependency_type</span> <span class="o">=</span> <span class="s">&quot;serial&quot;</span><span class="p">,</span> <span class="n">previous_job</span> <span class="o">=</span> <span class="s">&quot;job1&quot;</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;job3&quot;</span><span class="p">)</span>
+
+<span class="n">fobj</span> <span class="o">&lt;-</span> <span class="n">flow</span><span class="p">(</span><span class="n">jobs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">jobj1</span><span class="p">,</span> <span class="n">jobj2</span><span class="p">,</span> <span class="n">jobj3</span><span class="p">))</span>
+
+<span class="c">## plot the flow</span>
+<span class="n">plot_flow</span><span class="p">(</span><span class="n">fobj</span><span class="p">)</span>
+<span class="c">## **Not run**:</span>
+<span class="c"># ## dry run, only create the structure without submitting jobs</span>
+<span class="c"># submit_flow(fobj)</span>
+<span class="c">#</span>
+<span class="c"># ## execute the jobs: ONLY works on computing cluster, would fail otherwise</span>
+<span class="c"># submit_flow(fobj, execute = TRUE)</span>
+<span class="c"># ## **End(Not run)**</span>
+</pre></div>
+</div>
+<p>Aliases:
+flow
+is.flow
+.. Keywords:</p>
+</div>
+</div>
+<div class="section" id="get-unique-id">
+<h2>get_unique_id<a class="headerlink" href="#get-unique-id" title="Permalink to this headline">¶</a></h2>
+<p><code class="xref py py-func docutils literal"><span class="pre">get_unique_id()</span></code></p>
+<p>get_unique_id</p>
+<div class="section" id="id19">
+<h3>Usage<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">get_unique_id</span><span class="p">(</span><span class="n">prefix</span> <span class="o">=</span> <span class="s">&quot;id&quot;</span><span class="p">,</span> <span class="n">suffix</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">random_length</span> <span class="o">=</span> <span class="mi">8</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id20">
+<h3>Arguments<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>prefix</dt>
+<dd>Default id. Character string to be added in the front.</dd>
+<dt>suffix</dt>
+<dd>Default &#8216;&#8217;. Character string to be added in the end.</dd>
+<dt>random_length</dt>
+<dd>Integer, defaults to 8. In our opinion 8 serves well, providing &#8216;uniqueness&#8217; and not being much of a eyesore.</dd>
+</dl>
+</div>
+<div class="section" id="id21">
+<h3>Description<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
+<p>get_unique_id</p>
+</div>
+<div class="section" id="id22">
+<h3>Examples<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">## **Not run**:</span>
+<span class="c"># get_unique_id(base = id, random_length = 8)## **End(Not run)**</span>
+</pre></div>
+</div>
+<p>Aliases:
+get_unique_id
+.. Keywords:</p>
+<p>internal
+.. Author:</p>
+</div>
+</div>
+<div class="section" id="get-wds">
+<h2>get_wds<a class="headerlink" href="#get-wds" title="Permalink to this headline">¶</a></h2>
+<p><code class="xref py py-func docutils literal"><span class="pre">get_wds()</span></code></p>
+<p>Get all the (sub)directories in a folder</p>
+<div class="section" id="id23">
+<h3>Usage<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">get_wds</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id24">
+<h3>Arguments<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>x</dt>
+<dd>path to a folder</dd>
+</dl>
+</div>
+<div class="section" id="id25">
+<h3>Description<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h3>
+<p>Get all the (sub)directories in a folder</p>
+</div>
+<div class="section" id="id26">
+<h3>Examples<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h3>
+<p>Aliases:
+get_wds
+.. Keywords:</p>
+</div>
+</div>
+<div class="section" id="job">
+<h2>job<a class="headerlink" href="#job" title="Permalink to this headline">¶</a></h2>
+<p><code class="xref py py-func docutils literal"><span class="pre">job()</span></code></p>
+<p>job class</p>
+<div class="section" id="id27">
+<h3>Usage<a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">job</span><span class="p">(</span><span class="n">cmds</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;myjob&quot;</span><span class="p">,</span> <span class="n">q_obj</span> <span class="o">=</span> <span class="n">new</span><span class="p">(</span><span class="s">&quot;queue&quot;</span><span class="p">),</span> <span class="n">previous_job</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">cpu</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">memory</span><span class="p">,</span> <span class="n">walltime</span><span class="p">,</span> <span class="n">submission_type</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s">&quot;scatter&quot;</span><span class="p">,</span> <span class="s">&quot;serial&quot;</span><span class="p">),</span> <span class="n">dependency_type</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s">&quot;none&quot;</span><span class="p">,</span> <span class="s">&quot;gather&quot;</span><span class="p">,</span> <span class="s">&quot;serial&quot;</span><span class="p">,</span> <span class="s">&quot;burst&quot;</span><span class="p">),</span> <span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id28">
+<h3>Arguments<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>cmds</dt>
+<dd>the commands to run</dd>
+<dt>name</dt>
+<dd>name of the job</dd>
+<dt>q_obj</dt>
+<dd>queue object</dd>
+<dt>previous_job</dt>
+<dd>character vector of previous job. If this is the first job, one can leave this empty, NA, NULL, &#8216;.&#8217;, or &#8216;&#8217;. In future this could specify multiple previous jobs.</dd>
+<dt>cpu</dt>
+<dd>no of cpu&#8217;s reserved</dd>
+<dt>memory</dt>
+<dd>The amount of memory reserved. Units depend on the platform used to process jobs</dd>
+<dt>walltime</dt>
+<dd>The amount of time reserved for this job. Format is unique to a platform. Typically it looks like 12:00 (12 hours reserved, say in LSF), in Torque etc. we often see measuring in seconds: 12:00:00</dd>
+<dt>submission_type</dt>
+<dd>submission type: A character with values: scatter, serial. Scatter means all the &#8216;cmds&#8217; would be run in parallel as seperate jobs. Serial, they would combined into a single job and run one-by-one.</dd>
+<dt>dependency_type</dt>
+<dd>depedency type. One of none, gather, serial, burst. If previous_job is specified, then this would not be &#8216;none&#8217;. [Required]</dd>
+</dl>
+<dl class="docutils">
+<dt>...</dt>
+<dd>other passed onto object creation. Example: memory, walltime, cpu</dd>
+</dl>
+</div>
+<div class="section" id="id29">
+<h3>Description<a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h3>
+<p>job class</p>
+</div>
+<div class="section" id="id30">
+<h3>Examples<a class="headerlink" href="#id30" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">qobj</span> <span class="o">&lt;-</span> <span class="n">queue</span><span class="p">(</span><span class="n">platform</span><span class="o">=</span><span class="s">&quot;torque&quot;</span><span class="p">)</span>
+
+<span class="c">## torque job with 1 CPU running command &#39;sleep 2&#39;</span>
+<span class="n">jobj</span> <span class="o">&lt;-</span> <span class="n">job</span><span class="p">(</span><span class="n">q_obj</span><span class="o">=</span><span class="n">qobj</span><span class="p">,</span> <span class="n">cmd</span> <span class="o">=</span> <span class="s">&quot;sleep 2&quot;</span><span class="p">,</span> <span class="n">cpu</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c">## multiple commands</span>
+<span class="n">cmds</span> <span class="o">=</span> <span class="n">rep</span><span class="p">(</span><span class="s">&quot;sleep 5&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+<span class="c">## run the 10 commands in parallel</span>
+<span class="n">jobj1</span> <span class="o">&lt;-</span> <span class="n">job</span><span class="p">(</span><span class="n">q_obj</span><span class="o">=</span><span class="n">qobj</span><span class="p">,</span> <span class="n">cmd</span> <span class="o">=</span> <span class="n">cmds</span><span class="p">,</span> <span class="n">submission_type</span> <span class="o">=</span> <span class="s">&quot;scatter&quot;</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;job1&quot;</span><span class="p">)</span>
+
+<span class="c">## run the 10 commands sequentially, but WAIT for the previous job to complete</span>
+<span class="n">jobj2</span> <span class="o">&lt;-</span> <span class="n">job</span><span class="p">(</span><span class="n">q_obj</span><span class="o">=</span><span class="n">qobj</span><span class="p">,</span> <span class="n">cmd</span> <span class="o">=</span> <span class="n">cmds</span><span class="p">,</span> <span class="n">submission_type</span> <span class="o">=</span> <span class="s">&quot;serial&quot;</span><span class="p">,</span>
+   <span class="n">dependency_type</span> <span class="o">=</span> <span class="s">&quot;gather&quot;</span><span class="p">,</span> <span class="n">previous_job</span> <span class="o">=</span> <span class="s">&quot;job1&quot;</span><span class="p">)</span>
+
+<span class="n">fobj</span> <span class="o">&lt;-</span> <span class="n">flow</span><span class="p">(</span><span class="n">jobs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">jobj1</span><span class="p">,</span> <span class="n">jobj2</span><span class="p">))</span>
+
+<span class="c">## plot the flow</span>
+<span class="n">plot_flow</span><span class="p">(</span><span class="n">fobj</span><span class="p">)</span>
+<span class="c">## **Not run**:</span>
+<span class="c"># ## dry run, only create the structure without submitting jobs</span>
+<span class="c"># submit_flow(fobj)</span>
+<span class="c">#</span>
+<span class="c"># ## execute the jobs: ONLY works on computing cluster, would fail otherwise</span>
+<span class="c"># submit_flow(fobj, execute = TRUE)</span>
+<span class="c">#</span>
+<span class="c"># ## **End(Not run)**</span>
+</pre></div>
+</div>
+<p>Aliases:
+job
+.. Keywords:</p>
+</div>
+</div>
+<div class="section" id="kill">
+<h2>kill<a class="headerlink" href="#kill" title="Permalink to this headline">¶</a></h2>
+<p><code class="xref py py-func docutils literal"><span class="pre">kill()</span></code></p>
+<p>kill</p>
+<div class="section" id="id31">
+<h3>Usage<a class="headerlink" href="#id31" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">kill</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+
+<span class="s">&quot;kill&quot;</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">force</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+
+<span class="s">&quot;kill&quot;</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">kill_cmd</span><span class="p">,</span> <span class="n">jobid_col</span> <span class="o">=</span> <span class="s">&quot;job_sub_id&quot;</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id32">
+<h3>Arguments<a class="headerlink" href="#id32" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>x</dt>
+<dd>either path to flow [character] or fobj object of class <a class="reference external" href="flow.html">flow</a></dd>
+</dl>
+<dl class="docutils">
+<dt>...</dt>
+<dd>not used</dd>
+<dt>force</dt>
+<dd>When killing multiple flows, force is neccesary. This makes sure multiple flows are killed by accident.</dd>
+<dt>kill_cmd</dt>
+<dd>The command used to kill. Default is &#8216;bkill&#8217; (LSF). One can used qdel for &#8216;torque&#8217;, &#8216;sge&#8217; etc.</dd>
+<dt>jobid_col</dt>
+<dd>Advanced use. The column name in &#8216;flow_details.txt&#8217; file used to fetch jobids to kill</dd>
+</dl>
+</div>
+<div class="section" id="id34">
+<h3>Description<a class="headerlink" href="#id34" title="Permalink to this headline">¶</a></h3>
+<p>kill
+works on flow_path. Reads flow object and calls kill.flow()
+works on flow object</p>
+</div>
+<div class="section" id="id35">
+<h3>Examples<a class="headerlink" href="#id35" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">## **Not run**:</span>
+<span class="c"># ## example for terminal</span>
+<span class="c"># ## flowr kill_flow x=path_to_flow_directory</span>
+<span class="c"># ## **End(Not run)**</span>
+</pre></div>
+</div>
+<p>Aliases:
+kill
+kill.character
+kill.flow
+.. Keywords:</p>
+</div>
+</div>
+<div class="section" id="flowopts">
+<h2>flowopts<a class="headerlink" href="#flowopts" title="Permalink to this headline">¶</a></h2>
+<p><code class="xref py py-func docutils literal"><span class="pre">flowopts()</span></code></p>
+<p>Default options/params used in ngsflows and flowr</p>
+<div class="section" id="id36">
+<h3>Usage<a class="headerlink" href="#id36" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">flowopts</span>
+
+<span class="n">opts_flow</span>
+
+<span class="n">get_opts</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+
+<span class="n">set_opts</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+
+<span class="n">load_opts</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id37">
+<h3>Arguments<a class="headerlink" href="#id37" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>...</dt>
+<dd>-&lt;li&gt; get: names of options to fetch</dd>
+</dl>
+<p>&lt;/li&gt;
+&lt;li&gt; set: a set of options in a name=value format seperated by commas
+&lt;/li&gt;</p>
+</div>
+<div class="section" id="format">
+<h3>Format<a class="headerlink" href="#format" title="Permalink to this headline">¶</a></h3>
+<p>opts_flow
+Description
+~~~~~~~~~~~~~~~~~~</p>
+<p>There are three helper functions which attempt to manage params used by flowr and ngsflows:
+-&lt;li&gt; <a class="reference external" href="get_opts.html">get_opts</a> OR opts_flow$get: show all default options
+&lt;/li&gt;
+&lt;li&gt; <a class="reference external" href="set_opts.html">set_opts</a> OR opts_flow$set: set default options
+&lt;/li&gt;
+&lt;li&gt; <a class="reference external" href="load_opts.html">load_opts</a> OR opts_flow$load: load options specified in a tab seperated text file
+&lt;/li&gt;
+For more details regarding these funtions refer to <a class="reference external" href="http://www.inside-r.org/packages/cran/params/docs/params">params</a>.
+Details
+~~~~~~~~~~~~~~~~~~</p>
+<p>By default flowr loads, ~/flowr/conf/flowr.conf and ~/flowr/conf/ngsflows.conf
+Below is a list of default flowr options, retrieved via
+opts_flow$get():
+<a href="#id38"><span class="problematic" id="id39">|</span></a>name              <a href="#id40"><span class="problematic" id="id41">|</span></a>value                    |</p>
+<blockquote>
+<div><a href="#id181"><span class="problematic" id="id182">|:&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;|</span></a>:&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;|
+<a href="#id42"><span class="problematic" id="id43">|</span></a>default_regex     <a href="#id44"><span class="problematic" id="id45">|</span></a>(.*)                     |
+<a href="#id46"><span class="problematic" id="id47">|</span></a>flow_base_path    <a href="#id48"><span class="problematic" id="id49">|</span></a>~/flowr                  |
+<a href="#id50"><span class="problematic" id="id51">|</span></a>flow_conf_path    <a href="#id52"><span class="problematic" id="id53">|</span></a>~/flowr/conf             |
+<a href="#id54"><span class="problematic" id="id55">|</span></a>flow_parse_lsf    <a href="#id56"><span class="problematic" id="id57">|</span></a>.*(&lt;[0-9]*&gt;).*         |
+<a href="#id58"><span class="problematic" id="id59">|</span></a>flow_parse_moab   <a href="#id60"><span class="problematic" id="id61">|</span></a>(.*)                     |
+<a href="#id62"><span class="problematic" id="id63">|</span></a>flow_parse_sge    <a href="#id64"><span class="problematic" id="id65">|</span></a>(.*)                     |
+<a href="#id66"><span class="problematic" id="id67">|</span></a>flow_parse_slurm  <a href="#id68"><span class="problematic" id="id69">|</span></a>(.*)                     |
+<a href="#id70"><span class="problematic" id="id71">|</span></a>flow_parse_torque <a href="#id72"><span class="problematic" id="id73">|</span></a>(.?)..*                 |
+<a href="#id74"><span class="problematic" id="id75">|</span></a>flow_pipe_paths   <a href="#id76"><span class="problematic" id="id77">|</span></a>~/flowr/pipelines        |
+<a href="#id78"><span class="problematic" id="id79">|</span></a>flow_pipe_urls    <a href="#id80"><span class="problematic" id="id81">|</span></a>~/flowr/pipelines        |
+<a href="#id82"><span class="problematic" id="id83">|</span></a>flow_platform     <a href="#id84"><span class="problematic" id="id85">|</span></a>local                    |
+<a href="#id86"><span class="problematic" id="id87">|</span></a>flow_run_path     <a href="#id88"><span class="problematic" id="id89">|</span></a>~/flowr/runs             |
+<a href="#id90"><span class="problematic" id="id91">|</span></a>my_conf_path      <a href="#id92"><span class="problematic" id="id93">|</span></a>~/flowr/conf             |
+<a href="#id94"><span class="problematic" id="id95">|</span></a>my_dir            <a href="#id96"><span class="problematic" id="id97">|</span></a>path/to/a/folder         |
+<a href="#id98"><span class="problematic" id="id99">|</span></a>my_path           <a href="#id100"><span class="problematic" id="id101">|</span></a>~/flowr                  |
+<a href="#id102"><span class="problematic" id="id103">|</span></a>my_tool_exe       <a href="#id104"><span class="problematic" id="id105">|</span></a>/usr/bin/ls              |
+<a href="#id106"><span class="problematic" id="id107">|</span></a>time_format       <a href="#id108"><span class="problematic" id="id109">|</span></a>%a %b %e %H:%M:%S CDT %Y |
+<a href="#id110"><span class="problematic" id="id111">|</span></a>verbose           <a href="#id112"><span class="problematic" id="id113">|</span></a>FALSE                    |</div></blockquote>
+</div>
+<div class="section" id="id114">
+<h3>Examples<a class="headerlink" href="#id114" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre>## Set options: set_opts()
+opts = set_opts(flow_run_path = &quot;~/mypath&quot;)
+## OR if you would like to supply a long list of options:
+opts = set_opts(.dots = list(flow_run_path = &quot;~/mypath&quot;))
+
+## load options from a configuration file: load_opts()
+myconfile = fetch_conf(&quot;flowr.conf&quot;)
+load_opts(myconfile)
+**Reading file, using &#39;V1&#39; as id_column to remove empty rows.**&lt;strong class=&#39;warning&#39;&gt;Warning message:
+
+
+Seems like these paths do not exist, this may cause issues later:
+
+&lt;/strong&gt;
+
+|name              |value                    |
+|:-----------------|:------------------------|
+|flow_parse_slurm  |(.*)                     |
+|flow_parse_sge    |(.*)                     |
+|flow_parse_moab   |(.*)                     |
+|flow_parse_lsf    |.*(\&lt;[0-9]*\&gt;).*         |
+|flow_parse_torque |(.?)\..*                 |
+|flow_platform     |local                    |
+|flow_pipe_urls    |~/flowr/pipelines        |
+|flow_pipe_paths   |~/flowr/pipelines        |
+|flow_run_path     |~/flowr/runs             |
+|flow_conf_path    |~/flowr/conf             |
+|flow_base_path    |~/flowr                  |
+|verbose           |FALSE                    |
+|var               |                         |
+|time_format       |%a %b %e %H:%M:%S CDT %Y |
+
+## Fetch options: get_opts()
+get_opts(&quot;flow_run_path&quot;)
+ flow_run_path
+&quot;~/flowr/runs&quot;
+get_opts()
+
+
+|name              |value                    |
+|:-----------------|:------------------------|
+|flow_base_path    |~/flowr                  |
+|flow_conf_path    |~/flowr/conf             |
+|flow_parse_lsf    |.*(\&lt;[0-9]*\&gt;).*         |
+|flow_parse_moab   |(.*)                     |
+|flow_parse_sge    |(.*)                     |
+|flow_parse_slurm  |(.*)                     |
+|flow_parse_torque |(.?)\..*                 |
+|flow_pipe_paths   |~/flowr/pipelines        |
+|flow_pipe_urls    |~/flowr/pipelines        |
+|flow_platform     |local                    |
+|flow_run_path     |~/flowr/runs             |
+|time_format       |%a %b %e %H:%M:%S CDT %Y |
+|var               |                         |
+|verbose           |FALSE                    |
+</pre></div>
+</div>
+<p>Aliases:
+flowopts
+get_opts
+load_opts
+opts_flow
+set_opts
+.. Keywords:</p>
+<p>datasets
+.. Author:</p>
+</div>
+</div>
+<div class="section" id="parse-jobids">
+<h2>parse_jobids<a class="headerlink" href="#parse-jobids" title="Permalink to this headline">¶</a></h2>
+<p><code class="xref py py-func docutils literal"><span class="pre">parse_jobids()</span></code></p>
+<p>parse_jobids</p>
+<div class="section" id="id115">
+<h3>Usage<a class="headerlink" href="#id115" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">parse_jobids</span><span class="p">(</span><span class="n">jobids</span><span class="p">,</span> <span class="n">platform</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id116">
+<h3>Arguments<a class="headerlink" href="#id116" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>jobids</dt>
+<dd>output from HPCC upon job submission, as a character vector</dd>
+<dt>platform</dt>
+<dd>string specifying the platform. This determines how the jobids are parsed</dd>
+</dl>
+</div>
+<div class="section" id="id117">
+<h3>Description<a class="headerlink" href="#id117" title="Permalink to this headline">¶</a></h3>
+<p>parse_jobids</p>
+</div>
+<div class="section" id="id118">
+<h3>Examples<a class="headerlink" href="#id118" title="Permalink to this headline">¶</a></h3>
+<p>Aliases:
+parse_jobids
+.. Keywords:</p>
+</div>
+</div>
+<div class="section" id="plot-flow">
+<h2>plot_flow<a class="headerlink" href="#plot-flow" title="Permalink to this headline">¶</a></h2>
+<p><code class="xref py py-func docutils literal"><span class="pre">plot_flow()</span></code></p>
+<p>plot_flow</p>
+<div class="section" id="id119">
+<h3>Usage<a class="headerlink" href="#id119" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">plot_flow</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+
+<span class="s">&quot;plot_flow&quot;</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+
+<span class="s">&quot;plot_flow&quot;</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+
+<span class="s">&quot;plot_flow&quot;</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+
+<span class="s">&quot;plot_flow&quot;</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">detailed</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">,</span> <span class="nb">type</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s">&quot;1&quot;</span><span class="p">,</span> <span class="s">&quot;2&quot;</span><span class="p">),</span> <span class="n">pdf</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">,</span> <span class="n">pdffile</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id120">
+<h3>Arguments<a class="headerlink" href="#id120" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>x</dt>
+<dd>Object of class flow, or a list of flow objects or a flowdef</dd>
+</dl>
+<dl class="docutils">
+<dt>...</dt>
+<dd>experimental</dd>
+<dt>detailed</dt>
+<dd>include some details</dd>
+<dt>type</dt>
+<dd>1 is original, and 2 is a elipse with less details</dd>
+<dt>pdf</dt>
+<dd>create a pdf instead of plotting interactively</dd>
+<dt>pdffile</dt>
+<dd>output file name for the pdf file</dd>
+</dl>
+</div>
+<div class="section" id="id121">
+<h3>Description<a class="headerlink" href="#id121" title="Permalink to this headline">¶</a></h3>
+<p>plot the flow object
+plot_flow.character: works on a flowdef file.</p>
+</div>
+<div class="section" id="id122">
+<h3>Examples<a class="headerlink" href="#id122" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">qobj</span> <span class="o">=</span> <span class="n">queue</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s">&quot;lsf&quot;</span><span class="p">)</span>
+<span class="n">cmds</span> <span class="o">=</span> <span class="n">rep</span><span class="p">(</span><span class="s">&quot;sleep 5&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">jobj1</span> <span class="o">&lt;-</span> <span class="n">job</span><span class="p">(</span><span class="n">q_obj</span><span class="o">=</span><span class="n">qobj</span><span class="p">,</span> <span class="n">cmd</span> <span class="o">=</span> <span class="n">cmds</span><span class="p">,</span> <span class="n">submission_type</span> <span class="o">=</span> <span class="s">&quot;scatter&quot;</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;job1&quot;</span><span class="p">)</span>
+<span class="n">jobj2</span> <span class="o">&lt;-</span> <span class="n">job</span><span class="p">(</span><span class="n">q_obj</span><span class="o">=</span><span class="n">qobj</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;job2&quot;</span><span class="p">,</span> <span class="n">cmd</span> <span class="o">=</span> <span class="n">cmds</span><span class="p">,</span> <span class="n">submission_type</span> <span class="o">=</span> <span class="s">&quot;scatter&quot;</span><span class="p">,</span>
+             <span class="n">dependency_type</span> <span class="o">=</span> <span class="s">&quot;serial&quot;</span><span class="p">,</span> <span class="n">previous_job</span> <span class="o">=</span> <span class="s">&quot;job1&quot;</span><span class="p">)</span>
+<span class="n">fobj</span> <span class="o">&lt;-</span> <span class="n">flow</span><span class="p">(</span><span class="n">jobs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">jobj1</span><span class="p">,</span> <span class="n">jobj2</span><span class="p">))</span>
+<span class="n">plot_flow</span><span class="p">(</span><span class="n">fobj</span><span class="p">)</span>
+
+<span class="c">### Gather: many to one relationship</span>
+<span class="n">jobj1</span> <span class="o">&lt;-</span> <span class="n">job</span><span class="p">(</span><span class="n">q_obj</span><span class="o">=</span><span class="n">qobj</span><span class="p">,</span> <span class="n">cmd</span> <span class="o">=</span> <span class="n">cmds</span><span class="p">,</span> <span class="n">submission_type</span> <span class="o">=</span> <span class="s">&quot;scatter&quot;</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;job1&quot;</span><span class="p">)</span>
+<span class="n">jobj2</span> <span class="o">&lt;-</span> <span class="n">job</span><span class="p">(</span><span class="n">q_obj</span><span class="o">=</span><span class="n">qobj</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;job2&quot;</span><span class="p">,</span> <span class="n">cmd</span> <span class="o">=</span> <span class="n">cmds</span><span class="p">,</span> <span class="n">submission_type</span> <span class="o">=</span> <span class="s">&quot;scatter&quot;</span><span class="p">,</span>
+             <span class="n">dependency_type</span> <span class="o">=</span> <span class="s">&quot;gather&quot;</span><span class="p">,</span> <span class="n">previous_job</span> <span class="o">=</span> <span class="s">&quot;job1&quot;</span><span class="p">)</span>
+<span class="n">fobj</span> <span class="o">&lt;-</span> <span class="n">flow</span><span class="p">(</span><span class="n">jobs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">jobj1</span><span class="p">,</span> <span class="n">jobj2</span><span class="p">))</span>
+<span class="n">plot_flow</span><span class="p">(</span><span class="n">fobj</span><span class="p">)</span>
+
+<span class="c">### Burst: one to many relationship</span>
+<span class="n">jobj1</span> <span class="o">&lt;-</span> <span class="n">job</span><span class="p">(</span><span class="n">q_obj</span><span class="o">=</span><span class="n">qobj</span><span class="p">,</span> <span class="n">cmd</span> <span class="o">=</span> <span class="n">cmds</span><span class="p">,</span> <span class="n">submission_type</span> <span class="o">=</span> <span class="s">&quot;serial&quot;</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;job1&quot;</span><span class="p">)</span>
+<span class="n">jobj2</span> <span class="o">&lt;-</span> <span class="n">job</span><span class="p">(</span><span class="n">q_obj</span><span class="o">=</span><span class="n">qobj</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;job2&quot;</span><span class="p">,</span> <span class="n">cmd</span> <span class="o">=</span> <span class="n">cmds</span><span class="p">,</span> <span class="n">submission_type</span> <span class="o">=</span> <span class="s">&quot;scatter&quot;</span><span class="p">,</span>
+             <span class="n">dependency_type</span> <span class="o">=</span> <span class="s">&quot;burst&quot;</span><span class="p">,</span> <span class="n">previous_job</span> <span class="o">=</span> <span class="s">&quot;job1&quot;</span><span class="p">)</span>
+<span class="n">fobj</span> <span class="o">&lt;-</span> <span class="n">flow</span><span class="p">(</span><span class="n">jobs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">jobj1</span><span class="p">,</span> <span class="n">jobj2</span><span class="p">))</span>
+<span class="n">plot_flow</span><span class="p">(</span><span class="n">fobj</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Aliases:
+plot_flow
+plot_flow.character
+plot_flow.flow
+plot_flow.flowdef
+plot_flow.list
+.. Keywords:</p>
+</div>
+</div>
+<div class="section" id="queue">
+<h2>queue<a class="headerlink" href="#queue" title="Permalink to this headline">¶</a></h2>
+<p><code class="xref py py-func docutils literal"><span class="pre">queue()</span></code></p>
+<p>Create a queue object which containg details about how a job is submitted.</p>
+<div class="section" id="id123">
+<h3>Usage<a class="headerlink" href="#id123" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">queue</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="n">platform</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s">&quot;local&quot;</span><span class="p">,</span> <span class="s">&quot;lsf&quot;</span><span class="p">,</span> <span class="s">&quot;torque&quot;</span><span class="p">,</span> <span class="s">&quot;sge&quot;</span><span class="p">,</span> <span class="s">&quot;moab&quot;</span><span class="p">),</span> <span class="n">format</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">queue</span> <span class="o">=</span> <span class="s">&quot;long&quot;</span><span class="p">,</span> <span class="n">walltime</span><span class="p">,</span> <span class="n">memory</span><span class="p">,</span> <span class="n">cpu</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">extra_opts</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">submit_exe</span><span class="p">,</span> <span class="n">nodes</span> <span class="o">=</span> <span class="s">&quot;1&quot;</span><span class="p">,</span> <span class="n">jobname</span> <span class="o">=</span> <span class="s">&quot;name&quot;</span><span class="p">,</span> <span class="n">email</span> <span class="o">=</span> <span class="n">Sys</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s">&quot;USER&quot;</span><span class="p">),</span> <span class="n">dependency</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(),</span> <span class="n">server</span> <span class="o">=</span> <span class="s">&quot;localhost&quot;</span><span class="p">,</span> <span class="n">verbose</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">,</span> <span class="n">cwd</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">stderr</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">stdout</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id124">
+<h3>Arguments<a class="headerlink" href="#id124" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>object</dt>
+<dd>this is not used currenlty, ignore.</dd>
+<dt>platform</dt>
+<dd>Required and important. Currently supported values are &#8216;lsf&#8217; and &#8216;torque&#8217;. [Used by class job]</dd>
+<dt>format</dt>
+<dd>[advanced use] We have a default format for the final command line string generated for &#8216;lsf&#8217; and &#8216;torque&#8217;.</dd>
+<dt>queue</dt>
+<dd>the type of queue your group usually uses</dd>
+</dl>
+<p>&#8216;bsub&#8217; etc.</p>
+<dl class="docutils">
+<dt>walltime</dt>
+<dd>max walltime of a job.</dd>
+<dt>memory</dt>
+<dd>The amount of memory reserved. Units depend on the platform used to process jobs</dd>
+<dt>cpu</dt>
+<dd>number of cpus you would like to reserve [Used by class job]</dd>
+<dt>extra_opts</dt>
+<dd>[advanced use] Extra options to be supplied while create the job submission string.</dd>
+<dt>submit_exe</dt>
+<dd>[advanced use] Already defined by &#8216;platform&#8217;. The exact command used to submit jobs to the cluster example &#8216;qsub&#8217;</dd>
+<dt>nodes</dt>
+<dd>[advanced use] number of nodes you would like to request. Or in case of torque name of the nodes.optional [Used by class job]</dd>
+<dt>jobname</dt>
+<dd>[debug use] name of this job in the computing cluster</dd>
+<dt>email</dt>
+<dd>[advanced use] Defaults to system user, you may put you own email though may get tons of them.</dd>
+<dt>dependency</dt>
+<dd>[debug use] a list of jobs to complete before starting this one</dd>
+<dt>server</dt>
+<dd>[not used] This is not implemented currently. This would specify the head node of the computing cluster. At this time submission needs to be done on the head node of the cluster where flow is to be submitted</dd>
+<dt>verbose</dt>
+<dd>[logical] TRUE/FALSE</dd>
+<dt>cwd</dt>
+<dd>[debug use] Ignore</dd>
+<dt>stderr</dt>
+<dd>[debug use] Ignore</dd>
+<dt>stdout</dt>
+<dd>[debug use] Ignore</dd>
+</dl>
+<dl class="docutils">
+<dt>...</dt>
+<dd>other passed onto object creation. Example: memory, walltime, cpu</dd>
+</dl>
+</div>
+<div class="section" id="id125">
+<h3>Description<a class="headerlink" href="#id125" title="Permalink to this headline">¶</a></h3>
+<p>This function defines the queue used to submit jobs to the cluster. In essence details about the
+computing cluster in use.
+Details
+~~~~~~~~~~~~~~~~~~</p>
+<p>## Resources:
+Can be defined <strong>once</strong> using a <a class="reference external" href="queue.html">queue</a> object and recylced to all the jobs in a flow. If resources (like memory, cpu, walltime, queue) are supplied at the
+job level they overwrite the one supplied in <a class="reference external" href="queue.html">queue</a>
+Nodes: can be supplied ot extend a job across multiple nodes. This is purely experimental and not supported.
+## Server:
+This a hook which may be implemented in future.
+## Submission script:
+The &#8216;platform&#8217; variable defines the format, and submit_exe; however these two are avaible for someone to create a custom submission command.</p>
+</div>
+<div class="section" id="id128">
+<h3>Examples<a class="headerlink" href="#id128" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">qobj</span> <span class="o">&lt;-</span> <span class="n">queue</span><span class="p">(</span><span class="n">platform</span><span class="o">=</span><span class="s">&#39;lsf&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Aliases:
+queue
+.. Keywords:</p>
+<p>queue
+.. Author:</p>
+</div>
+</div>
+<div class="section" id="rerun">
+<h2>rerun<a class="headerlink" href="#rerun" title="Permalink to this headline">¶</a></h2>
+<p><code class="xref py py-func docutils literal"><span class="pre">rerun()</span></code></p>
+<p>Re-run a pipeline in case of hardware or software failures.</p>
+<div class="section" id="id129">
+<h3>Usage<a class="headerlink" href="#id129" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre>rerun(x, ...)
+
+&quot;rerun&quot;(x, ...)
+
+&quot;rerun&quot;(x, mat, def, start_from, execute = TRUE, kill = TRUE, ...)
+</pre></div>
+</div>
+</div>
+<div class="section" id="id130">
+<h3>Arguments<a class="headerlink" href="#id130" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>x</dt>
+<dd>flow working directory</dd>
+</dl>
+<dl class="docutils">
+<dt>...</dt>
+<dd>not used</dd>
+<dt>mat</dt>
+<dd>(optional) flowmat fetched from previous submission if missing. For more information regarding the format refer to <a class="reference external" href="to_flowmat.html">to_flowmat</a></dd>
+<dt>def</dt>
+<dd>(optional) flowdef fetched from previous submission if missing.  For more information regarding the format refer to <a class="reference external" href="to_flowdef.html">to_flowdef</a></dd>
+<dt>start_from</dt>
+<dd>which job to start from</dd>
+<dt>execute</dt>
+<dd>[logical] whether to execute or not</dd>
+<dt>kill</dt>
+<dd>(optional) logical indicating whether to kill the jobs from old flow</dd>
+</dl>
+</div>
+<div class="section" id="id131">
+<h3>Description<a class="headerlink" href="#id131" title="Permalink to this headline">¶</a></h3>
+<p>-&lt;li&gt; hardware no change required, simple rerun: rerun(x=flow_wd)
+&lt;/li&gt;
+&lt;li&gt; software either a change to flowmat or flowdef has been made: rerun(x=flow_wd, mat = new_flowmat, def = new_flowdef)
+&lt;/li&gt;
+NOTE:
+flow_wd: flow working directory, the input used for <a class="reference external" href="status.html">status</a>
+Details
+~~~~~~~~~~~~~~~~~~</p>
+<p>This function fetches details regarding the previous execution from the flow working directory (flow_wd).
+It reads the flow <a class="reference external" href="flow.html">flow</a> from the flow_details.rds file, and exteacts flowdef and flowmat for this <a class="reference external" href="flow.html">flow</a>
+object using <a class="reference external" href="to_flowmat.html">to_flowmat</a> and <a class="reference external" href="to_flowdef.html">to_flowdef</a> functions.
+Optionally if either of these (flowmat or flowdef) are supplied, they are used instead for the new submission.
+This functions efficiently updates job details of the latest submission into previous file; thus information
+regarding previous job ids and their status is not lost.</p>
+</div>
+<div class="section" id="id136">
+<h3>Examples<a class="headerlink" href="#id136" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">## **Not run**:</span>
+<span class="c"># rerun_flow(wd = wd, fobj = fobj, execute = TRUE, kill = TRUE)</span>
+<span class="c"># ## **End(Not run)**</span>
+</pre></div>
+</div>
+<p>Aliases:
+rerun
+rerun.character
+rerun.flow
+.. Keywords:</p>
+</div>
+</div>
+<div class="section" id="run">
+<h2>run<a class="headerlink" href="#run" title="Permalink to this headline">¶</a></h2>
+<p><code class="xref py py-func docutils literal"><span class="pre">run()</span></code></p>
+<p>run pipelines</p>
+<div class="section" id="id137">
+<h3>Usage<a class="headerlink" href="#id137" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre>run(x, platform, def, flow_run_path = get_opts(&quot;flow_run_path&quot;), execute = FALSE, ...)
+
+run_pipe(x, platform, def, flow_run_path = get_opts(&quot;flow_run_path&quot;), execute = FALSE, ...)
+</pre></div>
+</div>
+</div>
+<div class="section" id="id138">
+<h3>Arguments<a class="headerlink" href="#id138" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>x</dt>
+<dd>name of the pipeline to run. This is a function called to create a flow_mat.</dd>
+<dt>platform</dt>
+<dd>what platform to use, overrides flowdef</dd>
+<dt>def</dt>
+<dd>flow definition</dd>
+<dt>flow_run_path</dt>
+<dd>passed onto to_flow. Default it picked up from flowr.conf. Typically this is ~/flowr/runs</dd>
+<dt>execute</dt>
+<dd>TRUE/FALSE</dd>
+</dl>
+<dl class="docutils">
+<dt>...</dt>
+<dd>passed onto the pipeline function specified in x</dd>
+</dl>
+</div>
+<div class="section" id="id139">
+<h3>Description<a class="headerlink" href="#id139" title="Permalink to this headline">¶</a></h3>
+<p>Running examples flows
+This wraps a few steps:
+Get all the commands to run (flow_mat)
+Create a <cite>flow</cite> object, using flow_mat and a default flowdef (picked from the same folder).
+Use <cite>submit_flow()</cite> to submit this to the cluster.</p>
+</div>
+<div class="section" id="id140">
+<h3>Examples<a class="headerlink" href="#id140" title="Permalink to this headline">¶</a></h3>
+<p>Aliases:
+run
+run_flow
+run_pipe
+.. Keywords:</p>
+</div>
+</div>
+<div class="section" id="setup">
+<h2>setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<p><code class="xref py py-func docutils literal"><span class="pre">setup()</span></code></p>
+<p>Setup and initialize some scripts.</p>
+<div class="section" id="id141">
+<h3>Usage<a class="headerlink" href="#id141" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">setup</span><span class="p">(</span><span class="nb">bin</span> <span class="o">=</span> <span class="s">&quot;~/bin&quot;</span><span class="p">,</span> <span class="n">flow_base_path</span> <span class="o">=</span> <span class="n">get_opts</span><span class="p">(</span><span class="s">&quot;flow_base_path&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id142">
+<h3>Arguments<a class="headerlink" href="#id142" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>bin</dt>
+<dd>path to bin folder</dd>
+<dt>flow_base_path</dt>
+<dd>the root folder for all flowr operations</dd>
+</dl>
+</div>
+<div class="section" id="id143">
+<h3>Description<a class="headerlink" href="#id143" title="Permalink to this headline">¶</a></h3>
+<p>Setup and initialize some scripts.
+Details
+~~~~~~~~~~~~~~~~~~</p>
+<p>Will add more to this to identify cluster and aid in other things</p>
+</div>
+<div class="section" id="id144">
+<h3>Examples<a class="headerlink" href="#id144" title="Permalink to this headline">¶</a></h3>
+<p>Aliases:
+setup
+.. Keywords:</p>
+</div>
+</div>
+<div class="section" id="id145">
+<h2>status<a class="headerlink" href="#id145" title="Permalink to this headline">¶</a></h2>
+<p><code class="xref py py-func docutils literal"><span class="pre">status()</span></code></p>
+<p>status</p>
+<div class="section" id="id146">
+<h3>Usage<a class="headerlink" href="#id146" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">status</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">out_format</span> <span class="o">=</span> <span class="s">&quot;markdown&quot;</span><span class="p">)</span>
+
+<span class="n">get_status</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+
+<span class="s">&quot;get_status&quot;</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">out_format</span> <span class="o">=</span> <span class="s">&quot;markdown&quot;</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+
+<span class="s">&quot;get_status&quot;</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+
+<span class="s">&quot;get_status&quot;</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">out_format</span> <span class="o">=</span> <span class="s">&quot;markdown&quot;</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id147">
+<h3>Arguments<a class="headerlink" href="#id147" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>x</dt>
+<dd>path to the flow root folder or a parent folder to summarize several flows.</dd>
+<dt>out_format</dt>
+<dd>passed onto knitr:::kable. supports: markdown, rst, html...</dd>
+</dl>
+<dl class="docutils">
+<dt>...</dt>
+<dd>not used</dd>
+</dl>
+</div>
+<div class="section" id="id148">
+<h3>Description<a class="headerlink" href="#id148" title="Permalink to this headline">¶</a></h3>
+<p>Summarize status of executed flow(x)
+Details
+~~~~~~~~~~~~~~~~~~</p>
+<p>basename(x) is used in a wild card search.
+-&lt;li&gt; If x is a path with a single flow, it outputs the status of one flow.
+&lt;/li&gt;
+&lt;li&gt; If the path has more than one flow then this could give a summary of <strong>all</strong> of them.
+&lt;/li&gt;
+&lt;li&gt; Instead if x is supplied with paths to more than one flow, then this individually prints status of each.
+&lt;/li&gt;
+Alternatively, x can also be a flow object</p>
+</div>
+<div class="section" id="id149">
+<h3>Examples<a class="headerlink" href="#id149" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">## **Not run**:</span>
+<span class="c"># status(x = &quot;~/flowr/runs/sleep_pipe*&quot;)</span>
+<span class="c"># ## an example for running from terminal</span>
+<span class="c"># flowr status x=path_to_flow_directory cores=6</span>
+<span class="c"># ## **End(Not run)**</span>
+</pre></div>
+</div>
+<p>Aliases:
+get_status
+get_status.character
+get_status.data.frame
+get_status.flow
+status
+.. Keywords:</p>
+</div>
+</div>
+<div class="section" id="id150">
+<h2>submit_flow<a class="headerlink" href="#id150" title="Permalink to this headline">¶</a></h2>
+<p><code class="xref py py-func docutils literal"><span class="pre">submit_flow()</span></code></p>
+<p>submit_flow</p>
+<div class="section" id="id151">
+<h3>Usage<a class="headerlink" href="#id151" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre>submit_flow(x, verbose = get_opts(&quot;verbose&quot;), ...)
+
+&quot;submit_flow&quot;(x, verbose = get_opts(&quot;verbose&quot;), ...)
+
+&quot;submit_flow&quot;(x, verbose = get_opts(&quot;verbose&quot;), execute = FALSE, uuid, plot = TRUE, dump = TRUE, .start_jid = 1, ...)
+</pre></div>
+</div>
+</div>
+<div class="section" id="id152">
+<h3>Arguments<a class="headerlink" href="#id152" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>x</dt>
+<dd>a object of class flow.</dd>
+<dt>verbose</dt>
+<dd>logical.</dd>
+</dl>
+<dl class="docutils">
+<dt>...</dt>
+<dd>Advanced use. Any additional parameters are passed on to <a class="reference external" href="submit_job.html">submit_job</a> function.</dd>
+<dt>execute</dt>
+<dd>logical whether or not to submit the jobs</dd>
+<dt>uuid</dt>
+<dd>character Advanced use. This is the final path used for flow execution.</dd>
+</dl>
+<p>Especially useful in case of re-running a flow.</p>
+<dl class="docutils">
+<dt>plot</dt>
+<dd>logical whether to make a pdf flow plot (saves it in the flow working directory).</dd>
+<dt>dump</dt>
+<dd>dump all the flow details to the flow path</dd>
+<dt>.start_jid</dt>
+<dd>Job to start this submission from. Advanced use, should be 1 by default.</dd>
+</dl>
+</div>
+<div class="section" id="id153">
+<h3>Description<a class="headerlink" href="#id153" title="Permalink to this headline">¶</a></h3>
+<p>submit_flow</p>
+</div>
+<div class="section" id="id154">
+<h3>Examples<a class="headerlink" href="#id154" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">## **Not run**:</span>
+<span class="c"># submit_flow(fobj = fobj, ... = ...)## **End(Not run)**</span>
+</pre></div>
+</div>
+<p>Aliases:
+submit_flow
+submit_flow.flow
+submit_flow.list
+.. Keywords:</p>
+</div>
+</div>
+<div class="section" id="test-queue">
+<h2>test_queue<a class="headerlink" href="#test-queue" title="Permalink to this headline">¶</a></h2>
+<p><code class="xref py py-func docutils literal"><span class="pre">test_queue()</span></code></p>
+<p>test_queue</p>
+<div class="section" id="id155">
+<h3>Usage<a class="headerlink" href="#id155" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">test_queue</span><span class="p">(</span><span class="n">q_obj</span><span class="p">,</span> <span class="n">verbose</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id156">
+<h3>Arguments<a class="headerlink" href="#id156" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>q_obj</dt>
+<dd>queue object</dd>
+<dt>verbose</dt>
+<dd>toggle</dd>
+</dl>
+<dl class="docutils">
+<dt>...</dt>
+<dd>These params are passed onto queue. ?queue, for more information</dd>
+</dl>
+</div>
+<div class="section" id="id157">
+<h3>Description<a class="headerlink" href="#id157" title="Permalink to this headline">¶</a></h3>
+<p>This function attempts to test the submission of a job to the queue.
+We would first submit one single job, then submit another with a dependency to see if configuration works. This would create a folder in home called &#8216;flows&#8217;.</p>
+</div>
+<div class="section" id="id158">
+<h3>Examples<a class="headerlink" href="#id158" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">## **Not run**:</span>
+<span class="c"># test_queue(q_obj = q_obj, ... = ...)## **End(Not run)**</span>
+</pre></div>
+</div>
+<p>Aliases:
+test_queue
+.. Keywords:</p>
+</div>
+</div>
+<div class="section" id="to-flow">
+<h2>to_flow<a class="headerlink" href="#to-flow" title="Permalink to this headline">¶</a></h2>
+<p><code class="xref py py-func docutils literal"><span class="pre">to_flow()</span></code></p>
+<p>Create flow objects</p>
+<div class="section" id="id159">
+<h3>Usage<a class="headerlink" href="#id159" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre>to_flow(x, ...)
+
+&quot;to_flow&quot;(x, def, grp_col, jobname_col, cmd_col, ...)
+
+&quot;to_flow&quot;(x, def, grp_col, jobname_col, cmd_col, flowname, flow_run_path, platform, submit = FALSE, execute = FALSE, qobj, ...)
+
+&quot;to_flow&quot;(x, def, flowname, flow_run_path, desc, qobj, ...)
+</pre></div>
+</div>
+</div>
+<div class="section" id="id160">
+<h3>Arguments<a class="headerlink" href="#id160" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>x</dt>
+<dd>path (char. vector) to flow_mat, a data.frame or a list.</dd>
+</dl>
+<dl class="docutils">
+<dt>...</dt>
+<dd>Supplied to specific functions like to_flow.data.frame</dd>
+<dt>def</dt>
+<dd>A flow definition table. Basically a table with resource requirements and mapping of the jobs in this flow</dd>
+<dt>grp_col</dt>
+<dd>column name used to split x (flow_mat). Default: <cite>samplename</cite></dd>
+<dt>jobname_col</dt>
+<dd>column name with job names. Default: <cite>jobname</cite></dd>
+<dt>cmd_col</dt>
+<dd>column name with commands. Default: <cite>cmd</cite></dd>
+<dt>flowname</dt>
+<dd>name of the flow</dd>
+<dt>flow_run_path</dt>
+<dd>Path to a folder. Main operating folder for this flow. Default it <cite>get_opts(&#8220;flow_run_path&#8221;)</cite>.</dd>
+<dt>platform</dt>
+<dd>character vector, specifying the platform to use. local, lsf, torque, moab, sge, slurm, ...</dd>
+</dl>
+<p>This over-rides the platform column in flowdef.</p>
+<dl class="docutils">
+<dt>submit</dt>
+<dd>Depreciated. Use submit_flow on flow object this function returns. TRUE/FALSE</dd>
+<dt>execute</dt>
+<dd>Depreciated. Use submit_flow on flow object this function returns. TRUE/FALSE, an paramter to submit_flow()</dd>
+<dt>qobj</dt>
+<dd>Depreciated, modify &lt;a href = &#8216;<a class="reference external" href="http://docs.flowr.space/en/latest/rd/vignettes/build-pipes.html#cluster-interface'">http://docs.flowr.space/en/latest/rd/vignettes/build-pipes.html#cluster-interface&#8217;</a>&gt;cluster templates&lt;/a&gt; instead.  A object of class <a class="reference external" href="queue.html">queue</a>.</dd>
+<dt>desc</dt>
+<dd>Advanced Use. final flow name, please don&#8217;t change.</dd>
+</dl>
+</div>
+<div class="section" id="value">
+<h3>Value<a class="headerlink" href="#value" title="Permalink to this headline">¶</a></h3>
+<p>&lt;dl&gt;
+Returns a flow object. If execute=TRUE, fobj is rich with information about where and how
+the flow was executed. It would include details like jobids, path to exact scripts run etc.
+To use kill_flow, to kill all the jobs one would need a rich flow object, with job ids present.
+Behaviour:
+What goes in, and what to expect in return?
+-&lt;li&gt; submit=FALSE &amp; execute=FALSE: Create and return a flow object
+&lt;/li&gt;
+&lt;li&gt; submit=TRUE &amp; execute=FALSE: dry-run, Create a flow object then, create a structured execution folder with all the commands
+&lt;/li&gt;
+&lt;li&gt; submit=TRUE, execute=TRUE: Do all of the above and then, submit to cluster
+&lt;/li&gt;
+&lt;/dl&gt;
+Description
+~~~~~~~~~~~~~~~~~~</p>
+<p>Use a set of shell commands and flow definiton to create <a class="reference external" href="flow.html">flow</a> object.
+vector: a file with flowmat table
+a named list of commands for a sample. Its best to supply a flowmat instead.
+Details
+~~~~~~~~~~~~~~~~~~</p>
+<p>The parameter x can be a path to a flow_mat, or a data.frame (as read by read_sheet).
+This is a minimum three column matrix with three columns: samplename, jobname and cmd</p>
+</div>
+<div class="section" id="id163">
+<h3>Examples<a class="headerlink" href="#id163" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre>ex = file.path(system.file(package = &quot;flowr&quot;), &quot;pipelines&quot;)
+flowmat = as.flowmat(file.path(ex, &quot;sleep_pipe.tsv&quot;))
+**mat seems to be a file, reading it...****Using `samplename` as the grouping column****Using `jobname` as the jobname column****Using `cmd` as the cmd column**flowdef = as.flowdef(file.path(ex, &quot;sleep_pipe.def&quot;))
+**def seems to be a file, reading it...**fobj = to_flow(x = flowmat, def = flowdef, flowname = &quot;sleep_pipe&quot;, platform = &quot;lsf&quot;)
+**Using flow_run_path default: ~/flowr/runs****
+##--- Checking flow definition and flow matrix for consistency...****
+##--- Detecting platform...****Will use platform from flow definition****Platform supplied, this will override defaults from flow definition...****
+Working on... sample1****.****.****.****.**
+</pre></div>
+</div>
+<p>Aliases:
+to_flow
+to_flow.flowmat
+to_flow.list
+to_flow.vector
+.. Keywords:</p>
+</div>
+</div>
+<div class="section" id="as-flowdef">
+<h2>as.flowdef<a class="headerlink" href="#as-flowdef" title="Permalink to this headline">¶</a></h2>
+<p><code class="xref py py-func docutils literal"><span class="pre">as.flowdef()</span></code></p>
+<p>flow definition</p>
+<div class="section" id="id164">
+<h3>Usage<a class="headerlink" href="#id164" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre>as.flowdef(x, ...)
+
+is.flowdef(x)
+
+to_flowdef(x, ...)
+
+&quot;to_flowdef&quot;(x, sub_type, dep_type, prev_jobs, queue = &quot;short&quot;, platform = &quot;torque&quot;, memory_reserved = &quot;2000&quot;, cpu_reserved = &quot;1&quot;, walltime = &quot;1:00&quot;, ...)
+
+&quot;to_flowdef&quot;(x, ...)
+
+&quot;to_flowdef&quot;(x, ...)
+</pre></div>
+</div>
+</div>
+<div class="section" id="id165">
+<h3>Arguments<a class="headerlink" href="#id165" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>x</dt>
+<dd>can be a data.frame or a path for a flow definition file</dd>
+</dl>
+<dl class="docutils">
+<dt>...</dt>
+<dd>passed onto check.flowdef</dd>
+<dt>sub_type</dt>
+<dd>submission type, one of: scatter, serial. Character, of length one or same as the number of jobnames</dd>
+<dt>dep_type</dt>
+<dd>dependency type, one of: gather, serial or burst. Character, of length one or same as the number of jobnames</dd>
+<dt>prev_jobs</dt>
+<dd>previous job name</dd>
+<dt>queue</dt>
+<dd>Cluster queue to be used</dd>
+<dt>platform</dt>
+<dd>platform of the cluster: lsf, sge, moab, torque, slurm etc.</dd>
+<dt>memory_reserved</dt>
+<dd>amount of memory required.</dd>
+<dt>cpu_reserved</dt>
+<dd>number of cpu&#8217;s required</dd>
+<dt>walltime</dt>
+<dd>amount of walltime required</dd>
+<dt>x</dt>
+<dd>can a path to a flowmat, flomat or flow object.</dd>
+</dl>
+<dl class="docutils">
+<dt>...</dt>
+<dd>not used</dd>
+</dl>
+</div>
+<div class="section" id="id166">
+<h3>Description<a class="headerlink" href="#id166" title="Permalink to this headline">¶</a></h3>
+<p>Reeading a flow definition file and checking it.
+Creation of a skeleton flow definition with several default values.
+All params may be of length one, or same as the number of jobnames
+to_flowdef.character: x is a flowmat file.</p>
+</div>
+<div class="section" id="id167">
+<h3>Examples<a class="headerlink" href="#id167" title="Permalink to this headline">¶</a></h3>
+<p>Aliases:
+as.flowdef
+is.flowdef
+to_flowdef
+to_flowdef.character
+to_flowdef.flow
+to_flowdef.flowmat
+.. Keywords:</p>
+</div>
+</div>
+<div class="section" id="to-flowdet">
+<h2>to_flowdet<a class="headerlink" href="#to-flowdet" title="Permalink to this headline">¶</a></h2>
+<p><code class="xref py py-func docutils literal"><span class="pre">to_flowdet()</span></code></p>
+<p>to_flowdet</p>
+<div class="section" id="id168">
+<h3>Usage<a class="headerlink" href="#id168" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">to_flowdet</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+
+<span class="s">&quot;to_flowdet&quot;</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+
+<span class="s">&quot;to_flowdet&quot;</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+
+<span class="s">&quot;to_flowdet&quot;</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id169">
+<h3>Arguments<a class="headerlink" href="#id169" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>x</dt>
+<dd>this is a wd</dd>
+</dl>
+<dl class="docutils">
+<dt>...</dt>
+<dd>not used</dd>
+</dl>
+</div>
+<div class="section" id="id170">
+<h3>Description<a class="headerlink" href="#id170" title="Permalink to this headline">¶</a></h3>
+<p>to_flowdet
+get a flow_details file from the directory structure. This has less information than the
+one generated using a flow object. Lacks jobids etc...
+Details
+~~~~~~~~~~~~~~~~~~</p>
+<p>if x is char. assumed a path, check if flow object exists in it and read it.
+If there is no flow object, try using a simpler function</p>
+</div>
+<div class="section" id="id171">
+<h3>Examples<a class="headerlink" href="#id171" title="Permalink to this headline">¶</a></h3>
+<p>Aliases:
+to_flowdet
+to_flowdet.character
+to_flowdet.flow
+to_flowdet.rootdir
+.. Keywords:</p>
+</div>
+</div>
+<div class="section" id="as-flowmat">
+<h2>as.flowmat<a class="headerlink" href="#as-flowmat" title="Permalink to this headline">¶</a></h2>
+<p><code class="xref py py-func docutils literal"><span class="pre">as.flowmat()</span></code></p>
+<p>flow mat</p>
+<div class="section" id="id172">
+<h3>Usage<a class="headerlink" href="#id172" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre>as.flowmat(x, grp_col, jobname_col, cmd_col, ...)
+
+is.flowmat(x)
+
+to_flowmat(x, ...)
+
+&quot;to_flowmat&quot;(x, samplename, ...)
+
+&quot;to_flowmat&quot;(x, ...)
+
+&quot;to_flowmat&quot;(x, ...)
+</pre></div>
+</div>
+</div>
+<div class="section" id="id173">
+<h3>Arguments<a class="headerlink" href="#id173" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>x</dt>
+<dd>a data.frame or path to file with flow details in it.</dd>
+<dt>grp_col</dt>
+<dd>column used for grouping, default samplename.</dd>
+<dt>jobname_col</dt>
+<dd>column specifying jobname, default jobname</dd>
+<dt>cmd_col</dt>
+<dd>column specifying commands to run, default cmd</dd>
+</dl>
+<dl class="docutils">
+<dt>...</dt>
+<dd>not used</dd>
+<dt>samplename</dt>
+<dd>character of length 1 or that of nrow(x)</dd>
+<dt>x</dt>
+<dd>a named list OR vector. Where name corresponds to the jobname and value is a vector of commands to run</dd>
+</dl>
+<dl class="docutils">
+<dt>...</dt>
+<dd>not used</dd>
+</dl>
+</div>
+<div class="section" id="id174">
+<h3>Description<a class="headerlink" href="#id174" title="Permalink to this headline">¶</a></h3>
+<p>as.flowmat(): reads a file and checks for required columns. If x is data.frame checks for required columns.
+Taking in a named list and returns a two columns data.frame</p>
+</div>
+<div class="section" id="id175">
+<h3>Examples<a class="headerlink" href="#id175" title="Permalink to this headline">¶</a></h3>
+<p>Aliases:
+as.flowmat
+is.flowmat
+to_flowmat
+to_flowmat.data.frame
+to_flowmat.flow
+to_flowmat.list
+.. Keywords:</p>
+</div>
+</div>
+<div class="section" id="whisker-render">
+<h2>whisker_render<a class="headerlink" href="#whisker-render" title="Permalink to this headline">¶</a></h2>
+<p><code class="xref py py-func docutils literal"><span class="pre">whisker_render()</span></code></p>
+<p>Wrapper around whisker.render with some sugar on it...</p>
+<div class="section" id="id176">
+<h3>Usage<a class="headerlink" href="#id176" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">whisker_render</span><span class="p">(</span><span class="n">template</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id177">
+<h3>Arguments<a class="headerlink" href="#id177" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>template</dt>
+<dd>template used</dd>
+<dt>data</dt>
+<dd>a list with variables to be used to fill in the template.</dd>
+</dl>
+</div>
+<div class="section" id="id178">
+<h3>Description<a class="headerlink" href="#id178" title="Permalink to this headline">¶</a></h3>
+<p>This is a wrapper around <a class="reference external" href="http://www.inside-r.org/packages/cran/whisker/docs/whisker.render">whisker.render</a></p>
+</div>
+<div class="section" id="id180">
+<h3>Examples<a class="headerlink" href="#id180" title="Permalink to this headline">¶</a></h3>
+<p>Aliases:
+whisker_render
+.. Keywords:</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../faqs.html" class="btn btn-neutral float-right" title="FAQs">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../vignettes/build-pipes.html" class="btn btn-neutral" title="Building Pipelines"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Sahil Seth.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.9.7',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,5 +1,5 @@
 Get started
------------
+===========
 
 .. code:: r
 
@@ -11,11 +11,13 @@ Run a setup function which copies 'flowr' helper script to enable using flow fro
 .. code:: r
 
     library(flowr)
-    extdata = file.path(system.file(package = "flowr"), "extdata")
-    setup(bin = extdata, flow_base_path = extdata)
+
+.. code:: r
+
+    setup()
 
 Toy example
-===========
+-----------
 
 .. figure:: imgs/toy.png
    :alt: 
@@ -61,7 +63,7 @@ We use an additional file specifying relationship between the steps, and also ot
 +---------------+-------------+---------------+-------------+---------+--------------------+------------+-----------------+------------+---------+
 
 Stitch
-======
+------
 
 .. code:: r
 
@@ -69,7 +71,7 @@ Stitch
         flowname = "example1", platform = "lsf")
 
 Plot
-====
+----
 
 .. code:: r
 
@@ -79,9 +81,8 @@ Plot
    :alt: Flow chart describing process for example 1
 
    Flow chart describing process for example 1
-
 Test it
-=======
+-------
 
     Dry run (submit)
 
@@ -96,7 +97,7 @@ Test it
      ~/flowr/type1-20150520-15-18-27-5mSd32G0
 
 Submit it !
-===========
+-----------
 
     Submit to the cluster
 
@@ -112,7 +113,7 @@ Submit it !
     flowr status x=~/flowr/type1-20150520-15-18-46-sySOzZnE
 
 Check the status
-================
+----------------
 
 ::
 

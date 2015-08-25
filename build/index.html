@@ -1,66 +1,170 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>flowr: Streamline your workflows &mdash; flowr 0.9.7 documentation</title>
-    
-    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '0.9.7',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="flowr 0.9.7 documentation" href="#" />
-    <link rel="next" title="Get started" href="rd/vignettes/quick-start.html" /> 
-  </head>
-  <body role="document">
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="rd/vignettes/quick-start.html" title="Get started"
-             accesskey="N">next</a> |</li>
-        <li class="nav-item nav-item-0"><a href="#">flowr 0.9.7 documentation</a> &raquo;</li> 
-      </ul>
-    </div>  
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>flowr: Streamline your workflows &mdash; flowr 0.9.7 documentation</title>
+  
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="flowr 0.9.7 documentation" href="#"/>
+        <link rel="next" title="Get started" href="rd/vignettes/quick-start.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="#" class="fa fa-home"> flowr</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="rd/vignettes/quick-start.html">Get started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/quick-start.html#toy-example">Toy example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/quick-start.html#stitch">Stitch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/quick-start.html#plot">Plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/quick-start.html#test-it">Test it</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/quick-start.html#submit-it">Submit it !</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/quick-start.html#check-the-status">Check the status</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="rd/vignettes/build-pipes.html">Building Pipelines</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/build-pipes.html#ingredients">Ingredients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/build-pipes.html#submission-types">Submission types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/build-pipes.html#dependency-types">Dependency types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/build-pipes.html#relationships">Relationships</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/build-pipes.html#passing-of-flow-definition-resource-columns">Passing of flow definition resource columns</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rd/vignettes/build-pipes.html#available-pipelines">Available Pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rd/vignettes/build-pipes.html#cluster-support">Cluster Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="rd/topics/complete-help.html">Help on Available functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#check-args">check_args</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#check">check</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#cmds-to-flow">cmds_to_flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#fetch">fetch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#id13">flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#get-unique-id">get_unique_id</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#get-wds">get_wds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#job">job</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#kill">kill</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#flowopts">flowopts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#parse-jobids">parse_jobids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#plot-flow">plot_flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#queue">queue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#rerun">rerun</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#run">run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#setup">setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#id145">status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#id150">submit_flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#test-queue">test_queue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#to-flow">to_flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#as-flowdef">as.flowdef</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#to-flowdet">to_flowdet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#as-flowmat">as.flowmat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#whisker-render">whisker_render</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="faqs.html">FAQs</a></li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="#">flowr</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="#">Docs</a> &raquo;</li>
+      
+    <li>flowr: Streamline your workflows</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/index.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
             
-  <p><a class="reference external" href="https://travis-ci.org/sahilseth/flowr"><img alt="Build Status" src="https://travis-ci.org/sahilseth/flowr.png" /></a> <a class="reference external" href="http://dx.doi.org/10.5281/zenodo.16170"><img alt="DOI" src="https://zenodo.org/badge/11075/sahilseth/flowr.svg" /></a></p>
+  <p><a class="reference external" href="https://travis-ci.org/sahilseth/flowr"><img alt="Build Status" src="https://travis-ci.org/sahilseth/flowr.png" /></a> <a class="reference external" href="http://cran.rstudio.com/web/packages/flowr/index.html"><img alt="cran" src="http://www.r-pkg.org/badges/version/flowr" /></a> <img alt="downloads" src="http://cranlogs.r-pkg.org/badges/grand-total/flowr" /></p>
 <div class="section" id="flowr-streamline-your-workflows">
 <h1>flowr: Streamline your workflows<a class="headerlink" href="#flowr-streamline-your-workflows" title="Permalink to this headline">¶</a></h1>
 <p>This framework allows you to design and implement complex pipelines, and deploy them on your institution&#8217;s computing cluster. This has been built keeping in mind the needs of bioinformatics workflows. However, it is easily extendable to any field where a series of steps (shell commands) are to be executed in a (work)flow.</p>
-<div class="section" id="why-bother">
-<h2>Why bother?<a class="headerlink" href="#why-bother" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="highlights">
+<h2>Highlights<a class="headerlink" href="#highlights" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p class="first">Do you have a series of steps which <strong>can</strong> spawn across the whole computing cluster, but currently are not effectively utilizing those resources?</p>
+<li><p class="first">Effectively process a pipeline multi-step pipeline, spawning it across the computing cluster</p>
 </li>
 <li><dl class="first docutils">
 <dt>Example:</dt>
 <dd><ul class="first last simple">
-<li>Think of a sample with multiple files (<a class="reference external" href="http://en.wikipedia.org/wiki/Sequence_alignment">alignment</a>, with tens of <a class="reference external" href="http://en.wikipedia.org/wiki/FASTQ_format">fastq</a> files)</li>
-<li>Each file processed using multiple cores</li>
-<li>Say 50 files using 10 cores each &#8211;&gt; 160 cores across 10 machines.</li>
+<li>A typical case with next-generation sequencing, a sample with tens of <a class="reference external" href="http://en.wikipedia.org/wiki/FASTQ_format">fastq</a> files)</li>
+<li>Each file can be processed (<a class="reference external" href="http://en.wikipedia.org/wiki/Sequence_alignment">aligned</a>) individually, each using multiple cores</li>
+<li>Say 50 files using 10 cores each, totalling 500 cores across several machines, for one sample</li>
+<li>flowr further supports processing multiple samples in parrellel, spawning thousands of cores.</li>
 </ul>
 </dd>
 </dl>
@@ -71,18 +175,22 @@
 </li>
 <li><p class="first">Lean and Portable, with easy installation</p>
 </li>
-<li><p class="first">Supports multiple platforms (torque, lsf, sge, ...)</p>
+<li><p class="first">Supports multiple platforms (torque, lsf, sge, slurm ...)</p>
 </li>
 </ul>
 <div class="section" id="a-few-lines-to-get-started">
 <h3>A few lines, to get started:<a class="headerlink" href="#a-few-lines-to-get-started" title="Permalink to this headline">¶</a></h3>
-<div class="code r highlight-python"><div class="highlight"><pre>install.packages(devtools)
-devtools::install_github(&quot;sahilseth/flowr&quot;)
+<div class="code r highlight-python"><div class="highlight"><pre>## From the official R repository (may be a few versions behind)
+install.packages(&quot;flowr&quot;)
+
 ## OR
-install.packages(&quot;flowr&quot;) ## coming up soon...
+
+install.packages(devtools)
+devtools::install_github(&quot;sahilseth/flowr&quot;)
+
 library(flowr) ## load the library
-setup() ## copy flowr bash script
-run(&#39;sleep&#39;, execute=TRUE,  platform=&#39;moab&#39;)
+setup() ## copy flowr bash script; and create a folder flowr under home.
+run(&#39;sleep&#39;, execute=TRUE,  platform=&#39;moab&#39;) ## submit a simple example
 </pre></div>
 </div>
 <ul class="simple">
@@ -95,44 +203,70 @@ run(&#39;sleep&#39;, execute=TRUE,  platform=&#39;moab&#39;)
 <h2>Contents:<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="rd/vignettes/quick-start.html">Get started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rd/vignettes/quick-start.html">Get started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/quick-start.html#toy-example">Toy example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/quick-start.html#stitch">Stitch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/quick-start.html#plot">Plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/quick-start.html#test-it">Test it</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/quick-start.html#submit-it">Submit it !</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/quick-start.html#check-the-status">Check the status</a></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="build.html">Building Pipelines</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/build-pipes.html">Ingredients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rd/vignettes/build-pipes.html">Building Pipelines</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/build-pipes.html#ingredients">Ingredients</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rd/vignettes/build-pipes.html#flow-definition">1. Flow Definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/vignettes/build-pipes.html#flow-mat-a-table-with-shell-commands-to-run">2. Flow mat: A table with shell commands to run</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/vignettes/build-pipes.html#example">Example:</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="rd/vignettes/build-pipes.html#submission-types">Submission types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rd/vignettes/build-pipes.html#dependency-types">Dependency types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/build-pipes.html#relationships">Relationships</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/build-pipes.html#relationships">Relationships</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rd/vignettes/build-pipes.html#serial-one-to-one-relationship">Serial: one to one relationship</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/vignettes/build-pipes.html#gather-many-to-one-relationship">Gather: many to one relationship</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/vignettes/build-pipes.html#burst-one-to-many-relationship">Burst: one to many relationship</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="rd/vignettes/build-pipes.html#passing-of-flow-definition-resource-columns">Passing of flow definition resource columns</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/build-pipes.html#cluster-interface">Cluster interface</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="pipelines.html">Available pipelines</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="topics.html">Help on available functions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="rd/topics/flow.html">flow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/topics/get_flow_status.html">get_flow_status</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/topics/job.html">job</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/topics/kill_flow.html">kill_flow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/topics/plot_flow.html">plot_flow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/topics/queue.html">queue</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/topics/rerun_flow.html">rerun_flow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/topics/setup.html">setup</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/topics/submit_flow.html">submit_flow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/topics/submit_job.html">submit_job</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/topics/to_flow.html">to_flow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/topics/to_flowdef.html">to_flowdef</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/topics/to_flowmat.html">to_flowmat</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="rd/vignettes/build-pipes.html#available-pipelines">Available Pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rd/vignettes/build-pipes.html#cluster-support">Cluster Support</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="hpcc-support.html">HPCC Platforms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rd/topics/complete-help.html">Help on Available functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#check-args">check_args</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#check">check</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#cmds-to-flow">cmds_to_flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#fetch">fetch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#id13">flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#get-unique-id">get_unique_id</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#get-wds">get_wds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#job">job</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#kill">kill</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#flowopts">flowopts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#parse-jobids">parse_jobids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#plot-flow">plot_flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#queue">queue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#rerun">rerun</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#run">run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#setup">setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#id145">status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#id150">submit_flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#test-queue">test_queue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#to-flow">to_flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#as-flowdef">as.flowdef</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#to-flowdet">to_flowdet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#as-flowmat">as.flowmat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#whisker-render">whisker_render</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="faqs.html">FAQs</a></li>
 </ul>
 </div>
@@ -149,67 +283,67 @@ run(&#39;sleep&#39;, execute=TRUE,  platform=&#39;moab&#39;)
 
 
           </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="#">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">flowr: Streamline your workflows</a><ul>
-<li><a class="reference internal" href="#why-bother">Why bother?</a><ul>
-<li><a class="reference internal" href="#a-few-lines-to-get-started">A few lines, to get started:</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#contents">Contents:</a><ul>
-</ul>
-</li>
-<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
-</ul>
-</li>
-</ul>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="rd/vignettes/quick-start.html" class="btn btn-neutral float-right" title="Get started">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
 
-  <h4>Next topic</h4>
-  <p class="topless"><a href="rd/vignettes/quick-start.html"
-                        title="next chapter">Get started</a></p>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/index.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Sahil Seth.
     </p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="rd/vignettes/quick-start.html" title="Get started"
-             >next</a> |</li>
-        <li class="nav-item nav-item-0"><a href="#">flowr 0.9.7 documentation</a> &raquo;</li> 
-      </ul>
-    </div>
-    <div class="footer" role="contentinfo">
-        &copy; Copyright 2015, Sahil Seth.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
-    </div>
-  </body>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.9.7',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
 </html>

@@ -1,3 +1,6 @@
+Building Pipelines
+==================
+
 An easy and quick way to build a workflow is create two separate files. First is a table with commands to run, second has details regarding how the modules are stitched together. In the rest of this document we would refer to them as flow\_mat and flow\_def respectively.
 
 Both these files have a ``jobname`` column which is used as a ID to connect them to each other.
@@ -57,8 +60,6 @@ Here is an example of a typical `flow\_def <https://raw.githubusercontent.com/sa
 .. raw:: html
 
    <!-- Each row of this table translates to a call to ([job](http://docs.flowr.space/build/html/rd/topics/job.html) or) [queue](http://docs.flowr.space/build/html/rd/topics/queue.html) function. -->
-
-.. raw:: html
 
    <!-- 
    - jobname: is passed as `name` argument to job().
@@ -301,10 +302,65 @@ The following table provides a mapping between the flow definition columns and v
 | \*\*                | CMD                     |
 +---------------------+-------------------------+
 
-Cluster interface
------------------
+\*: These are generated on the fly \*\*: This is gathered from flow\_mat
 
-Support for several popular cluster platforms are built-in. There is a template, each specific for a platform. These templates should would out of the box. You may copy and edit these (and save to ~/flowr/conf) in case some changes are required. Templates from this folder (~/flowr/conf), would override the defaults.
+Available Pipelines
+===================
+
+Here are some of the available piplines along with their respective locations
+
+::
+
+    #> Please supply a name of the pipline to run, here are the options
+
++------------------------------+-------------------------+--------------------------+--------------------------------------------------------------------------------------+
+| name                         | def                     | conf                     | pipe                                                                                 |
++==============================+=========================+==========================+======================================================================================+
+| sleep\_pipe                  | sleep\_pipe.def         | NA                       | /Users/sahilseth/Dropbox2/Dropbox/public/github\_flow/inst/pipelines/sleep\_pipe.R   |
++------------------------------+-------------------------+--------------------------+--------------------------------------------------------------------------------------+
+| fastq\_bam\_bwa              | NA                      | NA                       | /Users/sahilseth/Rlibs/ngsflows/pipelines/fastq\_bam\_bwa.R                          |
++------------------------------+-------------------------+--------------------------+--------------------------------------------------------------------------------------+
+| fastq\_bam\_rna\_ion         | NA                      | NA                       | /Users/sahilseth/Rlibs/ngsflows/pipelines/fastq\_bam\_rna\_ion.R                     |
++------------------------------+-------------------------+--------------------------+--------------------------------------------------------------------------------------+
+| fastq\_bam\_variants         | NA                      | NA                       | /Users/sahilseth/Rlibs/ngsflows/pipelines/fastq\_bam\_variants.R                     |
++------------------------------+-------------------------+--------------------------+--------------------------------------------------------------------------------------+
+| fastq\_haplotyper            | fastq\_haplotyper.def   | fastq\_haplotyper.conf   | /Users/sahilseth/Rlibs/ngsflows/pipelines/fastq\_haplotyper.R                        |
++------------------------------+-------------------------+--------------------------+--------------------------------------------------------------------------------------+
+| fastq\_star\_rna             | NA                      | NA                       | /Users/sahilseth/Rlibs/ngsflows/pipelines/fastq\_star\_rna.R                         |
++------------------------------+-------------------------+--------------------------+--------------------------------------------------------------------------------------+
+| old\_bam\_pindel             | NA                      | NA                       | /Users/sahilseth/Rlibs/ngsflows/pipelines/old\_bam\_pindel.R                         |
++------------------------------+-------------------------+--------------------------+--------------------------------------------------------------------------------------+
+| old\_bam\_preprocess         | NA                      | NA                       | /Users/sahilseth/Rlibs/ngsflows/pipelines/old\_bam\_preprocess.R                     |
++------------------------------+-------------------------+--------------------------+--------------------------------------------------------------------------------------+
+| old\_bam\_xenome             | NA                      | NA                       | /Users/sahilseth/Rlibs/ngsflows/pipelines/old\_bam\_xenome.R                         |
++------------------------------+-------------------------+--------------------------+--------------------------------------------------------------------------------------+
+| old\_bwa\_pipe               | NA                      | NA                       | /Users/sahilseth/Rlibs/ngsflows/pipelines/old\_bwa\_pipe.R                           |
++------------------------------+-------------------------+--------------------------+--------------------------------------------------------------------------------------+
+| old\_dna\_qc                 | NA                      | NA                       | /Users/sahilseth/Rlibs/ngsflows/pipelines/old\_dna\_qc.R                             |
++------------------------------+-------------------------+--------------------------+--------------------------------------------------------------------------------------+
+| old\_fastq\_bam\_bwa2        | NA                      | NA                       | /Users/sahilseth/Rlibs/ngsflows/pipelines/old\_fastq\_bam\_bwa2.R                    |
++------------------------------+-------------------------+--------------------------+--------------------------------------------------------------------------------------+
+| old\_fastq\_bismark\_meth    | NA                      | NA                       | /Users/sahilseth/Rlibs/ngsflows/pipelines/old\_fastq\_bismark\_meth.R                |
++------------------------------+-------------------------+--------------------------+--------------------------------------------------------------------------------------+
+| old\_flow\_bam\_preprocess   | NA                      | NA                       | /Users/sahilseth/Rlibs/ngsflows/pipelines/old\_flow\_bam\_preprocess.R               |
++------------------------------+-------------------------+--------------------------+--------------------------------------------------------------------------------------+
+| old\_proc\_bwa\_pipe         | NA                      | NA                       | /Users/sahilseth/Rlibs/ngsflows/pipelines/old\_proc\_bwa\_pipe.R                     |
++------------------------------+-------------------------+--------------------------+--------------------------------------------------------------------------------------+
+| split\_aln\_merge            | split\_aln\_merge.def   | NA                       | /Users/sahilseth/Rlibs/ngsflows/pipelines/split\_aln\_merge.R                        |
++------------------------------+-------------------------+--------------------------+--------------------------------------------------------------------------------------+
+| build-pipes                  | NA                      | NA                       | /Users/sahilseth/Dropbox2/Dropbox/public/github\_flow/vignettes/build-pipes.R        |
++------------------------------+-------------------------+--------------------------+--------------------------------------------------------------------------------------+
+| example\_sleep               | NA                      | NA                       | /Users/sahilseth/Dropbox2/Dropbox/public/github\_flow/vignettes/example\_sleep.R     |
++------------------------------+-------------------------+--------------------------+--------------------------------------------------------------------------------------+
+| quick-start                  | NA                      | NA                       | /Users/sahilseth/Dropbox2/Dropbox/public/github\_flow/vignettes/quick-start.R        |
++------------------------------+-------------------------+--------------------------+--------------------------------------------------------------------------------------+
+
+Cluster Support
+===============
+
+Support for several popular cluster platforms are built-in. There is a template, for each platform, which should would out of the box. Further, one may copy and edit them (and save to ``~/flowr/conf``) in case some changes are required. Templates from this folder (``~/flowr/conf``), would override defaults.
+
+Here are links to latest templates on github:
 
 -  `torque <https://github.com/sahilseth/flowr/blob/master/inst/conf/torque.sh>`__
 -  `lsf <https://github.com/sahilseth/flowr/blob/master/inst/conf/lsf.sh>`__
@@ -312,8 +368,51 @@ Support for several popular cluster platforms are built-in. There is a template,
 -  `sge <https://github.com/sahilseth/flowr/blob/master/inst/conf/sge.sh>`__
 -  `slurm <https://github.com/sahilseth/flowr/blob/master/inst/conf/slurm.sh>`__, needs testing
 
-Here are a few details on adding a new platform: `github.com/sahilseth/flowr/issues/7 <https://github.com/sahilseth/flowr/issues/7>`__
+Adding a new plaform involves `a few steps <https://github.com/sahilseth/flowr/issues/7>`__ including support for:
 
-.. note:: My HPCC is not supported, how to make it work? Take a look at: `adding platforms <https://github.com/sahilseth/flowr/issues/7>`__ and send a message to: sahil.seth [at] me.com
+1. submission: Template used for submission: https://github.com/sahilseth/flowr/blob/master/inst/conf/torque.sh
+2. `parse\_jobids() <https://github.com/sahilseth/flowr/blob/master/R/parse-jobids.R>`__: The job ids should parse using regular expression as provided by: https://github.com/sahilseth/flowr/blob/master/inst/conf/flowr.conf
+3. parse\_dependency(): These are then parsed to create a dependency string, as seen here: https://github.com/sahilseth/flowr/blob/master/R/parse-dependency.R
+4. job(): Add a new class using the platform name. This is essentially a wrapper around job class. https://github.com/sahilseth/flowr/blob/master/R/class-def.R A one line like: ``setClass("torque", contains = "job")`` would suffice.
+5. Killing jobs: making sure that the correct job killing command is identified by detect\_kill\_cmd().
 
-\*: These are generated on the fly \*\*: This is gathered from flow\_mat
+.. note:: My HPCC is not supported, how to make it work? re-open this issue, with details on the platform. `adding platforms <https://github.com/sahilseth/flowr/issues/7>`__
+
+As of now we have tested this on the following clusters:
+
++------------+-----------+--------------+--------------+
+| Platform   | command   | status       | queue.type   |
++============+===========+==============+==============+
+| LSF 7      | bsub      | Not tested   | lsf          |
++------------+-----------+--------------+--------------+
+| LSF 9.1    | bsub      | Yes          | lsf          |
++------------+-----------+--------------+--------------+
+| Torque     | qsub      | Yes          | torque       |
++------------+-----------+--------------+--------------+
+| SGE        | qsub      | Beta         | sge          |
++------------+-----------+--------------+--------------+
+| SLURM      | sbatch    | under-dev    | slurm        |
++------------+-----------+--------------+--------------+
+
+\*queue short-name used in `flow <https://github.com/sahilseth/flow>`__
+
+There are several `job scheduling <http://en.wikipedia.org/wiki/Job_scheduler>`__ systems available and we try to support the major players. Adding support is quite easy if we have access to them. Your favourite not in the list? Send a `message <mailto:sahil.seth@me.com>`__
+
+-  PBS: `wiki <http://en.wikipedia.org/wiki/Portable_Batch_System>`__
+-  Torque: `wiki <http://en.wikipedia.org/wiki/TORQUE_Resource_Manager>`__
+
+   -  MD Anderson
+   -  `University of Houston <http://www.rcc.uh.edu/hpc-docs/49-using-torque-to-submit-and-monitor-jobs.html>`__
+
+-  LSF `wiki <http://en.wikipedia.org/wiki/Platform_LSF>`__:
+
+   -  Harvard Medicla School uses: `LSF HPC 7 <https://wiki.med.harvard.edu/Orchestra/IntroductionToLSF>`__
+   -  Also Used at `Broad <https://www.broadinstitute.org/gatk/guide/article?id=1311>`__
+
+-  SGE `wiki <http://en.wikipedia.org/wiki/Sun_Grid_Engine>`__
+
+   -  A tutorial for `Sun Grid Engine <https://sites.google.com/site/anshulkundaje/inotes/programming/clustersubmit/sun-grid-engine>`__
+   -  Another from `JHSPH <http://www.biostat.jhsph.edu/bit/cluster-usage.html>`__
+   -  Dependecy info `here <https://wiki.duke.edu/display/SCSC/SGE+Job+Dependencies>`__
+
+`Comparison\_of\_cluster\_software <http://en.wikipedia.org/wiki/Comparison_of_cluster_software>`__

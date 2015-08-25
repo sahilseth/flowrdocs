@@ -1,56 +1,152 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>job &mdash; flowr 0.9.7 documentation</title>
-    
-    <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../../',
-        VERSION:     '0.9.7',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="flowr 0.9.7 documentation" href="../../index.html" />
-    <link rel="up" title="Help on available functions" href="../../topics.html" />
-    <link rel="next" title="kill_flow" href="kill_flow.html" />
-    <link rel="prev" title="get_flow_status" href="get_flow_status.html" /> 
-  </head>
-  <body role="document">
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="kill_flow.html" title="kill_flow"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="get_flow_status.html" title="get_flow_status"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">flowr 0.9.7 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="../../topics.html" accesskey="U">Help on available functions</a> &raquo;</li> 
-      </ul>
-    </div>  
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>job &mdash; flowr 0.9.7 documentation</title>
+  
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="flowr 0.9.7 documentation" href="../../index.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../../index.html" class="fa fa-home"> flowr</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../vignettes/quick-start.html">Get started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../vignettes/quick-start.html#toy-example">Toy example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vignettes/quick-start.html#stitch">Stitch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vignettes/quick-start.html#plot">Plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vignettes/quick-start.html#test-it">Test it</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vignettes/quick-start.html#submit-it">Submit it !</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vignettes/quick-start.html#check-the-status">Check the status</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../vignettes/build-pipes.html">Building Pipelines</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../vignettes/build-pipes.html#ingredients">Ingredients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vignettes/build-pipes.html#submission-types">Submission types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vignettes/build-pipes.html#dependency-types">Dependency types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vignettes/build-pipes.html#relationships">Relationships</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vignettes/build-pipes.html#passing-of-flow-definition-resource-columns">Passing of flow definition resource columns</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../vignettes/build-pipes.html#available-pipelines">Available Pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vignettes/build-pipes.html#cluster-support">Cluster Support</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="complete-help.html">Help on Available functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#check-args">check_args</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#check">check</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#cmds-to-flow">cmds_to_flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#fetch">fetch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#id13">flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#get-unique-id">get_unique_id</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#get-wds">get_wds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#job">job</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#kill">kill</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#flowopts">flowopts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#parse-jobids">parse_jobids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#plot-flow">plot_flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#queue">queue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#rerun">rerun</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#run">run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#setup">setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#id145">status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#id150">submit_flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#test-queue">test_queue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#to-flow">to_flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#as-flowdef">as.flowdef</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#to-flowdet">to_flowdet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#as-flowmat">as.flowmat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#whisker-render">whisker_render</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../faqs.html">FAQs</a></li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">flowr</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+    <li>job</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../../_sources/rd/topics/job.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
             
   <div class="section" id="job">
 <h1>job<a class="headerlink" href="#job" title="Permalink to this headline">¶</a></h1>
@@ -61,7 +157,9 @@
 <div class="highlight-python"><div class="highlight"><pre><span class="n">job</span><span class="p">(</span><span class="n">cmds</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;myjob&quot;</span><span class="p">,</span> <span class="n">q_obj</span> <span class="o">=</span> <span class="n">new</span><span class="p">(</span><span class="s">&quot;queue&quot;</span><span class="p">),</span> <span class="n">previous_job</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">cpu</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">memory</span><span class="p">,</span> <span class="n">walltime</span><span class="p">,</span> <span class="n">submission_type</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s">&quot;scatter&quot;</span><span class="p">,</span> <span class="s">&quot;serial&quot;</span><span class="p">),</span> <span class="n">dependency_type</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s">&quot;none&quot;</span><span class="p">,</span> <span class="s">&quot;gather&quot;</span><span class="p">,</span> <span class="s">&quot;serial&quot;</span><span class="p">,</span> <span class="s">&quot;burst&quot;</span><span class="p">),</span> <span class="o">...</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Arguments</p>
+</div>
+<div class="section" id="arguments">
+<h2>Arguments<a class="headerlink" href="#arguments" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>cmds</dt>
 <dd>the commands to run</dd>
@@ -93,108 +191,97 @@
 </div>
 <div class="section" id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre>qobj &lt;- queue(platform=&quot;torque&quot;)
+<div class="highlight-python"><div class="highlight"><pre><span class="n">qobj</span> <span class="o">&lt;-</span> <span class="n">queue</span><span class="p">(</span><span class="n">platform</span><span class="o">=</span><span class="s">&quot;torque&quot;</span><span class="p">)</span>
 
-## torque job with 1 CPU running command &#39;sleep 2&#39;
-jobj &lt;- job(q_obj=qobj, cmd = &quot;sleep 2&quot;, cpu=1)
+<span class="c">## torque job with 1 CPU running command &#39;sleep 2&#39;</span>
+<span class="n">jobj</span> <span class="o">&lt;-</span> <span class="n">job</span><span class="p">(</span><span class="n">q_obj</span><span class="o">=</span><span class="n">qobj</span><span class="p">,</span> <span class="n">cmd</span> <span class="o">=</span> <span class="s">&quot;sleep 2&quot;</span><span class="p">,</span> <span class="n">cpu</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
-## multiple commands
-cmds = rep(&quot;sleep 5&quot;, 10)
+<span class="c">## multiple commands</span>
+<span class="n">cmds</span> <span class="o">=</span> <span class="n">rep</span><span class="p">(</span><span class="s">&quot;sleep 5&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 
-## run the 10 commands in parallel
-jobj1 &lt;- job(q_obj=qobj, cmd = cmds, submission_type = &quot;scatter&quot;, name = &quot;job1&quot;)
+<span class="c">## run the 10 commands in parallel</span>
+<span class="n">jobj1</span> <span class="o">&lt;-</span> <span class="n">job</span><span class="p">(</span><span class="n">q_obj</span><span class="o">=</span><span class="n">qobj</span><span class="p">,</span> <span class="n">cmd</span> <span class="o">=</span> <span class="n">cmds</span><span class="p">,</span> <span class="n">submission_type</span> <span class="o">=</span> <span class="s">&quot;scatter&quot;</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;job1&quot;</span><span class="p">)</span>
 
-## run the 10 commands sequentially, but WAIT for the previous job to complete
-jobj2 &lt;- job(q_obj=qobj, cmd = cmds, submission_type = &quot;serial&quot;,
-   dependency_type = &quot;gather&quot;, previous_job = &quot;job1&quot;)
+<span class="c">## run the 10 commands sequentially, but WAIT for the previous job to complete</span>
+<span class="n">jobj2</span> <span class="o">&lt;-</span> <span class="n">job</span><span class="p">(</span><span class="n">q_obj</span><span class="o">=</span><span class="n">qobj</span><span class="p">,</span> <span class="n">cmd</span> <span class="o">=</span> <span class="n">cmds</span><span class="p">,</span> <span class="n">submission_type</span> <span class="o">=</span> <span class="s">&quot;serial&quot;</span><span class="p">,</span>
+   <span class="n">dependency_type</span> <span class="o">=</span> <span class="s">&quot;gather&quot;</span><span class="p">,</span> <span class="n">previous_job</span> <span class="o">=</span> <span class="s">&quot;job1&quot;</span><span class="p">)</span>
 
-fobj &lt;- flow(jobs = list(jobj1, jobj2))
+<span class="n">fobj</span> <span class="o">&lt;-</span> <span class="n">flow</span><span class="p">(</span><span class="n">jobs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">jobj1</span><span class="p">,</span> <span class="n">jobj2</span><span class="p">))</span>
 
-## plot the flow
-plot_flow(fobj)
-## **Not run**:
-# ## dry run, only create the structure without submitting jobs
-# submit_flow(fobj)
-#
-# ## execute the jobs: ONLY works on computing cluster, would fail otherwise
-# submit_flow(fobj, execute = TRUE)
-#
-# ## **End(Not run)**
-.. image job-2.png
+<span class="c">## plot the flow</span>
+<span class="n">plot_flow</span><span class="p">(</span><span class="n">fobj</span><span class="p">)</span>
+<span class="c">## **Not run**:</span>
+<span class="c"># ## dry run, only create the structure without submitting jobs</span>
+<span class="c"># submit_flow(fobj)</span>
+<span class="c">#</span>
+<span class="c"># ## execute the jobs: ONLY works on computing cluster, would fail otherwise</span>
+<span class="c"># submit_flow(fobj, execute = TRUE)</span>
+<span class="c">#</span>
+<span class="c"># ## **End(Not run)**</span>
 </pre></div>
 </div>
 <p>Aliases:
 job
-Keywords:
-Author:</p>
+.. Keywords:</p>
 </div>
 </div>
 
 
           </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="../../index.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">job</a><ul>
-<li><a class="reference internal" href="#usage">Usage</a></li>
-<li><a class="reference internal" href="#description">Description</a></li>
-<li><a class="reference internal" href="#examples">Examples</a></li>
-</ul>
-</li>
-</ul>
+          <footer>
+  
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="get_flow_status.html"
-                        title="previous chapter">get_flow_status</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="kill_flow.html"
-                        title="next chapter">kill_flow</a></p>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../../_sources/rd/topics/job.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Sahil Seth.
     </p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="kill_flow.html" title="kill_flow"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="get_flow_status.html" title="get_flow_status"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">flowr 0.9.7 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="../../topics.html" >Help on available functions</a> &raquo;</li> 
-      </ul>
-    </div>
-    <div class="footer" role="contentinfo">
-        &copy; Copyright 2015, Sahil Seth.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
-    </div>
-  </body>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.9.7',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
 </html>
