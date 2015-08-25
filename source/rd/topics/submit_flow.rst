@@ -34,7 +34,10 @@ Arguments
 
 x
     a object of class flow.
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/gh-pages
 verbose
     logical.
 
@@ -43,14 +46,20 @@ verbose
 
 execute
     logical whether or not to submit the jobs
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/gh-pages
 uuid
     character Advanced use. This is the final path used for flow execution.
 Especially useful in case of re-running a flow.
 
 plot
     logical whether to make a pdf flow plot (saves it in the flow working directory).
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/gh-pages
 dump
     dump all the flow details to the flow path
 

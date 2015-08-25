@@ -90,9 +90,15 @@ kable(flowmat)
 
 |samplename |jobname    |cmd                                                            |
 |:----------|:----------|:--------------------------------------------------------------|
+<<<<<<< HEAD
 |sample1    |sleep      |sleep 3 && sleep 2;echo 'hello'                                |
 |sample1    |sleep      |sleep 14 && sleep 11;echo 'hello'                              |
 |sample1    |sleep      |sleep 6 && sleep 3;echo 'hello'                                |
+=======
+|sample1    |sleep      |sleep 9 && sleep 5;echo 'hello'                                |
+|sample1    |sleep      |sleep 8 && sleep 16;echo 'hello'                               |
+|sample1    |sleep      |sleep 8 && sleep 3;echo 'hello'                                |
+>>>>>>> origin/gh-pages
 |sample1    |create_tmp |head -c 100000 /dev/urandom > sample1_tmp_1                    |
 |sample1    |create_tmp |head -c 100000 /dev/urandom > sample1_tmp_2                    |
 |sample1    |create_tmp |head -c 100000 /dev/urandom > sample1_tmp_3                    |

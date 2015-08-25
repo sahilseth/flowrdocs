@@ -1,5 +1,9 @@
 ---
+<<<<<<< HEAD
 title: "Building Pipelines"
+=======
+title: "flowr simple pipelines"
+>>>>>>> origin/gh-pages
 date: "2015-08-25"
 output: rmarkdown::html_document
 vignette: >

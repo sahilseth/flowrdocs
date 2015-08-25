@@ -38,7 +38,10 @@ Arguments
 
 x
     Object of class flow, or a list of flow objects or a flowdef
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/gh-pages
 ...
     experimental
 

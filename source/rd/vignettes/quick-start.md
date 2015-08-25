@@ -25,6 +25,14 @@ A few examples [here](https://github.com/sahilseth/rfun).
 
 ```r
 library(flowr)
+<<<<<<< HEAD
+=======
+```
+
+
+```r
+setup()
+>>>>>>> origin/gh-pages
 ```
 
 
