@@ -39,7 +39,10 @@ x
 
 ...
     Supplied to specific functions like to_flow.data.frame
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/gh-pages
 def
     A flow definition table. Basically a table with resource requirements and mapping of the jobs in this flow
 

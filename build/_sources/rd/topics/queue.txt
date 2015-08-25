@@ -58,7 +58,10 @@ submit_exe
 
 nodes
     [advanced use] number of nodes you would like to request. Or in case of torque name of the nodes.optional [Used by class job]
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/gh-pages
 jobname
     [debug use] name of this job in the computing cluster
 

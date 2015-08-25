@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-|Build Status| |cran| |downloads|
+|Build Status| |cran| |downloads| |docs|
 
 .. |DOI|
 
@@ -86,11 +86,23 @@ Indices and tables
 * :ref:`modindex`
 * :ref:`search`
 
+Aknowledgements
+---------------
+
+- Jianhua Zhang
+- Samir Amin
+- Kadir Akdemir
+- Ethan Mao
+- Henry Song
+- An excellent resource for writing your own R packages: r-pkgs.had.co.nz
+
+
+
 .. links in this page
 
 .. _flow_creator: https://sseth.shinyapps.io/flow_creator
 
-.. |Build Status| image:: https://travis-ci.org/sahilseth/flowr.png
+.. |Build Status| image:: https://travis-ci.org/sahilseth/flowr.svg?branch=master
    :target: https://travis-ci.org/sahilseth/flowr
 
 .. |DOI| image:: https://zenodo.org/badge/11075/sahilseth/flowr.svg
@@ -100,4 +112,8 @@ Indices and tables
 	:target: http://cran.rstudio.com/web/packages/flowr/index.html
 	
 .. |downloads| image:: http://cranlogs.r-pkg.org/badges/grand-total/flowr
+
+.. |docs| image:: https://readthedocs.org/projects/flowr/badge/?version=latest
+	:target: https://readthedocs.org/projects/flowr/?badge=latest
+	:alt: Documentation Status
 
