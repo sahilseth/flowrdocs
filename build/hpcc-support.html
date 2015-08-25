@@ -1,167 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 
-<!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>HPCC Platforms &mdash; flowr 0.1 documentation</title>
-  
-
-  
-  
-
-  
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
-
-  
-  
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-
-  
-
-  
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-    <link rel="top" title="flowr 0.1 documentation" href="index.html"/>
-        <link rel="next" title="FAQs" href="faqs.html"/>
-        <link rel="prev" title="to_flowmat" href="rd/topics/to_flowmat.html"/>
-
-
-<script src="_static/labibi.js"></script>
-
-
-
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-16853172-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-
-
-
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
-
-</head>
-
-<body class="wy-body-for-nav" role="document">
-
-  <div class="wy-grid-for-nav">
-
+    <title>HPCC Platforms &mdash; flowr 0.9.7 documentation</title>
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-nav-search">
-        
-          <a href="index.html" class="fa fa-home"> flowr</a>
-        
-        
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-      </div>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.9.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="flowr 0.9.7 documentation" href="index.html" />
+    <link rel="next" title="FAQs" href="faqs.html" />
+    <link rel="prev" title="to_flowmat" href="rd/topics/to_flowmat.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="faqs.html" title="FAQs"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="rd/topics/to_flowmat.html" title="to_flowmat"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">flowr 0.9.7 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-        
-          
-          
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="rd/vignettes/quick-start.html">Get started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/quick-start.html#toy-example">Toy example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/quick-start.html#stitch">Stitch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/quick-start.html#plot">Plot</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/quick-start.html#test-it">Test it</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/quick-start.html#submit-it">Submit it !</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/quick-start.html#check-the-status">Check the status</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="build.html">Building Pipelines</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/build-pipes.html">Ingredients</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/build-pipes.html#submission-types">Submission types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/build-pipes.html#dependency-types">Dependency types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/build-pipes.html#relationships">Relationships</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/build-pipes.html#passing-of-flow-definition-resource-columns">Passing of flow definition resource columns</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/build-pipes.html#cluster-interface">Cluster interface</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="pipelines.html">Available pipelines</a><ul class="simple">
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="topics.html">Help on available functions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="rd/topics/flow.html">flow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/topics/get_flow_status.html">get_flow_status</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/topics/job.html">job</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/topics/kill_flow.html">kill_flow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/topics/plot_flow.html">plot_flow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/topics/queue.html">queue</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/topics/rerun_flow.html">rerun_flow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/topics/setup.html">setup</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/topics/submit_flow.html">submit_flow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/topics/submit_job.html">submit_job</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/topics/to_flow.html">to_flow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/topics/to_flowdef.html">to_flowdef</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/topics/to_flowmat.html">to_flowmat</a></li>
-</ul>
-</li>
-</ul>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="">HPCC Platforms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="faqs.html">FAQs</a></li>
-</ul>
-
-          
-        
-      </div>
-      &nbsp;
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="index.html">flowr</a>
-      </nav>
-
-
-      
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="index.html">Docs</a> &raquo;</li>
-      
-    <li>HPCC Platforms</li>
-      <li class="wy-breadcrumbs-aside">
-        
-          <a href="_sources/hpcc-support.txt" rel="nofollow"> View page source</a>
-        
-      </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main" class="document">
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
             
-  
   <div class="section" id="hpcc-platforms">
 <h1>HPCC Platforms<a class="headerlink" href="#hpcc-platforms" title="Permalink to this headline">¶</a></h1>
 <p>As of now we have tested this on the following clusters:</p>
@@ -254,154 +142,59 @@ Engine</a></li>
 </div>
 
 
-
-
-  
-
-<div id="disqus_thread"></div>
-<script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'flowrdocs'; // required: replace example with your forum shortname
-
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-
-
-
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="faqs.html" class="btn btn-neutral float-right" title="FAQs">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="rd/topics/to_flowmat.html" class="btn btn-neutral" title="to_flowmat"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
-  
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>
-        &copy; Copyright 2015, Sahil Seth.
-    </p>
-  </div>
-
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-  
-</footer>
         </div>
       </div>
-
-    </section>
-
-  </div>
-  
-
-
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'0.1',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
-        };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
-
-  
-  
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
-      });
-  </script>
-  
- 
-
-
-
-<div id="editor-trap">
-      <h3>Edit this document!</h3>
-
-      <p>
-        This file can be edited directly through the Web. Anyone can
-        update and fix errors in this document with few clicks --
-        no downloads needed.
-      <p>
-
-      <ol>
-
-        <li>
-          Go to
-        <a href="https://github.com/ctb/flowr/blob/master/hpcc-support.rst">
-          HPCC Platforms
-        </a> on GitHub.
-      </li>
-
-        <li>
-        <b>Edit</b> files using GitHub's text editor in your web browser (see the 'Edit' tab on the top right of the file)
-      </li>
-
-      <li>
-        Fill in the <b>Commit message</b> text box at the bottom of the page describing <i>why</i>
-        you made the changes. Press the <b>Propose file change</b> button next to it when done.
-      </li>
-
-      <li>
-        Then click <b>Send a pull request</b>.
-      </li>
-
-      <li>
-        Your changes are now queued for review under the project's <a href="https://github.com/ctb/flowr/pulls">Pull requests</a> tab on GitHub!
-      </li>
-      </ol>
-
-      <p>
-        For an introduction to the documentation format please see <a href="http://docutils.sourceforge.net/docs/user/rst/quickstart.html">the reST primer</a>.
-      </p>
-
-  </div>
-
-
-
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', UA-36028965-1]);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
-
-
-
-</body>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="rd/topics/to_flowmat.html"
+                        title="previous chapter">to_flowmat</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="faqs.html"
+                        title="next chapter">FAQs</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/hpcc-support.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="faqs.html" title="FAQs"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="rd/topics/to_flowmat.html" title="to_flowmat"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">flowr 0.9.7 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Sahil Seth.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
 </html>
