@@ -1,0 +1,429 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Example1 &mdash; flowr 0.9.7 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.9.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="flowr 0.9.7 documentation" href="../../index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">flowr 0.9.7 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="example1">
+<h1>Example1<a class="headerlink" href="#example1" title="Permalink to this headline">¶</a></h1>
+<div class="code r highlight-python"><div class="highlight"><pre><span class="n">read_chunk</span><span class="p">(</span><span class="n">system</span><span class="o">.</span><span class="n">file</span><span class="p">(</span><span class="s">&#39;pipelines&#39;</span><span class="p">,</span> <span class="s">&#39;sleep_pipe.R&#39;</span><span class="p">,</span> <span class="n">package</span> <span class="o">=</span> <span class="s">&#39;flowr&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="section" id="define-modules">
+<h2>Define modules<a class="headerlink" href="#define-modules" title="Permalink to this headline">¶</a></h2>
+<div class="code r highlight-python"><div class="highlight"><pre>#&#39; @param x number of sleep commands
+sleep &lt;- function(x, samplename){
+    cmd = list(sleep = sprintf(&quot;sleep %s &amp;&amp; sleep %s;echo &#39;hello&#39;&quot;,
+        abs(round(rnorm(x)*10, 0)),
+        abs(round(rnorm(x)*10, 0))))
+    flowmat = to_flowmat(cmd, samplename)
+    return(list(flowmat = flowmat))
+}
+
+#&#39; @param x number of tmp commands
+create_tmp &lt;- function(x, samplename){
+    ## Create 100 temporary files
+    tmp = sprintf(&quot;%s_tmp_%s&quot;, samplename, 1:x)
+    cmd = list(create_tmp = sprintf(&quot;head -c 100000 /dev/urandom &gt; %s&quot;, tmp))
+    ## --- convert the list into a data.frame
+    flowmat = to_flowmat(cmd, samplename)
+    return(list(flowmat = flowmat, outfiles = tmp))
+}
+
+#&#39; @param x vector of files to merge
+merge_size &lt;- function(x, samplename){
+    ## Merge them according to samples, 10 each
+    mergedfile = paste0(samplename, &quot;_merged&quot;)
+    cmd_merge &lt;- sprintf(&quot;cat %s &gt; %s&quot;,
+        paste(x, collapse = &quot; &quot;), ## input files
+        mergedfile)
+    ## get the size of merged files
+    cmd_size = sprintf(&quot;du -sh %s; echo &#39;MY shell:&#39; $SHELL&quot;, mergedfile)
+
+    cmd = list(merge = cmd_merge, size = cmd_size)
+    ## --- convert the list into a data.frame
+    flowmat = to_flowmat(cmd, samplename)
+    return(list(flowmat = flowmat, outfiles = mergedfile))
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="define-the-pipeline">
+<h2>Define the pipeline<a class="headerlink" href="#define-the-pipeline" title="Permalink to this headline">¶</a></h2>
+<div class="code r highlight-python"><div class="highlight"><pre>#&#39; @param x number of files to make
+sleep_pipe &lt;- function(x = 3, samplename = &quot;samp1&quot;){
+
+    ## call the modules one by one...
+    out_sleep = sleep(x, samplename)
+    out_create_tmp = create_tmp(x, samplename)
+    out_merge_size = merge_size(out_create_tmp$outfiles, samplename)
+
+    ## row bind all the commands
+    flowmat = rbind(out_sleep$flowmat,
+        out_create_tmp$flowmat,
+        out_merge_size$flowmat)
+
+    return(list(flowmat = flowmat, outfiles = out_merge_size$outfiles))
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="generate-flowmat">
+<h2>Generate flowmat<a class="headerlink" href="#generate-flowmat" title="Permalink to this headline">¶</a></h2>
+<div class="code r highlight-python"><div class="highlight"><pre>out = sleep_pipe(x = 3, &quot;sample1&quot;)
+flowmat = out$flowmat
+
+kable(flowmat)
+</pre></div>
+</div>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%" />
+<col width="15%" />
+<col width="72%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">samplename</th>
+<th class="head">jobname</th>
+<th class="head">cmd</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>sample1</td>
+<td>sleep</td>
+<td>sleep 20 &amp;&amp; sleep 7;echo &#8216;hello&#8217;</td>
+</tr>
+<tr class="row-odd"><td>sample1</td>
+<td>sleep</td>
+<td>sleep 7 &amp;&amp; sleep 8;echo &#8216;hello&#8217;</td>
+</tr>
+<tr class="row-even"><td>sample1</td>
+<td>sleep</td>
+<td>sleep 15 &amp;&amp; sleep 3;echo &#8216;hello&#8217;</td>
+</tr>
+<tr class="row-odd"><td>sample1</td>
+<td>create_tmp</td>
+<td>head -c 100000 /dev/urandom &gt; sample1_tmp_1</td>
+</tr>
+<tr class="row-even"><td>sample1</td>
+<td>create_tmp</td>
+<td>head -c 100000 /dev/urandom &gt; sample1_tmp_2</td>
+</tr>
+<tr class="row-odd"><td>sample1</td>
+<td>create_tmp</td>
+<td>head -c 100000 /dev/urandom &gt; sample1_tmp_3</td>
+</tr>
+<tr class="row-even"><td>sample1</td>
+<td>merge</td>
+<td>cat sample1_tmp_1 sample1_tmp_2 sample1_tmp_3 &gt; sample1_merged</td>
+</tr>
+<tr class="row-odd"><td>sample1</td>
+<td>size</td>
+<td>du -sh sample1_merged; echo &#8216;MY shell:&#8217; $SHELL</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="create-flow-definition">
+<h2>Create flow definition<a class="headerlink" href="#create-flow-definition" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="we-have-a-helper-function-which-generates-a-skeleton-flow-def">
+<h3>We have a helper function which generates a skeleton flow_def<a class="headerlink" href="#we-have-a-helper-function-which-generates-a-skeleton-flow-def" title="Permalink to this headline">¶</a></h3>
+<div class="code r highlight-python"><div class="highlight"><pre>def = to_flowdef(flowmat)
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#&gt; Creating a skeleton flow definition</span>
+<span class="c">#&gt; Following jobnames detected: sleep create_tmp merge size</span>
+</pre></div>
+</div>
+<div class="code r highlight-python"><div class="highlight"><pre>kable(def)
+</pre></div>
+</div>
+<table border="1" class="docutils">
+<colgroup>
+<col width="11%" />
+<col width="10%" />
+<col width="11%" />
+<col width="10%" />
+<col width="7%" />
+<col width="15%" />
+<col width="9%" />
+<col width="13%" />
+<col width="9%" />
+<col width="7%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">jobname</th>
+<th class="head">sub_type</th>
+<th class="head">prev_jobs</th>
+<th class="head">dep_type</th>
+<th class="head">queue</th>
+<th class="head">memory_reserved</th>
+<th class="head">walltime</th>
+<th class="head">cpu_reserved</th>
+<th class="head">platform</th>
+<th class="head">jobid</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>sleep</td>
+<td>serial</td>
+<td>none</td>
+<td>none</td>
+<td>short</td>
+<td>2000</td>
+<td>1:00</td>
+<td>1</td>
+<td>torque</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td>create_tmp</td>
+<td>serial</td>
+<td>sleep</td>
+<td>gather</td>
+<td>short</td>
+<td>2000</td>
+<td>1:00</td>
+<td>1</td>
+<td>torque</td>
+<td>2</td>
+</tr>
+<tr class="row-even"><td>merge</td>
+<td>serial</td>
+<td>create_tmp</td>
+<td>gather</td>
+<td>short</td>
+<td>2000</td>
+<td>1:00</td>
+<td>1</td>
+<td>torque</td>
+<td>3</td>
+</tr>
+<tr class="row-odd"><td>size</td>
+<td>serial</td>
+<td>merge</td>
+<td>gather</td>
+<td>short</td>
+<td>2000</td>
+<td>1:00</td>
+<td>1</td>
+<td>torque</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="default-flowdef">
+<h2>Default flowdef<a class="headerlink" href="#default-flowdef" title="Permalink to this headline">¶</a></h2>
+<div class="code r highlight-python"><div class="highlight"><pre>plot_flow(to_flow(flowmat, def))
+</pre></div>
+</div>
+<div class="figure" id="id1">
+<img alt="plot of chunk unnamed-chunk-4" src="../../_images/unnamed-chunk-4-1.png" />
+<p class="caption"><span class="caption-text">plot of chunk unnamed-chunk-4</span></p>
+</div>
+<p>By default the flowdef seems quite conservative.</p>
+<div class="section" id="change-the-dependency-type-for-merge-step-into-gather">
+<h3>Change the dependency type for merge step into gather<a class="headerlink" href="#change-the-dependency-type-for-merge-step-into-gather" title="Permalink to this headline">¶</a></h3>
+<p>It might be easier to do such, by hand. In this example let do this in R itself.</p>
+<div class="code r highlight-python"><div class="highlight"><pre>def$sub_type = c(&quot;scatter&quot;, &quot;scatter&quot;, &quot;serial&quot;, &quot;serial&quot;)
+def$dep_type = c(&quot;none&quot;, &quot;serial&quot;, &quot;gather&quot;, &quot;serial&quot;)
+kable(def)
+</pre></div>
+</div>
+<table border="1" class="docutils">
+<colgroup>
+<col width="11%" />
+<col width="10%" />
+<col width="11%" />
+<col width="10%" />
+<col width="7%" />
+<col width="15%" />
+<col width="9%" />
+<col width="13%" />
+<col width="9%" />
+<col width="7%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">jobname</th>
+<th class="head">sub_type</th>
+<th class="head">prev_jobs</th>
+<th class="head">dep_type</th>
+<th class="head">queue</th>
+<th class="head">memory_reserved</th>
+<th class="head">walltime</th>
+<th class="head">cpu_reserved</th>
+<th class="head">platform</th>
+<th class="head">jobid</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>sleep</td>
+<td>scatter</td>
+<td>none</td>
+<td>none</td>
+<td>short</td>
+<td>2000</td>
+<td>1:00</td>
+<td>1</td>
+<td>torque</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td>create_tmp</td>
+<td>scatter</td>
+<td>sleep</td>
+<td>serial</td>
+<td>short</td>
+<td>2000</td>
+<td>1:00</td>
+<td>1</td>
+<td>torque</td>
+<td>2</td>
+</tr>
+<tr class="row-even"><td>merge</td>
+<td>serial</td>
+<td>create_tmp</td>
+<td>gather</td>
+<td>short</td>
+<td>2000</td>
+<td>1:00</td>
+<td>1</td>
+<td>torque</td>
+<td>3</td>
+</tr>
+<tr class="row-odd"><td>size</td>
+<td>serial</td>
+<td>merge</td>
+<td>serial</td>
+<td>short</td>
+<td>2000</td>
+<td>1:00</td>
+<td>1</td>
+<td>torque</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="plot-flow">
+<h3>Plot flow<a class="headerlink" href="#plot-flow" title="Permalink to this headline">¶</a></h3>
+<p>Now this looke better.</p>
+<ul class="simple">
+<li>multiple sleep commands would run in parallel</li>
+<li>For each sleep, create_tmp creates a file</li>
+<li>All tmp files are merged; when all are complete: gather</li>
+<li>Then we get size on the resulting file</li>
+</ul>
+<div class="code r highlight-python"><div class="highlight"><pre>plot_flow(to_flow(flowmat, def))
+</pre></div>
+</div>
+<div class="figure" id="id2">
+<img alt="plot of chunk unnamed-chunk-6" src="../../_images/unnamed-chunk-6-1.png" />
+<p class="caption"><span class="caption-text">plot of chunk unnamed-chunk-6</span></p>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Example1</a><ul>
+<li><a class="reference internal" href="#define-modules">Define modules</a></li>
+<li><a class="reference internal" href="#define-the-pipeline">Define the pipeline</a></li>
+<li><a class="reference internal" href="#generate-flowmat">Generate flowmat</a></li>
+<li><a class="reference internal" href="#create-flow-definition">Create flow definition</a><ul>
+<li><a class="reference internal" href="#we-have-a-helper-function-which-generates-a-skeleton-flow-def">We have a helper function which generates a skeleton flow_def</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#default-flowdef">Default flowdef</a><ul>
+<li><a class="reference internal" href="#change-the-dependency-type-for-merge-step-into-gather">Change the dependency type for merge step into gather</a></li>
+<li><a class="reference internal" href="#plot-flow">Plot flow</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/rd/vignettes/example_sleep.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">flowr 0.9.7 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Sahil Seth.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

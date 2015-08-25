@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>flowr: Streamline your workflows &mdash; flowr 0.9.7 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.9.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="flowr 0.9.7 documentation" href="#" />
+    <link rel="next" title="Get started" href="rd/vignettes/quick-start.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="rd/vignettes/quick-start.html" title="Get started"
+             accesskey="N">next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">flowr 0.9.7 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <p><a class="reference external" href="https://travis-ci.org/sahilseth/flowr"><img alt="Build Status" src="https://travis-ci.org/sahilseth/flowr.png" /></a> <a class="reference external" href="http://dx.doi.org/10.5281/zenodo.16170"><img alt="DOI" src="https://zenodo.org/badge/11075/sahilseth/flowr.svg" /></a></p>
+<div class="section" id="flowr-streamline-your-workflows">
+<h1>flowr: Streamline your workflows<a class="headerlink" href="#flowr-streamline-your-workflows" title="Permalink to this headline">¶</a></h1>
+<p>This framework allows you to design and implement complex pipelines, and deploy them on your institution&#8217;s computing cluster. This has been built keeping in mind the needs of bioinformatics workflows. However, it is easily extendable to any field where a series of steps (shell commands) are to be executed in a (work)flow.</p>
+<div class="section" id="why-bother">
+<h2>Why bother?<a class="headerlink" href="#why-bother" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Do you have a series of steps which <strong>can</strong> spawn across the whole computing cluster, but currently are not effectively utilizing those resources?</p>
+</li>
+<li><dl class="first docutils">
+<dt>Example:</dt>
+<dd><ul class="first last simple">
+<li>Think of a sample with multiple files (<a class="reference external" href="http://en.wikipedia.org/wiki/Sequence_alignment">alignment</a>, with tens of <a class="reference external" href="http://en.wikipedia.org/wiki/FASTQ_format">fastq</a> files)</li>
+<li>Each file processed using multiple cores</li>
+<li>Say 50 files using 10 cores each &#8211;&gt; 160 cores across 10 machines.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">Reproducible, with cleanly structured execution logs</p>
+</li>
+<li><p class="first">Track and re-run flows</p>
+</li>
+<li><p class="first">Lean and Portable, with easy installation</p>
+</li>
+<li><p class="first">Supports multiple platforms (torque, lsf, sge, ...)</p>
+</li>
+</ul>
+<div class="section" id="a-few-lines-to-get-started">
+<h3>A few lines, to get started:<a class="headerlink" href="#a-few-lines-to-get-started" title="Permalink to this headline">¶</a></h3>
+<div class="code r highlight-python"><div class="highlight"><pre>install.packages(devtools)
+devtools::install_github(&quot;sahilseth/flowr&quot;)
+## OR
+install.packages(&quot;flowr&quot;) ## coming up soon...
+library(flowr) ## load the library
+setup() ## copy flowr bash script
+run(&#39;sleep&#39;, execute=TRUE,  platform=&#39;moab&#39;)
+</pre></div>
+</div>
+<ul class="simple">
+<li>Here is a shiny app, <a class="reference external" href="https://sseth.shinyapps.io/flow_creator">flow_creator</a> which helps you build a flow.</li>
+<li>A few <a class="reference external" href="http://sahilseth.github.io/slides/flowrintro">slides</a> providing a quick overview.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="contents">
+<h2>Contents:<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="rd/vignettes/quick-start.html">Get started</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="build.html">Building Pipelines</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/build-pipes.html">Ingredients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/build-pipes.html#submission-types">Submission types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/build-pipes.html#dependency-types">Dependency types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/build-pipes.html#relationships">Relationships</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/build-pipes.html#passing-of-flow-definition-resource-columns">Passing of flow definition resource columns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/build-pipes.html#cluster-interface">Cluster interface</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pipelines.html">Available pipelines</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="topics.html">Help on available functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/flow.html">flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/get_flow_status.html">get_flow_status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/job.html">job</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/kill_flow.html">kill_flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/plot_flow.html">plot_flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/queue.html">queue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/rerun_flow.html">rerun_flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/setup.html">setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/submit_flow.html">submit_flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/submit_job.html">submit_job</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/to_flow.html">to_flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/to_flowdef.html">to_flowdef</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/to_flowmat.html">to_flowmat</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="hpcc-support.html">HPCC Platforms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faqs.html">FAQs</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span>Index</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span>Module Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span>Search Page</span></a></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">flowr: Streamline your workflows</a><ul>
+<li><a class="reference internal" href="#why-bother">Why bother?</a><ul>
+<li><a class="reference internal" href="#a-few-lines-to-get-started">A few lines, to get started:</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#contents">Contents:</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Next topic</h4>
+  <p class="topless"><a href="rd/vignettes/quick-start.html"
+                        title="next chapter">Get started</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="rd/vignettes/quick-start.html" title="Get started"
+             >next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">flowr 0.9.7 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Sahil Seth.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>
