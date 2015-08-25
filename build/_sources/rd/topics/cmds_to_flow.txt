@@ -10,9 +10,15 @@
 cmds_to_flow
 -----------
 
-:func:`cmds_to_flow`
+.. :func:`cmds_to_flow`
 
 cmds_to_flow: DEPRECIATED
+
+Description
+~~~~~~~~~~~~~~~~~~
+
+Create a `flow <#flow>`_ object from a list of commands
+
 
 Usage
 ~~~~~~~~~~~~~~~~~~
@@ -50,10 +56,6 @@ flow_run_path
     outpath
 
 
-Description
-~~~~~~~~~~~~~~~~~~
-
-Create a `flow <flow.html>`_ object from a list of commands
 
 
 Examples
@@ -67,5 +69,5 @@ cmds_to_flow
 
 .. Author:
 
-
+.. 
 

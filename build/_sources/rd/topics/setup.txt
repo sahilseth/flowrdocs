@@ -10,9 +10,15 @@
 setup
 -----------
 
-:func:`setup`
+.. :func:`setup`
 
 Setup and initialize some scripts.
+
+Description
+~~~~~~~~~~~~~~~~~~
+
+Setup and initialize some scripts.
+
 
 Usage
 ~~~~~~~~~~~~~~~~~~
@@ -35,10 +41,6 @@ flow_base_path
     the root folder for all flowr operations
 
 
-Description
-~~~~~~~~~~~~~~~~~~
-
-Setup and initialize some scripts.
 Details
 ~~~~~~~~~~~~~~~~~~
 
@@ -56,5 +58,5 @@ setup
 
 .. Author:
 
-
+.. 
 

@@ -81,6 +81,7 @@ Plot
    :alt: Flow chart describing process for example 1
 
    Flow chart describing process for example 1
+
 Test it
 -------
 

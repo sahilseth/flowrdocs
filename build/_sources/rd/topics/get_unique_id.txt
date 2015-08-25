@@ -10,9 +10,15 @@
 get_unique_id
 -----------
 
-:func:`get_unique_id`
+.. :func:`get_unique_id`
 
 get_unique_id
+
+Description
+~~~~~~~~~~~~~~~~~~
+
+get_unique_id
+
 
 Usage
 ~~~~~~~~~~~~~~~~~~
@@ -29,7 +35,7 @@ Arguments
 
 
 prefix
-    Default id. Character string to be added in the front.
+    Default ``id``. Character string to be added in the front.
 
 suffix
     Default ''. Character string to be added in the end.
@@ -38,10 +44,6 @@ random_length
     Integer, defaults to 8. In our opinion 8 serves well, providing 'uniqueness' and not being much of a eyesore.
 
 
-Description
-~~~~~~~~~~~~~~~~~~
-
-get_unique_id
 
 
 Examples
@@ -59,5 +61,5 @@ get_unique_id
 internal
 .. Author:
 
-
+.. 
 

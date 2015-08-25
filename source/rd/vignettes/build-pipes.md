@@ -1,9 +1,5 @@
 ---
-<<<<<<< HEAD
 title: "Building Pipelines"
-=======
-title: "flowr simple pipelines"
->>>>>>> origin/gh-pages
 date: "2015-08-25"
 output: rmarkdown::html_document
 vignette: >
@@ -301,27 +297,26 @@ Here are some of the available piplines along with their respective locations
 
 
 
-|name                    |def                  |conf                  |pipe                                                                             |
-|:-----------------------|:--------------------|:---------------------|:--------------------------------------------------------------------------------|
-|sleep_pipe              |sleep_pipe.def       |NA                    |/Users/sahilseth/Dropbox2/Dropbox/public/github_flow/inst/pipelines/sleep_pipe.R |
-|fastq_bam_bwa           |NA                   |NA                    |/Users/sahilseth/Rlibs/ngsflows/pipelines/fastq_bam_bwa.R                        |
-|fastq_bam_rna_ion       |NA                   |NA                    |/Users/sahilseth/Rlibs/ngsflows/pipelines/fastq_bam_rna_ion.R                    |
-|fastq_bam_variants      |NA                   |NA                    |/Users/sahilseth/Rlibs/ngsflows/pipelines/fastq_bam_variants.R                   |
-|fastq_haplotyper        |fastq_haplotyper.def |fastq_haplotyper.conf |/Users/sahilseth/Rlibs/ngsflows/pipelines/fastq_haplotyper.R                     |
-|fastq_star_rna          |NA                   |NA                    |/Users/sahilseth/Rlibs/ngsflows/pipelines/fastq_star_rna.R                       |
-|old_bam_pindel          |NA                   |NA                    |/Users/sahilseth/Rlibs/ngsflows/pipelines/old_bam_pindel.R                       |
-|old_bam_preprocess      |NA                   |NA                    |/Users/sahilseth/Rlibs/ngsflows/pipelines/old_bam_preprocess.R                   |
-|old_bam_xenome          |NA                   |NA                    |/Users/sahilseth/Rlibs/ngsflows/pipelines/old_bam_xenome.R                       |
-|old_bwa_pipe            |NA                   |NA                    |/Users/sahilseth/Rlibs/ngsflows/pipelines/old_bwa_pipe.R                         |
-|old_dna_qc              |NA                   |NA                    |/Users/sahilseth/Rlibs/ngsflows/pipelines/old_dna_qc.R                           |
-|old_fastq_bam_bwa2      |NA                   |NA                    |/Users/sahilseth/Rlibs/ngsflows/pipelines/old_fastq_bam_bwa2.R                   |
-|old_fastq_bismark_meth  |NA                   |NA                    |/Users/sahilseth/Rlibs/ngsflows/pipelines/old_fastq_bismark_meth.R               |
-|old_flow_bam_preprocess |NA                   |NA                    |/Users/sahilseth/Rlibs/ngsflows/pipelines/old_flow_bam_preprocess.R              |
-|old_proc_bwa_pipe       |NA                   |NA                    |/Users/sahilseth/Rlibs/ngsflows/pipelines/old_proc_bwa_pipe.R                    |
-|split_aln_merge         |split_aln_merge.def  |NA                    |/Users/sahilseth/Rlibs/ngsflows/pipelines/split_aln_merge.R                      |
-|build-pipes             |NA                   |NA                    |/Users/sahilseth/Dropbox2/Dropbox/public/github_flow/vignettes/build-pipes.R     |
-|example_sleep           |NA                   |NA                    |/Users/sahilseth/Dropbox2/Dropbox/public/github_flow/vignettes/example_sleep.R   |
-|quick-start             |NA                   |NA                    |/Users/sahilseth/Dropbox2/Dropbox/public/github_flow/vignettes/quick-start.R     |
+|name                    |def                 |conf |pipe                                                                                                        |
+|:-----------------------|:-------------------|:----|:-----------------------------------------------------------------------------------------------------------|
+|sleep_pipe              |sleep_pipe.def      |NA   |/Users/sahilseth/Dropbox2/Dropbox/public/github_flow/inst/pipelines/sleep_pipe.R                            |
+|fastq_bam_bwa           |NA                  |NA   |/Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/fastq_bam_bwa.R           |
+|fastq_bam_rna_ion       |NA                  |NA   |/Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/fastq_bam_rna_ion.R       |
+|fastq_bam_variants      |NA                  |NA   |/Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/fastq_bam_variants.R      |
+|fastq_star_rna          |NA                  |NA   |/Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/fastq_star_rna.R          |
+|old_bam_pindel          |NA                  |NA   |/Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/old_bam_pindel.R          |
+|old_bam_preprocess      |NA                  |NA   |/Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/old_bam_preprocess.R      |
+|old_bam_xenome          |NA                  |NA   |/Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/old_bam_xenome.R          |
+|old_bwa_pipe            |NA                  |NA   |/Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/old_bwa_pipe.R            |
+|old_dna_qc              |NA                  |NA   |/Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/old_dna_qc.R              |
+|old_fastq_bam_bwa2      |NA                  |NA   |/Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/old_fastq_bam_bwa2.R      |
+|old_fastq_bismark_meth  |NA                  |NA   |/Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/old_fastq_bismark_meth.R  |
+|old_flow_bam_preprocess |NA                  |NA   |/Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/old_flow_bam_preprocess.R |
+|old_proc_bwa_pipe       |NA                  |NA   |/Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/old_proc_bwa_pipe.R       |
+|split_aln_merge         |split_aln_merge.def |NA   |/Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/split_aln_merge.R         |
+|build-pipes             |NA                  |NA   |/Users/sahilseth/Dropbox2/Dropbox/public/github_flow/vignettes/build-pipes.R                                |
+|example_sleep           |NA                  |NA   |/Users/sahilseth/Dropbox2/Dropbox/public/github_flow/vignettes/example_sleep.R                              |
+|quick-start             |NA                  |NA   |/Users/sahilseth/Dropbox2/Dropbox/public/github_flow/vignettes/quick-start.R                                |
 
 
 # Cluster Support

@@ -10,9 +10,15 @@
 parse_jobids
 -----------
 
-:func:`parse_jobids`
+.. :func:`parse_jobids`
 
 parse_jobids
+
+Description
+~~~~~~~~~~~~~~~~~~
+
+parse_jobids
+
 
 Usage
 ~~~~~~~~~~~~~~~~~~
@@ -35,10 +41,6 @@ platform
     string specifying the platform. This determines how the jobids are parsed
 
 
-Description
-~~~~~~~~~~~~~~~~~~
-
-parse_jobids
 
 
 Examples
@@ -52,5 +54,5 @@ parse_jobids
 
 .. Author:
 
-
+.. 
 

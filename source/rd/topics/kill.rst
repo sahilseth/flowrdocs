@@ -10,9 +10,19 @@
 kill
 -----------
 
-:func:`kill`
+.. :func:`kill`
 
 kill
+
+Description
+~~~~~~~~~~~~~~~~~~
+
+kill
+
+works on flow_path. Reads flow object and calls kill.flow()
+
+works on flow object
+
 
 Usage
 ~~~~~~~~~~~~~~~~~~
@@ -22,9 +32,11 @@ Usage
  
  kill(x, ...)
  
- "kill"(x, force = FALSE, ...)
+ ## method for class 'character'
+ kill(x, force = FALSE, ...)
  
- "kill"(x, kill_cmd, jobid_col = "job_sub_id", ...)
+ ## method for class 'flow'
+ kill(x, kill_cmd, jobid_col = "job_sub_id", ...)
  
 
 
@@ -33,7 +45,7 @@ Arguments
 
 
 x
-    either path to flow [character] or fobj object of class `flow <flow.html>`_
+    either path to flow [character] or fobj object of class `flow <#flow>`_
 
 ...
     not used
@@ -48,12 +60,6 @@ jobid_col
     Advanced use. The column name in 'flow_details.txt' file used to fetch jobids to kill
 
 
-Description
-~~~~~~~~~~~~~~~~~~
-
-kill
-works on flow_path. Reads flow object and calls kill.flow()
-works on flow object
 
 
 Examples
@@ -74,5 +80,5 @@ kill.flow
 
 .. Author:
 
-
+.. 
 

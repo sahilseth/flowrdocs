@@ -10,9 +10,18 @@
 to_flowdet
 -----------
 
-:func:`to_flowdet`
+.. :func:`to_flowdet`
 
 to_flowdet
+
+Description
+~~~~~~~~~~~~~~~~~~
+
+to_flowdet
+
+get a flow_details file from the directory structure. This has less information than the
+one generated using a flow object. Lacks jobids etc...
+
 
 Usage
 ~~~~~~~~~~~~~~~~~~
@@ -22,11 +31,14 @@ Usage
  
  to_flowdet(x, ...)
  
- "to_flowdet"(x, ...)
+ ## method for class 'rootdir'
+ to_flowdet(x, ...)
  
- "to_flowdet"(x, ...)
+ ## method for class 'character'
+ to_flowdet(x, ...)
  
- "to_flowdet"(x, ...)
+ ## method for class 'flow'
+ to_flowdet(x, ...)
  
 
 
@@ -41,12 +53,6 @@ x
     not used
 
 
-Description
-~~~~~~~~~~~~~~~~~~
-
-to_flowdet
-get a flow_details file from the directory structure. This has less information than the
-one generated using a flow object. Lacks jobids etc...
 Details
 ~~~~~~~~~~~~~~~~~~
 
@@ -68,5 +74,5 @@ to_flowdet.rootdir
 
 .. Author:
 
-
+.. 
 

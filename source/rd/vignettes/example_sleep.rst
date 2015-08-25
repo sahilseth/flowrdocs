@@ -79,19 +79,11 @@ Generate flowmat
 +--------------+---------------+-------------------------------------------------------------------------+
 | samplename   | jobname       | cmd                                                                     |
 +==============+===============+=========================================================================+
-<<<<<<< HEAD
-| sample1      | sleep         | sleep 3 && sleep 2;echo 'hello'                                         |
+| sample1      | sleep         | sleep 10 && sleep 9;echo 'hello'                                        |
 +--------------+---------------+-------------------------------------------------------------------------+
-| sample1      | sleep         | sleep 14 && sleep 11;echo 'hello'                                       |
+| sample1      | sleep         | sleep 0 && sleep 1;echo 'hello'                                         |
 +--------------+---------------+-------------------------------------------------------------------------+
-| sample1      | sleep         | sleep 6 && sleep 3;echo 'hello'                                         |
-=======
-| sample1      | sleep         | sleep 9 && sleep 5;echo 'hello'                                         |
-+--------------+---------------+-------------------------------------------------------------------------+
-| sample1      | sleep         | sleep 8 && sleep 16;echo 'hello'                                        |
-+--------------+---------------+-------------------------------------------------------------------------+
-| sample1      | sleep         | sleep 8 && sleep 3;echo 'hello'                                         |
->>>>>>> origin/gh-pages
+| sample1      | sleep         | sleep 3 && sleep 11;echo 'hello'                                        |
 +--------------+---------------+-------------------------------------------------------------------------+
 | sample1      | create\_tmp   | head -c 100000 /dev/urandom > sample1\_tmp\_1                           |
 +--------------+---------------+-------------------------------------------------------------------------+
@@ -146,6 +138,7 @@ Default flowdef
    :alt: plot of chunk unnamed-chunk-4
 
    plot of chunk unnamed-chunk-4
+
 By default the flowdef seems quite conservative.
 
 Change the dependency type for merge step into gather
@@ -189,4 +182,3 @@ Now this looke better.
    :alt: plot of chunk unnamed-chunk-6
 
    plot of chunk unnamed-chunk-6
-

@@ -10,9 +10,21 @@
 as.flowdef
 -----------
 
-:func:`as.flowdef`
+.. :func:`as.flowdef`
 
 flow definition
+
+Description
+~~~~~~~~~~~~~~~~~~
+
+Reeading a flow definition file and checking it.
+
+Creation of a skeleton flow definition with several default values.
+
+All params may be of length one, or same as the number of jobnames
+
+to_flowdef.character: x is a flowmat file.
+
 
 Usage
 ~~~~~~~~~~~~~~~~~~
@@ -26,11 +38,14 @@ Usage
  
  to_flowdef(x, ...)
  
- "to_flowdef"(x, sub_type, dep_type, prev_jobs, queue = "short", platform = "torque", memory_reserved = "2000", cpu_reserved = "1", walltime = "1:00", ...)
+ ## method for class 'flowmat'
+ to_flowdef(x, sub_type, dep_type, prev_jobs, queue = "short", platform = "torque", memory_reserved = "2000", cpu_reserved = "1", walltime = "1:00", ...)
  
- "to_flowdef"(x, ...)
+ ## method for class 'flow'
+ to_flowdef(x, ...)
  
- "to_flowdef"(x, ...)
+ ## method for class 'character'
+ to_flowdef(x, ...)
  
 
 
@@ -75,13 +90,6 @@ x
     not used
 
 
-Description
-~~~~~~~~~~~~~~~~~~
-
-Reeading a flow definition file and checking it.
-Creation of a skeleton flow definition with several default values.
-All params may be of length one, or same as the number of jobnames
-to_flowdef.character: x is a flowmat file.
 
 
 Examples
