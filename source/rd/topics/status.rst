@@ -10,15 +10,9 @@
 status
 -----------
 
-.. :func:`status`
+:func:`status`
 
 status
-
-Description
-~~~~~~~~~~~~~~~~~~
-
-Summarize status of executed flow(x)
-
 
 Usage
 ~~~~~~~~~~~~~~~~~~
@@ -30,14 +24,11 @@ Usage
  
  get_status(x, ...)
  
- ## method for class 'character'
- get_status(x, out_format = "markdown", ...)
+ "get_status"(x, out_format = "markdown", ...)
  
- ## method for class 'data.frame'
- get_status(x, ...)
+ "get_status"(x, ...)
  
- ## method for class 'flow'
- get_status(x, out_format = "markdown", ...)
+ "get_status"(x, out_format = "markdown", ...)
  
 
 
@@ -55,13 +46,20 @@ out_format
     not used
 
 
+Description
+~~~~~~~~~~~~~~~~~~
+
+Summarize status of executed flow(x)
 Details
 ~~~~~~~~~~~~~~~~~~
 
 basename(x) is used in a wild card search.
--  If x is a path with a single flow, it outputs the status of one flow.
--  If the path has more than one flow then this could give a summary of **all** of them.
--  Instead if x is supplied with paths to more than one flow, then this individually prints status of each.
+-<li> If x is a path with a single flow, it outputs the status of one flow.
+</li>
+<li> If the path has more than one flow then this could give a summary of **all** of them.
+</li>
+<li> Instead if x is supplied with paths to more than one flow, then this individually prints status of each.
+</li>
 Alternatively, x can also be a flow object
 
 
@@ -86,5 +84,5 @@ status
 
 .. Author:
 
-.. 
+
 

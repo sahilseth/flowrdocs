@@ -10,19 +10,9 @@
 kill
 -----------
 
-.. :func:`kill`
+:func:`kill`
 
-kill
-
-Description
-~~~~~~~~~~~~~~~~~~
-
-kill
-
-works on flow_path. Reads flow object and calls kill.flow()
-
-works on flow object
-
+Incase of issue with the pipeline, kill all jobs in one step
 
 Usage
 ~~~~~~~~~~~~~~~~~~
@@ -32,11 +22,9 @@ Usage
  
  kill(x, ...)
  
- ## method for class 'character'
- kill(x, force = FALSE, ...)
+ "kill"(x, force = FALSE, ...)
  
- ## method for class 'flow'
- kill(x, kill_cmd, jobid_col = "job_sub_id", ...)
+ "kill"(x, kill_cmd, jobid_col = "job_sub_id", ...)
  
 
 
@@ -45,7 +33,7 @@ Arguments
 
 
 x
-    either path to flow [character] or fobj object of class `flow <#flow>`_
+    either path to flow [character] or fobj object of class `flow <flow.html>`_
 
 ...
     not used
@@ -60,6 +48,16 @@ jobid_col
     Advanced use. The column name in 'flow_details.txt' file used to fetch jobids to kill
 
 
+Description
+~~~~~~~~~~~~~~~~~~
+
+Killing a pipline requires files which are created at the END of the submit_flow commands.
+NOTE:
+Even if you want to kill the flow, its best to let submit_flow do its job,
+when done simply use kill(flow_wd). If submit_flow is interrupted, flow detail files etc are
+not created, thus flowr can't associate submitted jobs with flow instance.
+works on flow_path. Reads flow object and calls kill.flow()
+works on flow object
 
 
 Examples
@@ -68,8 +66,21 @@ Examples
 ::
 
  ## **Not run**: 
+ # 
  # ## example for terminal
  # ## flowr kill_flow x=path_to_flow_directory
+ # 
+ # ## In case path matches multiple folders, flowr asks before killing
+ # kill(x='fastq_haplotyper*')
+ # 	Flowr: streamlining workflows
+ # 	found multiple wds:
+ # 	./fastq_haplotyper-MS132-20150825-16-24-04-0Lv1PbpI
+ # 	/fastq_haplotyper-MS132-20150825-17-47-52-5vFIkrMD
+ # 
+ # 	Really kill all of them ? kill again with force=TRUE
+ # 
+ # ## submitting again with force=TRUE will kill them:
+ # kill(x='fastq_haplotyper*', force = TRUE)
  # ## **End(Not run)**
  
 Aliases:
@@ -80,5 +91,5 @@ kill.flow
 
 .. Author:
 
-.. 
+
 

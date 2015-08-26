@@ -81,7 +81,6 @@ Plot
    :alt: Flow chart describing process for example 1
 
    Flow chart describing process for example 1
-
 Test it
 -------
 
@@ -133,5 +132,16 @@ Check the status
     |002.tmp   |    10|      10|        10|           0|
     |003.merge |     1|       1|         1|           0|
     |004.size  |     1|       1|         1|           0|
+
+Kill it
+-------
+
+::
+
+    flowr kill x=~/flowr/type1-20150520-15-18-46-sySOzZnE
+    ## OR kill multiple, all type1 flows submitted on August 20th.
+    flowr kill x=~/flowr/type1-20150820*
+
+.. warning:: Even if you want to kill the flow, its best to let submit\_flow do its job, when done simply use kill(flow\_wd). If submit\_flow is interrupted, flow detail files etc are not created, thus flowr can't associate submitted jobs with flow instance.
 
 .. note:: Interested? Here are some details on `building pipelines <http://docs.flowr.space/en/latest/rd/vignettes/build-pipes.html>`__

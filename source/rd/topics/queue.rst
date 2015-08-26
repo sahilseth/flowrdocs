@@ -10,16 +10,9 @@
 queue
 -----------
 
-.. :func:`queue`
+:func:`queue`
 
-Create a ``queue`` object which containg details about how a job is submitted.
-
-Description
-~~~~~~~~~~~~~~~~~~
-
-This function defines the queue used to submit jobs to the cluster. In essence details about the
-computing cluster in use.
-
+Create a queue object which containg details about how a job is submitted.
 
 Usage
 ~~~~~~~~~~~~~~~~~~
@@ -64,7 +57,7 @@ submit_exe
     [advanced use] Already defined by 'platform'. The exact command used to submit jobs to the cluster example 'qsub'
 
 nodes
-    [advanced use] number of nodes you would like to request. Or in case of torque name of the nodes.*optional* [Used by class job]
+    [advanced use] number of nodes you would like to request. Or in case of torque name of the nodes.optional [Used by class job]
 
 jobname
     [debug use] name of this job in the computing cluster
@@ -94,12 +87,17 @@ stdout
     other passed onto object creation. Example: memory, walltime, cpu
 
 
+Description
+~~~~~~~~~~~~~~~~~~
+
+This function defines the queue used to submit jobs to the cluster. In essence details about the
+computing cluster in use.
 Details
 ~~~~~~~~~~~~~~~~~~
 
 ## Resources:
-Can be defined **once** using a `queue <#queue>`_ object and recylced to all the jobs in a flow. If resources (like memory, cpu, walltime, queue) are supplied at the
-job level they overwrite the one supplied in `queue <#queue>`_
+Can be defined **once** using a `queue <queue.html>`_ object and recylced to all the jobs in a flow. If resources (like memory, cpu, walltime, queue) are supplied at the
+job level they overwrite the one supplied in `queue <queue.html>`_
 Nodes: can be supplied ot extend a job across multiple nodes. This is purely experimental and not supported.
 ## Server:
 This a hook which may be implemented in future.
@@ -121,5 +119,5 @@ queue
 queue
 .. Author:
 
-.. 
+
 

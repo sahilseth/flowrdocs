@@ -10,16 +10,9 @@
 test_queue
 -----------
 
-.. :func:`test_queue`
+:func:`test_queue`
 
 test_queue
-
-Description
-~~~~~~~~~~~~~~~~~~
-
-This function attempts to test the submission of a job to the queue.
-We would first submit one single job, then submit another with a dependency to see if configuration works. This would create a folder in home called 'flows'.
-
 
 Usage
 ~~~~~~~~~~~~~~~~~~
@@ -42,9 +35,14 @@ verbose
     toggle
 
 ...
-    These params are passed onto ``queue``. ``?queue``, for more information
+    These params are passed onto queue. ?queue, for more information
 
 
+Description
+~~~~~~~~~~~~~~~~~~
+
+This function attempts to test the submission of a job to the queue.
+We would first submit one single job, then submit another with a dependency to see if configuration works. This would create a folder in home called 'flows'.
 
 
 Examples
@@ -61,5 +59,5 @@ test_queue
 
 .. Author:
 
-.. 
+
 

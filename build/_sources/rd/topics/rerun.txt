@@ -10,20 +10,9 @@
 rerun
 -----------
 
-.. :func:`rerun`
+:func:`rerun`
 
 Re-run a pipeline in case of hardware or software failures.
-
-Description
-~~~~~~~~~~~~~~~~~~
-
--   **hardware**  no change required, simple rerun: ``rerun(x=flow_wd)``
--   **software**  either a change to flowmat or flowdef has been made: ``rerun(x=flow_wd, mat = new_flowmat, def = new_flowdef)``
-
-**NOTE:**
-
-*flow_wd*: flow working directory, the input used for `status <#status>`_
-
 
 Usage
 ~~~~~~~~~~~~~~~~~~
@@ -33,11 +22,9 @@ Usage
  
  rerun(x, ...)
  
- ## method for class 'character'
- rerun(x, ...)
+ "rerun"(x, ...)
  
- ## method for class 'flow'
- rerun(x, mat, def, start_from, execute = TRUE, kill = TRUE, ...)
+ "rerun"(x, mat, def, start_from, execute = TRUE, kill = TRUE, ...)
  
 
 
@@ -52,10 +39,10 @@ x
     not used
 
 mat
-    (optional) flowmat fetched from previous submission if missing. For more information regarding the format refer to `to_flowmat <#to_flowmat>`_
+    (optional) flowmat fetched from previous submission if missing. For more information regarding the format refer to `to_flowmat <to_flowmat.html>`_
 
 def
-    (optional) flowdef fetched from previous submission if missing.  For more information regarding the format refer to `to_flowdef <#to_flowdef>`_
+    (optional) flowdef fetched from previous submission if missing.  For more information regarding the format refer to `to_flowdef <to_flowdef.html>`_
 
 start_from
     which job to start from
@@ -67,12 +54,21 @@ kill
     (optional) logical indicating whether to kill the jobs from old flow
 
 
+Description
+~~~~~~~~~~~~~~~~~~
+
+-<li> hardware no change required, simple rerun: rerun(x=flow_wd)
+</li>
+<li> software either a change to flowmat or flowdef has been made: rerun(x=flow_wd, mat = new_flowmat, def = new_flowdef)
+</li>
+NOTE:
+flow_wd: flow working directory, the input used for `status <status.html>`_
 Details
 ~~~~~~~~~~~~~~~~~~
 
 This function fetches details regarding the previous execution from the flow working directory (flow_wd).
-It reads the flow `flow <#flow>`_ from the flow_details.rds file, and exteacts flowdef and flowmat for this `flow <#flow>`_
-object using `to_flowmat <#to_flowmat>`_ and `to_flowdef <#to_flowdef>`_ functions.
+It reads the flow `flow <flow.html>`_ from the flow_details.rds file, and exteacts flowdef and flowmat for this `flow <flow.html>`_
+object using `to_flowmat <to_flowmat.html>`_ and `to_flowdef <to_flowdef.html>`_ functions.
 Optionally if either of these (flowmat or flowdef) are supplied, they are used instead for the new submission.
 This functions efficiently updates job details of the latest submission into previous file; thus information
 regarding previous job ids and their status is not lost.
@@ -95,5 +91,5 @@ rerun.flow
 
 .. Author:
 
-.. 
+
 

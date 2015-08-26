@@ -10,27 +10,9 @@
 fetch
 -----------
 
-.. :func:`fetch`
+:func:`fetch`
 
 A generic functions to search for files
-
-Description
-~~~~~~~~~~~~~~~~~~
-
-These functions help in searching for specific files in the user's space.
-
-fetch_pipes(): Fetches pipelines in the following places,
--  - available in 'pipelines' folders in flowr and ngsflows packages.
--  - ~/flowr/pipelines
--  - github repos (currently not supported)
-
-fetch_conf(): Fetches configuration files in the following places,
-
--  - available in 'conf' folders in flowr and ngsflows packages.
--  - ~/flowr/conf folder
-
-By default flowr loads, ~/flowr/conf/flowr.conf and ~/flowr/conf/ngsflows.conf
-
 
 Usage
 ~~~~~~~~~~~~~~~~~~
@@ -75,6 +57,23 @@ ask
     not used
 
 
+Description
+~~~~~~~~~~~~~~~~~~
+
+These functions help in searching for specific files in the user's space.
+fetch_pipes(): Fetches pipelines in the following places,
+-<li> - available in 'pipelines' folders in flowr and ngsflows packages.
+</li>
+<li> - ~/flowr/pipelines
+</li>
+<li> - github repos (currently not supported)
+</li>
+fetch_conf(): Fetches configuration files in the following places,
+-<li> - available in 'conf' folders in flowr and ngsflows packages.
+</li>
+<li> - ~/flowr/conf folder
+</li>
+By default flowr loads, ~/flowr/conf/flowr.conf and ~/flowr/conf/ngsflows.conf
 
 
 Examples
@@ -85,7 +84,7 @@ Examples
  {
  fetch_conf("torque.sh")
  }
- [1] "/Library/Frameworks/R.framework/Versions/3.2/Resources/library/flowr/conf/torque.sh"
+ [1] "/Users/sahilseth/Rlibs/flowr/conf/torque.sh"
  
 Aliases:
 fetch
@@ -95,5 +94,5 @@ fetch_pipes
 
 .. Author:
 
-.. 
+
 

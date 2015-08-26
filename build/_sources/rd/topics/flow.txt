@@ -10,15 +10,9 @@
 flow
 -----------
 
-.. :func:`flow`
+:func:`flow`
 
 Flow constructor
-
-Description
-~~~~~~~~~~~~~~~~~~
-
-Flow constructor
-
 
 Usage
 ~~~~~~~~~~~~~~~~~~
@@ -37,43 +31,47 @@ Arguments
 
 
 jobs
-    ``list`` A list of jobs to be included in this flow
+    list A list of jobs to be included in this flow
 
 name
-    ``character`` Name of the flow. Defaults to ``'newname'``
-Used in `submit_flow <#submit_flow>`_ to name the working directories.
+    character Name of the flow. Defaults to 'newname'
+Used in `submit_flow <submit_flow.html>`_ to name the working directories.
 
 desc
-    ``character`` Description of the flow
-This is used to name folders (when submitting jobs, see `submit_flow <#submit_flow>`_).
+    character Description of the flow
+This is used to name folders (when submitting jobs, see `submit_flow <submit_flow.html>`_).
 It is good practice to avoid spaces and other special characters.
 An underscore '_' seems like a good word separator.
 Defaults to 'my_super_flow'. We usually use this to put sample names of the data.
 
 mode
-    ``character`` Mode of submission of the flow.
+    character Mode of submission of the flow.
 
 flow_run_path
     The base path of all the flows you would submit.
-Defaults to ``~/flows``. Best practice to ignore it.
+Defaults to ~/flows. Best practice to ignore it.
 
 trigger_path
-    ``character``
-Defaults to ``~/flows/trigger``. Best practice to ignore it.
+    character
+Defaults to ~/flows/trigger. Best practice to ignore it.
 
 flow_path
-    ``character``
+    character
 
 version
     version of flowr used to create and execute this flow.
 
 status
-    ``character`` Not used at this time
+    character Not used at this time
 
 execute
     executtion status of flow object.
 
 
+Description
+~~~~~~~~~~~~~~~~~~
+
+Flow constructor
 
 
 Examples
@@ -115,5 +113,5 @@ is.flow
 
 .. Author:
 
-.. 
+
 

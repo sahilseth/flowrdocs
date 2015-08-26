@@ -10,17 +10,9 @@
 as.flowmat
 -----------
 
-.. :func:`as.flowmat`
+:func:`as.flowmat`
 
 flow mat
-
-Description
-~~~~~~~~~~~~~~~~~~
-
-as.flowmat(): reads a file and checks for required columns. If x is data.frame checks for required columns.
-
-Taking in a named list and returns a two columns data.frame
-
 
 Usage
 ~~~~~~~~~~~~~~~~~~
@@ -34,14 +26,11 @@ Usage
  
  to_flowmat(x, ...)
  
- ## method for class 'list'
- to_flowmat(x, samplename, ...)
+ "to_flowmat"(x, samplename, ...)
  
- ## method for class 'data.frame'
- to_flowmat(x, ...)
+ "to_flowmat"(x, ...)
  
- ## method for class 'flow'
- to_flowmat(x, ...)
+ "to_flowmat"(x, ...)
  
 
 
@@ -74,6 +63,11 @@ x
     not used
 
 
+Description
+~~~~~~~~~~~~~~~~~~
+
+as.flowmat(): reads a file and checks for required columns. If x is data.frame checks for required columns.
+Taking in a named list and returns a two columns data.frame
 
 
 Examples
@@ -92,5 +86,5 @@ to_flowmat.list
 
 .. Author:
 
-.. 
+
 

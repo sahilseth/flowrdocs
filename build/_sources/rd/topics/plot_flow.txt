@@ -10,17 +10,9 @@
 plot_flow
 -----------
 
-.. :func:`plot_flow`
+:func:`plot_flow`
 
 plot_flow
-
-Description
-~~~~~~~~~~~~~~~~~~
-
-plot the flow object
-
-plot_flow.character: works on a flowdef file.
-
 
 Usage
 ~~~~~~~~~~~~~~~~~~
@@ -30,17 +22,13 @@ Usage
  
  plot_flow(x, ...)
  
- ## method for class 'flow'
- plot_flow(x, ...)
+ "plot_flow"(x, ...)
  
- ## method for class 'list'
- plot_flow(x, ...)
+ "plot_flow"(x, ...)
  
- ## method for class 'character'
- plot_flow(x, ...)
+ "plot_flow"(x, ...)
  
- ## method for class 'flowdef'
- plot_flow(x, detailed = TRUE, type = c("1", "2"), pdf = FALSE, pdffile, ...)
+ "plot_flow"(x, detailed = TRUE, type = c("1", "2"), pdf = FALSE, pdffile, ...)
  
 
 
@@ -49,7 +37,7 @@ Arguments
 
 
 x
-    Object of class ``flow``, or a list of flow objects or a flowdef
+    Object of class flow, or a list of flow objects or a flowdef
 
 ...
     experimental
@@ -67,6 +55,11 @@ pdffile
     output file name for the pdf file
 
 
+Description
+~~~~~~~~~~~~~~~~~~
+
+plot the flow object
+plot_flow.character: works on a flowdef file.
 
 
 Examples
@@ -106,5 +99,5 @@ plot_flow.list
 
 .. Author:
 
-.. 
+
 

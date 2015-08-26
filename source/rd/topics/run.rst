@@ -10,19 +10,9 @@
 run
 -----------
 
-.. :func:`run`
+:func:`run`
 
 run pipelines
-
-Description
-~~~~~~~~~~~~~~~~~~
-
-Running examples flows
-This wraps a few steps:
-Get all the commands to run (flow_mat)
-Create a `flow` object, using flow_mat and a default flowdef (picked from the same folder).
-Use `submit_flow()` to submit this to the cluster.
-
 
 Usage
 ~~~~~~~~~~~~~~~~~~
@@ -59,6 +49,14 @@ execute
     passed onto the pipeline function specified in x
 
 
+Description
+~~~~~~~~~~~~~~~~~~
+
+Running examples flows
+This wraps a few steps:
+Get all the commands to run (flow_mat)
+Create a `flow` object, using flow_mat and a default flowdef (picked from the same folder).
+Use `submit_flow()` to submit this to the cluster.
 
 
 Examples
@@ -74,5 +72,5 @@ run_pipe
 
 .. Author:
 
-.. 
+
 

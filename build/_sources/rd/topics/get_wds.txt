@@ -10,15 +10,9 @@
 get_wds
 -----------
 
-.. :func:`get_wds`
+:func:`get_wds`
 
 Get all the (sub)directories in a folder
-
-Description
-~~~~~~~~~~~~~~~~~~
-
-Get all the (sub)directories in a folder
-
 
 Usage
 ~~~~~~~~~~~~~~~~~~
@@ -38,6 +32,10 @@ x
     path to a folder
 
 
+Description
+~~~~~~~~~~~~~~~~~~
+
+Get all the (sub)directories in a folder
 
 
 Examples
@@ -51,5 +49,5 @@ get_wds
 
 .. Author:
 
-.. 
+
 

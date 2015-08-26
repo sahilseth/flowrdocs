@@ -10,15 +10,9 @@
 whisker_render
 -----------
 
-.. :func:`whisker_render`
+:func:`whisker_render`
 
 Wrapper around whisker.render with some sugar on it...
-
-Description
-~~~~~~~~~~~~~~~~~~
-
-This is a wrapper around `whisker.render <http://www.inside-r.org/packages/cran/whisker/docs/whisker.render>`_
-
 
 Usage
 ~~~~~~~~~~~~~~~~~~
@@ -41,6 +35,10 @@ data
     a list with variables to be used to fill in the template.
 
 
+Description
+~~~~~~~~~~~~~~~~~~
+
+This is a wrapper around `whisker.render <http://www.inside-r.org/packages/cran/whisker/docs/whisker.render>`_
 
 
 Examples
@@ -54,5 +52,5 @@ whisker_render
 
 .. Author:
 
-.. 
+
 

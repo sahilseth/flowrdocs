@@ -5,16 +5,16 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Building Pipelines &mdash; flowr 0.9.7 documentation</title>
+  <title>Get started &mdash; flowr 0.9.7 documentation</title>
   
 
   
   
 
   
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 
   
   
@@ -32,7 +32,7 @@
   
     <link rel="top" title="flowr 0.9.7 documentation" href="../../index.html"/>
         <link rel="next" title="Help on Available functions" href="../topics/complete-help.html"/>
-        <link rel="prev" title="Get started" href="quick-start.html"/>
+        <link rel="prev" title="flowr: Streamline your workflows" href="../../index.html"/>
 
 
 <script src="../../_static/labibi.js"></script>
@@ -54,7 +54,7 @@
 
 
   
-  <script src="_static/js/modernizr.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
 
 </head>
 
@@ -66,14 +66,8 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-nav-search">
         
-
+          <a href="../../index.html" class="fa fa-home"> flowr</a>
         
-          <a href="../../index.html" class="icon icon-home"> flowr
-        
-
-        
-        </a>
-
         
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -82,41 +76,28 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-        
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
         
           
           
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="quick-start.html">Get started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="quick-start.html#toy-example">Toy example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quick-start.html#stitch">Stitch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quick-start.html#plot">Plot</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quick-start.html#test-it">Test it</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quick-start.html#submit-it">Submit it !</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quick-start.html#check-the-status">Check the status</a></li>
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Get started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#toy-example">Toy example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#stitch">Stitch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#plot">Plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#test-it">Test it</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#submit-it">Submit it !</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#check-the-status">Check the status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#kill-it">Kill it</a></li>
 </ul>
 </li>
-</ul>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="">Building Pipelines</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#ingredients">Ingredients</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#flow-definition">1. Flow Definition</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#flow-mat-a-table-with-shell-commands-to-run">2. Flow mat: A table with shell commands to run</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#example">Example:</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="#building-pipelines">Building Pipelines</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ingredients">Ingredients</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#submission-types">Submission types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#dependency-types">Dependency types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#relationships">Relationships</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#serial-one-to-one-relationship">Serial: one to one relationship</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#gather-many-to-one-relationship">Gather: many to one relationship</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#burst-one-to-many-relationship">Burst: one to many relationship</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#relationships">Relationships</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#passing-of-flow-definition-resource-columns">Passing of flow definition resource columns</a></li>
 </ul>
 </li>
@@ -125,182 +106,29 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../topics/complete-help.html">Help on Available functions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#check-args">check_args</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#description">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#usage">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#arguments">Arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#examples">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#check">check</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id1">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id2">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id3">Arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id4">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#cmds-to-flow">cmds_to_flow</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id5">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id6">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id7">Arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id8">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#fetch">fetch</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id9">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id10">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id11">Arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id12">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#id13">flow</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id14">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id15">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id16">Arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id18">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#get-unique-id">get_unique_id</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id19">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id20">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id21">Arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id22">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#get-wds">get_wds</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id23">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id24">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id25">Arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id26">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#job">job</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id27">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id28">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id29">Arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id30">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#kill">kill</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id31">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id32">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id33">Arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id35">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#flowopts">flowopts</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id36">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id37">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id38">Arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#format">Format</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id111">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#parse-jobids">parse_jobids</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id112">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id113">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id114">Arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id115">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#plot-flow">plot_flow</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id116">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id117">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id118">Arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id119">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#queue">queue</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id120">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id121">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id122">Arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#details">Details</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id125">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#rerun">rerun</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id126">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id127">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id128">Arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id129">Details</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id134">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#run">run</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id135">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id136">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id137">Arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id138">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#setup">setup</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id139">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id140">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id141">Arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id142">Details</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id143">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#id144">status</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id145">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id146">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id147">Arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id148">Details</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id149">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#id150">submit_flow</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id151">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id152">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id153">Arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id154">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#test-queue">test_queue</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id155">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id156">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id157">Arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id158">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#to-flow">to_flow</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id159">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id161">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id162">Arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#value">Value</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id164">Details</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id165">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#id166">to_flowdef</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id167">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id168">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id169">Arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id170">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#to-flowdet">to_flowdet</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id171">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id172">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id173">Arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id174">Details</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id175">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#as-flowmat">as.flowmat</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id176">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id177">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id178">Arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id179">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#whisker-render">whisker_render</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id180">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id182">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id183">Arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../topics/complete-help.html#id184">Examples</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#check-args">check_args</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#check">check</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#fetch">fetch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#flow">flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#get-unique-id">get_unique_id</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#get-wds">get_wds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#job">job</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#kill">kill</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#flowopts">flowopts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#parse-jobids">parse_jobids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#plot-flow">plot_flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#queue">queue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#rerun">rerun</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#run">run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#setup">setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#id140">status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#id145">submit_flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#test-queue">test_queue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#to-flow">to_flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#id159">to_flowdef</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#to-flowdet">to_flowdet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#as-flowmat">as.flowmat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../topics/complete-help.html#whisker-render">whisker_render</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../faqs.html">FAQs</a></li>
@@ -328,12 +156,10 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../../index.html">Docs</a> &raquo;</li>
       
-    <li>Building Pipelines</li>
+    <li>Get started</li>
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="../../_sources/rd/vignettes/build-pipes.txt" rel="nofollow"> View page source</a>
-          
+          <a href="../../_sources/rd/vignettes/build-pipes.txt" rel="nofollow"> View page source</a>
         
       </li>
   </ul>
@@ -342,7 +168,233 @@
           <div role="main" class="document">
             
   
-  <div class="section" id="building-pipelines">
+  <div class="section" id="get-started">
+<h1>Get started<a class="headerlink" href="#get-started" title="Permalink to this headline">¶</a></h1>
+<div class="code r highlight-python"><div class="highlight"><pre>install.packages(&#39;devtools&#39;)
+devtools::install_github(&quot;sahilseth/flowr&quot;)
+</pre></div>
+</div>
+<p>Run a setup function which copies &#8216;flowr&#8217; helper script to enable using flow from shell terminal itself. A few examples <a class="reference external" href="https://github.com/sahilseth/rfun">here</a>.</p>
+<div class="code r highlight-python"><div class="highlight"><pre><span class="n">library</span><span class="p">(</span><span class="n">flowr</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="code r highlight-python"><div class="highlight"><pre><span class="n">setup</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="section" id="toy-example">
+<h2>Toy example<a class="headerlink" href="#toy-example" title="Permalink to this headline">¶</a></h2>
+<div class="figure">
+<img alt="" src="../../_images/toy.png" />
+</div>
+<p>A simple example where we have three instances of sleep (wait for few seconds), after completion three tmp jobs are started which create files with some random data. After all these are complete, a merge step follows, which combines them into one big file. Next we use <code class="docutils literal"><span class="pre">du</span></code> to calculate the size of the resulting file.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This is quite similar in structure to a typical workflow from where a series of alignment and sorting steps may take place on the raw fastq files. Followed by merging of the resulting bam files into one large file per-sample and further downstream processing.</p>
+</div>
+<p>The table below is referred to as <a class="reference external" href="http://docs.flowr.space/en/latest/rd/vignettes/build-pipes.html#flow-mat-a-table-with-shell-commands-to-run">flow_mat</a>.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%" />
+<col width="15%" />
+<col width="72%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">samplename</th>
+<th class="head">jobname</th>
+<th class="head">cmd</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>sample1</td>
+<td>sleep</td>
+<td>sleep 10 &amp;&amp; sleep 2;echo hello</td>
+</tr>
+<tr class="row-odd"><td>sample1</td>
+<td>sleep</td>
+<td>sleep 11 &amp;&amp; sleep 8;echo hello</td>
+</tr>
+<tr class="row-even"><td>sample1</td>
+<td>sleep</td>
+<td>sleep 11 &amp;&amp; sleep 17;echo hello</td>
+</tr>
+<tr class="row-odd"><td>sample1</td>
+<td>create_tmp</td>
+<td>head -c 100000 /dev/urandom &gt; sample1_tmp_1</td>
+</tr>
+<tr class="row-even"><td>sample1</td>
+<td>create_tmp</td>
+<td>head -c 100000 /dev/urandom &gt; sample1_tmp_2</td>
+</tr>
+<tr class="row-odd"><td>sample1</td>
+<td>create_tmp</td>
+<td>head -c 100000 /dev/urandom &gt; sample1_tmp_3</td>
+</tr>
+<tr class="row-even"><td>sample1</td>
+<td>merge</td>
+<td>cat sample1_tmp_1 sample1_tmp_2 sample1_tmp_3 &gt; sample1_merged</td>
+</tr>
+<tr class="row-odd"><td>sample1</td>
+<td>size</td>
+<td>du -sh sample1_merged; echo MY shell: $SHELL</td>
+</tr>
+</tbody>
+</table>
+<p>We use an additional file specifying relationship between the steps, and also other resource requirements <a class="reference external" href="http://docs.flowr.space/en/latest/rd/vignettes/build-pipes.html#flow-definition">flow_def</a>.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="11%" />
+<col width="10%" />
+<col width="11%" />
+<col width="10%" />
+<col width="7%" />
+<col width="15%" />
+<col width="9%" />
+<col width="13%" />
+<col width="9%" />
+<col width="7%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">jobname</th>
+<th class="head">sub_type</th>
+<th class="head">prev_jobs</th>
+<th class="head">dep_type</th>
+<th class="head">queue</th>
+<th class="head">memory_reserved</th>
+<th class="head">walltime</th>
+<th class="head">cpu_reserved</th>
+<th class="head">platform</th>
+<th class="head">jobid</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>sleep</td>
+<td>scatter</td>
+<td>none</td>
+<td>none</td>
+<td>short</td>
+<td>2000</td>
+<td>1:00</td>
+<td>1</td>
+<td>torque</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td>create_tmp</td>
+<td>scatter</td>
+<td>sleep</td>
+<td>serial</td>
+<td>short</td>
+<td>2000</td>
+<td>1:00</td>
+<td>1</td>
+<td>torque</td>
+<td>2</td>
+</tr>
+<tr class="row-even"><td>merge</td>
+<td>serial</td>
+<td>create_tmp</td>
+<td>gather</td>
+<td>short</td>
+<td>2000</td>
+<td>1:00</td>
+<td>1</td>
+<td>torque</td>
+<td>3</td>
+</tr>
+<tr class="row-odd"><td>size</td>
+<td>serial</td>
+<td>merge</td>
+<td>serial</td>
+<td>short</td>
+<td>2000</td>
+<td>1:00</td>
+<td>1</td>
+<td>torque</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="stitch">
+<h2>Stitch<a class="headerlink" href="#stitch" title="Permalink to this headline">¶</a></h2>
+<div class="code r highlight-python"><div class="highlight"><pre>fobj &lt;- to_flow(x = flow_mat, def = as.flowdef(flow_def),
+    flowname = &quot;example1&quot;, platform = &quot;lsf&quot;)
+</pre></div>
+</div>
+</div>
+<div class="section" id="plot">
+<h2>Plot<a class="headerlink" href="#plot" title="Permalink to this headline">¶</a></h2>
+<div class="code r highlight-python"><div class="highlight"><pre><span class="n">plot_flow</span><span class="p">(</span><span class="n">fobj</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure" id="id1">
+<img alt="Flow chart describing process for example 1" src="../../_images/plot_example1-1.png" />
+<p class="caption"><span class="caption-text">Flow chart describing process for example 1</span></p>
+</div>
+</div>
+<div class="section" id="test-it">
+<h2>Test it<a class="headerlink" href="#test-it" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div>Dry run (submit)</div></blockquote>
+<div class="code r highlight-python"><div class="highlight"><pre><span class="n">submit_flow</span><span class="p">(</span><span class="n">fobj</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre>Test Successful!
+You may check this folder for consistency. Also you may re-run submit with execute=TRUE
+ ~/flowr/type1-20150520-15-18-27-5mSd32G0
+</pre></div>
+</div>
+</div>
+<div class="section" id="submit-it">
+<h2>Submit it !<a class="headerlink" href="#submit-it" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div>Submit to the cluster</div></blockquote>
+<div class="code r highlight-python"><div class="highlight"><pre><span class="n">submit_flow</span><span class="p">(</span><span class="n">fobj</span><span class="p">,</span> <span class="n">execute</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre>Flow has been submitted. Track it from terminal using:
+flowr::status(x=&quot;~/flowr/type1-20150520-15-18-46-sySOzZnE&quot;)
+OR
+flowr status x=~/flowr/type1-20150520-15-18-46-sySOzZnE
+</pre></div>
+</div>
+</div>
+<div class="section" id="check-the-status">
+<h2>Check the status<a class="headerlink" href="#check-the-status" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre>flowr status x=~/flowr/type1-20150520-15-18-46-sySOzZnE
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre>Loading required package: shape
+Flowr: streamlining workflows
+Showing status of: /rsrch2/iacs/iacs_dep/sseth/flowr/type1-20150520-15-18-46-sySOzZnE
+
+
+|          | total| started| completed| exit_status|
+|:---------|-----:|-------:|---------:|-----------:|
+|001.sleep |    10|      10|        10|           0|
+|002.tmp   |    10|      10|        10|           0|
+|003.merge |     1|       1|         1|           0|
+|004.size  |     1|       1|         1|           0|
+</pre></div>
+</div>
+</div>
+<div class="section" id="kill-it">
+<h2>Kill it<a class="headerlink" href="#kill-it" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre>flowr kill x=~/flowr/type1-20150520-15-18-46-sySOzZnE
+## OR kill multiple, all type1 flows submitted on August 20th.
+flowr kill x=~/flowr/type1-20150820*
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Even if you want to kill the flow, its best to let submit_flow do its job, when done simply use kill(flow_wd). If submit_flow is interrupted, flow detail files etc are not created, thus flowr can&#8217;t associate submitted jobs with flow instance.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Interested? Here are some details on <a class="reference external" href="#build-pipes">building pipelines</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="building-pipelines">
 <h1>Building Pipelines<a class="headerlink" href="#building-pipelines" title="Permalink to this headline">¶</a></h1>
 <p>An easy and quick way to build a workflow is create two separate files. First is a table with commands to run, second has details regarding how the modules are stitched together. In the rest of this document we would refer to them as flow_mat and flow_def respectively.</p>
 <p>Both these files have a <code class="docutils literal"><span class="pre">jobname</span></code> column which is used as a ID to connect them to each other.</p>
@@ -456,7 +508,9 @@ flow_def = as.flowdef(file.path(ex, &quot;sleep_pipe.def&quot;))
 </tr>
 </tbody>
 </table>
-<!-- Each row of this table translates to a call to ([job](http://docs.flowr.space/build/html/rd/topics/job.html) or) [queue](http://docs.flowr.space/build/html/rd/topics/queue.html) function. --><!--
+<!-- Each row of this table translates to a call to ([job](http://docs.flowr.space/build/html/rd/topics/job.html) or) [queue](http://docs.flowr.space/build/html/rd/topics/queue.html) function. -->
+
+<!--
 - jobname: is passed as `name` argument to job().
 - prev_jobs: passed as `previous_job` argument  to job().
 - dep_type: passed as `dependency_type` argument  to job(). Possible values: gather, serial
@@ -469,8 +523,10 @@ flow_def = as.flowdef(file.path(ex, &quot;sleep_pipe.def&quot;))
 - cpu_reserved: Amount of CPU reserved.
 
 Its best to have this as a tab seperated file (with no row.names). --></div>
-<div class="section" id="flow-mat-a-table-with-shell-commands-to-run">
-<h3>2. Flow mat: A table with shell commands to run<a class="headerlink" href="#flow-mat-a-table-with-shell-commands-to-run" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="flow-mat">
+<h3>2. Flow Mat<a class="headerlink" href="#flow-mat" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div>A table with shell commands to run</div></blockquote>
 <p>This is also a tab separated table, with a minimum of three columns as defined below:</p>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">samplename</span></code>: A grouping column. The table is split using this column and each subset is treated as a individual flow. This makes it very easy to process multiple samples using a single submission command.<ul>
@@ -757,10 +813,10 @@ kable(ex2def[, 1:4])
 </div>
 <table border="1" class="docutils">
 <colgroup>
-<col width="17%" />
-<col width="14%" />
-<col width="5%" />
-<col width="64%" />
+<col width="18%" />
+<col width="15%" />
+<col width="16%" />
+<col width="51%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">name</th>
@@ -775,75 +831,85 @@ kable(ex2def[, 1:4])
 <td>NA</td>
 <td>/Users/sahilseth/Dropbox2/Dropbox/public/github_flow/inst/pipelines/sleep_pipe.R</td>
 </tr>
-<tr class="row-odd"><td>fastq_bam_bwa</td>
+<tr class="row-odd"><td>sleep_pipe</td>
+<td>sleep_pipe.def</td>
 <td>NA</td>
-<td>NA</td>
-<td>/Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/fastq_bam_bwa.R</td>
+<td>/Users/sahilseth/Dropbox2/Dropbox/public/github_flow/inst/pipelines/sleep_pipe.R</td>
 </tr>
-<tr class="row-even"><td>fastq_bam_rna_ion</td>
+<tr class="row-even"><td>fastq_bam_bwa</td>
 <td>NA</td>
 <td>NA</td>
-<td>/Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/fastq_bam_rna_ion.R</td>
+<td>/Users/sahilseth/Rlibs/ngsflows/pipelines/fastq_bam_bwa.R</td>
 </tr>
-<tr class="row-odd"><td>fastq_bam_variants</td>
+<tr class="row-odd"><td>fastq_bam_rna_ion</td>
 <td>NA</td>
 <td>NA</td>
-<td>/Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/fastq_bam_variants.R</td>
+<td>/Users/sahilseth/Rlibs/ngsflows/pipelines/fastq_bam_rna_ion.R</td>
+</tr>
+<tr class="row-even"><td>fastq_bam_variants</td>
+<td>NA</td>
+<td>NA</td>
+<td>/Users/sahilseth/Rlibs/ngsflows/pipelines/fastq_bam_variants.R</td>
+</tr>
+<tr class="row-odd"><td>fastq_haplotyper</td>
+<td>fastq_haplotyper.def</td>
+<td>fastq_haplotyper.conf</td>
+<td>/Users/sahilseth/Rlibs/ngsflows/pipelines/fastq_haplotyper.R</td>
 </tr>
 <tr class="row-even"><td>fastq_star_rna</td>
 <td>NA</td>
 <td>NA</td>
-<td>/Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/fastq_star_rna.R</td>
+<td>/Users/sahilseth/Rlibs/ngsflows/pipelines/fastq_star_rna.R</td>
 </tr>
 <tr class="row-odd"><td>old_bam_pindel</td>
 <td>NA</td>
 <td>NA</td>
-<td>/Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/old_bam_pindel.R</td>
+<td>/Users/sahilseth/Rlibs/ngsflows/pipelines/old_bam_pindel.R</td>
 </tr>
 <tr class="row-even"><td>old_bam_preprocess</td>
 <td>NA</td>
 <td>NA</td>
-<td>/Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/old_bam_preprocess.R</td>
+<td>/Users/sahilseth/Rlibs/ngsflows/pipelines/old_bam_preprocess.R</td>
 </tr>
 <tr class="row-odd"><td>old_bam_xenome</td>
 <td>NA</td>
 <td>NA</td>
-<td>/Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/old_bam_xenome.R</td>
+<td>/Users/sahilseth/Rlibs/ngsflows/pipelines/old_bam_xenome.R</td>
 </tr>
 <tr class="row-even"><td>old_bwa_pipe</td>
 <td>NA</td>
 <td>NA</td>
-<td>/Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/old_bwa_pipe.R</td>
+<td>/Users/sahilseth/Rlibs/ngsflows/pipelines/old_bwa_pipe.R</td>
 </tr>
 <tr class="row-odd"><td>old_dna_qc</td>
 <td>NA</td>
 <td>NA</td>
-<td>/Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/old_dna_qc.R</td>
+<td>/Users/sahilseth/Rlibs/ngsflows/pipelines/old_dna_qc.R</td>
 </tr>
 <tr class="row-even"><td>old_fastq_bam_bwa2</td>
 <td>NA</td>
 <td>NA</td>
-<td>/Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/old_fastq_bam_bwa2.R</td>
+<td>/Users/sahilseth/Rlibs/ngsflows/pipelines/old_fastq_bam_bwa2.R</td>
 </tr>
 <tr class="row-odd"><td>old_fastq_bismark_meth</td>
 <td>NA</td>
 <td>NA</td>
-<td>/Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/old_fastq_bismark_meth.R</td>
+<td>/Users/sahilseth/Rlibs/ngsflows/pipelines/old_fastq_bismark_meth.R</td>
 </tr>
 <tr class="row-even"><td>old_flow_bam_preprocess</td>
 <td>NA</td>
 <td>NA</td>
-<td>/Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/old_flow_bam_preprocess.R</td>
+<td>/Users/sahilseth/Rlibs/ngsflows/pipelines/old_flow_bam_preprocess.R</td>
 </tr>
 <tr class="row-odd"><td>old_proc_bwa_pipe</td>
 <td>NA</td>
 <td>NA</td>
-<td>/Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/old_proc_bwa_pipe.R</td>
+<td>/Users/sahilseth/Rlibs/ngsflows/pipelines/old_proc_bwa_pipe.R</td>
 </tr>
 <tr class="row-even"><td>split_aln_merge</td>
 <td>split_aln_merge.def</td>
 <td>NA</td>
-<td>/Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/split_aln_merge.R</td>
+<td>/Users/sahilseth/Rlibs/ngsflows/pipelines/split_aln_merge.R</td>
 </tr>
 <tr class="row-odd"><td>build-pipes</td>
 <td>NA</td>
@@ -854,11 +920,6 @@ kable(ex2def[, 1:4])
 <td>NA</td>
 <td>NA</td>
 <td>/Users/sahilseth/Dropbox2/Dropbox/public/github_flow/vignettes/example_sleep.R</td>
-</tr>
-<tr class="row-odd"><td>quick-start</td>
-<td>NA</td>
-<td>NA</td>
-<td>/Users/sahilseth/Dropbox2/Dropbox/public/github_flow/vignettes/quick-start.R</td>
 </tr>
 </tbody>
 </table>
@@ -980,10 +1041,10 @@ kable(ex2def[, 1:4])
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../topics/complete-help.html" class="btn btn-neutral float-right" title="Help on Available functions" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../topics/complete-help.html" class="btn btn-neutral float-right" title="Help on Available functions">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="quick-start.html" class="btn btn-neutral" title="Get started" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../../index.html" class="btn btn-neutral" title="flowr: Streamline your workflows"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -995,10 +1056,10 @@ kable(ex2def[, 1:4])
         &copy; Copyright 2015, Sahil Seth.
     </p>
   </div>
+
   Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-
+  
 </footer>
-
         </div>
       </div>
 
@@ -1057,7 +1118,7 @@ kable(ex2def[, 1:4])
         <li>
           Go to
         <a href="https://github.com/ctb/flowr/blob/master/rd/vignettes/build-pipes.rst">
-          Building Pipelines
+          Get started
         </a> on GitHub.
       </li>
 

@@ -5,7 +5,6 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>to_flowdet &mdash; flowr 0.9.7 documentation</title>
@@ -15,6 +14,7 @@
   
 
   
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 
   
   
@@ -52,7 +52,7 @@
 
 
   
-  <script src="_static/js/modernizr.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
 
 </head>
 
@@ -64,14 +64,8 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-nav-search">
         
-
+          <a href="../../index.html" class="fa fa-home"> flowr</a>
         
-          <a href="../../index.html" class="icon icon-home"> flowr
-        
-
-        
-        </a>
-
         
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -80,8 +74,6 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-        
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
@@ -89,32 +81,21 @@
           
           
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="../vignettes/quick-start.html">Get started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../vignettes/quick-start.html#toy-example">Toy example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../vignettes/quick-start.html#stitch">Stitch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../vignettes/quick-start.html#plot">Plot</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../vignettes/quick-start.html#test-it">Test it</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../vignettes/quick-start.html#submit-it">Submit it !</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../vignettes/quick-start.html#check-the-status">Check the status</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vignettes/build-pipes.html">Get started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../vignettes/build-pipes.html#toy-example">Toy example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vignettes/build-pipes.html#stitch">Stitch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vignettes/build-pipes.html#plot">Plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vignettes/build-pipes.html#test-it">Test it</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vignettes/build-pipes.html#submit-it">Submit it !</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vignettes/build-pipes.html#check-the-status">Check the status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vignettes/build-pipes.html#kill-it">Kill it</a></li>
 </ul>
 </li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../vignettes/build-pipes.html">Building Pipelines</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../vignettes/build-pipes.html#ingredients">Ingredients</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../vignettes/build-pipes.html#flow-definition">1. Flow Definition</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../vignettes/build-pipes.html#flow-mat-a-table-with-shell-commands-to-run">2. Flow mat: A table with shell commands to run</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../vignettes/build-pipes.html#example">Example:</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../vignettes/build-pipes.html#building-pipelines">Building Pipelines</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../vignettes/build-pipes.html#ingredients">Ingredients</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../vignettes/build-pipes.html#submission-types">Submission types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../vignettes/build-pipes.html#dependency-types">Dependency types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../vignettes/build-pipes.html#relationships">Relationships</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../vignettes/build-pipes.html#serial-one-to-one-relationship">Serial: one to one relationship</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../vignettes/build-pipes.html#gather-many-to-one-relationship">Gather: many to one relationship</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../vignettes/build-pipes.html#burst-one-to-many-relationship">Burst: one to many relationship</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../vignettes/build-pipes.html#relationships">Relationships</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../vignettes/build-pipes.html#passing-of-flow-definition-resource-columns">Passing of flow definition resource columns</a></li>
 </ul>
 </li>
@@ -123,182 +104,29 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="complete-help.html">Help on Available functions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="complete-help.html#check-args">check_args</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#description">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#usage">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#arguments">Arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#examples">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="complete-help.html#check">check</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id1">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id2">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id3">Arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id4">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="complete-help.html#cmds-to-flow">cmds_to_flow</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id5">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id6">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id7">Arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id8">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="complete-help.html#fetch">fetch</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id9">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id10">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id11">Arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id12">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="complete-help.html#id13">flow</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id14">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id15">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id16">Arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id18">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="complete-help.html#get-unique-id">get_unique_id</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id19">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id20">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id21">Arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id22">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="complete-help.html#get-wds">get_wds</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id23">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id24">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id25">Arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id26">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="complete-help.html#job">job</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id27">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id28">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id29">Arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id30">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="complete-help.html#kill">kill</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id31">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id32">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id33">Arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id35">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="complete-help.html#flowopts">flowopts</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id36">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id37">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id38">Arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#format">Format</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id111">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="complete-help.html#parse-jobids">parse_jobids</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id112">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id113">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id114">Arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id115">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="complete-help.html#plot-flow">plot_flow</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id116">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id117">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id118">Arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id119">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="complete-help.html#queue">queue</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id120">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id121">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id122">Arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#details">Details</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id125">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="complete-help.html#rerun">rerun</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id126">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id127">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id128">Arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id129">Details</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id134">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="complete-help.html#run">run</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id135">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id136">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id137">Arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id138">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="complete-help.html#setup">setup</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id139">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id140">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id141">Arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id142">Details</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id143">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="complete-help.html#id144">status</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id145">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id146">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id147">Arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id148">Details</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id149">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="complete-help.html#id150">submit_flow</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id151">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id152">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id153">Arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id154">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="complete-help.html#test-queue">test_queue</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id155">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id156">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id157">Arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id158">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="complete-help.html#to-flow">to_flow</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id159">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id161">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id162">Arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#value">Value</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id164">Details</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id165">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="complete-help.html#id166">to_flowdef</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id167">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id168">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id169">Arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id170">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="complete-help.html#to-flowdet">to_flowdet</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id171">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id172">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id173">Arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id174">Details</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id175">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="complete-help.html#as-flowmat">as.flowmat</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id176">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id177">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id178">Arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id179">Examples</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="complete-help.html#whisker-render">whisker_render</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id180">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id182">Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id183">Arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="complete-help.html#id184">Examples</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#check-args">check_args</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#check">check</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#fetch">fetch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#flow">flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#get-unique-id">get_unique_id</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#get-wds">get_wds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#job">job</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#kill">kill</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#flowopts">flowopts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#parse-jobids">parse_jobids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#plot-flow">plot_flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#queue">queue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#rerun">rerun</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#run">run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#setup">setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#id140">status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#id145">submit_flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#test-queue">test_queue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#to-flow">to_flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#id159">to_flowdef</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#to-flowdet">to_flowdet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#as-flowmat">as.flowmat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complete-help.html#whisker-render">whisker_render</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../faqs.html">FAQs</a></li>
@@ -329,9 +157,7 @@
     <li>to_flowdet</li>
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="../../_sources/rd/topics/to_flowdet.txt" rel="nofollow"> View page source</a>
-          
+          <a href="../../_sources/rd/topics/to_flowdet.txt" rel="nofollow"> View page source</a>
         
       </li>
   </ul>
@@ -342,25 +168,17 @@
   
   <div class="section" id="to-flowdet">
 <h1>to_flowdet<a class="headerlink" href="#to-flowdet" title="Permalink to this headline">¶</a></h1>
+<p><code class="xref py py-func docutils literal"><span class="pre">to_flowdet()</span></code></p>
 <p>to_flowdet</p>
-<div class="section" id="description">
-<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>to_flowdet</p>
-<p>get a flow_details file from the directory structure. This has less information than the
-one generated using a flow object. Lacks jobids etc...</p>
-</div>
 <div class="section" id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">to_flowdet</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
 
-<span class="c">## method for class &#39;rootdir&#39;</span>
-<span class="n">to_flowdet</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+<span class="s">&quot;to_flowdet&quot;</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
 
-<span class="c">## method for class &#39;character&#39;</span>
-<span class="n">to_flowdet</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+<span class="s">&quot;to_flowdet&quot;</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
 
-<span class="c">## method for class &#39;flow&#39;</span>
-<span class="n">to_flowdet</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+<span class="s">&quot;to_flowdet&quot;</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -375,8 +193,13 @@ one generated using a flow object. Lacks jobids etc...</p>
 <dd>not used</dd>
 </dl>
 </div>
-<div class="section" id="details">
-<h2>Details<a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>to_flowdet
+get a flow_details file from the directory structure. This has less information than the
+one generated using a flow object. Lacks jobids etc...
+Details
+~~~~~~~~~~~~~~~~~~</p>
 <p>if x is char. assumed a path, check if flow object exists in it and read it.
 If there is no flow object, try using a simpler function</p>
 </div>
@@ -424,10 +247,10 @@ to_flowdet.rootdir
         &copy; Copyright 2015, Sahil Seth.
     </p>
   </div>
+
   Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-
+  
 </footer>
-
         </div>
       </div>
 

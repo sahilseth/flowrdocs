@@ -63,11 +63,6 @@ Contents:
 -----------------------
 
 .. toctree::
-	:maxdepth: 2
-	
-	rd/vignettes/quick-start
-	
-.. toctree::
 	:glob:
 	:maxdepth: 3
 	
