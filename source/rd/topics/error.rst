@@ -7,29 +7,29 @@
 
 
 
-get_wds
+error
 ===============
 
-:func:`get_wds`
+:func:`error`
 
-Get all the (sub)directories in a folder
+Error Handler
 
 Usage
 """"""""""""""""""
 ::
 
- get_wds(x)
+ error(x)
 
 Arguments
 
 x
-    path to a folder
+    this is a string(s) with short error summary
 
 
 Description
 """"""""""""""""""
 
-Get all the (sub)directories in a folder
+function to handle all error descriptions
 
 
 Examples
@@ -37,8 +37,9 @@ Examples
 ::
 
 Aliases:
-get_wds
+error
 Keywords:
+internal
 Author:
 
 

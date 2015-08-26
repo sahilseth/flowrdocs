@@ -8,55 +8,47 @@
 
 
 to_flowdet
------------
+===============
 
 :func:`to_flowdet`
 
 to_flowdet
 
 Usage
-~~~~~~~~~~~~~~~~~~
-
+""""""""""""""""""
 ::
 
- 
  to_flowdet(x, ...)
- 
- "to_flowdet"(x, ...)
- 
- "to_flowdet"(x, ...)
- 
- "to_flowdet"(x, ...)
- 
 
+"to_flowdet"(x, ...)
+
+"to_flowdet"(x, ...)
+
+"to_flowdet"(x, ...)
 
 Arguments
-~~~~~~~~~~~~~~~~~~
-
 
 x
     this is a wd
-
 ...
     not used
 
 
 Description
-~~~~~~~~~~~~~~~~~~
+""""""""""""""""""
 
 to_flowdet
 get a flow_details file from the directory structure. This has less information than the
 one generated using a flow object. Lacks jobids etc...
 Details
-~~~~~~~~~~~~~~~~~~
+""""""""""""""""""
 
 if x is char. assumed a path, check if flow object exists in it and read it.
 If there is no flow object, try using a simpler function
 
 
 Examples
-~~~~~~~~~~~~~~~~~~
-
+""""""""""""""""""
 ::
 
 Aliases:
@@ -64,9 +56,7 @@ to_flowdet
 to_flowdet.character
 to_flowdet.flow
 to_flowdet.rootdir
-.. Keywords:
-
-.. Author:
-
+Keywords:
+Author:
 
 

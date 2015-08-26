@@ -7,29 +7,23 @@
 
 
 
-get_wds
+queue-class
 ===============
 
-:func:`get_wds`
+:func:`queue-class`
 
-Get all the (sub)directories in a folder
+queue defines the class
 
 Usage
 """"""""""""""""""
 ::
 
- get_wds(x)
-
-Arguments
-
-x
-    path to a folder
 
 
 Description
 """"""""""""""""""
 
-Get all the (sub)directories in a folder
+queue defines the class
 
 
 Examples
@@ -37,7 +31,7 @@ Examples
 ::
 
 Aliases:
-get_wds
+queue-class
 Keywords:
 Author:
 

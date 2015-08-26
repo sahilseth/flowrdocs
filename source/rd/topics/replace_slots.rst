@@ -7,29 +7,31 @@
 
 
 
-get_wds
+replace_slots
 ===============
 
-:func:`get_wds`
+:func:`replace_slots`
 
-Get all the (sub)directories in a folder
+replace slots in a S4 object
 
 Usage
 """"""""""""""""""
 ::
 
- get_wds(x)
+ replace_slots(object, ...)
 
 Arguments
 
-x
-    path to a folder
+object
+    a S4 object
+...
+    set of slot names to be replaced. This needs to be a named vector
 
 
 Description
 """"""""""""""""""
 
-Get all the (sub)directories in a folder
+replace slots in a S4 object
 
 
 Examples
@@ -37,8 +39,9 @@ Examples
 ::
 
 Aliases:
-get_wds
+replace_slots
 Keywords:
+internal
 Author:
 
 

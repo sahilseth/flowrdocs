@@ -7,29 +7,33 @@
 
 
 
-get_wds
+calc_boxdim
 ===============
 
-:func:`get_wds`
+:func:`calc_boxdim`
 
-Get all the (sub)directories in a folder
+calc_boxdim
 
 Usage
 """"""""""""""""""
 ::
 
- get_wds(x)
+ calc_boxdim(x, detailed, pdf)
 
 Arguments
 
 x
-    path to a folder
+    number of jobs
+detailed
+    detailed
+pdf
+    pdf
 
 
 Description
 """"""""""""""""""
 
-Get all the (sub)directories in a folder
+calc_boxdim
 
 
 Examples
@@ -37,7 +41,7 @@ Examples
 ::
 
 Aliases:
-get_wds
+calc_boxdim
 Keywords:
 Author:
 

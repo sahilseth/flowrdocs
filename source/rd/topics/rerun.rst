@@ -8,63 +8,51 @@
 
 
 rerun
------------
+===============
 
 :func:`rerun`
 
 Re-run a pipeline in case of hardware or software failures.
 
 Usage
-~~~~~~~~~~~~~~~~~~
-
+""""""""""""""""""
 ::
 
- 
  rerun(x, ...)
- 
- "rerun"(x, ...)
- 
- "rerun"(x, mat, def, start_from, execute = TRUE, kill = TRUE, ...)
- 
 
+"rerun"(x, ...)
+
+"rerun"(x, mat, def, start_from, execute = TRUE, kill = TRUE, ...)
 
 Arguments
-~~~~~~~~~~~~~~~~~~
-
 
 x
     flow working directory
-
 ...
     not used
-
 mat
     (optional) flowmat fetched from previous submission if missing. For more information regarding the format refer to `to_flowmat <to_flowmat.html>`_
-
 def
     (optional) flowdef fetched from previous submission if missing.  For more information regarding the format refer to `to_flowdef <to_flowdef.html>`_
-
 start_from
     which job to start from
-
 execute
     [logical] whether to execute or not
-
 kill
     (optional) logical indicating whether to kill the jobs from old flow
 
 
 Description
-~~~~~~~~~~~~~~~~~~
+""""""""""""""""""
 
--<li> hardware no change required, simple rerun: rerun(x=flow_wd)
+-<li> **hardware** no change required, simple rerun: ``rerun(x=flow_wd)``
 </li>
-<li> software either a change to flowmat or flowdef has been made: rerun(x=flow_wd, mat = new_flowmat, def = new_flowdef)
+<li> **software** either a change to flowmat or flowdef has been made: ``rerun(x=flow_wd, mat = new_flowmat, def = new_flowdef)``
 </li>
-NOTE:
-flow_wd: flow working directory, the input used for `status <status.html>`_
+**NOTE:**
+*flow_wd*: flow working directory, the input used for `status <status.html>`_
 Details
-~~~~~~~~~~~~~~~~~~
+""""""""""""""""""
 
 This function fetches details regarding the previous execution from the flow working directory (flow_wd).
 It reads the flow `flow <flow.html>`_ from the flow_details.rds file, and exteacts flowdef and flowmat for this `flow <flow.html>`_
@@ -75,8 +63,7 @@ regarding previous job ids and their status is not lost.
 
 
 Examples
-~~~~~~~~~~~~~~~~~~
-
+""""""""""""""""""
 ::
 
  ## **Not run**: 
@@ -87,9 +74,7 @@ Aliases:
 rerun
 rerun.character
 rerun.flow
-.. Keywords:
-
-.. Author:
-
+Keywords:
+Author:
 
 

@@ -8,57 +8,44 @@
 
 
 fetch
------------
+===============
 
 :func:`fetch`
 
 A generic functions to search for files
 
 Usage
-~~~~~~~~~~~~~~~~~~
-
+""""""""""""""""""
 ::
 
- 
  fetch(x, places, urls, verbose = get_opts("verbose"))
- 
- fetch_pipes(x, places, last_only = FALSE, urls = get_opts("flowr_pipe_urls"), silent = FALSE, ask = TRUE)
- 
- fetch_conf(x = "flowr.conf", places, ...)
- 
 
+fetch_pipes(x, places, last_only = FALSE, urls = get_opts("flowr_pipe_urls"), silent = FALSE, ask = TRUE)
+
+fetch_conf(x = "flowr.conf", places, ...)
 
 Arguments
-~~~~~~~~~~~~~~~~~~
-
 
 x
     name of the file to search for
-
 places
     places (paths) to look for it. Its best to use the defaults
-
 urls
     urls to look for, works well for pipelines.
-
 verbose
     be chatty?
-
 last_only
     [fetch_pipes only]. If multiple pipelines match the pattern, return the last one.
-
 silent
     [fetch_pipes() only]. logical, be silent even if no such pipeline is available.
-
 ask
     ask before downloading or copying, not used !
-
 ...
     not used
 
 
 Description
-~~~~~~~~~~~~~~~~~~
+""""""""""""""""""
 
 These functions help in searching for specific files in the user's space.
 fetch_pipes(): Fetches pipelines in the following places,
@@ -77,22 +64,20 @@ By default flowr loads, ~/flowr/conf/flowr.conf and ~/flowr/conf/ngsflows.conf
 
 
 Examples
-~~~~~~~~~~~~~~~~~~
-
+""""""""""""""""""
 ::
 
  {
  fetch_conf("torque.sh")
  }
- [1] "/Users/sahilseth/Rlibs/flowr/conf/torque.sh"
+ [1] "/home/travis/build/sahilseth/flowr/inst/conf/torque.sh"
+ [2] "/home/travis/build/sahilseth/flowr/inst/conf/torque.sh"
  
 Aliases:
 fetch
 fetch_conf
 fetch_pipes
-.. Keywords:
-
-.. Author:
-
+Keywords:
+Author:
 
 

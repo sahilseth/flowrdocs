@@ -7,29 +7,31 @@
 
 
 
-get_wds
+split_multi_dep
 ===============
 
-:func:`get_wds`
+:func:`split_multi_dep`
 
-Get all the (sub)directories in a folder
+split_multi_dep
+Split rows with multiple dependencies
 
 Usage
 """"""""""""""""""
 ::
 
- get_wds(x)
+ split_multi_dep(x)
 
 Arguments
 
 x
-    path to a folder
+    this is a flow def
 
 
 Description
 """"""""""""""""""
 
-Get all the (sub)directories in a folder
+split_multi_dep
+Split rows with multiple dependencies
 
 
 Examples
@@ -37,7 +39,7 @@ Examples
 ::
 
 Aliases:
-get_wds
+split_multi_dep
 Keywords:
 Author:
 

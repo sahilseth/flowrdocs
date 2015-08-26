@@ -8,50 +8,42 @@
 
 
 status
------------
+===============
 
 :func:`status`
 
 status
 
 Usage
-~~~~~~~~~~~~~~~~~~
-
+""""""""""""""""""
 ::
 
- 
  status(x, out_format = "markdown")
- 
- get_status(x, ...)
- 
- "get_status"(x, out_format = "markdown", ...)
- 
- "get_status"(x, ...)
- 
- "get_status"(x, out_format = "markdown", ...)
- 
 
+get_status(x, ...)
+
+"get_status"(x, out_format = "markdown", ...)
+
+"get_status"(x, ...)
+
+"get_status"(x, out_format = "markdown", ...)
 
 Arguments
-~~~~~~~~~~~~~~~~~~
-
 
 x
     path to the flow root folder or a parent folder to summarize several flows.
-
 out_format
     passed onto knitr:::kable. supports: markdown, rst, html...
-
 ...
     not used
 
 
 Description
-~~~~~~~~~~~~~~~~~~
+""""""""""""""""""
 
 Summarize status of executed flow(x)
 Details
-~~~~~~~~~~~~~~~~~~
+""""""""""""""""""
 
 basename(x) is used in a wild card search.
 -<li> If x is a path with a single flow, it outputs the status of one flow.
@@ -64,8 +56,7 @@ Alternatively, x can also be a flow object
 
 
 Examples
-~~~~~~~~~~~~~~~~~~
-
+""""""""""""""""""
 ::
 
  ## **Not run**: 
@@ -80,9 +71,7 @@ get_status.character
 get_status.data.frame
 get_status.flow
 status
-.. Keywords:
-
-.. Author:
-
+Keywords:
+Author:
 
 

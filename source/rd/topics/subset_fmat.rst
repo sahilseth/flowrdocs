@@ -7,29 +7,33 @@
 
 
 
-get_wds
+subset_fmat
 ===============
 
-:func:`get_wds`
+:func:`subset_fmat`
 
-Get all the (sub)directories in a folder
+subset_fmat
 
 Usage
 """"""""""""""""""
 ::
 
- get_wds(x)
+ subset_fmat(fobj, mat, start_from)
 
 Arguments
 
-x
-    path to a folder
+fobj
+    flow object
+mat
+    a part of flowdef
+start_from,
+    where to start from
 
 
 Description
 """"""""""""""""""
 
-Get all the (sub)directories in a folder
+subset_fmat
 
 
 Examples
@@ -37,7 +41,7 @@ Examples
 ::
 
 Aliases:
-get_wds
+subset_fmat
 Keywords:
 Author:
 

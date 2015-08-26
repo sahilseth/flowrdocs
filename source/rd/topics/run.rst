@@ -8,49 +8,38 @@
 
 
 run
------------
+===============
 
 :func:`run`
 
 run pipelines
 
 Usage
-~~~~~~~~~~~~~~~~~~
-
+""""""""""""""""""
 ::
 
- 
  run(x, platform, def, flow_run_path = get_opts("flow_run_path"), execute = FALSE, ...)
- 
- run_pipe(x, platform, def, flow_run_path = get_opts("flow_run_path"), execute = FALSE, ...)
- 
 
+run_pipe(x, platform, def, flow_run_path = get_opts("flow_run_path"), execute = FALSE, ...)
 
 Arguments
-~~~~~~~~~~~~~~~~~~
-
 
 x
     name of the pipeline to run. This is a function called to create a flow_mat.
-
 platform
     what platform to use, overrides flowdef
-
 def
     flow definition
-
 flow_run_path
     passed onto to_flow. Default it picked up from flowr.conf. Typically this is ~/flowr/runs
-
 execute
     TRUE/FALSE
-
 ...
     passed onto the pipeline function specified in x
 
 
 Description
-~~~~~~~~~~~~~~~~~~
+""""""""""""""""""
 
 Running examples flows
 This wraps a few steps:
@@ -60,17 +49,14 @@ Use `submit_flow()` to submit this to the cluster.
 
 
 Examples
-~~~~~~~~~~~~~~~~~~
-
+""""""""""""""""""
 ::
 
 Aliases:
 run
 run_flow
 run_pipe
-.. Keywords:
-
-.. Author:
-
+Keywords:
+Author:
 
 

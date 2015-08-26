@@ -8,63 +8,51 @@
 
 
 plot_flow
------------
+===============
 
 :func:`plot_flow`
 
 plot_flow
 
 Usage
-~~~~~~~~~~~~~~~~~~
-
+""""""""""""""""""
 ::
 
- 
  plot_flow(x, ...)
- 
- "plot_flow"(x, ...)
- 
- "plot_flow"(x, ...)
- 
- "plot_flow"(x, ...)
- 
- "plot_flow"(x, detailed = TRUE, type = c("1", "2"), pdf = FALSE, pdffile, ...)
- 
 
+"plot_flow"(x, ...)
+
+"plot_flow"(x, ...)
+
+"plot_flow"(x, ...)
+
+"plot_flow"(x, detailed = TRUE, type = c("1", "2"), pdf = FALSE, pdffile, ...)
 
 Arguments
-~~~~~~~~~~~~~~~~~~
-
 
 x
-    Object of class flow, or a list of flow objects or a flowdef
-
+    Object of class ``flow``, or a list of flow objects or a flowdef
 ...
     experimental
-
 detailed
     include some details
-
 type
     1 is original, and 2 is a elipse with less details
-
 pdf
     create a pdf instead of plotting interactively
-
 pdffile
     output file name for the pdf file
 
 
 Description
-~~~~~~~~~~~~~~~~~~
+""""""""""""""""""
 
 plot the flow object
 plot_flow.character: works on a flowdef file.
 
 
 Examples
-~~~~~~~~~~~~~~~~~~
-
+""""""""""""""""""
 ::
 
  qobj = queue(type="lsf")
@@ -95,9 +83,7 @@ plot_flow.character
 plot_flow.flow
 plot_flow.flowdef
 plot_flow.list
-.. Keywords:
-
-.. Author:
-
+Keywords:
+Author:
 
 

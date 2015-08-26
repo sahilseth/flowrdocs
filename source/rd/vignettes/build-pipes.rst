@@ -133,19 +133,30 @@ Check the status
     |003.merge |     1|       1|         1|           0|
     |004.size  |     1|       1|         1|           0|
 
-Kill it
--------
+Killing a flow
+--------------
 
 ::
 
-    flowr kill x=~/flowr/type1-20150520-15-18-46-sySOzZnE
-    ## OR kill multiple, all type1 flows submitted on August 20th.
-    flowr kill x=~/flowr/type1-20150820*
 
-.. warning:: Even if you want to kill the flow, its best to let submit\_flow do its job, when done simply use kill(flow\_wd). If submit\_flow is interrupted, flow detail files etc are not created, thus flowr can't associate submitted jobs with flow instance.
+    ## kill one flow
+    ## flowr kill_flow x=flow_wd
 
-.. note:: Interested? Here are some details on `building pipelines <#build-pipes>`__
+    ## In case path matches multiple folders, flowr asks before killing
+    kill(x='fastq_haplotyper*')
+    ##  Flowr: streamlining workflows
+    ##  found multiple wds:
+    ##  ./fastq_haplotyper-MS132-20150825-16-24-04-0Lv1PbpI
+    ##  /fastq_haplotyper-MS132-20150825-17-47-52-5vFIkrMD
 
+    ##  Really kill all of them ? kill again with force=TRUE
+
+    ## submitting again with force=TRUE will kill them:
+    kill(x='fastq_haplotyper*', force = TRUE)
+
+.. note:: Even if you want to kill the flow, its best to let submit\_flow do its job, when done simply use kill(flow\_wd). If submit\_flow is interrupted, flow detail files etc are not created, thus flowr can't associate submitted jobs with flow instance.
+
+.. note:: Interested? Here are some details on `building pipelines <http://docs.flowr.space/en/latest/rd/vignettes/build-pipes.html>`__
 
 Building Pipelines
 ==================
@@ -210,6 +221,8 @@ Here is an example of a typical `flow\_def <https://raw.githubusercontent.com/sa
 
    <!-- Each row of this table translates to a call to ([job](http://docs.flowr.space/build/html/rd/topics/job.html) or) [queue](http://docs.flowr.space/build/html/rd/topics/queue.html) function. -->
 
+.. raw:: html
+
    <!-- 
    - jobname: is passed as `name` argument to job().
    - prev_jobs: passed as `previous_job` argument  to job().
@@ -224,10 +237,8 @@ Here is an example of a typical `flow\_def <https://raw.githubusercontent.com/sa
 
    Its best to have this as a tab seperated file (with no row.names). -->
 
-2. Flow Mat
-~~~~~~~~~~~
-
-    A table with shell commands to run
+2. Flow mat: A table with shell commands to run
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This is also a tab separated table, with a minimum of three columns as defined below:
 
@@ -464,47 +475,15 @@ Here are some of the available piplines along with their respective locations
 
     #> Please supply a name of the pipline to run, here are the options
 
-+------------------------------+-------------------------+--------------------------+--------------------------------------------------------------------------------------+
-| name                         | def                     | conf                     | pipe                                                                                 |
-+==============================+=========================+==========================+======================================================================================+
-| sleep\_pipe                  | sleep\_pipe.def         | NA                       | /Users/sahilseth/Dropbox2/Dropbox/public/github\_flow/inst/pipelines/sleep\_pipe.R   |
-+------------------------------+-------------------------+--------------------------+--------------------------------------------------------------------------------------+
-| sleep\_pipe                  | sleep\_pipe.def         | NA                       | /Users/sahilseth/Dropbox2/Dropbox/public/github\_flow/inst/pipelines/sleep\_pipe.R   |
-+------------------------------+-------------------------+--------------------------+--------------------------------------------------------------------------------------+
-| fastq\_bam\_bwa              | NA                      | NA                       | /Users/sahilseth/Rlibs/ngsflows/pipelines/fastq\_bam\_bwa.R                          |
-+------------------------------+-------------------------+--------------------------+--------------------------------------------------------------------------------------+
-| fastq\_bam\_rna\_ion         | NA                      | NA                       | /Users/sahilseth/Rlibs/ngsflows/pipelines/fastq\_bam\_rna\_ion.R                     |
-+------------------------------+-------------------------+--------------------------+--------------------------------------------------------------------------------------+
-| fastq\_bam\_variants         | NA                      | NA                       | /Users/sahilseth/Rlibs/ngsflows/pipelines/fastq\_bam\_variants.R                     |
-+------------------------------+-------------------------+--------------------------+--------------------------------------------------------------------------------------+
-| fastq\_haplotyper            | fastq\_haplotyper.def   | fastq\_haplotyper.conf   | /Users/sahilseth/Rlibs/ngsflows/pipelines/fastq\_haplotyper.R                        |
-+------------------------------+-------------------------+--------------------------+--------------------------------------------------------------------------------------+
-| fastq\_star\_rna             | NA                      | NA                       | /Users/sahilseth/Rlibs/ngsflows/pipelines/fastq\_star\_rna.R                         |
-+------------------------------+-------------------------+--------------------------+--------------------------------------------------------------------------------------+
-| old\_bam\_pindel             | NA                      | NA                       | /Users/sahilseth/Rlibs/ngsflows/pipelines/old\_bam\_pindel.R                         |
-+------------------------------+-------------------------+--------------------------+--------------------------------------------------------------------------------------+
-| old\_bam\_preprocess         | NA                      | NA                       | /Users/sahilseth/Rlibs/ngsflows/pipelines/old\_bam\_preprocess.R                     |
-+------------------------------+-------------------------+--------------------------+--------------------------------------------------------------------------------------+
-| old\_bam\_xenome             | NA                      | NA                       | /Users/sahilseth/Rlibs/ngsflows/pipelines/old\_bam\_xenome.R                         |
-+------------------------------+-------------------------+--------------------------+--------------------------------------------------------------------------------------+
-| old\_bwa\_pipe               | NA                      | NA                       | /Users/sahilseth/Rlibs/ngsflows/pipelines/old\_bwa\_pipe.R                           |
-+------------------------------+-------------------------+--------------------------+--------------------------------------------------------------------------------------+
-| old\_dna\_qc                 | NA                      | NA                       | /Users/sahilseth/Rlibs/ngsflows/pipelines/old\_dna\_qc.R                             |
-+------------------------------+-------------------------+--------------------------+--------------------------------------------------------------------------------------+
-| old\_fastq\_bam\_bwa2        | NA                      | NA                       | /Users/sahilseth/Rlibs/ngsflows/pipelines/old\_fastq\_bam\_bwa2.R                    |
-+------------------------------+-------------------------+--------------------------+--------------------------------------------------------------------------------------+
-| old\_fastq\_bismark\_meth    | NA                      | NA                       | /Users/sahilseth/Rlibs/ngsflows/pipelines/old\_fastq\_bismark\_meth.R                |
-+------------------------------+-------------------------+--------------------------+--------------------------------------------------------------------------------------+
-| old\_flow\_bam\_preprocess   | NA                      | NA                       | /Users/sahilseth/Rlibs/ngsflows/pipelines/old\_flow\_bam\_preprocess.R               |
-+------------------------------+-------------------------+--------------------------+--------------------------------------------------------------------------------------+
-| old\_proc\_bwa\_pipe         | NA                      | NA                       | /Users/sahilseth/Rlibs/ngsflows/pipelines/old\_proc\_bwa\_pipe.R                     |
-+------------------------------+-------------------------+--------------------------+--------------------------------------------------------------------------------------+
-| split\_aln\_merge            | split\_aln\_merge.def   | NA                       | /Users/sahilseth/Rlibs/ngsflows/pipelines/split\_aln\_merge.R                        |
-+------------------------------+-------------------------+--------------------------+--------------------------------------------------------------------------------------+
-| build-pipes                  | NA                      | NA                       | /Users/sahilseth/Dropbox2/Dropbox/public/github\_flow/vignettes/build-pipes.R        |
-+------------------------------+-------------------------+--------------------------+--------------------------------------------------------------------------------------+
-| example\_sleep               | NA                      | NA                       | /Users/sahilseth/Dropbox2/Dropbox/public/github\_flow/vignettes/example\_sleep.R     |
-+------------------------------+-------------------------+--------------------------+--------------------------------------------------------------------------------------+
++---------------+-------------------+--------+-------------------------------------------------------------------+
+| name          | def               | conf   | pipe                                                              |
++===============+===================+========+===================================================================+
+| sleep\_pipe   | sleep\_pipe.def   | NA     | /home/travis/build/sahilseth/flowr/inst/pipelines/sleep\_pipe.R   |
++---------------+-------------------+--------+-------------------------------------------------------------------+
+| sleep\_pipe   | sleep\_pipe.def   | NA     | /home/travis/build/sahilseth/flowr/inst/pipelines/sleep\_pipe.R   |
++---------------+-------------------+--------+-------------------------------------------------------------------+
+| build-pipes   | NA                | NA     | /home/travis/build/sahilseth/flowr/vignettes/build-pipes.R        |
++---------------+-------------------+--------+-------------------------------------------------------------------+
 
 Cluster Support
 ===============
@@ -567,3 +546,186 @@ There are several `job scheduling <http://en.wikipedia.org/wiki/Job_scheduler>`_
    -  Dependecy info `here <https://wiki.duke.edu/display/SCSC/SGE+Job+Dependencies>`__
 
 `Comparison\_of\_cluster\_software <http://en.wikipedia.org/wiki/Comparison_of_cluster_software>`__
+
+Building a pipeline, by example
+===============================
+
+.. code:: r
+
+    read_chunk(system.file('pipelines', 'sleep_pipe.R', package = 'flowr'))
+
+Define modules
+--------------
+
+.. code:: r
+
+    #' @param x number of sleep commands
+    sleep <- function(x, samplename){
+        cmd = list(sleep = sprintf("sleep %s && sleep %s;echo 'hello'",
+            abs(round(rnorm(x)*10, 0)),
+            abs(round(rnorm(x)*10, 0))))
+        flowmat = to_flowmat(cmd, samplename)
+        return(list(flowmat = flowmat))
+    }
+
+    #' @param x number of tmp commands
+    create_tmp <- function(x, samplename){
+        ## Create 100 temporary files
+        tmp = sprintf("%s_tmp_%s", samplename, 1:x)
+        cmd = list(create_tmp = sprintf("head -c 100000 /dev/urandom > %s", tmp))
+        ## --- convert the list into a data.frame
+        flowmat = to_flowmat(cmd, samplename)
+        return(list(flowmat = flowmat, outfiles = tmp))
+    }
+
+    #' @param x vector of files to merge
+    merge_size <- function(x, samplename){
+        ## Merge them according to samples, 10 each
+        mergedfile = paste0(samplename, "_merged")
+        cmd_merge <- sprintf("cat %s > %s",
+            paste(x, collapse = " "), ## input files
+            mergedfile)
+        ## get the size of merged files
+        cmd_size = sprintf("du -sh %s; echo 'MY shell:' $SHELL", mergedfile)
+
+        cmd = list(merge = cmd_merge, size = cmd_size)
+        ## --- convert the list into a data.frame
+        flowmat = to_flowmat(cmd, samplename)
+        return(list(flowmat = flowmat, outfiles = mergedfile))
+    }
+
+Define the pipeline
+-------------------
+
+.. code:: r
+
+    #' @param x number of files to make
+    sleep_pipe <- function(x = 3, samplename = "samp1"){
+
+        ## call the modules one by one...
+        out_sleep = sleep(x, samplename)
+        out_create_tmp = create_tmp(x, samplename)
+        out_merge_size = merge_size(out_create_tmp$outfiles, samplename)
+
+        ## row bind all the commands
+        flowmat = rbind(out_sleep$flowmat,
+            out_create_tmp$flowmat,
+            out_merge_size$flowmat)
+
+        return(list(flowmat = flowmat, outfiles = out_merge_size$outfiles))
+    }
+
+Generate flowmat
+----------------
+
+.. code:: r
+
+    out = sleep_pipe(x = 3, "sample1")
+    flowmat = out$flowmat
+
+    kable(flowmat)
+
++--------------+---------------+-------------------------------------------------------------------------+
+| samplename   | jobname       | cmd                                                                     |
++==============+===============+=========================================================================+
+| sample1      | sleep         | sleep 2 && sleep 6;echo 'hello'                                         |
++--------------+---------------+-------------------------------------------------------------------------+
+| sample1      | sleep         | sleep 6 && sleep 8;echo 'hello'                                         |
++--------------+---------------+-------------------------------------------------------------------------+
+| sample1      | sleep         | sleep 4 && sleep 5;echo 'hello'                                         |
++--------------+---------------+-------------------------------------------------------------------------+
+| sample1      | create\_tmp   | head -c 100000 /dev/urandom > sample1\_tmp\_1                           |
++--------------+---------------+-------------------------------------------------------------------------+
+| sample1      | create\_tmp   | head -c 100000 /dev/urandom > sample1\_tmp\_2                           |
++--------------+---------------+-------------------------------------------------------------------------+
+| sample1      | create\_tmp   | head -c 100000 /dev/urandom > sample1\_tmp\_3                           |
++--------------+---------------+-------------------------------------------------------------------------+
+| sample1      | merge         | cat sample1\_tmp\_1 sample1\_tmp\_2 sample1\_tmp\_3 > sample1\_merged   |
++--------------+---------------+-------------------------------------------------------------------------+
+| sample1      | size          | du -sh sample1\_merged; echo 'MY shell:' $SHELL                         |
++--------------+---------------+-------------------------------------------------------------------------+
+
+Create flow definition
+----------------------
+
+We have a helper function which generates a skeleton flow\_def
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: r
+
+    def = to_flowdef(flowmat)
+
+::
+
+    #> Creating a skeleton flow definition
+    #> Following jobnames detected: sleep create_tmp merge size
+
+.. code:: r
+
+    kable(def)
+
++---------------+-------------+---------------+-------------+---------+--------------------+------------+-----------------+------------+---------+
+| jobname       | sub\_type   | prev\_jobs    | dep\_type   | queue   | memory\_reserved   | walltime   | cpu\_reserved   | platform   | jobid   |
++===============+=============+===============+=============+=========+====================+============+=================+============+=========+
+| sleep         | serial      | none          | none        | short   | 2000               | 1:00       | 1               | torque     | 1       |
++---------------+-------------+---------------+-------------+---------+--------------------+------------+-----------------+------------+---------+
+| create\_tmp   | serial      | sleep         | gather      | short   | 2000               | 1:00       | 1               | torque     | 2       |
++---------------+-------------+---------------+-------------+---------+--------------------+------------+-----------------+------------+---------+
+| merge         | serial      | create\_tmp   | gather      | short   | 2000               | 1:00       | 1               | torque     | 3       |
++---------------+-------------+---------------+-------------+---------+--------------------+------------+-----------------+------------+---------+
+| size          | serial      | merge         | gather      | short   | 2000               | 1:00       | 1               | torque     | 4       |
++---------------+-------------+---------------+-------------+---------+--------------------+------------+-----------------+------------+---------+
+
+Default flowdef
+---------------
+
+.. code:: r
+
+    plot_flow(to_flow(flowmat, def))
+
+.. figure:: figure/unnamed-chunk-18-1.png
+   :alt: 
+
+By default the flowdef seems quite conservative.
+
+Change the dependency type for merge step into gather
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+It might be easier to do such, by hand. In this example let do this in R itself.
+
+.. code:: r
+
+    def$sub_type = c("scatter", "scatter", "serial", "serial")
+    def$dep_type = c("none", "serial", "gather", "serial")
+    kable(def)
+
++---------------+-------------+---------------+-------------+---------+--------------------+------------+-----------------+------------+---------+
+| jobname       | sub\_type   | prev\_jobs    | dep\_type   | queue   | memory\_reserved   | walltime   | cpu\_reserved   | platform   | jobid   |
++===============+=============+===============+=============+=========+====================+============+=================+============+=========+
+| sleep         | scatter     | none          | none        | short   | 2000               | 1:00       | 1               | torque     | 1       |
++---------------+-------------+---------------+-------------+---------+--------------------+------------+-----------------+------------+---------+
+| create\_tmp   | scatter     | sleep         | serial      | short   | 2000               | 1:00       | 1               | torque     | 2       |
++---------------+-------------+---------------+-------------+---------+--------------------+------------+-----------------+------------+---------+
+| merge         | serial      | create\_tmp   | gather      | short   | 2000               | 1:00       | 1               | torque     | 3       |
++---------------+-------------+---------------+-------------+---------+--------------------+------------+-----------------+------------+---------+
+| size          | serial      | merge         | serial      | short   | 2000               | 1:00       | 1               | torque     | 4       |
++---------------+-------------+---------------+-------------+---------+--------------------+------------+-----------------+------------+---------+
+
+Plot flow
+~~~~~~~~~
+
+Now this looks better.
+
+-  multiple sleep commands would run in parallel
+-  For each sleep, create\_tmp creates a file
+-  All tmp files are merged; when all are complete: gather
+-  Then we get size on the resulting file
+
+.. code:: r
+
+    plot_flow(to_flow(flowmat, def))
+
+.. figure:: figure/unnamed-chunk-20-1.png
+   :alt: 
+
+

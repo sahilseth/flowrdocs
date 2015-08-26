@@ -7,29 +7,23 @@
 
 
 
-get_wds
+flow-class
 ===============
 
-:func:`get_wds`
+:func:`flow-class`
 
-Get all the (sub)directories in a folder
+flow defines the class
 
 Usage
 """"""""""""""""""
 ::
 
- get_wds(x)
-
-Arguments
-
-x
-    path to a folder
 
 
 Description
 """"""""""""""""""
 
-Get all the (sub)directories in a folder
+flow defines the class
 
 
 Examples
@@ -37,7 +31,7 @@ Examples
 ::
 
 Aliases:
-get_wds
+flow-class
 Keywords:
 Author:
 

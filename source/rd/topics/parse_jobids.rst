@@ -8,49 +8,39 @@
 
 
 parse_jobids
------------
+===============
 
 :func:`parse_jobids`
 
 parse_jobids
 
 Usage
-~~~~~~~~~~~~~~~~~~
-
+""""""""""""""""""
 ::
 
- 
  parse_jobids(jobids, platform)
- 
-
 
 Arguments
-~~~~~~~~~~~~~~~~~~
-
 
 jobids
     output from HPCC upon job submission, as a character vector
-
 platform
     string specifying the platform. This determines how the jobids are parsed
 
 
 Description
-~~~~~~~~~~~~~~~~~~
+""""""""""""""""""
 
 parse_jobids
 
 
 Examples
-~~~~~~~~~~~~~~~~~~
-
+""""""""""""""""""
 ::
 
 Aliases:
 parse_jobids
-.. Keywords:
-
-.. Author:
-
+Keywords:
+Author:
 
 

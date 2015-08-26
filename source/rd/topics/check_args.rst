@@ -8,7 +8,7 @@
 
 
 check_args
------------
+===============
 
 :func:`check_args`
 
@@ -16,42 +16,32 @@ checks all the arguments in the parent frame.
 None of them should be null.
 
 Usage
-~~~~~~~~~~~~~~~~~~
-
+""""""""""""""""""
 ::
 
- 
  check_args(ignore, select)
- 
-
 
 Arguments
-~~~~~~~~~~~~~~~~~~
-
 
 ignore
     optionally ignore a few variables for checking.
-
 select
     optionally only check a few variables of the function.
 
 
 Description
-~~~~~~~~~~~~~~~~~~
+""""""""""""""""""
 
 This function may be optionally moved to a more generic package.
 
 
 Examples
-~~~~~~~~~~~~~~~~~~
-
+""""""""""""""""""
 ::
 
 Aliases:
 check_args
-.. Keywords:
-
-.. Author:
-
+Keywords:
+Author:
 
 

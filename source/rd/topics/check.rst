@@ -8,59 +8,48 @@
 
 
 check
------------
+===============
 
 :func:`check`
 
 Check consistency of flowdef and flowmat
 
 Usage
-~~~~~~~~~~~~~~~~~~
-
+""""""""""""""""""
 ::
 
- 
  check(x, ...)
- 
- "check"(x, ...)
- 
- "check"(x, verbose = get_opts("verbose"), ...)
- 
 
+"check"(x, ...)
+
+"check"(x, verbose = get_opts("verbose"), ...)
 
 Arguments
-~~~~~~~~~~~~~~~~~~
-
 
 x
     a flowdef or flowmat object
-
 ...
-    suppled to check.classname function
-
+    suppled to ``check.classname`` function
 verbose
     be chatty
 
 
 Description
-~~~~~~~~~~~~~~~~~~
+""""""""""""""""""
 
 check consistency of objects
 Currently checks objects S3 flowdef, flowmat
 
 
 Examples
-~~~~~~~~~~~~~~~~~~
-
+""""""""""""""""""
 ::
 
 Aliases:
 check
 check.flowdef
 check.flowmat
-.. Keywords:
-
-.. Author:
-
+Keywords:
+Author:
 
 

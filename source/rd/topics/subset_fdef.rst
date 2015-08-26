@@ -7,29 +7,33 @@
 
 
 
-get_wds
+subset_fdef
 ===============
 
-:func:`get_wds`
+:func:`subset_fdef`
 
-Get all the (sub)directories in a folder
+subset_fdef
 
 Usage
 """"""""""""""""""
 ::
 
- get_wds(x)
+ subset_fdef(fobj, def, start_from)
 
 Arguments
 
-x
-    path to a folder
+fobj
+    flow object
+def
+    flowdef
+start_from
+    where to start from
 
 
 Description
 """"""""""""""""""
 
-Get all the (sub)directories in a folder
+subset_fdef
 
 
 Examples
@@ -37,7 +41,7 @@ Examples
 ::
 
 Aliases:
-get_wds
+subset_fdef
 Keywords:
 Author:
 

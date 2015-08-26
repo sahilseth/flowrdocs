@@ -7,29 +7,33 @@
 
 
 
-get_wds
+detect_dep_type
 ===============
 
-:func:`get_wds`
+:func:`detect_dep_type`
 
-Get all the (sub)directories in a folder
+detect_dep_type
 
 Usage
 """"""""""""""""""
 ::
 
- get_wds(x)
+ detect_dep_type(x, cmds, prev_job)
 
 Arguments
 
 x
-    path to a folder
+    job object
+cmds
+    a string of commands
+prev_job
+    previous job name
 
 
 Description
 """"""""""""""""""
 
-Get all the (sub)directories in a folder
+detect_dep_type
 
 
 Examples
@@ -37,7 +41,7 @@ Examples
 ::
 
 Aliases:
-get_wds
+detect_dep_type
 Keywords:
 Author:
 
