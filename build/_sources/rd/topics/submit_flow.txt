@@ -10,9 +10,15 @@
 submit_flow
 -----------
 
-:func:`submit_flow`
+.. :func:`submit_flow`
 
 submit_flow
+
+Description
+~~~~~~~~~~~~~~~~~~
+
+submit_flow
+
 
 Usage
 ~~~~~~~~~~~~~~~~~~
@@ -22,9 +28,11 @@ Usage
  
  submit_flow(x, verbose = get_opts("verbose"), ...)
  
- "submit_flow"(x, verbose = get_opts("verbose"), ...)
+ ## method for class 'list'
+ submit_flow(x, verbose = get_opts("verbose"), ...)
  
- "submit_flow"(x, verbose = get_opts("verbose"), execute = FALSE, uuid, plot = TRUE, dump = TRUE, .start_jid = 1, ...)
+ ## method for class 'flow'
+ submit_flow(x, verbose = get_opts("verbose"), execute = FALSE, uuid, plot = TRUE, dump = TRUE, .start_jid = 1, ...)
  
 
 
@@ -33,23 +41,23 @@ Arguments
 
 
 x
-    a object of class flow.
+    a ``object`` of class ``flow``.
 
 verbose
     logical.
 
 ...
-    Advanced use. Any additional parameters are passed on to `submit_job <submit_job.html>`_ function.
+    Advanced use. Any additional parameters are passed on to `submit_job <#submit_job>`_ function.
 
 execute
-    logical whether or not to submit the jobs
+    ``logical`` whether or not to submit the jobs
 
 uuid
-    character Advanced use. This is the final path used for flow execution.
+    ``character`` Advanced use. This is the final path used for flow execution.
 Especially useful in case of re-running a flow.
 
 plot
-    logical whether to make a pdf flow plot (saves it in the flow working directory).
+    ``logical`` whether to make a pdf flow plot (saves it in the flow working directory).
 
 dump
     dump all the flow details to the flow path
@@ -58,10 +66,6 @@ dump
     Job to start this submission from. Advanced use, should be 1 by default.
 
 
-Description
-~~~~~~~~~~~~~~~~~~
-
-submit_flow
 
 
 Examples
@@ -80,5 +84,5 @@ submit_flow.list
 
 .. Author:
 
-
+.. 
 

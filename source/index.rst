@@ -63,16 +63,15 @@ Contents:
 -----------------------
 
 .. toctree::
-	:glob:
-	:maxdepth: 3
+	:caption: Table of Contents
+	:name: mastertoc
+	:maxdepth: -1
 	
 	rd/vignettes/build-pipes
-	
-.. toctree::
-	:maxdepth: 2
-	
-	rd/topics/complete-help
 	faqs
+	rd/topics/complete-help
+	
+
 
 Indices and tables
 ---------------

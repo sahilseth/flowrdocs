@@ -6,6 +6,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Index &mdash; flowr 0.9.7 documentation</title>
@@ -15,7 +16,6 @@
   
 
   
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 
   
   
@@ -34,7 +34,7 @@
     <link rel="top" title="flowr 0.9.7 documentation" href="index.html"/> 
 
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+  <script src="_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -46,8 +46,14 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-nav-search">
         
-          <a href="index.html" class="fa fa-home"> flowr</a>
+
         
+          <a href="index.html" class="icon icon-home"> flowr
+        
+
+        
+        </a>
+
         
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -56,62 +62,220 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
+
+        
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
         
           
           
-              <ul>
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="rd/vignettes/build-pipes.html">Get started</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="rd/vignettes/build-pipes.html#toy-example">Toy example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/build-pipes.html#stitch">Stitch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/build-pipes.html#plot">Plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/build-pipes.html#stitch-it">Stitch it</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/build-pipes.html#plot-it">Plot it</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rd/vignettes/build-pipes.html#test-it">Test it</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/build-pipes.html#submit-it">Submit it !</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/build-pipes.html#check-the-status">Check the status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/build-pipes.html#submit-it">Submit it</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/build-pipes.html#check-its-status">Check its status</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rd/vignettes/build-pipes.html#kill-it">Kill it</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/build-pipes.html#re-run-a-flow">Re-run a flow</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="rd/vignettes/build-pipes.html#building-pipelines">Building Pipelines</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/build-pipes.html#ingredients">Ingredients</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/build-pipes.html#submission-types">Submission types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/build-pipes.html#dependency-types">Dependency types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/build-pipes.html#relationships">Relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rd/vignettes/build-pipes.html#building-pipelines">Building Pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rd/vignettes/build-pipes.html#ingredients-for-building-a-pipeline">Ingredients for building a pipeline</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/build-pipes.html#flow-definition">1. Flow Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/build-pipes.html#flow-mat-a-table-with-shell-commands-to-run">2. Flow mat: A table with shell commands to run</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rd/vignettes/build-pipes.html#example">Example:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rd/vignettes/build-pipes.html#submission-types">Submission types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rd/vignettes/build-pipes.html#dependency-types">Dependency types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rd/vignettes/build-pipes.html#relationships">Relationships</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/build-pipes.html#serial-one-to-one-relationship">Serial: one to one relationship</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/build-pipes.html#gather-many-to-one-relationship">Gather: many to one relationship</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/build-pipes.html#burst-one-to-many-relationship">Burst: one to many relationship</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rd/vignettes/build-pipes.html#passing-of-flow-definition-resource-columns">Passing of flow definition resource columns</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rd/vignettes/build-pipes.html#available-pipelines">Available Pipelines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rd/vignettes/build-pipes.html#cluster-support">Cluster Support</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="rd/topics/complete-help.html">Help on Available functions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#check-args">check_args</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#check">check</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#fetch">fetch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#flow">flow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#get-unique-id">get_unique_id</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#get-wds">get_wds</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#job">job</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#kill">kill</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#flowopts">flowopts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#parse-jobids">parse_jobids</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#plot-flow">plot_flow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#queue">queue</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#rerun">rerun</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#run">run</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#setup">setup</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#id140">status</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#id145">submit_flow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#test-queue">test_queue</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#to-flow">to_flow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#id159">to_flowdef</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#to-flowdet">to_flowdet</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#as-flowmat">as.flowmat</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#whisker-render">whisker_render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rd/vignettes/build-pipes.html#example-of-building-a-pipeline">Example of building a pipeline</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/build-pipes.html#define-modules">Define modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/build-pipes.html#define-the-pipeline">Define the pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/build-pipes.html#generate-a-flowmat">Generate a flowmat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rd/vignettes/build-pipes.html#create-flow-definition">Create flow definition</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="faqs.html">FAQs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rd/topics/complete-help.html">Help on Available functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#check-args">check_args</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#description">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#arguments">Arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#check">check</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id1">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id2">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id3">Arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id4">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#fetch">fetch</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id5">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id6">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id7">Arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id8">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#flow">flow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id9">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id10">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id11">Arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id13">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#get-unique-id">get_unique_id</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id14">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id15">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id16">Arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id17">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#get-wds">get_wds</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id18">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id19">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id20">Arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id21">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#job">job</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id22">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id23">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id24">Arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id25">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#kill">kill</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id26">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id27">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id28">Arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id30">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#flowopts">flowopts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id31">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id32">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id33">Arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#format">Format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id106">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#plot-flow">plot_flow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id107">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id108">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id109">Arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id110">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#queue">queue</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id111">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id112">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id113">Arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#details">Details</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id116">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#rerun">rerun</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id117">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id118">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id119">Arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id120">Details</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id124">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#run">run</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id125">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id126">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id127">Arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id128">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#setup">setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id129">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id130">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id131">Arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id132">Details</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id133">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#id134">status</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id135">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id136">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id137">Arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id138">Details</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id139">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#id140">submit_flow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id141">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id142">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id143">Arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id144">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#test-queue">test_queue</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id145">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id146">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id147">Arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id148">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#to-flow">to_flow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id149">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id151">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id152">Arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#value">Value</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id154">Details</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id155">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#id156">to_flowdef</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id157">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id158">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id159">Arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id160">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#to-flowdet">to_flowdet</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id161">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id162">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id163">Arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id164">Details</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id165">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#as-flowmat">as.flowmat</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id166">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id167">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id168">Arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id169">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rd/topics/complete-help.html#whisker-render">whisker_render</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id170">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id172">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id173">Arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rd/topics/complete-help.html#id174">Examples</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
           
@@ -139,6 +303,8 @@
     <li></li>
       <li class="wy-breadcrumbs-aside">
         
+          
+        
       </li>
   </ul>
   <hr/>
@@ -164,10 +330,10 @@
         &copy; Copyright 2015, Sahil Seth.
     </p>
   </div>
-
   Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-  
+
 </footer>
+
         </div>
       </div>
 

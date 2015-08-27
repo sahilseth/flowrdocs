@@ -10,9 +10,20 @@
 flowopts
 -----------
 
-:func:`flowopts`
+.. :func:`flowopts`
 
 Default options/params used in ngsflows and flowr
+
+Description
+~~~~~~~~~~~~~~~~~~
+
+There are three helper functions which attempt to manage params used by flowr and ngsflows:
+-  `get_opts <#get_opts>`_ OR ``opts_flow$get``: show all default options
+-  `set_opts <#set_opts>`_ OR ``opts_flow$set``: set default options
+-  `load_opts <#load_opts>`_ OR ``opts_flow$load``: load options specified in a tab seperated text file
+
+For more details regarding these funtions refer to `params <http://www.inside-r.org/packages/cran/params/docs/params>`_.
+
 
 Usage
 ~~~~~~~~~~~~~~~~~~
@@ -37,36 +48,25 @@ Arguments
 
 
 ...
-    -<li> get: names of options to fetch
-</li>
-<li> set: a set of options in a name=value format seperated by commas
-</li>
+    -  get: names of options to fetch
+-  set: a set of options in a name=value format seperated by commas
 
-
+ 
+ 
 
 
 Format
 ~~~~~~~~~~~~~~~~~~
 
-opts_flow
-Description
-~~~~~~~~~~~~~~~~~~
-
-There are three helper functions which attempt to manage params used by flowr and ngsflows:
--<li> `get_opts <get_opts.html>`_ OR opts_flow$get: show all default options
-</li>
-<li> `set_opts <set_opts.html>`_ OR opts_flow$set: set default options
-</li>
-<li> `load_opts <load_opts.html>`_ OR opts_flow$load: load options specified in a tab seperated text file
-</li>
-For more details regarding these funtions refer to `params <http://www.inside-r.org/packages/cran/params/docs/params>`_.
+``opts_flow``
 Details
 ~~~~~~~~~~~~~~~~~~
 
-By default flowr loads, ~/flowr/conf/flowr.conf and ~/flowr/conf/ngsflows.conf
+By default flowr loads, ``~/flowr/conf/flowr.conf`` and ``~/flowr/conf/ngsflows.conf``
 Below is a list of default flowr options, retrieved via
-opts_flow$get():
-|name              |value                    |
+``opts_flow$get()``:
+<pre>
+	|name              |value                    |
 	|:-----------------|:------------------------|
 	|default_regex     |(.*)                     |
 	|flow_base_path    |~/flowr                  |
@@ -86,7 +86,7 @@ opts_flow$get():
 	|my_tool_exe       |/usr/bin/ls              |
 	|time_format       |%a %b %e %H:%M:%S CDT %Y |
 	|verbose           |FALSE                    |
-
+	</pre>
 
 
 Examples
@@ -113,16 +113,12 @@ Examples
  |:-----------------|:------------------------|
  |flow_parse_slurm  |(.*)                     |
  |flow_parse_sge    |(.*)                     |
- |flow_parse_moab   |(.*)                     |
  |flow_parse_lsf    |.*(\<[0-9]*\>).*         |
  |flow_parse_torque |(.?)\..*                 |
- |flow_platform     |local                    |
  |flow_pipe_urls    |~/flowr/pipelines        |
  |flow_pipe_paths   |~/flowr/pipelines        |
- |flow_run_path     |~/flowr/runs             |
  |flow_conf_path    |~/flowr/conf             |
  |flow_base_path    |~/flowr                  |
- |verbose           |FALSE                    |
  |var               |                         |
  |time_format       |%a %b %e %H:%M:%S CDT %Y |
  
@@ -161,5 +157,5 @@ set_opts
 datasets
 .. Author:
 
-
+.. 
 

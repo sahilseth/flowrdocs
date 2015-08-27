@@ -10,9 +10,15 @@
 job
 -----------
 
-:func:`job`
+.. :func:`job`
 
 job class
+
+Description
+~~~~~~~~~~~~~~~~~~
+
+job class
+
 
 Usage
 ~~~~~~~~~~~~~~~~~~
@@ -59,10 +65,6 @@ dependency_type
     other passed onto object creation. Example: memory, walltime, cpu
 
 
-Description
-~~~~~~~~~~~~~~~~~~
-
-job class
 
 
 Examples
@@ -97,12 +99,12 @@ Examples
  # submit_flow(fobj, execute = TRUE)
  # 
  # ## **End(Not run)**
- 
+ .. image job-2.png
 Aliases:
 job
 .. Keywords:
 
 .. Author:
 
-
+.. 
 

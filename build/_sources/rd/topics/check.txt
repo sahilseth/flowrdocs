@@ -10,9 +10,15 @@
 check
 -----------
 
-:func:`check`
+.. :func:`check`
 
 Check consistency of flowdef and flowmat
+
+Description
+~~~~~~~~~~~~~~~~~~
+
+Currently checks S3 flowdef & flowmat for consistency.
+
 
 Usage
 ~~~~~~~~~~~~~~~~~~
@@ -22,9 +28,11 @@ Usage
  
  check(x, ...)
  
- "check"(x, ...)
+ ## method for class 'flowmat'
+ check(x, ...)
  
- "check"(x, verbose = get_opts("verbose"), ...)
+ ## method for class 'flowdef'
+ check(x, verbose = get_opts("verbose"), ...)
  
 
 
@@ -36,17 +44,12 @@ x
     a flowdef or flowmat object
 
 ...
-    suppled to check.classname function
+    suppled to ``check.classname`` function
 
 verbose
     be chatty
 
 
-Description
-~~~~~~~~~~~~~~~~~~
-
-check consistency of objects
-Currently checks objects S3 flowdef, flowmat
 
 
 Examples
@@ -62,5 +65,5 @@ check.flowmat
 
 .. Author:
 
-
+.. 
 

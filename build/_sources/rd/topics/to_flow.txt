@@ -10,9 +10,19 @@
 to_flow
 -----------
 
-:func:`to_flow`
+.. :func:`to_flow`
 
 Create flow objects
+
+Description
+~~~~~~~~~~~~~~~~~~
+
+Use a set of shell commands and flow definiton to create `flow <#flow>`_ object.
+
+vector: a file with flowmat table
+
+a named list of commands for a sample. Its best to supply a flowmat instead.
+
 
 Usage
 ~~~~~~~~~~~~~~~~~~
@@ -22,11 +32,14 @@ Usage
  
  to_flow(x, ...)
  
- "to_flow"(x, def, grp_col, jobname_col, cmd_col, ...)
+ ## method for class 'vector'
+ to_flow(x, def, grp_col, jobname_col, cmd_col, ...)
  
- "to_flow"(x, def, grp_col, jobname_col, cmd_col, flowname, flow_run_path, platform, submit = FALSE, execute = FALSE, qobj, ...)
+ ## method for class 'flowmat'
+ to_flow(x, def, grp_col, jobname_col, cmd_col, flowname, flow_run_path, platform, submit = FALSE, execute = FALSE, qobj, ...)
  
- "to_flow"(x, def, flowname, flow_run_path, desc, qobj, ...)
+ ## method for class 'list'
+ to_flow(x, def, flowname, flow_run_path, desc, qobj, ...)
  
 
 
@@ -38,7 +51,7 @@ x
     path (char. vector) to flow_mat, a data.frame or a list.
 
 ...
-    Supplied to specific functions like to_flow.data.frame
+    Supplied to specific functions like ``to_flow.data.frame``
 
 def
     A flow definition table. Basically a table with resource requirements and mapping of the jobs in this flow
@@ -69,7 +82,7 @@ execute
     Depreciated. Use submit_flow on flow object this function returns. TRUE/FALSE, an paramter to submit_flow()
 
 qobj
-    Depreciated, modify <a href = 'http://docs.flowr.space/en/latest/rd/vignettes/build-pipes.html#cluster-interface'>cluster templates</a> instead.  A object of class `queue <queue.html>`_.
+    Depreciated, modify <a href = 'http://docs.flowr.space/en/latest/rd/vignettes/build-pipes.html#cluster-interface'>cluster templates</a> instead.  A object of class `queue <#queue>`_.
 
 desc
     Advanced Use. final flow name, please don't change.
@@ -78,25 +91,15 @@ desc
 Value
 ~~~~~~~~~~~~~~~~~~
 
-<dl>
 Returns a flow object. If execute=TRUE, fobj is rich with information about where and how
 the flow was executed. It would include details like jobids, path to exact scripts run etc.
 To use kill_flow, to kill all the jobs one would need a rich flow object, with job ids present.
 Behaviour:
 What goes in, and what to expect in return?
--<li> submit=FALSE & execute=FALSE: Create and return a flow object
-</li>
-<li> submit=TRUE & execute=FALSE: dry-run, Create a flow object then, create a structured execution folder with all the commands
-</li>
-<li> submit=TRUE, execute=TRUE: Do all of the above and then, submit to cluster
-</li>
-</dl>
-Description
-~~~~~~~~~~~~~~~~~~
+-  submit=FALSE & execute=FALSE: Create and return a flow object
+-  submit=TRUE & execute=FALSE: dry-run, Create a flow object then, create a structured execution folder with all the commands
+-  submit=TRUE, execute=TRUE: Do all of the above and then, submit to cluster
 
-Use a set of shell commands and flow definiton to create `flow <flow.html>`_ object.
-vector: a file with flowmat table
-a named list of commands for a sample. Its best to supply a flowmat instead.
 Details
 ~~~~~~~~~~~~~~~~~~
 
@@ -126,5 +129,5 @@ to_flow.vector
 
 .. Author:
 
-
+.. 
 

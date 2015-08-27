@@ -1,5 +1,5 @@
 ---
-title: "Flowr Manual"
+title: "Building Pipelines"
 date: "2015-08-26"
 output: rmarkdown::html_document
 vignette: >
@@ -73,7 +73,7 @@ We use an additional file specifying relationship between the steps, and also ot
 |size       |serial   |merge      |serial   |short |            2000|1:00     |            1|torque   |     4|
 
 
-## Stitch
+## Stitch it
 
 
 ```r
@@ -81,7 +81,7 @@ fobj <- to_flow(x = flow_mat, def = as.flowdef(flow_def),
 	flowname = "example1", platform = "lsf")
 ```
 
-## Plot
+## Plot it
 
 
 ```r
@@ -106,9 +106,9 @@ You may check this folder for consistency. Also you may re-run submit with execu
  ~/flowr/type1-20150520-15-18-27-5mSd32G0
 ```
 
-## Submit it !
+## Submit it
 
-> Submit to the cluster
+> Submit to the cluster !
 
 
 ```r
@@ -123,7 +123,7 @@ flowr status x=~/flowr/type1-20150520-15-18-46-sySOzZnE
 ```
 
 
-## Check the status
+## Check its status
 
 ```
 flowr status x=~/flowr/type1-20150520-15-18-46-sySOzZnE
@@ -146,17 +146,39 @@ Showing status of: /rsrch2/iacs/iacs_dep/sseth/flowr/type1-20150520-15-18-46-syS
 ## Kill it
 
 ```
-flowr kill x=~/flowr/type1-20150520-15-18-46-sySOzZnE
-## OR kill multiple, all type1 flows submitted on August 20th.
-flowr kill x=~/flowr/type1-20150820*
+
+## kill one flow
+## flowr kill_flow x=flow_wd
+
+## In case path matches multiple folders, flowr asks before killing
+kill(x='fastq_haplotyper*')
+##	Flowr: streamlining workflows
+##	found multiple wds:
+##	./fastq_haplotyper-MS132-20150825-16-24-04-0Lv1PbpI
+##	/fastq_haplotyper-MS132-20150825-17-47-52-5vFIkrMD
+
+##	Really kill all of them ? kill again with force=TRUE
+
+## submitting again with force=TRUE will kill them:
+kill(x='fastq_haplotyper*', force = TRUE)
 ```
 
-.. warning::
+.. note::
 Even if you want to kill the flow, its best to let submit_flow do its job, when done simply use kill(flow_wd). If submit_flow is interrupted, flow detail files etc are not created, thus flowr can't associate submitted jobs with flow instance.
 
-.. note::
-Interested? Here are some details on [building pipelines](#build-pipes)
 
+## Re-run a flow
+
+flowr also enables you to re-run a pipeline in case of hardware or software failures.
+
+- **hardware** no change to the pipeline is required, simply rerun it: `rerun(x=flow_wd, start_from=<intermediate step>)`
+- **software** either a change to flowmat or flowdef has been made: `rerun(x=flow_wd, mat = new_flowmat, def = new_flowdef, start_from=<intermediate step>)`
+
+In either case there are two things which are always required, a flow_wd (the folder created by flowr which contains execution logs) and name of the step from where we want to start execution. Refer to the [help section](http://docs.flowr.space/en/latest/rd/topics/complete-help.html) for more details.
+
+
+.. note::
+Interested? Here are some details on [building pipelines](#building-pipelines)
 
 # Building Pipelines
 
@@ -164,7 +186,12 @@ An easy and quick way to build a workflow is create two separate files. First is
 
 Both these files have a `jobname` column which is used as a ID to connect them to each other.
 
-## Ingredients
+# Ingredients for building a pipeline
+
+Essentially there are two main components which go into building a flowr pipeline, a flow matrix with commands to run and 
+a flow definition with details regarding how to stich a pipeline.
+
+Let us read some files to see what they look like and what they do.
 
 
 ```r
@@ -176,7 +203,7 @@ flow_def = as.flowdef(file.path(ex, "sleep_pipe.def"))
 
 
 
-### 1. Flow Definition
+## 1. Flow Definition
 
 Each row in this table refers to one step of the pipeline. It describes the resources used by this step and also its relationship with other steps.
 Especially, the step immediately prior to it.
@@ -236,9 +263,7 @@ Here is an example of a typical [flow_def](https://raw.githubusercontent.com/sah
 Its best to have this as a tab seperated file (with no row.names). -->
 
 
-### 2. Flow Mat
-
-> A table with shell commands to run
+## 2. Flow mat: A table with shell commands to run
 
 This is also a tab separated table, with a minimum of three columns as defined below:
 
@@ -310,7 +335,7 @@ Consider an example with three steps A, B and C. A has 10 commands from A1 to A1
 
 Consider another step D (with D1-D3), which comes after C.
 
-## Submission types
+# Submission types
 
 > *This refers to the sub_type column in flow definition.*
 
@@ -319,7 +344,7 @@ Consider another step D (with D1-D3), which comes after C.
 - `serial`: run these commands sequentially one after the other. 
 	- *Wrap A1 through A10, into a single job.*
 
-## Dependency types
+# Dependency types
 
 > *This refers to the dep_type column in flow definition.*
 
@@ -333,12 +358,12 @@ Consider another step D (with D1-D3), which comes after C.
 	- *D1 to D3 are started as soon as C1 finishes.*
 
 
-## Relationships
+# Relationships
 
 Using the above submission and dependency types one can create several types of relationships between former and later jobs. Here are a few pipelines of relationships one may typically use.
 
 
-### Serial: one to one relationship
+## Serial: one to one relationship
 
 [scatter] ---serial---> [scatter]
 
@@ -348,7 +373,7 @@ To set this up, A and B would have `sub_type` `scatter` and B would have `dep_ty
 
 
 
-### Gather: many to one relationship
+## Gather: many to one relationship
 
 [scatter] ---gather---> [serial]
 
@@ -362,7 +387,7 @@ Since C is a single command which requires all steps of B to complete, intuitive
 
 --->
 
-### Burst: one to many relationship
+## Burst: one to many relationship
 
 [serial] ---burst---> [scatter]
 
@@ -440,33 +465,25 @@ The following table provides a mapping between the flow definition columns and v
 Here are some of the available piplines along with their respective locations
 
 
-```
-#> Please supply a name of the pipline to run, here are the options
-```
-
-
-
-|name                    |def                  |conf                  |pipe                                                                             |
-|:-----------------------|:--------------------|:---------------------|:--------------------------------------------------------------------------------|
-|sleep_pipe              |sleep_pipe.def       |NA                    |/Users/sahilseth/Dropbox2/Dropbox/public/github_flow/inst/pipelines/sleep_pipe.R |
-|sleep_pipe              |sleep_pipe.def       |NA                    |/Users/sahilseth/Dropbox2/Dropbox/public/github_flow/inst/pipelines/sleep_pipe.R |
-|fastq_bam_bwa           |NA                   |NA                    |/Users/sahilseth/Rlibs/ngsflows/pipelines/fastq_bam_bwa.R                        |
-|fastq_bam_rna_ion       |NA                   |NA                    |/Users/sahilseth/Rlibs/ngsflows/pipelines/fastq_bam_rna_ion.R                    |
-|fastq_bam_variants      |NA                   |NA                    |/Users/sahilseth/Rlibs/ngsflows/pipelines/fastq_bam_variants.R                   |
-|fastq_haplotyper        |fastq_haplotyper.def |fastq_haplotyper.conf |/Users/sahilseth/Rlibs/ngsflows/pipelines/fastq_haplotyper.R                     |
-|fastq_star_rna          |NA                   |NA                    |/Users/sahilseth/Rlibs/ngsflows/pipelines/fastq_star_rna.R                       |
-|old_bam_pindel          |NA                   |NA                    |/Users/sahilseth/Rlibs/ngsflows/pipelines/old_bam_pindel.R                       |
-|old_bam_preprocess      |NA                   |NA                    |/Users/sahilseth/Rlibs/ngsflows/pipelines/old_bam_preprocess.R                   |
-|old_bam_xenome          |NA                   |NA                    |/Users/sahilseth/Rlibs/ngsflows/pipelines/old_bam_xenome.R                       |
-|old_bwa_pipe            |NA                   |NA                    |/Users/sahilseth/Rlibs/ngsflows/pipelines/old_bwa_pipe.R                         |
-|old_dna_qc              |NA                   |NA                    |/Users/sahilseth/Rlibs/ngsflows/pipelines/old_dna_qc.R                           |
-|old_fastq_bam_bwa2      |NA                   |NA                    |/Users/sahilseth/Rlibs/ngsflows/pipelines/old_fastq_bam_bwa2.R                   |
-|old_fastq_bismark_meth  |NA                   |NA                    |/Users/sahilseth/Rlibs/ngsflows/pipelines/old_fastq_bismark_meth.R               |
-|old_flow_bam_preprocess |NA                   |NA                    |/Users/sahilseth/Rlibs/ngsflows/pipelines/old_flow_bam_preprocess.R              |
-|old_proc_bwa_pipe       |NA                   |NA                    |/Users/sahilseth/Rlibs/ngsflows/pipelines/old_proc_bwa_pipe.R                    |
-|split_aln_merge         |split_aln_merge.def  |NA                    |/Users/sahilseth/Rlibs/ngsflows/pipelines/split_aln_merge.R                      |
-|build-pipes             |NA                   |NA                    |/Users/sahilseth/Dropbox2/Dropbox/public/github_flow/vignettes/build-pipes.R     |
-|example_sleep           |NA                   |NA                    |/Users/sahilseth/Dropbox2/Dropbox/public/github_flow/vignettes/example_sleep.R   |
+|name                    |def                  |conf                  |pipe                                                                                                        |
+|:-----------------------|:--------------------|:---------------------|:-----------------------------------------------------------------------------------------------------------|
+|sleep_pipe              |sleep_pipe.def       |NA                    |/Users/sahilseth/Dropbox2/Dropbox/public/github_flow/inst/pipelines/sleep_pipe.R                            |
+|fastq_bam_bwa           |NA                   |NA                    |/Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/fastq_bam_bwa.R           |
+|fastq_bam_rna_ion       |NA                   |NA                    |/Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/fastq_bam_rna_ion.R       |
+|fastq_bam_variants      |NA                   |NA                    |/Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/fastq_bam_variants.R      |
+|fastq_haplotyper        |fastq_haplotyper.def |fastq_haplotyper.conf |/Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/fastq_haplotyper.R        |
+|fastq_star_rna          |NA                   |NA                    |/Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/fastq_star_rna.R          |
+|old_bam_pindel          |NA                   |NA                    |/Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/old_bam_pindel.R          |
+|old_bam_preprocess      |NA                   |NA                    |/Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/old_bam_preprocess.R      |
+|old_bam_xenome          |NA                   |NA                    |/Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/old_bam_xenome.R          |
+|old_bwa_pipe            |NA                   |NA                    |/Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/old_bwa_pipe.R            |
+|old_dna_qc              |NA                   |NA                    |/Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/old_dna_qc.R              |
+|old_fastq_bam_bwa2      |NA                   |NA                    |/Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/old_fastq_bam_bwa2.R      |
+|old_fastq_bismark_meth  |NA                   |NA                    |/Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/old_fastq_bismark_meth.R  |
+|old_flow_bam_preprocess |NA                   |NA                    |/Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/old_flow_bam_preprocess.R |
+|old_proc_bwa_pipe       |NA                   |NA                    |/Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/old_proc_bwa_pipe.R       |
+|split_aln_merge         |split_aln_merge.def  |NA                    |/Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/split_aln_merge.R         |
+|build-pipes             |NA                   |NA                    |/Users/sahilseth/Dropbox2/Dropbox/public/github_flow/vignettes/build-pipes.R                                |
 
 
 # Cluster Support
@@ -483,22 +500,42 @@ Here are links to latest templates on github:
 - [slurm](https://github.com/sahilseth/flowr/blob/master/inst/conf/slurm.sh), needs testing
 
 
-Adding a new plaform involves [a few steps](https://github.com/sahilseth/flowr/issues/7) including support for:
+Adding a new plaform involves [a few steps](https://github.com/sahilseth/flowr/issues/7), briefly we need to consider
+the following steps where changes would be neccesary.
 
-1. submission: Template used for submission:
-https://github.com/sahilseth/flowr/blob/master/inst/conf/torque.sh
-2. [parse_jobids()](https://github.com/sahilseth/flowr/blob/master/R/parse-jobids.R): The job ids should parse using regular expression as provided by:
-https://github.com/sahilseth/flowr/blob/master/inst/conf/flowr.conf
-3. parse_dependency(): These are then parsed to create a dependency string, as seen here:
-https://github.com/sahilseth/flowr/blob/master/R/parse-dependency.R
-4. job(): Add a new class using the platform name. This is essentially a wrapper around job class.
-https://github.com/sahilseth/flowr/blob/master/R/class-def.R
-A one line like: `setClass("torque", contains = "job")` would suffice.
-5. Killing jobs: making sure that the correct job killing command is identified by detect_kill_cmd().
+1. **job submission**: One needs to add a new template for the new platform. Several [examples](https://github.com/sahilseth/flowr/blob/master/inst/conf) are available as described in the previous section.
+2. **parsing job ids**: flowr keeps a log of all submitted jobs, and also to pass them along as a dependency to subsequent jobs. This is taken care by the [parse_jobids()](https://github.com/sahilseth/flowr/blob/master/R/parse-jobids.R) function. Each job scheduler shows the jobs id, when you submit a job, but each shows it in a slightly different pattern. To accomodate this one can use regular expressions as described in the relevent section of the [flowr config](https://github.com/sahilseth/flowr/blob/master/inst/conf/flowr.conf).
+
+For example LSF may show a string such as:
+
+```
+Job <335508> is submitted to queue <transfer>.
+```
+
+```
+jobid="Job <335508> is submitted to queue <transfer>."
+set_opts(flow_parse_lsf = ".*(\<[0-9]*\>).*  ")
+parse_jobids(jobid, platform="lsf")
+[1] "335508"
+```
+
+In this case *335508* was the job id and regex worked well !
+
+3. **render dependency**: After collecting job ids from previous jobs, flowr render them as a dependency for subsequent
+jobs. This is handled by [render_dependency.PLATFORM](https://github.com/sahilseth/flowr/blob/master/R/parse-dependency.R) functions.
+4. **recognize new platform**: Flowr needs to be made aware of the new platform, for this we need to add a new class using the platform name. This is essentially a wrapper around the [job class](https://github.com/sahilseth/flowr/blob/master/R/class-def.R)
+
+Essentially this requires us to add a new line like: `setClass("torque", contains = "job")`.
+
+
+5. **killing jobs**: Just like submission flowr needs to know what command to use to kill jobs. This is defined in detect_kill_cmd function.
 
 .. note:: 
- 	My HPCC is not supported, how to make it work? re-open this issue, with details on the platform.
- 	[adding platforms](https://github.com/sahilseth/flowr/issues/7)
+ 	There are several [job scheduling](http://en.wikipedia.org/wiki/Job_scheduler) systems
+available and we try to support the major players. Adding support is
+quite easy if we have access to them. Your favourite not in the list?
+re-open this issue, with details on the platform:
+[adding platforms](https://github.com/sahilseth/flowr/issues/7)
  	
 
 As of now we have tested this on the following clusters:
@@ -514,10 +551,6 @@ As of now we have tested this on the following clusters:
 
 \*queue short-name used in [flow](https://github.com/sahilseth/flow)
 
-There are several [job scheduling](http://en.wikipedia.org/wiki/Job_scheduler) systems
-available and we try to support the major players. Adding support is
-quite easy if we have access to them. Your favourite not in the list?
-Send a [message](mailto:sahil.seth@me.com)
 
 - PBS: [wiki](http://en.wikipedia.org/wiki/Portable_Batch_System)
 - Torque: [wiki](http://en.wikipedia.org/wiki/TORQUE_Resource_Manager)
@@ -531,11 +564,174 @@ Send a [message](mailto:sahil.seth@me.com)
 	- Another from [JHSPH](http://www.biostat.jhsph.edu/bit/cluster-usage.html)
 	- Dependecy info [here](https://wiki.duke.edu/display/SCSC/SGE+Job+Dependencies)
 
-
-
 [Comparison_of_cluster_software](http://en.wikipedia.org/wiki/Comparison_of_cluster_software)
 
 
+
+# Example of building a pipeline
+
+
+
+A pipeline consists of several pieces, namely, a function which generates a flowmat, a flowdef and optionally a 
+text file with parameters and paths to tools used as part of the pipeline.
+
+
+.. note:: A R function which creates a flow mat, is a module. Further a module with a flow definition is a pipeline.
+
+We beleive pipeline and modules may be interchangeble, in the sense that a *smaller* pipeline may be 
+included as part of a larger pipeline.
+In flowr a module OR pipeline always returns a flowmat.
+The only differnce being, a pipeline also has a correspomding flow definition file. 
+As such, creating a flow definition for a module enables flowr
+to run it, hence a module **elevates**, becoming a pipeline.
+This lets the user mix and match several modules/pipelines to create a customized larger pipeline(s).
+
+Let us follow through an example, providing more details regarding this process. 
+Here are a few examples of modules, three functions `sleep`, `create_tmp` and `merge_size` each returning a flowmat.
+
+
+## Define modules
+
+```r
+#' @param x number of sleep commands
+sleep <- function(x, samplename){
+	cmd = list(sleep = sprintf("sleep %s && sleep %s;echo 'hello'",
+		abs(round(rnorm(x)*10, 0)),
+		abs(round(rnorm(x)*10, 0))))
+	flowmat = to_flowmat(cmd, samplename)
+	return(list(flowmat = flowmat))
+}
+
+#' @param x number of tmp commands
+create_tmp <- function(x, samplename){
+	## Create 100 temporary files
+	tmp = sprintf("%s_tmp_%s", samplename, 1:x)
+	cmd = list(create_tmp = sprintf("head -c 100000 /dev/urandom > %s", tmp))
+	## --- convert the list into a data.frame
+	flowmat = to_flowmat(cmd, samplename)
+	return(list(flowmat = flowmat, outfiles = tmp))
+}
+
+#' @param x vector of files to merge
+merge_size <- function(x, samplename){
+	## Merge them according to samples, 10 each
+	mergedfile = paste0(samplename, "_merged")
+	cmd_merge <- sprintf("cat %s > %s",
+		paste(x, collapse = " "), ## input files
+		mergedfile)
+	## get the size of merged files
+	cmd_size = sprintf("du -sh %s; echo 'MY shell:' $SHELL", mergedfile)
+
+	cmd = list(merge = cmd_merge, size = cmd_size)
+	## --- convert the list into a data.frame
+	flowmat = to_flowmat(cmd, samplename)
+	return(list(flowmat = flowmat, outfiles = mergedfile))
+}
+```
+
+We then define another function `sleep_pipe` which calls the above defined **modules**; fetches flowmat from each, 
+creating a larger flowmat. This time we will define a flowdef for the `sleep_pipe` function, elevating its status from
+module to a pipeline.
+
+## Define the pipeline
+
+```r
+#' @param x number of files to make
+sleep_pipe <- function(x = 3, samplename = "samp1"){
+
+	## call the modules one by one...
+	out_sleep = sleep(x, samplename)
+	out_create_tmp = create_tmp(x, samplename)
+	out_merge_size = merge_size(out_create_tmp$outfiles, samplename)
+
+	## row bind all the commands
+	flowmat = rbind(out_sleep$flowmat,
+		out_create_tmp$flowmat,
+		out_merge_size$flowmat)
+
+	return(list(flowmat = flowmat, outfiles = out_merge_size$outfiles))
+}
+```
+
+## Generate a flowmat
+
+Here is how the generated flowmat looks like.
+
+
+```r
+out = sleep_pipe(x = 3, "sample1")
+flowmat = out$flowmat
+```
+
+
+|samplename |jobname    |cmd                                                            |
+|:----------|:----------|:--------------------------------------------------------------|
+|sample1    |sleep      |sleep 2 && sleep 2;echo 'hello'                                |
+|sample1    |sleep      |sleep 6 && sleep 28;echo 'hello'                               |
+|sample1    |sleep      |sleep 11 && sleep 11;echo 'hello'                              |
+|sample1    |create_tmp |head -c 100000 /dev/urandom > sample1_tmp_1                    |
+|sample1    |create_tmp |head -c 100000 /dev/urandom > sample1_tmp_2                    |
+|sample1    |create_tmp |head -c 100000 /dev/urandom > sample1_tmp_3                    |
+|sample1    |merge      |cat sample1_tmp_1 sample1_tmp_2 sample1_tmp_3 > sample1_merged |
+|sample1    |size       |du -sh sample1_merged; echo 'MY shell:' $SHELL                 |
+
+## Create flow definition
+
+flowr enables us to quickly create a skeleton flow definition using a flowmat, which we can then alter to suit our needs. A handy function
+to_flowdef, accepts a flowmat and creates a flow definition. The default skeleton takes a very conservative approach, creating all submissions as `serial` and all dependencies as `gather`. This ensures robustness, compromising efficiency. Thus we will enable parallel process where possible, making this into a better pipeline.
+
+Here is how it looks presently:
+
+
+```r
+def = to_flowdef(flowmat)
+```
+
+```
+#> Creating a skeleton flow definition
+#> Following jobnames detected: sleep create_tmp merge size
+```
+
+```r
+plot_flow(suppressMessages(to_flow(flowmat, def)))
+```
+
+![](figure/unnamed-chunk-18-1.png) 
+
+After making the desired changes, the new pipeline looks better. Alternatively, one may write this to a file and make
+other desired changes in resource requirements.
+
+Pipeline follows the following steps, with dependencies mentioned in ():
+
+- multiple sleep commands would run in parallel (none, first step)
+- For each sleep, create_tmp creates a tmp file (serial)
+- All tmp files are merged; when all are complete (gather)
+- Then we get size on the resulting file (serial)
+
+
+```r
+def$sub_type = c("scatter", "scatter", "serial", "serial")
+def$dep_type = c("none", "serial", "gather", "serial")
+kable(def)
+```
+
+
+
+|jobname    |sub_type |prev_jobs  |dep_type |queue |memory_reserved |walltime | cpu_reserved|platform | jobid|
+|:----------|:--------|:----------|:--------|:-----|:---------------|:--------|------------:|:--------|-----:|
+|sleep      |scatter  |none       |none     |short |2000            |1:00     |            1|torque   |     1|
+|create_tmp |scatter  |sleep      |serial   |short |2000            |1:00     |            1|torque   |     2|
+|merge      |serial   |create_tmp |gather   |short |2000            |1:00     |            1|torque   |     3|
+|size       |serial   |merge      |serial   |short |2000            |1:00     |            1|torque   |     4|
+
+
+
+
+```r
+plot_flow(suppressMessages(to_flow(flowmat, def)))
+```
+
+![](figure/unnamed-chunk-20-1.png) 
 
 
 

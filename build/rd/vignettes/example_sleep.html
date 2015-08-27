@@ -88,7 +88,7 @@
 <li class="toctree-l2"><a class="reference internal" href="build-pipes.html#test-it">Test it</a></li>
 <li class="toctree-l2"><a class="reference internal" href="build-pipes.html#submit-it">Submit it !</a></li>
 <li class="toctree-l2"><a class="reference internal" href="build-pipes.html#check-the-status">Check the status</a></li>
-<li class="toctree-l2"><a class="reference internal" href="build-pipes.html#kill-it">Kill it</a></li>
+<li class="toctree-l2"><a class="reference internal" href="build-pipes.html#killing-a-flow">Killing a flow</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="build-pipes.html#building-pipelines">Building Pipelines</a><ul>
@@ -101,6 +101,14 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="build-pipes.html#available-pipelines">Available Pipelines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="build-pipes.html#cluster-support">Cluster Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build-pipes.html#building-a-pipeline-by-example">Building a pipeline, by example</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="build-pipes.html#define-modules">Define modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="build-pipes.html#define-the-pipeline">Define the pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="build-pipes.html#generate-flowmat">Generate flowmat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="build-pipes.html#create-flow-definition">Create flow definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="build-pipes.html#default-flowdef">Default flowdef</a></li>
+</ul>
+</li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../topics/complete-help.html">Help on Available functions</a><ul>
@@ -253,15 +261,15 @@ kable(flowmat)
 <tbody valign="top">
 <tr class="row-even"><td>sample1</td>
 <td>sleep</td>
-<td>sleep 11 &amp;&amp; sleep 2;echo &#8216;hello&#8217;</td>
+<td>sleep 8 &amp;&amp; sleep 6;echo &#8216;hello&#8217;</td>
 </tr>
 <tr class="row-odd"><td>sample1</td>
 <td>sleep</td>
-<td>sleep 11 &amp;&amp; sleep 11;echo &#8216;hello&#8217;</td>
+<td>sleep 1 &amp;&amp; sleep 6;echo &#8216;hello&#8217;</td>
 </tr>
 <tr class="row-even"><td>sample1</td>
 <td>sleep</td>
-<td>sleep 17 &amp;&amp; sleep 0;echo &#8216;hello&#8217;</td>
+<td>sleep 11 &amp;&amp; sleep 0;echo &#8216;hello&#8217;</td>
 </tr>
 <tr class="row-odd"><td>sample1</td>
 <td>create_tmp</td>

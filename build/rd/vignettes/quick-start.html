@@ -88,7 +88,7 @@
 <li class="toctree-l2"><a class="reference internal" href="build-pipes.html#test-it">Test it</a></li>
 <li class="toctree-l2"><a class="reference internal" href="build-pipes.html#submit-it">Submit it !</a></li>
 <li class="toctree-l2"><a class="reference internal" href="build-pipes.html#check-the-status">Check the status</a></li>
-<li class="toctree-l2"><a class="reference internal" href="build-pipes.html#kill-it">Kill it</a></li>
+<li class="toctree-l2"><a class="reference internal" href="build-pipes.html#killing-a-flow">Killing a flow</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="build-pipes.html#building-pipelines">Building Pipelines</a><ul>
@@ -101,6 +101,14 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="build-pipes.html#available-pipelines">Available Pipelines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="build-pipes.html#cluster-support">Cluster Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build-pipes.html#building-a-pipeline-by-example">Building a pipeline, by example</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="build-pipes.html#define-modules">Define modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="build-pipes.html#define-the-pipeline">Define the pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="build-pipes.html#generate-flowmat">Generate flowmat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="build-pipes.html#create-flow-definition">Create flow definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="build-pipes.html#default-flowdef">Default flowdef</a></li>
+</ul>
+</li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../topics/complete-help.html">Help on Available functions</a><ul>
@@ -373,18 +381,6 @@ Showing status of: /rsrch2/iacs/iacs_dep/sseth/flowr/type1-20150520-15-18-46-syS
 |003.merge |     1|       1|         1|           0|
 |004.size  |     1|       1|         1|           0|
 </pre></div>
-</div>
-</div>
-<div class="section" id="kill-it">
-<h2>Kill it<a class="headerlink" href="#kill-it" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre>flowr kill x=~/flowr/type1-20150520-15-18-46-sySOzZnE
-## OR kill multiple, all type1 flows submitted on August 20th.
-flowr kill x=~/flowr/type1-20150820*
-</pre></div>
-</div>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">Even if you want to kill the flow, its best to let submit_flow do its job, when done simply use kill(flow_wd). If submit_flow is interrupted, flow detail files etc are not created, thus flowr can&#8217;t associate submitted jobs with flow instance.</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
