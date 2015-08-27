@@ -8,7 +8,7 @@
 
 
 job
------------
+===============
 
 .. :func:`job`
 
@@ -21,55 +21,46 @@ job class
 
 
 Usage
-~~~~~~~~~~~~~~~~~~
-
+""""""""""""""""""
 ::
 
- 
  job(cmds = "", name = "myjob", q_obj = new("queue"), previous_job = "", cpu = 1, memory, walltime, submission_type = c("scatter", "serial"), dependency_type = c("none", "gather", "serial", "burst"), ...)
- 
-
 
 Arguments
-~~~~~~~~~~~~~~~~~~
-
 
 cmds
     the commands to run
-
 name
     name of the job
-
 q_obj
     queue object
-
 previous_job
     character vector of previous job. If this is the first job, one can leave this empty, NA, NULL, '.', or ''. In future this could specify multiple previous jobs.
-
 cpu
     no of cpu's reserved
-
 memory
     The amount of memory reserved. Units depend on the platform used to process jobs
-
 walltime
     The amount of time reserved for this job. Format is unique to a platform. Typically it looks like 12:00 (12 hours reserved, say in LSF), in Torque etc. we often see measuring in seconds: 12:00:00
-
 submission_type
     submission type: A character with values: scatter, serial. Scatter means all the 'cmds' would be run in parallel as seperate jobs. Serial, they would combined into a single job and run one-by-one.
-
 dependency_type
     depedency type. One of none, gather, serial, burst. If previous_job is specified, then this would not be 'none'. [Required]
-
 ...
     other passed onto object creation. Example: memory, walltime, cpu
 
 
+<<<<<<< HEAD
+=======
+Description
+""""""""""""""""""
+
+job class
+>>>>>>> origin/gh-pages
 
 
 Examples
-~~~~~~~~~~~~~~~~~~
-
+""""""""""""""""""
 ::
 
  qobj <- queue(platform="torque")
@@ -102,9 +93,15 @@ Examples
  .. image job-2.png
 Aliases:
 job
+<<<<<<< HEAD
 .. Keywords:
 
 .. Author:
 
 .. 
+=======
+Keywords:
+Author:
+
+>>>>>>> origin/gh-pages
 

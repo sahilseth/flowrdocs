@@ -8,7 +8,7 @@
 
 
 to_flow
------------
+===============
 
 .. :func:`to_flow`
 
@@ -25,12 +25,11 @@ a named list of commands for a sample. Its best to supply a flowmat instead.
 
 
 Usage
-~~~~~~~~~~~~~~~~~~
-
+""""""""""""""""""
 ::
 
- 
  to_flow(x, ...)
+<<<<<<< HEAD
  
  ## method for class 'vector'
  to_flow(x, def, grp_col, jobname_col, cmd_col, ...)
@@ -41,75 +40,88 @@ Usage
  ## method for class 'list'
  to_flow(x, def, flowname, flow_run_path, desc, qobj, ...)
  
+=======
+>>>>>>> origin/gh-pages
 
+"to_flow"(x, def, grp_col, jobname_col, cmd_col, ...)
+
+"to_flow"(x, def, grp_col, jobname_col, cmd_col, flowname, flow_run_path, platform, submit = FALSE, execute = FALSE, qobj, ...)
+
+"to_flow"(x, def, flowname, flow_run_path, desc, qobj, ...)
 
 Arguments
-~~~~~~~~~~~~~~~~~~
-
 
 x
     path (char. vector) to flow_mat, a data.frame or a list.
-
 ...
     Supplied to specific functions like ``to_flow.data.frame``
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/gh-pages
 def
     A flow definition table. Basically a table with resource requirements and mapping of the jobs in this flow
-
 grp_col
     column name used to split x (flow_mat). Default: `samplename`
-
 jobname_col
     column name with job names. Default: `jobname`
-
 cmd_col
     column name with commands. Default: `cmd`
-
 flowname
     name of the flow
-
 flow_run_path
     Path to a folder. Main operating folder for this flow. Default it `get_opts("flow_run_path")`.
-
 platform
     character vector, specifying the platform to use. local, lsf, torque, moab, sge, slurm, ...
 This over-rides the platform column in flowdef.
-
 submit
     Depreciated. Use submit_flow on flow object this function returns. TRUE/FALSE
-
 execute
     Depreciated. Use submit_flow on flow object this function returns. TRUE/FALSE, an paramter to submit_flow()
-
 qobj
+<<<<<<< HEAD
     Depreciated, modify <a href = 'http://docs.flowr.space/en/latest/rd/vignettes/build-pipes.html#cluster-interface'>cluster templates</a> instead.  A object of class `queue <#queue>`_.
 
+=======
+    Depreciated, modify <a href = 'http://docs.flowr.space/en/latest/rd/vignettes/build-pipes.html#cluster-interface'>cluster templates</a> instead.  A object of class `queue <queue.html>`_.
+>>>>>>> origin/gh-pages
 desc
     Advanced Use. final flow name, please don't change.
 
 
 Value
-~~~~~~~~~~~~~~~~~~
+""""""""""""""""""
 
 Returns a flow object. If execute=TRUE, fobj is rich with information about where and how
 the flow was executed. It would include details like jobids, path to exact scripts run etc.
 To use kill_flow, to kill all the jobs one would need a rich flow object, with job ids present.
 Behaviour:
 What goes in, and what to expect in return?
+<<<<<<< HEAD
 -  submit=FALSE & execute=FALSE: Create and return a flow object
 -  submit=TRUE & execute=FALSE: dry-run, Create a flow object then, create a structured execution folder with all the commands
 -  submit=TRUE, execute=TRUE: Do all of the above and then, submit to cluster
+=======
+-<li> submit=FALSE & execute=FALSE: Create and return a flow object
+</li>
+<li> submit=TRUE & execute=FALSE: dry-run, Create a flow object then, create a structured execution folder with all the commands
+</li>
+<li> submit=TRUE, execute=TRUE: Do all of the above and then, submit to cluster
+</li>
+</dl>
+Description
+""""""""""""""""""
+>>>>>>> origin/gh-pages
 
 Details
-~~~~~~~~~~~~~~~~~~
+""""""""""""""""""
 
 The parameter x can be a path to a flow_mat, or a data.frame (as read by read_sheet).
 This is a minimum three column matrix with three columns: samplename, jobname and cmd
 
 
 Examples
-~~~~~~~~~~~~~~~~~~
-
+""""""""""""""""""
 ::
 
  ex = file.path(system.file(package = "flowr"), "pipelines")
@@ -125,9 +137,15 @@ to_flow
 to_flow.flowmat
 to_flow.list
 to_flow.vector
+<<<<<<< HEAD
 .. Keywords:
 
 .. Author:
 
 .. 
+=======
+Keywords:
+Author:
+
+>>>>>>> origin/gh-pages
 

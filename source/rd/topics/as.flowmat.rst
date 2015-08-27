@@ -8,7 +8,7 @@
 
 
 as.flowmat
------------
+===============
 
 .. :func:`as.flowmat`
 
@@ -23,12 +23,11 @@ Taking in a named list and returns a two columns data.frame
 
 
 Usage
-~~~~~~~~~~~~~~~~~~
-
+""""""""""""""""""
 ::
 
- 
  as.flowmat(x, grp_col, jobname_col, cmd_col, ...)
+<<<<<<< HEAD
  
  is.flowmat(x)
  
@@ -43,42 +42,51 @@ Usage
  ## method for class 'flow'
  to_flowmat(x, ...)
  
+=======
+>>>>>>> origin/gh-pages
 
+is.flowmat(x)
+
+to_flowmat(x, ...)
+
+"to_flowmat"(x, samplename, ...)
+
+"to_flowmat"(x, ...)
+
+"to_flowmat"(x, ...)
 
 Arguments
-~~~~~~~~~~~~~~~~~~
-
 
 x
     a data.frame or path to file with flow details in it.
-
 grp_col
     column used for grouping, default samplename.
-
 jobname_col
     column specifying jobname, default jobname
-
 cmd_col
     column specifying commands to run, default cmd
-
 ...
     not used
-
 samplename
     character of length 1 or that of nrow(x)
-
 x
     a named list OR vector. Where name corresponds to the jobname and value is a vector of commands to run
-
 ...
     not used
 
 
+<<<<<<< HEAD
+=======
+Description
+""""""""""""""""""
+
+as.flowmat(): reads a file and checks for required columns. If x is data.frame checks for required columns.
+Taking in a named list and returns a two columns data.frame
+>>>>>>> origin/gh-pages
 
 
 Examples
-~~~~~~~~~~~~~~~~~~
-
+""""""""""""""""""
 ::
 
 Aliases:
@@ -88,9 +96,15 @@ to_flowmat
 to_flowmat.data.frame
 to_flowmat.flow
 to_flowmat.list
+<<<<<<< HEAD
 .. Keywords:
 
 .. Author:
 
 .. 
+=======
+Keywords:
+Author:
+
+>>>>>>> origin/gh-pages
 

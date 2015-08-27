@@ -134,8 +134,8 @@ Check its status
     |003.merge |     1|       1|         1|           0|
     |004.size  |     1|       1|         1|           0|
 
-Kill it
--------
+Killing a flow
+--------------
 
 ::
 
@@ -154,6 +154,7 @@ Kill it
 
     ## submitting again with force=TRUE will kill them:
     kill(x='fastq_haplotyper*', force = TRUE)
+<<<<<<< HEAD
 
 .. note:: Even if you want to kill the flow, its best to let submit\_flow do its job, when done simply use kill(flow\_wd). If submit\_flow is interrupted, flow detail files etc are not created, thus flowr can't associate submitted jobs with flow instance.
 
@@ -168,6 +169,12 @@ flowr also enables you to re-run a pipeline in case of hardware or software fail
 In either case there are two things which are always required, a flow\_wd (the folder created by flowr which contains execution logs) and name of the step from where we want to start execution. Refer to the `help section <http://docs.flowr.space/en/latest/rd/topics/complete-help.html>`__ for more details.
 
 .. note:: Interested? Here are some details on `building pipelines <#building-pipelines>`__
+=======
+
+.. note:: Even if you want to kill the flow, its best to let submit\_flow do its job, when done simply use kill(flow\_wd). If submit\_flow is interrupted, flow detail files etc are not created, thus flowr can't associate submitted jobs with flow instance.
+
+.. note:: Interested? Here are some details on `building pipelines <http://docs.flowr.space/en/latest/rd/vignettes/build-pipes.html>`__
+>>>>>>> origin/gh-pages
 
 Building Pipelines
 ==================
@@ -253,7 +260,11 @@ Here is an example of a typical `flow\_def <https://raw.githubusercontent.com/sa
    Its best to have this as a tab seperated file (with no row.names). -->
 
 2. Flow mat: A table with shell commands to run
+<<<<<<< HEAD
 -----------------------------------------------
+=======
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>>>>>>> origin/gh-pages
 
 This is also a tab separated table, with a minimum of three columns as defined below:
 
@@ -486,6 +497,7 @@ Available Pipelines
 
 Here are some of the available piplines along with their respective locations
 
+<<<<<<< HEAD
 +------------------------------+-------------------------+--------------------------+------------------------------------------------------------------------------------------------------------------+
 | name                         | def                     | conf                     | pipe                                                                                                             |
 +==============================+=========================+==========================+==================================================================================================================+
@@ -523,6 +535,21 @@ Here are some of the available piplines along with their respective locations
 +------------------------------+-------------------------+--------------------------+------------------------------------------------------------------------------------------------------------------+
 | build-pipes                  | NA                      | NA                       | /Users/sahilseth/Dropbox2/Dropbox/public/github\_flow/vignettes/build-pipes.R                                    |
 +------------------------------+-------------------------+--------------------------+------------------------------------------------------------------------------------------------------------------+
+=======
+::
+
+    #> Please supply a name of the pipline to run, here are the options
+
++---------------+-------------------+--------+-------------------------------------------------------------------+
+| name          | def               | conf   | pipe                                                              |
++===============+===================+========+===================================================================+
+| sleep\_pipe   | sleep\_pipe.def   | NA     | /home/travis/build/sahilseth/flowr/inst/pipelines/sleep\_pipe.R   |
++---------------+-------------------+--------+-------------------------------------------------------------------+
+| sleep\_pipe   | sleep\_pipe.def   | NA     | /home/travis/build/sahilseth/flowr/inst/pipelines/sleep\_pipe.R   |
++---------------+-------------------+--------+-------------------------------------------------------------------+
+| build-pipes   | NA                | NA     | /home/travis/build/sahilseth/flowr/vignettes/build-pipes.R        |
++---------------+-------------------+--------+-------------------------------------------------------------------+
+>>>>>>> origin/gh-pages
 
 Cluster Support
 ===============
@@ -603,6 +630,7 @@ As of now we have tested this on the following clusters:
 
 `Comparison\_of\_cluster\_software <http://en.wikipedia.org/wiki/Comparison_of_cluster_software>`__
 
+<<<<<<< HEAD
 Example of building a pipeline
 ==============================
 
@@ -613,6 +641,14 @@ A pipeline consists of several pieces, namely, a function which generates a flow
 We beleive pipeline and modules may be interchangeble, in the sense that a *smaller* pipeline may be included as part of a larger pipeline. In flowr a module OR pipeline always returns a flowmat. The only differnce being, a pipeline also has a correspomding flow definition file. As such, creating a flow definition for a module enables flowr to run it, hence a module **elevates**, becoming a pipeline. This lets the user mix and match several modules/pipelines to create a customized larger pipeline(s).
 
 Let us follow through an example, providing more details regarding this process. Here are a few examples of modules, three functions ``sleep``, ``create_tmp`` and ``merge_size`` each returning a flowmat.
+=======
+Building a pipeline, by example
+===============================
+
+.. code:: r
+
+    read_chunk(system.file('pipelines', 'sleep_pipe.R', package = 'flowr'))
+>>>>>>> origin/gh-pages
 
 Define modules
 --------------
@@ -654,8 +690,11 @@ Define modules
         return(list(flowmat = flowmat, outfiles = mergedfile))
     }
 
+<<<<<<< HEAD
 We then define another function ``sleep_pipe`` which calls the above defined **modules**; fetches flowmat from each, creating a larger flowmat. This time we will define a flowdef for the ``sleep_pipe`` function, elevating its status from module to a pipeline.
 
+=======
+>>>>>>> origin/gh-pages
 Define the pipeline
 -------------------
 
@@ -677,16 +716,22 @@ Define the pipeline
         return(list(flowmat = flowmat, outfiles = out_merge_size$outfiles))
     }
 
+<<<<<<< HEAD
 Generate a flowmat
 ------------------
 
 Here is how the generated flowmat looks like.
+=======
+Generate flowmat
+----------------
+>>>>>>> origin/gh-pages
 
 .. code:: r
 
     out = sleep_pipe(x = 3, "sample1")
     flowmat = out$flowmat
 
+<<<<<<< HEAD
 +--------------+---------------+-------------------------------------------------------------------------+
 | samplename   | jobname       | cmd                                                                     |
 +==============+===============+=========================================================================+
@@ -695,6 +740,18 @@ Here is how the generated flowmat looks like.
 | sample1      | sleep         | sleep 6 && sleep 28;echo 'hello'                                        |
 +--------------+---------------+-------------------------------------------------------------------------+
 | sample1      | sleep         | sleep 11 && sleep 11;echo 'hello'                                       |
+=======
+    kable(flowmat)
+
++--------------+---------------+-------------------------------------------------------------------------+
+| samplename   | jobname       | cmd                                                                     |
++==============+===============+=========================================================================+
+| sample1      | sleep         | sleep 2 && sleep 6;echo 'hello'                                         |
++--------------+---------------+-------------------------------------------------------------------------+
+| sample1      | sleep         | sleep 6 && sleep 8;echo 'hello'                                         |
++--------------+---------------+-------------------------------------------------------------------------+
+| sample1      | sleep         | sleep 4 && sleep 5;echo 'hello'                                         |
+>>>>>>> origin/gh-pages
 +--------------+---------------+-------------------------------------------------------------------------+
 | sample1      | create\_tmp   | head -c 100000 /dev/urandom > sample1\_tmp\_1                           |
 +--------------+---------------+-------------------------------------------------------------------------+
@@ -710,9 +767,14 @@ Here is how the generated flowmat looks like.
 Create flow definition
 ----------------------
 
+<<<<<<< HEAD
 flowr enables us to quickly create a skeleton flow definition using a flowmat, which we can then alter to suit our needs. A handy function to\_flowdef, accepts a flowmat and creates a flow definition. The default skeleton takes a very conservative approach, creating all submissions as ``serial`` and all dependencies as ``gather``. This ensures robustness, compromising efficiency. Thus we will enable parallel process where possible, making this into a better pipeline.
 
 Here is how it looks presently:
+=======
+We have a helper function which generates a skeleton flow\_def
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>>>>>>> origin/gh-pages
 
 .. code:: r
 
@@ -725,11 +787,35 @@ Here is how it looks presently:
 
 .. code:: r
 
+<<<<<<< HEAD
     plot_flow(suppressMessages(to_flow(flowmat, def)))
+=======
+    kable(def)
+
++---------------+-------------+---------------+-------------+---------+--------------------+------------+-----------------+------------+---------+
+| jobname       | sub\_type   | prev\_jobs    | dep\_type   | queue   | memory\_reserved   | walltime   | cpu\_reserved   | platform   | jobid   |
++===============+=============+===============+=============+=========+====================+============+=================+============+=========+
+| sleep         | serial      | none          | none        | short   | 2000               | 1:00       | 1               | torque     | 1       |
++---------------+-------------+---------------+-------------+---------+--------------------+------------+-----------------+------------+---------+
+| create\_tmp   | serial      | sleep         | gather      | short   | 2000               | 1:00       | 1               | torque     | 2       |
++---------------+-------------+---------------+-------------+---------+--------------------+------------+-----------------+------------+---------+
+| merge         | serial      | create\_tmp   | gather      | short   | 2000               | 1:00       | 1               | torque     | 3       |
++---------------+-------------+---------------+-------------+---------+--------------------+------------+-----------------+------------+---------+
+| size          | serial      | merge         | gather      | short   | 2000               | 1:00       | 1               | torque     | 4       |
++---------------+-------------+---------------+-------------+---------+--------------------+------------+-----------------+------------+---------+
+
+Default flowdef
+---------------
+
+.. code:: r
+
+    plot_flow(to_flow(flowmat, def))
+>>>>>>> origin/gh-pages
 
 .. figure:: figure/unnamed-chunk-18-1.png
    :alt: 
 
+<<<<<<< HEAD
 After making the desired changes, the new pipeline looks better. Alternatively, one may write this to a file and make other desired changes in resource requirements.
 
 Pipeline follows the following steps, with dependencies mentioned in ():
@@ -738,6 +824,14 @@ Pipeline follows the following steps, with dependencies mentioned in ():
 -  For each sleep, create\_tmp creates a tmp file (serial)
 -  All tmp files are merged; when all are complete (gather)
 -  Then we get size on the resulting file (serial)
+=======
+By default the flowdef seems quite conservative.
+
+Change the dependency type for merge step into gather
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+It might be easier to do such, by hand. In this example let do this in R itself.
+>>>>>>> origin/gh-pages
 
 .. code:: r
 
@@ -757,9 +851,30 @@ Pipeline follows the following steps, with dependencies mentioned in ():
 | size          | serial      | merge         | serial      | short   | 2000               | 1:00       | 1               | torque     | 4       |
 +---------------+-------------+---------------+-------------+---------+--------------------+------------+-----------------+------------+---------+
 
+<<<<<<< HEAD
 .. code:: r
 
     plot_flow(suppressMessages(to_flow(flowmat, def)))
 
 .. figure:: figure/unnamed-chunk-20-1.png
    :alt: 
+=======
+Plot flow
+~~~~~~~~~
+
+Now this looks better.
+
+-  multiple sleep commands would run in parallel
+-  For each sleep, create\_tmp creates a file
+-  All tmp files are merged; when all are complete: gather
+-  Then we get size on the resulting file
+
+.. code:: r
+
+    plot_flow(to_flow(flowmat, def))
+
+.. figure:: figure/unnamed-chunk-20-1.png
+   :alt: 
+
+
+>>>>>>> origin/gh-pages

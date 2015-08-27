@@ -8,7 +8,7 @@
 
 
 whisker_render
------------
+===============
 
 .. :func:`whisker_render`
 
@@ -21,38 +21,43 @@ This is a wrapper around `whisker.render <http://www.inside-r.org/packages/cran/
 
 
 Usage
-~~~~~~~~~~~~~~~~~~
-
+""""""""""""""""""
 ::
 
- 
  whisker_render(template, data)
- 
-
 
 Arguments
-~~~~~~~~~~~~~~~~~~
-
 
 template
     template used
-
 data
     a list with variables to be used to fill in the template.
 
 
+<<<<<<< HEAD
+=======
+Description
+""""""""""""""""""
+
+This is a wrapper around `whisker.render <http://www.inside-r.org/packages/cran/whisker/docs/whisker.render>`_
+>>>>>>> origin/gh-pages
 
 
 Examples
-~~~~~~~~~~~~~~~~~~
-
+""""""""""""""""""
 ::
 
 Aliases:
 whisker_render
+<<<<<<< HEAD
 .. Keywords:
 
 .. Author:
 
 .. 
+=======
+Keywords:
+Author:
+
+>>>>>>> origin/gh-pages
 

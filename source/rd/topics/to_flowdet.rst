@@ -8,7 +8,7 @@
 
 
 to_flowdet
------------
+===============
 
 .. :func:`to_flowdet`
 
@@ -24,12 +24,11 @@ one generated using a flow object. Lacks jobids etc...
 
 
 Usage
-~~~~~~~~~~~~~~~~~~
-
+""""""""""""""""""
 ::
 
- 
  to_flowdet(x, ...)
+<<<<<<< HEAD
  
  ## method for class 'rootdir'
  to_flowdet(x, ...)
@@ -40,29 +39,41 @@ Usage
  ## method for class 'flow'
  to_flowdet(x, ...)
  
+=======
+>>>>>>> origin/gh-pages
 
+"to_flowdet"(x, ...)
+
+"to_flowdet"(x, ...)
+
+"to_flowdet"(x, ...)
 
 Arguments
-~~~~~~~~~~~~~~~~~~
-
 
 x
     this is a wd
-
 ...
     not used
 
 
+<<<<<<< HEAD
+=======
+Description
+""""""""""""""""""
+
+to_flowdet
+get a flow_details file from the directory structure. This has less information than the
+one generated using a flow object. Lacks jobids etc...
+>>>>>>> origin/gh-pages
 Details
-~~~~~~~~~~~~~~~~~~
+""""""""""""""""""
 
 if x is char. assumed a path, check if flow object exists in it and read it.
 If there is no flow object, try using a simpler function
 
 
 Examples
-~~~~~~~~~~~~~~~~~~
-
+""""""""""""""""""
 ::
 
 Aliases:
@@ -70,9 +81,15 @@ to_flowdet
 to_flowdet.character
 to_flowdet.flow
 to_flowdet.rootdir
+<<<<<<< HEAD
 .. Keywords:
 
 .. Author:
 
 .. 
+=======
+Keywords:
+Author:
+
+>>>>>>> origin/gh-pages
 

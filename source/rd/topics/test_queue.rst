@@ -8,7 +8,7 @@
 
 
 test_queue
------------
+===============
 
 .. :func:`test_queue`
 
@@ -22,34 +22,33 @@ We would first submit one single job, then submit another with a dependency to s
 
 
 Usage
-~~~~~~~~~~~~~~~~~~
-
+""""""""""""""""""
 ::
 
- 
  test_queue(q_obj, verbose = TRUE, ...)
- 
-
 
 Arguments
-~~~~~~~~~~~~~~~~~~
-
 
 q_obj
     queue object
-
 verbose
     toggle
-
 ...
     These params are passed onto ``queue``. ``?queue``, for more information
 
 
+<<<<<<< HEAD
+=======
+Description
+""""""""""""""""""
+
+This function attempts to test the submission of a job to the queue.
+We would first submit one single job, then submit another with a dependency to see if configuration works. This would create a folder in home called 'flows'.
+>>>>>>> origin/gh-pages
 
 
 Examples
-~~~~~~~~~~~~~~~~~~
-
+""""""""""""""""""
 ::
 
  ## **Not run**: 
@@ -57,9 +56,15 @@ Examples
  
 Aliases:
 test_queue
+<<<<<<< HEAD
 .. Keywords:
 
 .. Author:
 
 .. 
+=======
+Keywords:
+Author:
+
+>>>>>>> origin/gh-pages
 

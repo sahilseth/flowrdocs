@@ -8,7 +8,7 @@
 
 
 fetch
------------
+===============
 
 .. :func:`fetch`
 
@@ -33,67 +33,84 @@ By default flowr loads, ~/flowr/conf/flowr.conf and ~/flowr/conf/ngsflows.conf
 
 
 Usage
-~~~~~~~~~~~~~~~~~~
-
+""""""""""""""""""
 ::
 
- 
  fetch(x, places, urls, verbose = get_opts("verbose"))
- 
- fetch_pipes(x, places, last_only = FALSE, urls = get_opts("flowr_pipe_urls"), silent = FALSE, ask = TRUE)
- 
- fetch_conf(x = "flowr.conf", places, ...)
- 
 
+fetch_pipes(x, places, last_only = FALSE, urls = get_opts("flowr_pipe_urls"), silent = FALSE, ask = TRUE)
+
+fetch_conf(x = "flowr.conf", places, ...)
 
 Arguments
-~~~~~~~~~~~~~~~~~~
-
 
 x
     name of the file to search for
-
 places
     places (paths) to look for it. Its best to use the defaults
-
 urls
     urls to look for, works well for pipelines.
-
 verbose
     be chatty?
-
 last_only
     [fetch_pipes only]. If multiple pipelines match the pattern, return the last one.
-
 silent
     [fetch_pipes() only]. logical, be silent even if no such pipeline is available.
-
 ask
     ask before downloading or copying, not used !
-
 ...
     not used
 
 
+<<<<<<< HEAD
+=======
+Description
+""""""""""""""""""
+
+These functions help in searching for specific files in the user's space.
+fetch_pipes(): Fetches pipelines in the following places,
+-<li> - available in 'pipelines' folders in flowr and ngsflows packages.
+</li>
+<li> - ~/flowr/pipelines
+</li>
+<li> - github repos (currently not supported)
+</li>
+fetch_conf(): Fetches configuration files in the following places,
+-<li> - available in 'conf' folders in flowr and ngsflows packages.
+</li>
+<li> - ~/flowr/conf folder
+</li>
+By default flowr loads, ~/flowr/conf/flowr.conf and ~/flowr/conf/ngsflows.conf
+>>>>>>> origin/gh-pages
 
 
 Examples
-~~~~~~~~~~~~~~~~~~
-
+""""""""""""""""""
 ::
 
  {
  fetch_conf("torque.sh")
  }
+<<<<<<< HEAD
  [1] "/Library/Frameworks/R.framework/Versions/3.2/Resources/library/flowr/conf/torque.sh"
+=======
+ [1] "/home/travis/build/sahilseth/flowr/inst/conf/torque.sh"
+ [2] "/home/travis/build/sahilseth/flowr/inst/conf/torque.sh"
+>>>>>>> origin/gh-pages
  
 Aliases:
 fetch
 fetch_conf
 fetch_pipes
+<<<<<<< HEAD
 .. Keywords:
 
 .. Author:
 
 .. 
+=======
+Keywords:
+Author:
+
+>>>>>>> origin/gh-pages
 

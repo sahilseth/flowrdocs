@@ -8,7 +8,7 @@
 
 
 setup
------------
+===============
 
 .. :func:`setup`
 
@@ -21,42 +21,47 @@ Setup and initialize some scripts.
 
 
 Usage
-~~~~~~~~~~~~~~~~~~
-
+""""""""""""""""""
 ::
 
- 
  setup(bin = "~/bin", flow_base_path = get_opts("flow_base_path"))
- 
-
 
 Arguments
-~~~~~~~~~~~~~~~~~~
-
 
 bin
     path to bin folder
-
 flow_base_path
     the root folder for all flowr operations
 
 
+<<<<<<< HEAD
+=======
+Description
+""""""""""""""""""
+
+Setup and initialize some scripts.
+>>>>>>> origin/gh-pages
 Details
-~~~~~~~~~~~~~~~~~~
+""""""""""""""""""
 
 Will add more to this to identify cluster and aid in other things
 
 
 Examples
-~~~~~~~~~~~~~~~~~~
-
+""""""""""""""""""
 ::
 
 Aliases:
 setup
+<<<<<<< HEAD
 .. Keywords:
 
 .. Author:
 
 .. 
+=======
+Keywords:
+Author:
+
+>>>>>>> origin/gh-pages
 

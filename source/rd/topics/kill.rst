@@ -8,7 +8,7 @@
 
 
 kill
------------
+===============
 
 .. :func:`kill`
 
@@ -20,14 +20,17 @@ Description
 Even if you want to kill the flow, its best to let submit_flow do its job, when done simply use kill(flow_wd).
 If submit_flow is interrupted, flow detail files etc are not created, thus flowr can't associate submitted jobs with flow instance.
 
+<<<<<<< HEAD
+=======
+Killing a pipline requires files which are created at the END of the submit_flow commands.
+>>>>>>> origin/gh-pages
 
 Usage
-~~~~~~~~~~~~~~~~~~
-
+""""""""""""""""""
 ::
 
- 
  kill(x, ...)
+<<<<<<< HEAD
  
  ## method for class 'character'
  kill(x, force = FALSE, ...)
@@ -35,33 +38,44 @@ Usage
  ## method for class 'flow'
  kill(x, kill_cmd, jobid_col = "job_sub_id", ...)
  
+=======
+>>>>>>> origin/gh-pages
 
+"kill"(x, force = FALSE, ...)
+
+"kill"(x, kill_cmd, jobid_col = "job_sub_id", ...)
 
 Arguments
-~~~~~~~~~~~~~~~~~~
-
 
 x
+<<<<<<< HEAD
     either path to flow [character] or fobj object of class `flow <#flow>`_
 
+=======
+    either path to flow [character] or fobj object of class `flow <flow.html>`_
+>>>>>>> origin/gh-pages
 ...
     not used
-
 force
     When killing multiple flows, force is neccesary. This makes sure multiple flows are killed by accident.
-
 kill_cmd
     The command used to kill. Default is 'bkill' (LSF). One can used qdel for 'torque', 'sge' etc.
-
 jobid_col
     Advanced use. The column name in 'flow_details.txt' file used to fetch jobids to kill
 
 
+<<<<<<< HEAD
+=======
+Description
+""""""""""""""""""
+
+Even if you want to kill the flow, its best to let submit_flow do its job, when done simply use kill(flow_wd).
+If submit_flow is interrupted, flow detail files etc are not created, thus flowr can't associate submitted jobs with flow instance.
+>>>>>>> origin/gh-pages
 
 
 Examples
-~~~~~~~~~~~~~~~~~~
-
+""""""""""""""""""
 ::
 
  ## **Not run**: 
@@ -84,9 +98,15 @@ Aliases:
 kill
 kill.character
 kill.flow
+<<<<<<< HEAD
 .. Keywords:
 
 .. Author:
 
 .. 
+=======
+Keywords:
+Author:
+
+>>>>>>> origin/gh-pages
 

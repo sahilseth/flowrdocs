@@ -8,7 +8,7 @@
 
 
 flowopts
------------
+===============
 
 .. :func:`flowopts`
 
@@ -26,26 +26,20 @@ For more details regarding these funtions refer to `params <http://www.inside-r.
 
 
 Usage
-~~~~~~~~~~~~~~~~~~
-
+""""""""""""""""""
 ::
 
- 
  flowopts
- 
- opts_flow
- 
- get_opts(...)
- 
- set_opts(...)
- 
- load_opts(...)
- 
 
+opts_flow
+
+get_opts(...)
+
+set_opts(...)
+
+load_opts(...)
 
 Arguments
-~~~~~~~~~~~~~~~~~~
-
 
 ...
     -  get: names of options to fetch
@@ -56,11 +50,25 @@ Arguments
 
 
 Format
-~~~~~~~~~~~~~~~~~~
+""""""""""""""""""
 
 ``opts_flow``
+<<<<<<< HEAD
+=======
+Description
+""""""""""""""""""
+
+There are three helper functions which attempt to manage params used by flowr and ngsflows:
+-<li> `get_opts <get_opts.html>`_ OR ``opts_flow$get``: show all default options
+</li>
+<li> `set_opts <set_opts.html>`_ OR ``opts_flow$set``: set default options
+</li>
+<li> `load_opts <load_opts.html>`_ OR ``opts_flow$load``: load options specified in a tab seperated text file
+</li>
+For more details regarding these funtions refer to `params <http://www.inside-r.org/packages/cran/params/docs/params>`_.
+>>>>>>> origin/gh-pages
 Details
-~~~~~~~~~~~~~~~~~~
+""""""""""""""""""
 
 By default flowr loads, ``~/flowr/conf/flowr.conf`` and ``~/flowr/conf/ngsflows.conf``
 Below is a list of default flowr options, retrieved via
@@ -90,8 +98,7 @@ Below is a list of default flowr options, retrieved via
 
 
 Examples
-~~~~~~~~~~~~~~~~~~
-
+""""""""""""""""""
 ::
 
  ## Set options: set_opts()
@@ -106,9 +113,25 @@ Examples
  
  
  Seems like these paths do not exist, this may cause issues later:
+ |name              |value                    |
+ |:-----------------|:------------------------|
+ |flow_parse_slurm  |(.*)                     |
+ |flow_parse_sge    |(.*)                     |
+ |flow_parse_moab   |(.*)                     |
+ |flow_parse_lsf    |.*(\<[0-9]*\>).*         |
+ |flow_parse_torque |(.?)\..*                 |
+ |flow_platform     |local                    |
+ |flow_pipe_urls    |~/flowr/pipelines        |
+ |flow_pipe_paths   |~/flowr/pipelines        |
+ |flow_run_path     |~/flowr/runs             |
+ |flow_conf_path    |~/flowr/conf             |
+ |flow_base_path    |~/flowr                  |
+ |verbose           |FALSE                    |
+ |var               |                         |
+ |time_format       |%a %b %e %H:%M:%S CDT %Y |</strong>**Reading file, using 'V1' as id_column to remove empty rows.**<strong class='warning'>Warning message:
  
- </strong>
  
+ Seems like these paths do not exist, this may cause issues later:
  |name              |value                    |
  |:-----------------|:------------------------|
  |flow_parse_slurm  |(.*)                     |
@@ -120,8 +143,7 @@ Examples
  |flow_conf_path    |~/flowr/conf             |
  |flow_base_path    |~/flowr                  |
  |var               |                         |
- |time_format       |%a %b %e %H:%M:%S CDT %Y |
- 
+ |time_format       |%a %b %e %H:%M:%S CDT %Y |</strong>
  ## Fetch options: get_opts()
  get_opts("flow_run_path")
   flow_run_path 
@@ -152,10 +174,14 @@ get_opts
 load_opts
 opts_flow
 set_opts
-.. Keywords:
-
+Keywords:
 datasets
+<<<<<<< HEAD
 .. Author:
 
 .. 
+=======
+Author:
+
+>>>>>>> origin/gh-pages
 
