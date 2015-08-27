@@ -8,7 +8,7 @@
 
 
 get_wds
-===============
+-----------
 
 .. :func:`get_wds`
 
@@ -21,41 +21,35 @@ Get all the (sub)directories in a folder
 
 
 Usage
-""""""""""""""""""
+~~~~~~~~~~~~~~~~~~
+
 ::
 
+ 
  get_wds(x)
+ 
+
 
 Arguments
+~~~~~~~~~~~~~~~~~~
+
 
 x
     path to a folder
 
 
-<<<<<<< HEAD
-=======
-Description
-""""""""""""""""""
-
-Get all the (sub)directories in a folder
->>>>>>> origin/gh-pages
 
 
 Examples
-""""""""""""""""""
+~~~~~~~~~~~~~~~~~~
+
 ::
 
 Aliases:
 get_wds
-<<<<<<< HEAD
 .. Keywords:
 
 .. Author:
 
 .. 
-=======
-Keywords:
-Author:
-
->>>>>>> origin/gh-pages
 

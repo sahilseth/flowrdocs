@@ -8,7 +8,7 @@
 
 
 rerun
-===============
+-----------
 
 .. :func:`rerun`
 
@@ -22,15 +22,16 @@ Description
 
 **NOTE:**
 
-*flow_wd*: flow working directory, the input used for `status <#status>`_
+*flow_wd*: flow working directory, same input as used for `status <#status>`_
 
 
 Usage
-""""""""""""""""""
+~~~~~~~~~~~~~~~~~~
+
 ::
 
+ 
  rerun(x, ...)
-<<<<<<< HEAD
  
  ## method for class 'character'
  rerun(x, ...)
@@ -38,53 +39,36 @@ Usage
  ## method for class 'flow'
  rerun(x, mat, def, start_from, execute = TRUE, kill = TRUE, ...)
  
-=======
->>>>>>> origin/gh-pages
 
-"rerun"(x, ...)
-
-"rerun"(x, mat, def, start_from, execute = TRUE, kill = TRUE, ...)
 
 Arguments
+~~~~~~~~~~~~~~~~~~
+
 
 x
     flow working directory
+
 ...
     not used
+
 mat
-<<<<<<< HEAD
     (optional) flowmat fetched from previous submission if missing. For more information regarding the format refer to `to_flowmat <#to_flowmat>`_
 
 def
     (optional) flowdef fetched from previous submission if missing.  For more information regarding the format refer to `to_flowdef <#to_flowdef>`_
 
-=======
-    (optional) flowmat fetched from previous submission if missing. For more information regarding the format refer to `to_flowmat <to_flowmat.html>`_
-def
-    (optional) flowdef fetched from previous submission if missing.  For more information regarding the format refer to `to_flowdef <to_flowdef.html>`_
->>>>>>> origin/gh-pages
 start_from
-    which job to start from
+    which job to start from, this is a job name.
+
 execute
     [logical] whether to execute or not
+
 kill
-    (optional) logical indicating whether to kill the jobs from old flow
+    (optional) logical indicating whether to kill the jobs from the previous execution of flow.
 
 
-<<<<<<< HEAD
-=======
-Description
-""""""""""""""""""
-
--<li> **hardware** no change required, simple rerun: ``rerun(x=flow_wd)``
-</li>
-<li> **software** either a change to flowmat or flowdef has been made: ``rerun(x=flow_wd, mat = new_flowmat, def = new_flowdef)``
-</li>
-**NOTE:**
-*flow_wd*: flow working directory, the input used for `status <status.html>`_
->>>>>>> origin/gh-pages
 Details
-""""""""""""""""""
+~~~~~~~~~~~~~~~~~~
 
 This function fetches details regarding the previous execution from the flow working directory (flow_wd).
 It reads the `flow <#flow>`_ object from the flow_details.rds file, and extracts flowdef and flowmat from it
@@ -96,7 +80,8 @@ regarding previous job ids and their status is not lost.
 
 
 Examples
-""""""""""""""""""
+~~~~~~~~~~~~~~~~~~
+
 ::
 
  ## **Not run**: 
@@ -107,15 +92,9 @@ Aliases:
 rerun
 rerun.character
 rerun.flow
-<<<<<<< HEAD
 .. Keywords:
 
 .. Author:
 
 .. 
-=======
-Keywords:
-Author:
-
->>>>>>> origin/gh-pages
 

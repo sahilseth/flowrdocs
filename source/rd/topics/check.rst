@@ -8,7 +8,7 @@
 
 
 check
-===============
+-----------
 
 .. :func:`check`
 
@@ -21,11 +21,12 @@ Currently checks S3 flowdef & flowmat for consistency.
 
 
 Usage
-""""""""""""""""""
+~~~~~~~~~~~~~~~~~~
+
 ::
 
+ 
  check(x, ...)
-<<<<<<< HEAD
  
  ## method for class 'flowmat'
  check(x, ...)
@@ -33,54 +34,36 @@ Usage
  ## method for class 'flowdef'
  check(x, verbose = get_opts("verbose"), ...)
  
-=======
->>>>>>> origin/gh-pages
 
-"check"(x, ...)
-
-"check"(x, verbose = get_opts("verbose"), ...)
 
 Arguments
+~~~~~~~~~~~~~~~~~~
+
 
 x
     a flowdef or flowmat object
+
 ...
     suppled to ``check.classname`` function
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/gh-pages
 verbose
     be chatty
 
 
-<<<<<<< HEAD
-=======
-Description
-""""""""""""""""""
-
-check consistency of objects
-Currently checks objects S3 flowdef, flowmat
->>>>>>> origin/gh-pages
 
 
 Examples
-""""""""""""""""""
+~~~~~~~~~~~~~~~~~~
+
 ::
 
 Aliases:
 check
 check.flowdef
 check.flowmat
-<<<<<<< HEAD
 .. Keywords:
 
 .. Author:
 
 .. 
-=======
-Keywords:
-Author:
-
->>>>>>> origin/gh-pages
 

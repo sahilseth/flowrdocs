@@ -10,9 +10,17 @@
 to_flowmat
 -----------
 
-:func:`to_flowmat`
+.. :func:`to_flowmat`
 
 Taking in a named list and returns a two columns data.frame
+
+Description
+~~~~~~~~~~~~~~~~~~
+
+Taking in a named list and returns a two columns data.frame
+
+as.flowmat(): reads a file and checks for required columns. If x is data.frame checks for required columns.
+
 
 Usage
 ~~~~~~~~~~~~~~~~~~
@@ -22,11 +30,18 @@ Usage
  
  to_flowmat(x, ...)
  
- "to_flowmat"(x, samplename, ...)
+ ## method for class 'list'
+ to_flowmat(x, samplename, ...)
  
- "to_flowmat"(x, ...)
+ ## method for class 'data.frame'
+ to_flowmat(x, ...)
  
- "to_flowmat"(x, ...)
+ ## method for class 'flow'
+ to_flowmat(x, ...)
+ 
+ as.flowmat(x, grp_col, jobname_col, cmd_col, ...)
+ 
+ is.flowmat(x)
  
 
 
@@ -43,11 +58,22 @@ x
 samplename
     character of length 1 or that of nrow(x)
 
+grp_col
+    column used for grouping, default samplename.
 
-Description
-~~~~~~~~~~~~~~~~~~
+jobname_col
+    column specifying jobname, default jobname
 
-Taking in a named list and returns a two columns data.frame
+cmd_col
+    column specifying commands to run, default cmd
+
+x
+    a data.frame or path to file with flow details in it.
+
+...
+    not used
+
+
 
 
 Examples
@@ -56,6 +82,8 @@ Examples
 ::
 
 Aliases:
+as.flowmat
+is.flowmat
 to_flowmat
 to_flowmat.data.frame
 to_flowmat.flow
@@ -64,5 +92,5 @@ to_flowmat.list
 
 .. Author:
 
-
+.. 
 

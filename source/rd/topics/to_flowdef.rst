@@ -8,7 +8,7 @@
 
 
 to_flowdef
-===============
+-----------
 
 .. :func:`to_flowdef`
 
@@ -17,21 +17,19 @@ Create a skeleton flow definition using a flowmat.
 Description
 ~~~~~~~~~~~~~~~~~~
 
-Creation of a skeleton flow definition with several default values.
-
-All params may be of length one, or same as the number of jobnames
-
-to_flowdef.character: x is a flowmat file.
-
-Reeading a flow definition file and checking it.
+This function enables creation of a skeleton flow definition with several default values, using a
+flowmat.
+To customize the flowdef, one may supply parameters such as sub_type and dep_type upfront.
+As such, these params must be of the same length as number of unique jobs using in the flowmat.
 
 
 Usage
-""""""""""""""""""
+~~~~~~~~~~~~~~~~~~
+
 ::
 
+ 
  to_flowdef(x, ...)
-<<<<<<< HEAD
  
  ## method for class 'flowmat'
  to_flowdef(x, sub_type, dep_type, prev_jobs, queue = "short", platform = "torque", memory_reserved = "2000", cpu_reserved = "1", walltime = "1:00", ...)
@@ -46,61 +44,54 @@ Usage
  
  is.flowdef(x)
  
-=======
->>>>>>> origin/gh-pages
 
-"to_flowdef"(x, sub_type, dep_type, prev_jobs, queue = "short", platform = "torque", memory_reserved = "2000", cpu_reserved = "1", walltime = "1:00", ...)
-
-"to_flowdef"(x, ...)
-
-"to_flowdef"(x, ...)
-
-as.flowdef(x, ...)
-
-is.flowdef(x)
 
 Arguments
+~~~~~~~~~~~~~~~~~~
+
 
 x
     can a path to a flowmat, flomat or flow object.
+
 ...
     not used
+
 sub_type
     submission type, one of: scatter, serial. Character, of length one or same as the number of jobnames
+
 dep_type
     dependency type, one of: gather, serial or burst. Character, of length one or same as the number of jobnames
+
 prev_jobs
     previous job name
+
 queue
     Cluster queue to be used
+
 platform
     platform of the cluster: lsf, sge, moab, torque, slurm etc.
+
 memory_reserved
     amount of memory required.
+
 cpu_reserved
     number of cpu's required
+
 walltime
     amount of walltime required
+
 x
     can be a data.frame or a path for a flow definition file
+
 ...
     passed onto check.flowdef
 
 
-<<<<<<< HEAD
-=======
-Description
-""""""""""""""""""
-
-Creation of a skeleton flow definition with several default values.
-All params may be of length one, or same as the number of jobnames
-to_flowdef.character: x is a flowmat file.
-Reeading a flow definition file and checking it.
->>>>>>> origin/gh-pages
 
 
 Examples
-""""""""""""""""""
+~~~~~~~~~~~~~~~~~~
+
 ::
 
 Aliases:
@@ -110,15 +101,9 @@ to_flowdef
 to_flowdef.character
 to_flowdef.flow
 to_flowdef.flowmat
-<<<<<<< HEAD
 .. Keywords:
 
 .. Author:
 
 .. 
-=======
-Keywords:
-Author:
-
->>>>>>> origin/gh-pages
 

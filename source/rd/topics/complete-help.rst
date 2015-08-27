@@ -338,7 +338,7 @@ Examples
  # ## execute the jobs: ONLY works on computing cluster, would fail otherwise
  # submit_flow(fobj, execute = TRUE)
  # ## **End(Not run)**
- .. image flow-2.png
+ 
 Aliases:
 flow
 is.flow
@@ -569,7 +569,7 @@ Examples
  # submit_flow(fobj, execute = TRUE)
  # 
  # ## **End(Not run)**
- .. image job-2.png
+ 
 Aliases:
 job
 .. Keywords:
@@ -690,9 +690,9 @@ Description
 ~~~~~~~~~~~~~~~~~~
 
 There are three helper functions which attempt to manage params used by flowr and ngsflows:
--  `get_opts <#get_opts>`_ OR ``opts_flow$get``: show all default options
--  `set_opts <#set_opts>`_ OR ``opts_flow$set``: set default options
--  `load_opts <#load_opts>`_ OR ``opts_flow$load``: load options specified in a tab seperated text file
+-  `get_opts <http://www.inside-r.org/packages/cran/params/docs/params>`_ OR ``opts_flow\$get()``: show all default options
+-  `set_opts <http://www.inside-r.org/packages/cran/params/docs/params>`_ OR ``opts_flow\$set()``: set default options
+-  `load_opts <http://www.inside-r.org/packages/cran/params/docs/params>`_ OR ``opts_flow\$load()``: load options specified in a tab seperated text file
 
 For more details regarding these funtions refer to `params <http://www.inside-r.org/packages/cran/params/docs/params>`_.
 
@@ -706,12 +706,6 @@ Usage
  flowopts
  
  opts_flow
- 
- get_opts(...)
- 
- set_opts(...)
- 
- load_opts(...)
  
 
 
@@ -820,10 +814,7 @@ Examples
  
 Aliases:
 flowopts
-get_opts
-load_opts
 opts_flow
-set_opts
 .. Keywords:
 
 datasets
@@ -917,18 +908,18 @@ Examples
  
  ### Gather: many to one relationship
  jobj1 <- job(q_obj=qobj, cmd = cmds, submission_type = "scatter", name = "job1")
- .. image plot_flow-2.pngjobj2 <- job(q_obj=qobj, name = "job2", cmd = cmds, submission_type = "scatter",
+ jobj2 <- job(q_obj=qobj, name = "job2", cmd = cmds, submission_type = "scatter",
               dependency_type = "gather", previous_job = "job1")
  fobj <- flow(jobs = list(jobj1, jobj2))
  plot_flow(fobj)
- .. image plot_flow-4.png
+ 
  ### Burst: one to many relationship
  jobj1 <- job(q_obj=qobj, cmd = cmds, submission_type = "serial", name = "job1")
  jobj2 <- job(q_obj=qobj, name = "job2", cmd = cmds, submission_type = "scatter",
               dependency_type = "burst", previous_job = "job1")
  fobj <- flow(jobs = list(jobj1, jobj2))
  plot_flow(fobj)
- .. image plot_flow-6.png
+ 
 Aliases:
 plot_flow
 plot_flow.character
@@ -1040,13 +1031,13 @@ stdout
 Details
 ~~~~~~~~~~~~~~~~~~
 
-## Resources:
+**Resources** :
 Can be defined **once** using a `queue <#queue>`_ object and recylced to all the jobs in a flow. If resources (like memory, cpu, walltime, queue) are supplied at the
 job level they overwrite the one supplied in `queue <#queue>`_
 Nodes: can be supplied ot extend a job across multiple nodes. This is purely experimental and not supported.
-## Server:
+**Server** :
 This a hook which may be implemented in future.
-## Submission script:
+**Submission script** 
 The 'platform' variable defines the format, and submit_exe; however these two are avaible for someone to create a custom submission command.
 
 
@@ -1090,7 +1081,7 @@ Description
 
 **NOTE:**
 
-*flow_wd*: flow working directory, the input used for `status <#status>`_
+*flow_wd*: flow working directory, same input as used for `status <#status>`_
 
 
 Usage
@@ -1126,13 +1117,13 @@ def
     (optional) flowdef fetched from previous submission if missing.  For more information regarding the format refer to `to_flowdef <#to_flowdef>`_
 
 start_from
-    which job to start from
+    which job to start from, this is a job name.
 
 execute
     [logical] whether to execute or not
 
 kill
-    (optional) logical indicating whether to kill the jobs from old flow
+    (optional) logical indicating whether to kill the jobs from the previous execution of flow.
 
 
 Details
@@ -1645,7 +1636,7 @@ Value
 Returns a flow object. If execute=TRUE, fobj is rich with information about where and how
 the flow was executed. It would include details like jobids, path to exact scripts run etc.
 To use kill_flow, to kill all the jobs one would need a rich flow object, with job ids present.
-Behaviour:
+**Behaviour:** 
 What goes in, and what to expect in return?
 -  submit=FALSE & execute=FALSE: Create and return a flow object
 -  submit=TRUE & execute=FALSE: dry-run, Create a flow object then, create a structured execution folder with all the commands
@@ -1701,13 +1692,10 @@ Create a skeleton flow definition using a flowmat.
 Description
 ~~~~~~~~~~~~~~~~~~
 
-Creation of a skeleton flow definition with several default values.
-
-All params may be of length one, or same as the number of jobnames
-
-to_flowdef.character: x is a flowmat file.
-
-Reeading a flow definition file and checking it.
+This function enables creation of a skeleton flow definition with several default values, using a
+flowmat.
+To customize the flowdef, one may supply parameters such as sub_type and dep_type upfront.
+As such, these params must be of the same length as number of unique jobs using in the flowmat.
 
 
 Usage
@@ -1881,19 +1869,19 @@ to_flowdet.rootdir
 
 
 
-as.flowmat
+to_flowmat
 -----------
 
-.. :func:`as.flowmat`
+.. :func:`to_flowmat`
 
-flow mat
+Taking in a named list and returns a two columns data.frame
 
 Description
 ~~~~~~~~~~~~~~~~~~
 
-as.flowmat(): reads a file and checks for required columns. If x is data.frame checks for required columns.
-
 Taking in a named list and returns a two columns data.frame
+
+as.flowmat(): reads a file and checks for required columns. If x is data.frame checks for required columns.
 
 
 Usage
@@ -1901,10 +1889,6 @@ Usage
 
 ::
 
- 
- as.flowmat(x, grp_col, jobname_col, cmd_col, ...)
- 
- is.flowmat(x)
  
  to_flowmat(x, ...)
  
@@ -1917,6 +1901,10 @@ Usage
  ## method for class 'flow'
  to_flowmat(x, ...)
  
+ as.flowmat(x, grp_col, jobname_col, cmd_col, ...)
+ 
+ is.flowmat(x)
+ 
 
 
 Arguments
@@ -1924,7 +1912,13 @@ Arguments
 
 
 x
-    a data.frame or path to file with flow details in it.
+    a named list OR vector. Where name corresponds to the jobname and value is a vector of commands to run
+
+...
+    not used
+
+samplename
+    character of length 1 or that of nrow(x)
 
 grp_col
     column used for grouping, default samplename.
@@ -1935,14 +1929,8 @@ jobname_col
 cmd_col
     column specifying commands to run, default cmd
 
-...
-    not used
-
-samplename
-    character of length 1 or that of nrow(x)
-
 x
-    a named list OR vector. Where name corresponds to the jobname and value is a vector of commands to run
+    a data.frame or path to file with flow details in it.
 
 ...
     not used

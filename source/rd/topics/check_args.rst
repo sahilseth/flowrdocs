@@ -8,7 +8,7 @@
 
 
 check_args
-===============
+-----------
 
 .. :func:`check_args`
 
@@ -22,43 +22,38 @@ This function may be optionally moved to a more generic package.
 
 
 Usage
-""""""""""""""""""
+~~~~~~~~~~~~~~~~~~
+
 ::
 
+ 
  check_args(ignore, select)
+ 
+
 
 Arguments
+~~~~~~~~~~~~~~~~~~
+
 
 ignore
     optionally ignore a few variables for checking.
+
 select
     optionally only check a few variables of the function.
 
 
-<<<<<<< HEAD
-=======
-Description
-""""""""""""""""""
-
-This function may be optionally moved to a more generic package.
->>>>>>> origin/gh-pages
 
 
 Examples
-""""""""""""""""""
+~~~~~~~~~~~~~~~~~~
+
 ::
 
 Aliases:
 check_args
-<<<<<<< HEAD
 .. Keywords:
 
 .. Author:
 
 .. 
-=======
-Keywords:
-Author:
-
->>>>>>> origin/gh-pages
 

@@ -8,7 +8,7 @@
 
 
 status
-===============
+-----------
 
 .. :func:`status`
 
@@ -21,11 +21,12 @@ Summarize status of executed flow(x)
 
 
 Usage
-""""""""""""""""""
+~~~~~~~~~~~~~~~~~~
+
 ::
 
+ 
  status(x, out_format = "markdown")
-<<<<<<< HEAD
  
  get_status(x, ...)
  
@@ -38,36 +39,24 @@ Usage
  ## method for class 'flow'
  get_status(x, out_format = "markdown", ...)
  
-=======
->>>>>>> origin/gh-pages
 
-get_status(x, ...)
-
-"get_status"(x, out_format = "markdown", ...)
-
-"get_status"(x, ...)
-
-"get_status"(x, out_format = "markdown", ...)
 
 Arguments
+~~~~~~~~~~~~~~~~~~
+
 
 x
     path to the flow root folder or a parent folder to summarize several flows.
+
 out_format
     passed onto knitr:::kable. supports: markdown, rst, html...
+
 ...
     not used
 
 
-<<<<<<< HEAD
-=======
-Description
-""""""""""""""""""
-
-Summarize status of executed flow(x)
->>>>>>> origin/gh-pages
 Details
-""""""""""""""""""
+~~~~~~~~~~~~~~~~~~
 
 basename(x) is used in a wild card search.
 -  If x is a path with a single flow, it outputs the status of one flow.
@@ -77,7 +66,8 @@ Alternatively, x can also be a flow object
 
 
 Examples
-""""""""""""""""""
+~~~~~~~~~~~~~~~~~~
+
 ::
 
  ## **Not run**: 
@@ -92,15 +82,9 @@ get_status.character
 get_status.data.frame
 get_status.flow
 status
-<<<<<<< HEAD
 .. Keywords:
 
 .. Author:
 
 .. 
-=======
-Keywords:
-Author:
-
->>>>>>> origin/gh-pages
 

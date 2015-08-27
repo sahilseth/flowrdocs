@@ -8,7 +8,7 @@
 
 
 get_unique_id
-===============
+-----------
 
 .. :func:`get_unique_id`
 
@@ -21,36 +21,34 @@ get_unique_id
 
 
 Usage
-""""""""""""""""""
+~~~~~~~~~~~~~~~~~~
+
 ::
 
+ 
  get_unique_id(prefix = "id", suffix = "", random_length = 8)
+ 
+
 
 Arguments
+~~~~~~~~~~~~~~~~~~
+
 
 prefix
     Default ``id``. Character string to be added in the front.
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/gh-pages
 suffix
     Default ''. Character string to be added in the end.
+
 random_length
     Integer, defaults to 8. In our opinion 8 serves well, providing 'uniqueness' and not being much of a eyesore.
 
 
-<<<<<<< HEAD
-=======
-Description
-""""""""""""""""""
-
-get_unique_id
->>>>>>> origin/gh-pages
 
 
 Examples
-""""""""""""""""""
+~~~~~~~~~~~~~~~~~~
+
 ::
 
  ## **Not run**: 
@@ -58,14 +56,10 @@ Examples
  
 Aliases:
 get_unique_id
-Keywords:
+.. Keywords:
+
 internal
-<<<<<<< HEAD
 .. Author:
 
 .. 
-=======
-Author:
-
->>>>>>> origin/gh-pages
 
