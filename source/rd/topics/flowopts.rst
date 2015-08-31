@@ -8,53 +8,48 @@
 
 
 flowopts
------------
+===============
 
-.. :func:`flowopts`
+:func:`flowopts`
 
 Default options/params used in ngsflows and flowr
 
-Description
-~~~~~~~~~~~~~~~~~~
-
-There are three helper functions which attempt to manage params used by flowr and ngsflows:
--  `get_opts <http://www.inside-r.org/packages/cran/params/docs/params>`_ OR ``opts_flow\$get()``: show all default options
--  `set_opts <http://www.inside-r.org/packages/cran/params/docs/params>`_ OR ``opts_flow\$set()``: set default options
--  `load_opts <http://www.inside-r.org/packages/cran/params/docs/params>`_ OR ``opts_flow\$load()``: load options specified in a tab seperated text file
-
-For more details regarding these funtions refer to `params <http://www.inside-r.org/packages/cran/params/docs/params>`_.
-
-
 Usage
-~~~~~~~~~~~~~~~~~~
-
+""""""""""""""""""
 ::
 
- 
  flowopts
- 
- opts_flow
- 
 
+opts_flow
 
 Arguments
-~~~~~~~~~~~~~~~~~~
-
 
 ...
-    -  get: names of options to fetch
--  set: a set of options in a name=value format seperated by commas
+    -<li> get: names of options to fetch
+</li>
+<li> set: a set of options in a name=value format seperated by commas
+</li>
 
- 
- 
+
 
 
 Format
-~~~~~~~~~~~~~~~~~~
+""""""""""""""""""
 
 ``opts_flow``
+Description
+""""""""""""""""""
+
+There are three helper functions which attempt to manage params used by flowr and ngsflows:
+-<li> `get_opts <http://www.inside-r.org/packages/cran/params/docs/params>`_ OR ``opts_flow\$get()``: show all default options
+</li>
+<li> `set_opts <http://www.inside-r.org/packages/cran/params/docs/params>`_ OR ``opts_flow\$set()``: set default options
+</li>
+<li> `load_opts <http://www.inside-r.org/packages/cran/params/docs/params>`_ OR ``opts_flow\$load()``: load options specified in a tab seperated text file
+</li>
+For more details regarding these funtions refer to `params <http://www.inside-r.org/packages/cran/params/docs/params>`_.
 Details
-~~~~~~~~~~~~~~~~~~
+""""""""""""""""""
 
 By default flowr loads, ``~/flowr/conf/flowr.conf`` and ``~/flowr/conf/ngsflows.conf``
 Below is a list of default flowr options, retrieved via
@@ -84,8 +79,7 @@ Below is a list of default flowr options, retrieved via
 
 
 Examples
-~~~~~~~~~~~~~~~~~~
-
+""""""""""""""""""
 ::
 
  ## Set options: set_opts()
@@ -100,22 +94,41 @@ Examples
  
  
  Seems like these paths do not exist, this may cause issues later:
- 
- </strong>
- 
  |name              |value                    |
  |:-----------------|:------------------------|
  |flow_parse_slurm  |(.*)                     |
  |flow_parse_sge    |(.*)                     |
+ |flow_parse_moab   |(.*)                     |
  |flow_parse_lsf    |.*(\<[0-9]*\>).*         |
  |flow_parse_torque |(.?)\..*                 |
+ |flow_platform     |local                    |
  |flow_pipe_urls    |~/flowr/pipelines        |
  |flow_pipe_paths   |~/flowr/pipelines        |
+ |flow_run_path     |~/flowr/runs             |
  |flow_conf_path    |~/flowr/conf             |
  |flow_base_path    |~/flowr                  |
+ |verbose           |FALSE                    |
  |var               |                         |
- |time_format       |%a %b %e %H:%M:%S CDT %Y |
+ |time_format       |%a %b %e %H:%M:%S CDT %Y |</strong>**Reading file, using 'V1' as id_column to remove empty rows.**<strong class='warning'>Warning message:
  
+ 
+ Seems like these paths do not exist, this may cause issues later:
+ |name              |value                    |
+ |:-----------------|:------------------------|
+ |flow_parse_slurm  |(.*)                     |
+ |flow_parse_sge    |(.*)                     |
+ |flow_parse_moab   |(.*)                     |
+ |flow_parse_lsf    |.*(\<[0-9]*\>).*         |
+ |flow_parse_torque |(.?)\..*                 |
+ |flow_platform     |local                    |
+ |flow_pipe_urls    |~/flowr/pipelines        |
+ |flow_pipe_paths   |~/flowr/pipelines        |
+ |flow_run_path     |~/flowr/runs             |
+ |flow_conf_path    |~/flowr/conf             |
+ |flow_base_path    |~/flowr                  |
+ |verbose           |FALSE                    |
+ |var               |                         |
+ |time_format       |%a %b %e %H:%M:%S CDT %Y |</strong>
  ## Fetch options: get_opts()
  get_opts("flow_run_path")
   flow_run_path 
@@ -143,10 +156,8 @@ Examples
 Aliases:
 flowopts
 opts_flow
-.. Keywords:
-
+Keywords:
 datasets
-.. Author:
+Author:
 
-.. 
 

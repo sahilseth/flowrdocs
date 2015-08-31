@@ -7,29 +7,29 @@
 
 
 
-get_wds
+calc_fontsize
 ===============
 
-:func:`get_wds`
+:func:`calc_fontsize`
 
-Get all the (sub)directories in a folder
+Calculate font size based on the size of the window
 
 Usage
 """"""""""""""""""
 ::
 
- get_wds(x)
+ calc_fontsize(x)
 
 Arguments
 
 x
-    path to a folder
+    box height
 
 
 Description
 """"""""""""""""""
 
-Get all the (sub)directories in a folder
+Calculate font size based on the size of the window
 
 
 Examples
@@ -37,7 +37,7 @@ Examples
 ::
 
 Aliases:
-get_wds
+calc_fontsize
 Keywords:
 Author:
 

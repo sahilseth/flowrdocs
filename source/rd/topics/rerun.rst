@@ -8,80 +8,63 @@
 
 
 rerun
------------
+===============
 
-.. :func:`rerun`
+:func:`rerun`
 
 Re-run a pipeline in case of hardware or software failures.
 
-Description
-~~~~~~~~~~~~~~~~~~
-
--   **hardware**  no change required, simple rerun: ``rerun(x=flow_wd)``
--   **software**  either a change to flowmat or flowdef has been made: ``rerun(x=flow_wd, mat = new_flowmat, def = new_flowdef)``
-
-**NOTE:**
-
-*flow_wd*: flow working directory, same input as used for `status <#status>`_
-
-
 Usage
-~~~~~~~~~~~~~~~~~~
-
+""""""""""""""""""
 ::
 
- 
  rerun(x, ...)
- 
- ## method for class 'character'
- rerun(x, ...)
- 
- ## method for class 'flow'
- rerun(x, mat, def, start_from, execute = TRUE, kill = TRUE, ...)
- 
 
+"rerun"(x, ...)
+
+"rerun"(x, mat, def, start_from, execute = TRUE, kill = TRUE, ...)
 
 Arguments
-~~~~~~~~~~~~~~~~~~
-
 
 x
     flow working directory
-
 ...
     not used
-
 mat
-    (optional) flowmat fetched from previous submission if missing. For more information regarding the format refer to `to_flowmat <#to_flowmat>`_
-
+    (optional) flowmat fetched from previous submission if missing. For more information regarding the format refer to `to_flowmat <to_flowmat.html>`_
 def
-    (optional) flowdef fetched from previous submission if missing.  For more information regarding the format refer to `to_flowdef <#to_flowdef>`_
-
+    (optional) flowdef fetched from previous submission if missing.  For more information regarding the format refer to `to_flowdef <to_flowdef.html>`_
 start_from
     which job to start from, this is a job name.
-
 execute
     [logical] whether to execute or not
-
 kill
     (optional) logical indicating whether to kill the jobs from the previous execution of flow.
 
 
+Description
+""""""""""""""""""
+
+-<li> **hardware** no change required, simple rerun: ``rerun(x=flow_wd)``
+</li>
+<li> **software** either a change to flowmat or flowdef has been made: ``rerun(x=flow_wd, mat = new_flowmat, def = new_flowdef)``
+</li>
+**NOTE:**
+*flow_wd*: flow working directory, same input as used for `status <status.html>`_
 Details
-~~~~~~~~~~~~~~~~~~
+""""""""""""""""""
 
 This function fetches details regarding the previous execution from the flow working directory (flow_wd).
-It reads the `flow <#flow>`_ object from the flow_details.rds file, and extracts flowdef and flowmat from it
-using `to_flowmat <#to_flowmat>`_ and `to_flowdef <#to_flowdef>`_ functions.
-**New flowmat / flowdef**  for re-run:
+It reads the `flow <flow.html>`_ object from the flow_details.rds file, and extracts flowdef and flowmat from it
+using `to_flowmat <to_flowmat.html>`_ and `to_flowdef <to_flowdef.html>`_ functions.
+**New flowmat / flowdef** for re-run:
 Optionally, if either of these (flowmat or flowdef) are supplied, supplied ones are used instead for the new submission.
 This functions efficiently updates job details of the latest submission into the previous file; thus information
 regarding previous job ids and their status is not lost.
 
 
 Examples
-~~~~~~~~~~~~~~~~~~
-
+""""""""""""""""""
 ::
 
  ## **Not run**: 
@@ -92,9 +75,7 @@ Aliases:
 rerun
 rerun.character
 rerun.flow
-.. Keywords:
+Keywords:
+Author:
 
-.. Author:
-
-.. 
 

@@ -7,29 +7,29 @@
 
 
 
-get_wds
+calc_arrows
 ===============
 
-:func:`get_wds`
+:func:`calc_arrows`
 
-Get all the (sub)directories in a folder
+Title
 
 Usage
 """"""""""""""""""
 ::
 
- get_wds(x)
+ calc_arrows(x)
 
 Arguments
 
 x
-    path to a folder
+    boxht
 
 
 Description
 """"""""""""""""""
 
-Get all the (sub)directories in a folder
+Title
 
 
 Examples
@@ -37,7 +37,7 @@ Examples
 ::
 
 Aliases:
-get_wds
+calc_arrows
 Keywords:
 Author:
 

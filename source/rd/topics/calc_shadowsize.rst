@@ -7,29 +7,29 @@
 
 
 
-get_wds
+calc_shadowsize
 ===============
 
-:func:`get_wds`
+:func:`calc_shadowsize`
 
-Get all the (sub)directories in a folder
+uses height of the box
 
 Usage
 """"""""""""""""""
 ::
 
- get_wds(x)
+ calc_shadowsize(x)
 
 Arguments
 
 x
-    path to a folder
+    boxht
 
 
 Description
 """"""""""""""""""
 
-Get all the (sub)directories in a folder
+uses height of the box
 
 
 Examples
@@ -37,7 +37,7 @@ Examples
 ::
 
 Aliases:
-get_wds
+calc_shadowsize
 Keywords:
 Author:
 

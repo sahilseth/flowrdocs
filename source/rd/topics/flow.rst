@@ -8,77 +8,59 @@
 
 
 flow
------------
+===============
 
-.. :func:`flow`
-
-Flow constructor
-
-Description
-~~~~~~~~~~~~~~~~~~
+:func:`flow`
 
 Flow constructor
-
 
 Usage
-~~~~~~~~~~~~~~~~~~
-
+""""""""""""""""""
 ::
 
- 
- flow(jobs = list(new("job")), name = "newflow", desc = "my_super_flow", mode = c("scheduler", "trigger", "R"), flow_run_path = get_opts("flow_run_path"), trigger_path = "", flow_path = "", version = "0.0", status = "", execute = "")
- 
- is.flow(x)
- 
+ flow(jobs = list(new("job")), name = "newflow", desc = "my_super_flow", mode = c("scheduler", "trigger", "R"), flow_run_path = get_opts("flow_run_path"), trigger_path = "", flow_path = "", version = "0.0", status = "created", execute = "")
 
+is.flow(x)
 
 Arguments
-~~~~~~~~~~~~~~~~~~
-
 
 jobs
     ``list`` A list of jobs to be included in this flow
-
 name
     ``character`` Name of the flow. Defaults to ``'newname'``
-Used in `submit_flow <#submit_flow>`_ to name the working directories.
-
+Used in `submit_flow <submit_flow.html>`_ to name the working directories.
 desc
     ``character`` Description of the flow
-This is used to name folders (when submitting jobs, see `submit_flow <#submit_flow>`_).
+This is used to name folders (when submitting jobs, see `submit_flow <submit_flow.html>`_).
 It is good practice to avoid spaces and other special characters.
 An underscore '_' seems like a good word separator.
 Defaults to 'my_super_flow'. We usually use this to put sample names of the data.
-
 mode
     ``character`` Mode of submission of the flow.
-
 flow_run_path
     The base path of all the flows you would submit.
 Defaults to ``~/flows``. Best practice to ignore it.
-
 trigger_path
     ``character``
 Defaults to ``~/flows/trigger``. Best practice to ignore it.
-
 flow_path
     ``character``
-
 version
     version of flowr used to create and execute this flow.
-
 status
     ``character`` Not used at this time
-
 execute
     executtion status of flow object.
 
 
+Description
+""""""""""""""""""
+
+Flow constructor
 
 
 Examples
-~~~~~~~~~~~~~~~~~~
-
+""""""""""""""""""
 ::
 
  cmds = rep("sleep 5", 10)
@@ -94,13 +76,13 @@ Examples
  ## As soon as first job on 'job1' is complete
  ## One-To-One
  jobj3 <- job(q_obj=qobj, cmd = cmds, submission_type = "scatter",
-  dependency_type = "serial", previous_job = "job1", name = "job3")
+  dependency_type = "burst", previous_job = "job1", name = "job3")
  
  fobj <- flow(jobs = list(jobj1, jobj2, jobj3))
  
  ## plot the flow
  plot_flow(fobj)
- ## **Not run**: 
+ **checking submission and dependency types...**## **Not run**: 
  # ## dry run, only create the structure without submitting jobs
  # submit_flow(fobj)
  # 
@@ -111,9 +93,7 @@ Examples
 Aliases:
 flow
 is.flow
-.. Keywords:
+Keywords:
+Author:
 
-.. Author:
-
-.. 
 

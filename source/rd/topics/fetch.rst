@@ -8,92 +8,149 @@
 
 
 fetch
------------
+===============
 
-.. :func:`fetch`
+:func:`fetch`
 
-A generic functions to search for files
-
-Description
-~~~~~~~~~~~~~~~~~~
-
-These functions help in searching for specific files in the user's space.
-
-fetch_pipes(): Fetches pipelines in the following places,
--  - available in 'pipelines' folders in flowr and ngsflows packages.
--  - ~/flowr/pipelines
--  - github repos (currently not supported)
-
-fetch_conf(): Fetches configuration files in the following places,
-
--  - available in 'conf' folders in flowr and ngsflows packages.
--  - ~/flowr/conf folder
-
-By default flowr loads, ~/flowr/conf/flowr.conf and ~/flowr/conf/ngsflows.conf
-
+Two generic functions to search for pipelines and configuration files.
 
 Usage
-~~~~~~~~~~~~~~~~~~
-
+""""""""""""""""""
 ::
 
- 
  fetch(x, places, urls, verbose = get_opts("verbose"))
- 
- fetch_pipes(x, places, last_only = FALSE, urls = get_opts("flowr_pipe_urls"), silent = FALSE, ask = TRUE)
- 
- fetch_conf(x = "flowr.conf", places, ...)
- 
 
+fetch_pipes(x, places, last_only = FALSE, urls = get_opts("flowr_pipe_urls"), silent = FALSE, ask = TRUE)
+
+fetch_conf(x = "flowr.conf", places, ...)
 
 Arguments
-~~~~~~~~~~~~~~~~~~
-
 
 x
     name of the file to search for
-
 places
     places (paths) to look for it. Its best to use the defaults
-
 urls
     urls to look for, works well for pipelines.
-
 verbose
     be chatty?
-
 last_only
     [fetch_pipes only]. If multiple pipelines match the pattern, return the last one.
-
 silent
     [fetch_pipes() only]. logical, be silent even if no such pipeline is available.
-
 ask
     ask before downloading or copying, not used !
-
 ...
     not used
 
 
+Description
+""""""""""""""""""
+
+These functions help in searching for specific files in the user's space.
+``fetch_pipes()``: Fetches pipelines in the following places, in this specific order:
+-<li> **user's folder**: ``~/flowr/pipelines``
+</li>
+<li> **current wd**:
+</li>
+**NOTE:** If same pipeline is availabe in multiple places; one from the later
+folder would be selected up. Such that, giving priority to user's home, and current working
+directories. Which is what, one would intuitiuvely expect.
+``fetch_conf()``: Fetches configuration files in the following places:
+-<li> **package**: ``conf`` folders in flowr and ngsflows packages.
+</li>
+<li> **user's folder**: ``~/flowr/conf`` folder.
+</li>
+<li> **current wd**:
+</li>
+**NOTE:**
+This function would greedily return all matching conf files. One would load all of them
+in the order returned by this functions. If the same variable is
+repeated in multiple files, value from the later files would be final. Thus ( as explained above ), giving
+priority to options defined in user's home and current working directories.
+By default flowr loads, ``flowr.conf`` and ``ngsflows.conf``.
+See the following details sections, for more explanation on this.
+Details
+""""""""""""""""""
+
+For example flowr has a variable ``flow_run_path`` where it puts all the execution logs etc.
+The default values is picked up from packages's internal ``flowr.conf`` file.
+To redefine this value, one could create a new file called ``~/flowr/conf/flowr.conf`` and
+add a line:
+``flow_run_path<TAB>my_awesome_path``, where <TAB> is a tab character, since these are tab
+seperated files.
+Also at any time you can run, ``load_conf('super_specific_opts.conf')``; to load custom options.
 
 
 Examples
-~~~~~~~~~~~~~~~~~~
-
+""""""""""""""""""
 ::
 
  {
- fetch_conf("torque.sh")
+ 
+ ## let us find a default conf file
+ conf = fetch_conf("flowr.conf");conf
+ ## load this
+ load_opts(conf)
+ 
+ ## this returns a list, which prints pretty
+ pip = fetch_pipes("sleep_pipe")
+ pip$name
+ pip$pipe
+ pip$def
+ 
  }
- [1] "/Library/Frameworks/R.framework/Versions/3.2/Resources/library/flowr/conf/torque.sh"
+ **Reading file, using 'V1' as id_column to remove empty rows.**<strong class='warning'>Warning message:
+ 
+ 
+ Seems like these paths do not exist, this may cause issues later:
+ |name              |value                    |
+ |:-----------------|:------------------------|
+ |flow_parse_slurm  |(.*)                     |
+ |flow_parse_sge    |(.*)                     |
+ |flow_parse_moab   |(.*)                     |
+ |flow_parse_lsf    |.*(\<[0-9]*\>).*         |
+ |flow_parse_torque |(.?)\..*                 |
+ |flow_platform     |local                    |
+ |flow_pipe_urls    |~/flowr/pipelines        |
+ |flow_pipe_paths   |~/flowr/pipelines        |
+ |flow_run_path     |~/flowr/runs             |
+ |flow_conf_path    |~/flowr/conf             |
+ |flow_base_path    |~/flowr                  |
+ |verbose           |FALSE                    |
+ |var               |                         |
+ |time_format       |%a %b %e %H:%M:%S CDT %Y |</strong>**Reading file, using 'V1' as id_column to remove empty rows.**<strong class='warning'>Warning message:
+ 
+ 
+ Seems like these paths do not exist, this may cause issues later:
+ |name              |value                    |
+ |:-----------------|:------------------------|
+ |flow_parse_slurm  |(.*)                     |
+ |flow_parse_sge    |(.*)                     |
+ |flow_parse_moab   |(.*)                     |
+ |flow_parse_lsf    |.*(\<[0-9]*\>).*         |
+ |flow_parse_torque |(.?)\..*                 |
+ |flow_platform     |local                    |
+ |flow_pipe_urls    |~/flowr/pipelines        |
+ |flow_pipe_paths   |~/flowr/pipelines        |
+ |flow_run_path     |~/flowr/runs             |
+ |flow_conf_path    |~/flowr/conf             |
+ |flow_base_path    |~/flowr                  |
+ |verbose           |FALSE                    |
+ |var               |                         |
+ |time_format       |%a %b %e %H:%M:%S CDT %Y |</strong>
+ 
+ |name       |def            |conf |pipe                                                           |
+ |:----------|:--------------|:----|:--------------------------------------------------------------|
+ |sleep_pipe |sleep_pipe.def |NA   |/home/travis/build/sahilseth/flowr/inst/pipelines/sleep_pipe.R |
+ [1] /home/travis/build/sahilseth/flowr/inst/pipelines/sleep_pipe.def
+ Levels: /home/travis/build/sahilseth/flowr/inst/pipelines/sleep_pipe.def
  
 Aliases:
 fetch
 fetch_conf
 fetch_pipes
-.. Keywords:
+Keywords:
+Author:
 
-.. Author:
-
-.. 
 

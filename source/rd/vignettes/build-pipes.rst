@@ -1,12 +1,16 @@
 Get started
 ===========
 
+Let us get a latest stable version of flowr, from ``CRAN``. To get the latest features, your could also try the version from github.
+
 .. code:: r
+
+    install.packages('flowr') ## CRAN
 
     install.packages('devtools')
     devtools::install_github("sahilseth/flowr")
 
-Run a setup function which copies 'flowr' helper script to enable using flow from shell terminal itself. A few examples `here <https://github.com/sahilseth/rfun>`__.
+We have a quite handy command-line-interface for flowr, which exposes all functions of the package to terminal. Such that we dont have to open a interactive R session each time. To make this work, run a setup function which copies the 'flowr' helper script to your ``~/bin`` directory. If you would like to do a test drive on its other capabilities, here are a `few examples <https://github.com/sahilseth/rfun>`__.
 
 .. code:: r
 
@@ -16,17 +20,38 @@ Run a setup function which copies 'flowr' helper script to enable using flow fro
 
     setup()
 
+::
+
+    ## You could try this from the terminal
+    Rscript -e 'library(flowr);setup()'
+    ## now run the following to confirm that ~/bin is added your PATH variable:
+    echo $PATH
+    ## if ~/bin is not in your path, run and add the following to your ~/.bashrc
+    export PATH=$PATH:~/bin
+    ## now run the following from the terminal, to check if setup worked fine.
+    flowr
+
 Toy example
 -----------
 
-.. figure:: imgs/toy.png
+.. figure:: files/toy.png
    :alt: 
 
-A simple example where we have three instances of sleep (wait for few seconds), after completion three tmp jobs are started which create files with some random data. After all these are complete, a merge step follows, which combines them into one big file. Next we use ``du`` to calculate the size of the resulting file.
+Consider, a simple example where we have **three** instances of the ``sleep`` command running ( which basically stalls the terminal for few seconds and does nothing ). After its completion **three** tmp files are created with some random data. After this, a merge step follows, which combines them into one big file. Next we use ``du`` to calculate the size of the resulting file. This flow is shown in the above described figure.
 
-.. note:: This is quite similar in structure to a typical workflow from where a series of alignment and sorting steps may take place on the raw fastq files. Followed by merging of the resulting bam files into one large file per-sample and further downstream processing.
+.. raw:: html
 
-The table below is referred to as `flow\_mat <http://docs.flowr.space/en/latest/rd/vignettes/build-pipes.html#flow-mat-a-table-with-shell-commands-to-run>`__.
+   <div class="alert alert-info" role="alert">
+
+**NGS context** This is quite similar in structure to a typical workflow from where a series of alignment and sorting steps may take place on the raw fastq files. Followed by merging of the resulting bam files into one large file per-sample and further downstream processing.
+
+.. raw:: html
+
+   </div>
+
+To create this flow in flowr, we need the actual commands to run; and some kind of a configuration file to describe which ones go first.
+
+Here is a table with the commands we would like to run ( or ``flow mat`` ).
 
 +--------------+---------------+-------------------------------------------------------------------------+
 | samplename   | jobname       | cmd                                                                     |
@@ -48,7 +73,13 @@ The table below is referred to as `flow\_mat <http://docs.flowr.space/en/latest/
 | sample1      | size          | du -sh sample1\_merged; echo MY shell: $SHELL                           |
 +--------------+---------------+-------------------------------------------------------------------------+
 
-We use an additional file specifying relationship between the steps, and also other resource requirements `flow\_def <http://docs.flowr.space/en/latest/rd/vignettes/build-pipes.html#flow-definition>`__.
+Further, we use an additional file specifying the relationship between the steps, and also other resource requirements: `flow\_def <http://docs.flowr.space/en/latest/rd/vignettes/build-pipes.html#flow-definition>`__. Each row in a flow mat relates to one job.
+
+.. raw:: html
+
+   <div class="alert alert-info" role="alert">
+
+Notice how jobname column is being used a key throught the two tables. And how prev\_jobs (previous jobs) defines what jobs need to complete before the one described in that row starts.
 
 +---------------+-------------+---------------+-------------+---------+--------------------+------------+-----------------+------------+---------+
 | jobname       | sub\_type   | prev\_jobs    | dep\_type   | queue   | memory\_reserved   | walltime   | cpu\_reserved   | platform   | jobid   |
@@ -65,6 +96,8 @@ We use an additional file specifying relationship between the steps, and also ot
 Stitch it
 ---------
 
+We use the two files descirbed above and stich them to create a ``flow object``, which contains all the information we need for submission to the cluster. Additionally we can give a name to this flow, using flowname argument and also override the platform described in ``flow def``. Look at ``to_flow`` `help file <docs.flowr.space/rd.html#to_flow>`__ for more information.
+
 .. code:: r
 
     fobj <- to_flow(x = flow_mat, def = as.flowdef(flow_def), 
@@ -73,19 +106,28 @@ Stitch it
 Plot it
 -------
 
+We can use ``plot_flow`` to quickly visualize the flow; this really helps when developing complex workflows. Additionally, this function also works on the ``flow definition`` table as well (``plot_flow(flow_def``).
+
 .. code:: r
 
-    plot_flow(fobj)
+    plot_flow(fobj) # ?plot_flow for more information
 
 .. figure:: figure/plot_example1-1.png
    :alt: Flow chart describing process for example 1
 
    Flow chart describing process for example 1
-
-Test it
+Dry Run
 -------
 
-    Dry run (submit)
+.. raw:: html
+
+   <div class="alert alert-info" role="alert">
+
+Dry run: Quickly perform a dry run, of the submission step. This creates all the folder and files, and skips submission to the cluster. User's may spend some time checking the ``*.sh`` files for each of the jobs along with pdf of the flow etc.
+
+.. raw:: html
+
+   </div>
 
 .. code:: r
 
@@ -100,7 +142,15 @@ Test it
 Submit it
 ---------
 
-    Submit to the cluster !
+.. raw:: html
+
+   <div class="alert alert-info" role="alert">
+
+Submit to the cluster !
+
+.. raw:: html
+
+   </div>
 
 .. code:: r
 
@@ -116,72 +166,124 @@ Submit it
 Check its status
 ----------------
 
+One may periodically run ``status`` to monitor the status of a flow.
+
+.. raw:: html
+
+   <div class="alert alert-info" role="alert">
+
+Note: Please make sure to include ``x=~`` in status, to expicitly define the variable. Also unlike other command line tools you may skip adding "-" in from of each argument ( no need of ``-x=~``).
+
+.. raw:: html
+
+   </div>
+
 ::
 
     flowr status x=~/flowr/type1-20150520-15-18-46-sySOzZnE
 
+    Showing status of: /rsrch2/iacs/iacs_dep/sseth/flowr/type1-20150520-15-18-46-sySOzZnE
+    |          | total| started| completed| exit_status|    status|
+    |:---------|-----:|-------:|---------:|-----------:|---------:|
+    |001.sleep |    10|      10|        10|           0| completed|
+    |002.tmp   |    10|      10|        10|           0| completed|
+    |003.merge |     1|       1|         1|           0| completed|
+    |004.size  |     1|       1|         1|           0| completed|
+
+Alternatively, to check a summarized status of several flows, skip the full path, and mention only the parent direcotry, for example:
+
 ::
 
-    Loading required package: shape
-    Flowr: streamlining workflows
+    flowr status x=~/flowr/type1-20150520-15-18-46-sySOzZnE
+
     Showing status of: /rsrch2/iacs/iacs_dep/sseth/flowr/type1-20150520-15-18-46-sySOzZnE
+    |          | total| started| completed| exit_status|    status|
+    |:---------|-----:|-------:|---------:|-----------:|---------:|
+    |001.sleep |    30|      30|        10|           0|processing|
+    |002.tmp   |    30|      30|        10|           0|processing|
+    |003.merge |     3|       3|         1|           0|   pending|
+    |004.size  |     3|       3|         1|           0|   pending|
 
+.. raw:: html
 
-    |          | total| started| completed| exit_status|
-    |:---------|-----:|-------:|---------:|-----------:|
-    |001.sleep |    10|      10|        10|           0|
-    |002.tmp   |    10|      10|        10|           0|
-    |003.merge |     1|       1|         1|           0|
-    |004.size  |     1|       1|         1|           0|
+   <div class="alert alert-success" role="alert">
+
+Scalability: Quickly submit, and check a summarized OR detailed status on ten or hundreds of flows.
+
+.. raw:: html
+
+   </div>
 
 Kill it
 -------
 
+Incase something goes wrong, one may use to kill command to terminate all the relating jobs.
+
+kill one flow:
+
 ::
 
+    flowr kill_flow x=flow_wd
 
-    ## kill one flow
-    ## flowr kill_flow x=flow_wd
+.. raw:: html
 
-    ## In case path matches multiple folders, flowr asks before killing
+   <div class="alert alert-warning" role="alert">
+
+One may instruct flowr to kill multiple flows, but flowr would confirm before killing.
+
+.. raw:: html
+
+   </div>
+
+::
+
     kill(x='fastq_haplotyper*')
-    ##  Flowr: streamlining workflows
-    ##  found multiple wds:
-    ##  ./fastq_haplotyper-MS132-20150825-16-24-04-0Lv1PbpI
-    ##  /fastq_haplotyper-MS132-20150825-17-47-52-5vFIkrMD
+    Flowr: streamlining workflows
+    found multiple wds:
+    ./fastq_haplotyper-MS132-20150825-16-24-04-0Lv1PbpI
+    /fastq_haplotyper-MS132-20150825-17-47-52-5vFIkrMD
+    Really kill all of them ? kill again with force=TRUE
 
-    ##  Really kill all of them ? kill again with force=TRUE
+To kill multiple, set force=TRUE:
 
-    ## submitting again with force=TRUE will kill them:
+::
+
     kill(x='fastq_haplotyper*', force = TRUE)
 
-.. note:: Even if you want to kill the flow, its best to let submit\_flow do its job, when done simply use kill(flow\_wd). If submit\_flow is interrupted, flow detail files etc are not created, thus flowr can't associate submitted jobs with flow instance.
+.. raw:: html
+
+   <div class="alert alert-warning" role="alert">
+
+While submission is in progress, and you figure, you want to kill the flow; its best to let ``submit_flow`` do its job, when done simply use ``kill(flow_wd)``. If ``submit_flow`` is interrupted, files with details regarding job ids etc are not created, thus flowr can't associate submitted jobs with flow instance ( hence can't kill them ). In such a situation you may resort to killing them manually.
+
+.. raw:: html
+
+   </div>
+
+::
+
+    ## manual killing:
+    jobids=$(qstat | grep 'mypattern')
+    qdel $jobids
 
 Re-run a flow
 -------------
 
 flowr also enables you to re-run a pipeline in case of hardware or software failures.
 
--  **hardware** no change to the pipeline is required, simply rerun it: ``rerun(x=flow_wd, start_from=<intermediate step>)``
--  **software** either a change to flowmat or flowdef has been made: ``rerun(x=flow_wd, mat = new_flowmat, def = new_flowdef, start_from=<intermediate step>)``
+-  **hardware failure**: no change to the pipeline is required, simply rerun it: ``rerun(x=flow_wd, start_from=<intermediate step>)``
+-  **software failure**: either a change to flowmat or flowdef has been made: ``rerun(x=flow_wd, mat = new_flowmat, def = new_flowdef, start_from=<intermediate step>)``
 
-In either case there are two things which are always required, a flow\_wd (the folder created by flowr which contains execution logs) and name of the step from where we want to start execution. Refer to the `help section <http://docs.flowr.space/en/latest/rd/topics/complete-help.html>`__ for more details.
-
-.. note:: Interested? Here are some details on `building pipelines <#building-pipelines>`__
-
-Building Pipelines
-==================
-
-An easy and quick way to build a workflow is create two separate files. First is a table with commands to run, second has details regarding how the modules are stitched together. In the rest of this document we would refer to them as flow\_mat and flow\_def respectively.
-
-Both these files have a ``jobname`` column which is used as a ID to connect them to each other.
+In either case there are two things which are always required, a ``flow_wd`` (the folder created by flowr which contains execution logs) and name of the step from where we want to start execution. Refer to the `help section <http://docs.flowr.space/en/latest/rd/topics/complete-help.html>`__ for more details.
 
 Ingredients for building a pipeline
 ===================================
 
-Essentially there are two main components which go into building a flowr pipeline, a flow matrix with commands to run and a flow definition with details regarding how to stich a pipeline.
+An easy and quick way to build a workflow is create to create a set of two tab delimited files. First is a table with commands to run (for each module of the pipeline), while second has details regarding how the modules are stitched together. In the rest of this document we would refer to them as flow\_mat and flow\_def respectively (as introduces in the above sections).
 
-Let us read some files to see what they look like and what they do.
+    Both these files have a ``jobname`` column which is used as a ID to connect them to each other.
+
+We could read in, examples of both of these files to understand their structure.
 
 .. code:: r
 
@@ -193,7 +295,7 @@ Let us read some files to see what they look like and what they do.
 1. Flow Definition
 ------------------
 
-Each row in this table refers to one step of the pipeline. It describes the resources used by this step and also its relationship with other steps. Especially, the step immediately prior to it.
+Each row in this table refers to one step of the pipeline. It describes the resources used by the step and also its relationship with other steps, especially, the step immediately prior to it.
 
 It is a tab separated file, with a minimum of 4 columns:
 
@@ -212,7 +314,15 @@ Apart from the above described variables, several others defining the resource r
 -  ``walltime``
 -  ``queue``
 
-.. note:: This is especially useful for genomics pipelines, since each step may use different amount of resources. For example, in a typical setup, if one step uses 16 cores these would be blocked and not used during processing of several other steps. Thus resulting in blockage and high cluster load (even when actual CPU usage may be low). Being able to tune them, makes this setup quite efficient.
+.. raw:: html
+
+   <div class="alert alert-info" role="alert">
+
+This is especially useful for genomics pipelines, since each step may use different amount of resources. For example, in a typical setup, if one step uses 16 cores these would be blocked and not used during processing of several other steps. Thus resulting in blockage and high cluster load (even when actual CPU usage may be low). Being able to tune them, makes this setup quite efficient.
+
+.. raw:: html
+
+   </div>
 
 Most cluster platforms accept these resource arguments. Essentially a file like `this <https://github.com/sahilseth/flowr/blob/master/inst/conf/torque.sh>`__ is used as a template, and variables defined in curly braces ( ex. ``{{{CPU}}}`` ) are filled up using the flow definition file.
 
@@ -440,9 +550,19 @@ In essence and example flow\_def would look like as follows (with additional res
     plot_flow(fobj)
 
 .. figure:: figure/build_pipe_plt_abcd-1.png
-   :alt: 
+   :alt: plot of chunk build\_pipe\_plt\_abcd
 
-.. note:: There is a darker more prominent shadow to indicate scatter steps.
+   plot of chunk build\_pipe\_plt\_abcd
+
+.. raw:: html
+
+   <div class="alert alert-info" role="alert">
+
+There is a darker more prominent shadow to indicate scatter steps.
+
+.. raw:: html
+
+   </div>
 
 Passing of flow definition resource columns
 -------------------------------------------
@@ -486,43 +606,11 @@ Available Pipelines
 
 Here are some of the available piplines along with their respective locations
 
-+------------------------------+-------------------------+--------------------------+------------------------------------------------------------------------------------------------------------------+
-| name                         | def                     | conf                     | pipe                                                                                                             |
-+==============================+=========================+==========================+==================================================================================================================+
-| sleep\_pipe                  | sleep\_pipe.def         | NA                       | /Users/sahilseth/Dropbox2/Dropbox/public/github\_flow/inst/pipelines/sleep\_pipe.R                               |
-+------------------------------+-------------------------+--------------------------+------------------------------------------------------------------------------------------------------------------+
-| fastq\_bam\_bwa              | NA                      | NA                       | /Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/fastq\_bam\_bwa.R              |
-+------------------------------+-------------------------+--------------------------+------------------------------------------------------------------------------------------------------------------+
-| fastq\_bam\_rna\_ion         | NA                      | NA                       | /Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/fastq\_bam\_rna\_ion.R         |
-+------------------------------+-------------------------+--------------------------+------------------------------------------------------------------------------------------------------------------+
-| fastq\_bam\_variants         | NA                      | NA                       | /Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/fastq\_bam\_variants.R         |
-+------------------------------+-------------------------+--------------------------+------------------------------------------------------------------------------------------------------------------+
-| fastq\_haplotyper            | fastq\_haplotyper.def   | fastq\_haplotyper.conf   | /Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/fastq\_haplotyper.R            |
-+------------------------------+-------------------------+--------------------------+------------------------------------------------------------------------------------------------------------------+
-| fastq\_star\_rna             | NA                      | NA                       | /Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/fastq\_star\_rna.R             |
-+------------------------------+-------------------------+--------------------------+------------------------------------------------------------------------------------------------------------------+
-| old\_bam\_pindel             | NA                      | NA                       | /Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/old\_bam\_pindel.R             |
-+------------------------------+-------------------------+--------------------------+------------------------------------------------------------------------------------------------------------------+
-| old\_bam\_preprocess         | NA                      | NA                       | /Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/old\_bam\_preprocess.R         |
-+------------------------------+-------------------------+--------------------------+------------------------------------------------------------------------------------------------------------------+
-| old\_bam\_xenome             | NA                      | NA                       | /Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/old\_bam\_xenome.R             |
-+------------------------------+-------------------------+--------------------------+------------------------------------------------------------------------------------------------------------------+
-| old\_bwa\_pipe               | NA                      | NA                       | /Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/old\_bwa\_pipe.R               |
-+------------------------------+-------------------------+--------------------------+------------------------------------------------------------------------------------------------------------------+
-| old\_dna\_qc                 | NA                      | NA                       | /Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/old\_dna\_qc.R                 |
-+------------------------------+-------------------------+--------------------------+------------------------------------------------------------------------------------------------------------------+
-| old\_fastq\_bam\_bwa2        | NA                      | NA                       | /Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/old\_fastq\_bam\_bwa2.R        |
-+------------------------------+-------------------------+--------------------------+------------------------------------------------------------------------------------------------------------------+
-| old\_fastq\_bismark\_meth    | NA                      | NA                       | /Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/old\_fastq\_bismark\_meth.R    |
-+------------------------------+-------------------------+--------------------------+------------------------------------------------------------------------------------------------------------------+
-| old\_flow\_bam\_preprocess   | NA                      | NA                       | /Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/old\_flow\_bam\_preprocess.R   |
-+------------------------------+-------------------------+--------------------------+------------------------------------------------------------------------------------------------------------------+
-| old\_proc\_bwa\_pipe         | NA                      | NA                       | /Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/old\_proc\_bwa\_pipe.R         |
-+------------------------------+-------------------------+--------------------------+------------------------------------------------------------------------------------------------------------------+
-| split\_aln\_merge            | split\_aln\_merge.def   | NA                       | /Library/Frameworks/R.framework/Versions/3.2/Resources/library/ngsflows/pipelines/split\_aln\_merge.R            |
-+------------------------------+-------------------------+--------------------------+------------------------------------------------------------------------------------------------------------------+
-| build-pipes                  | NA                      | NA                       | /Users/sahilseth/Dropbox2/Dropbox/public/github\_flow/vignettes/build-pipes.R                                    |
-+------------------------------+-------------------------+--------------------------+------------------------------------------------------------------------------------------------------------------+
++---------------+-------------------+--------+-------------------------------------------------------------------+
+| name          | def               | conf   | pipe                                                              |
++===============+===================+========+===================================================================+
+| sleep\_pipe   | sleep\_pipe.def   | NA     | /home/travis/build/sahilseth/flowr/inst/pipelines/sleep\_pipe.R   |
++---------------+-------------------+--------+-------------------------------------------------------------------+
 
 Cluster Support
 ===============
@@ -564,7 +652,15 @@ Essentially this requires us to add a new line like: ``setClass("torque", contai
 
 5. **killing jobs**: Just like submission flowr needs to know what command to use to kill jobs. This is defined in detect\_kill\_cmd function.
 
-.. note:: There are several `job scheduling <http://en.wikipedia.org/wiki/Job_scheduler>`__ systems available and we try to support the major players. Adding support is quite easy if we have access to them. Your favourite not in the list? re-open this issue, with details on the platform: `adding platforms <https://github.com/sahilseth/flowr/issues/7>`__
+.. raw:: html
+
+   <div class="alert alert-info" role="alert">
+
+There are several `job scheduling <http://en.wikipedia.org/wiki/Job_scheduler>`__ systems available and we try to support the major players. Adding support is quite easy if we have access to them. Your favourite not in the list? re-open this issue, with details on the platform: `adding platforms <https://github.com/sahilseth/flowr/issues/7>`__
+
+.. raw:: html
+
+   </div>
 
 As of now we have tested this on the following clusters:
 
@@ -608,7 +704,15 @@ Example of building a pipeline
 
 A pipeline consists of several pieces, namely, a function which generates a flowmat, a flowdef and optionally a text file with parameters and paths to tools used as part of the pipeline.
 
-.. note:: A R function which creates a flow mat, is a module. Further a module with a flow definition is a pipeline.
+.. raw:: html
+
+   <div class="alert alert-info" role="alert">
+
+A R function which creates a flow mat, is a module. Further a module with a flow definition is a pipeline.
+
+.. raw:: html
+
+   </div>
 
 We beleive pipeline and modules may be interchangeble, in the sense that a *smaller* pipeline may be included as part of a larger pipeline. In flowr a module OR pipeline always returns a flowmat. The only differnce being, a pipeline also has a correspomding flow definition file. As such, creating a flow definition for a module enables flowr to run it, hence a module **elevates**, becoming a pipeline. This lets the user mix and match several modules/pipelines to create a customized larger pipeline(s).
 
@@ -690,11 +794,11 @@ Here is how the generated flowmat looks like.
 +--------------+---------------+-------------------------------------------------------------------------+
 | samplename   | jobname       | cmd                                                                     |
 +==============+===============+=========================================================================+
-| sample1      | sleep         | sleep 10 && sleep 28;echo 'hello'                                       |
+| sample1      | sleep         | sleep 16 && sleep 17;echo 'hello'                                       |
 +--------------+---------------+-------------------------------------------------------------------------+
-| sample1      | sleep         | sleep 17 && sleep 11;echo 'hello'                                       |
+| sample1      | sleep         | sleep 26 && sleep 8;echo 'hello'                                        |
 +--------------+---------------+-------------------------------------------------------------------------+
-| sample1      | sleep         | sleep 3 && sleep 1;echo 'hello'                                         |
+| sample1      | sleep         | sleep 6 && sleep 22;echo 'hello'                                        |
 +--------------+---------------+-------------------------------------------------------------------------+
 | sample1      | create\_tmp   | head -c 100000 /dev/urandom > sample1\_tmp\_1                           |
 +--------------+---------------+-------------------------------------------------------------------------+
@@ -720,16 +824,22 @@ Here is how it looks presently:
 
 ::
 
-    #> Creating a skeleton flow definition
-    #> Following jobnames detected: sleep create_tmp merge size
+    ## Creating a skeleton flow definition
+    ## Following jobnames detected: sleep create_tmp merge size
+    ## checking submission and dependency types...
 
 .. code:: r
 
     plot_flow(suppressMessages(to_flow(flowmat, def)))
 
-.. figure:: figure/unnamed-chunk-18-1.png
-   :alt: 
+::
 
+    ## checking submission and dependency types...
+
+.. figure:: figure/unnamed-chunk-18-1.png
+   :alt: plot of chunk unnamed-chunk-18
+
+   plot of chunk unnamed-chunk-18
 After making the desired changes, the new pipeline looks better. Alternatively, one may write this to a file and make other desired changes in resource requirements.
 
 Pipeline follows the following steps, with dependencies mentioned in ():
@@ -762,4 +872,7 @@ Pipeline follows the following steps, with dependencies mentioned in ():
     plot_flow(suppressMessages(to_flow(flowmat, def)))
 
 .. figure:: figure/unnamed-chunk-20-1.png
-   :alt: 
+   :alt: plot of chunk unnamed-chunk-20
+
+   plot of chunk unnamed-chunk-20
+

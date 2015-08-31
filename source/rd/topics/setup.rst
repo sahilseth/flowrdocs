@@ -8,55 +8,43 @@
 
 
 setup
------------
+===============
 
-.. :func:`setup`
-
-Setup and initialize some scripts.
-
-Description
-~~~~~~~~~~~~~~~~~~
+:func:`setup`
 
 Setup and initialize some scripts.
-
 
 Usage
-~~~~~~~~~~~~~~~~~~
-
+""""""""""""""""""
 ::
 
- 
  setup(bin = "~/bin", flow_base_path = get_opts("flow_base_path"))
- 
-
 
 Arguments
-~~~~~~~~~~~~~~~~~~
-
 
 bin
     path to bin folder
-
 flow_base_path
     the root folder for all flowr operations
 
 
+Description
+""""""""""""""""""
+
+Setup and initialize some scripts.
 Details
-~~~~~~~~~~~~~~~~~~
+""""""""""""""""""
 
 Will add more to this to identify cluster and aid in other things
 
 
 Examples
-~~~~~~~~~~~~~~~~~~
-
+""""""""""""""""""
 ::
 
 Aliases:
 setup
-.. Keywords:
+Keywords:
+Author:
 
-.. Author:
-
-.. 
 
